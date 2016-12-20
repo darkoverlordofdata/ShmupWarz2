@@ -9,7 +9,7 @@ resources are embeded using gresource
 vscode + autovala = RAD 
 
 
-[download AppImage](https://github.com/darkoverlordofdata/shmupwarz-app/blob/master/ShmupWarz-x86_64.AppImage)
+[download AppImage](https://github.com/darkoverlordofdata/ShmupWarz-AppImage/blob/master/ShmupWarz-x86_64.AppImage)
 
 
 
