@@ -1,0 +1,9 @@
+Package: shmupwarz
+Version: 1.0.0-elementary1
+Architecture: amd64
+Maintainer: darkoverlordofdata <darkoverlordofdata@gmail.com>
+Installed-Size: 718
+Depends: libsdl2-gfx-1.0-0, libsdl2-image-2.0-0, libsdl2-mixer-2.0-0, libsdl2-ttf-2.0-0, libgee-0.8-2, libsdl2-2.0-0, libglib2.0-0, libc6-dev
+Section: misc
+Priority: optional
+Description: Not available

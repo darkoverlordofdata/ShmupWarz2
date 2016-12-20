@@ -1,0 +1,3 @@
+# Hashes of file build rules.
+8600ebfc58fc8d3babbc5c65072eb22a src/Config.c
+bf5629b603a91ba35106eaf12136ee8d src/shmupwarz_valac.stamp

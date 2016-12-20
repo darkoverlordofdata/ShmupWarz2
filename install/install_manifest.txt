@@ -1,0 +1,6 @@
+/usr/local/share/applications/shmupwarz.desktop
+/usr/local/share/icons/hicolor/192x192/apps/shmupwarz.png
+/usr/local/share/fonts/CMakeLists.txt
+/usr/local/share/fonts/TitanOne-Regular.ttf
+/usr/local/share/fonts/Arial.ttf
+/usr/local/bin/shmupwarz

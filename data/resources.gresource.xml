@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/darkoverlordofdata/shmupwarz">
+    <file>fonts/Arial.ttf</file>
+    <file>fonts/TitanOne-Regular.ttf</file>
+    <file>images/background.bmp</file>
+    <file>images/bang.bmp</file>
+    <file>images/bullet.bmp</file>
+    <file>images/enemy1.bmp</file>
+    <file>images/enemy2.bmp</file>
+    <file>images/enemy3.bmp</file>
+    <file>images/explosion.bmp</file>
+    <file>images/fighter.bmp</file>
+    <file>images/particle.bmp</file>
+    <file>images/star.bmp</file>
+    <file>sounds/asplode.wav</file>
+    <file>sounds/pew.wav</file>
+    <file>sounds/smallasplode.wav</file>
+  </gresource>
+</gresources>
