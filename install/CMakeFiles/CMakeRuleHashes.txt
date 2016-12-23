@@ -1,5 +1,0 @@
-# Hashes of file build rules.
-cff06b063fef920d3a15a85841ab2003 data/CMakeFiles/resources_gresource_xml
-5d667e7b09092b96d5cd36dddf0caf56 data/resources.gresource.xml.c
-be910f8f886d378992d763ae57b21a9c src/Config.c
-f74f67a166f462175aff42eb6e026bdf src/shmupwarz_valac.stamp
