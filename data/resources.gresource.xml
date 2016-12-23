@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
   <gresource prefix="/darkoverlordofdata/shmupwarz">
-    <file>fonts/Arial.ttf</file>
-    <file>fonts/TitanOne-Regular.ttf</file>
     <file>images/background.bmp</file>
     <file>images/bang.bmp</file>
     <file>images/bullet.bmp</file>

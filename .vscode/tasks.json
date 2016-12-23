@@ -9,7 +9,7 @@
     "suppressTaskName": true,
     "tasks": [
         {
-            "isBuildCommand",
+            "isBuildCommand": true,
             "taskName": "build",
             "args": ["cd install && make"]
         },
@@ -18,7 +18,7 @@
             "args": ["rm -r ${workspaceRoot}/install"]
         },
         {
-            "taskName": "rebuild",
+            "taskName": "update",
             "args": ["autovala update && cd install && cmake .."]
         },
         {

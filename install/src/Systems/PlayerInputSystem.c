@@ -176,6 +176,8 @@ void shmup_warz_player_input_system_onMouseEvent (ShmupWarzPlayerInputSystem* se
 			break;
 		}
 		case SDL_MOUSEBUTTONDOWN:
+		case SDL_FINGERMOTION:
+		case SDL_FINGERDOWN:
 		{
 			{
 				gint _tmp3_ = 0;
@@ -188,6 +190,7 @@ void shmup_warz_player_input_system_onMouseEvent (ShmupWarzPlayerInputSystem* se
 			break;
 		}
 		case SDL_MOUSEBUTTONUP:
+		case SDL_FINGERUP:
 		{
 			{
 				self->priv->_mouseDown = FALSE;

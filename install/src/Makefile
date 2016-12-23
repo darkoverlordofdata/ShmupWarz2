@@ -288,6 +288,33 @@ Game.c.s:
 	cd /home/bruce/bzr/shmupwarz/install && $(MAKE) -f src/CMakeFiles/shmupwarz.dir/build.make src/CMakeFiles/shmupwarz.dir/Game.c.s
 .PHONY : Game.c.s
 
+Main.o: Main.c.o
+
+.PHONY : Main.o
+
+# target to build an object file
+Main.c.o:
+	cd /home/bruce/bzr/shmupwarz/install && $(MAKE) -f src/CMakeFiles/shmupwarz.dir/build.make src/CMakeFiles/shmupwarz.dir/Main.c.o
+.PHONY : Main.c.o
+
+Main.i: Main.c.i
+
+.PHONY : Main.i
+
+# target to preprocess a source file
+Main.c.i:
+	cd /home/bruce/bzr/shmupwarz/install && $(MAKE) -f src/CMakeFiles/shmupwarz.dir/build.make src/CMakeFiles/shmupwarz.dir/Main.c.i
+.PHONY : Main.c.i
+
+Main.s: Main.c.s
+
+.PHONY : Main.s
+
+# target to generate assembly for a file
+Main.c.s:
+	cd /home/bruce/bzr/shmupwarz/install && $(MAKE) -f src/CMakeFiles/shmupwarz.dir/build.make src/CMakeFiles/shmupwarz.dir/Main.c.s
+.PHONY : Main.c.s
+
 Systems/CollisionSystem.o: Systems/CollisionSystem.c.o
 
 .PHONY : Systems/CollisionSystem.o
@@ -746,6 +773,9 @@ help:
 	@echo "... Game.o"
 	@echo "... Game.i"
 	@echo "... Game.s"
+	@echo "... Main.o"
+	@echo "... Main.i"
+	@echo "... Main.s"
 	@echo "... Systems/CollisionSystem.o"
 	@echo "... Systems/CollisionSystem.i"
 	@echo "... Systems/CollisionSystem.s"

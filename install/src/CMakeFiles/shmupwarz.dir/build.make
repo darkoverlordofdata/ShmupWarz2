@@ -69,6 +69,9 @@ src/Entities.c: src/Config.c
 src/Game.c: src/Config.c
 	@$(CMAKE_COMMAND) -E touch_nocreate src/Game.c
 
+src/Main.c: src/Config.c
+	@$(CMAKE_COMMAND) -E touch_nocreate src/Main.c
+
 src/Systems/CollisionSystem.c: src/Config.c
 	@$(CMAKE_COMMAND) -E touch_nocreate src/Systems/CollisionSystem.c
 
@@ -118,6 +121,7 @@ src/shmupwarz_valac.stamp: src/Config.vala
 src/shmupwarz_valac.stamp: ../src/Components.gs
 src/shmupwarz_valac.stamp: ../src/Entities.gs
 src/shmupwarz_valac.stamp: ../src/Game.gs
+src/shmupwarz_valac.stamp: ../src/Main.gs
 src/shmupwarz_valac.stamp: ../src/Systems/CollisionSystem.gs
 src/shmupwarz_valac.stamp: ../src/Systems/ColorTweenSystem.gs
 src/shmupwarz_valac.stamp: ../src/Systems/DestroySystem.gs
@@ -133,8 +137,8 @@ src/shmupwarz_valac.stamp: ../src/Systems/ScaleTweenSystem.gs
 src/shmupwarz_valac.stamp: ../src/Systems/SoundEffectSystem.gs
 src/shmupwarz_valac.stamp: ../src/Systems/ViewManagerSystem.gs
 src/shmupwarz_valac.stamp: ../src/shmupwarz.vala
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/bruce/bzr/shmupwarz/install/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating /home/bruce/bzr/shmupwarz/install/src/Config.c;Components.c;Entities.c;Game.c;Systems/CollisionSystem.c;Systems/ColorTweenSystem.c;Systems/DestroySystem.c;Systems/EntitySpawningTimerSystem.c;Systems/ExpiringSystem.c;Systems/HealthRenderSystem.c;Systems/HudRenderSystem.c;Systems/MovementSystem.c;Systems/PlayerInputSystem.c;Systems/RemoveOffscreenShipsSystem.c;Systems/RenderPositionSystem.c;Systems/ScaleTweenSystem.c;Systems/SoundEffectSystem.c;Systems/ViewManagerSystem.c;shmupwarz.c"
-	cd /home/bruce/bzr/shmupwarz/install/src && valac-0.34 -C -b /home/bruce/bzr/shmupwarz/src -d /home/bruce/bzr/shmupwarz/install/src --pkg=Bosco --pkg=Entitas --pkg=SDL2_gfx --pkg=SDL2_image --pkg=SDL2_mixer --pkg=SDL2_ttf --pkg=gee-0.8 --pkg=sdl2 --pkg=gio-2.0 --pkg=glib-2.0 --pkg=gobject-2.0 --vapidir=/home/bruce/bzr/shmupwarz/src/vapis --gresources=/home/bruce/bzr/shmupwarz/data/resources.gresource.xml /home/bruce/bzr/shmupwarz/install/src/Config.vala /home/bruce/bzr/shmupwarz/src/Components.gs /home/bruce/bzr/shmupwarz/src/Entities.gs /home/bruce/bzr/shmupwarz/src/Game.gs /home/bruce/bzr/shmupwarz/src/Systems/CollisionSystem.gs /home/bruce/bzr/shmupwarz/src/Systems/ColorTweenSystem.gs /home/bruce/bzr/shmupwarz/src/Systems/DestroySystem.gs /home/bruce/bzr/shmupwarz/src/Systems/EntitySpawningTimerSystem.gs /home/bruce/bzr/shmupwarz/src/Systems/ExpiringSystem.gs /home/bruce/bzr/shmupwarz/src/Systems/HealthRenderSystem.gs /home/bruce/bzr/shmupwarz/src/Systems/HudRenderSystem.gs /home/bruce/bzr/shmupwarz/src/Systems/MovementSystem.gs /home/bruce/bzr/shmupwarz/src/Systems/PlayerInputSystem.gs /home/bruce/bzr/shmupwarz/src/Systems/RemoveOffscreenShipsSystem.gs /home/bruce/bzr/shmupwarz/src/Systems/RenderPositionSystem.gs /home/bruce/bzr/shmupwarz/src/Systems/ScaleTweenSystem.gs /home/bruce/bzr/shmupwarz/src/Systems/SoundEffectSystem.gs /home/bruce/bzr/shmupwarz/src/Systems/ViewManagerSystem.gs /home/bruce/bzr/shmupwarz/src/shmupwarz.vala
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/bruce/bzr/shmupwarz/install/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating /home/bruce/bzr/shmupwarz/install/src/Config.c;Components.c;Entities.c;Game.c;Main.c;Systems/CollisionSystem.c;Systems/ColorTweenSystem.c;Systems/DestroySystem.c;Systems/EntitySpawningTimerSystem.c;Systems/ExpiringSystem.c;Systems/HealthRenderSystem.c;Systems/HudRenderSystem.c;Systems/MovementSystem.c;Systems/PlayerInputSystem.c;Systems/RemoveOffscreenShipsSystem.c;Systems/RenderPositionSystem.c;Systems/ScaleTweenSystem.c;Systems/SoundEffectSystem.c;Systems/ViewManagerSystem.c;shmupwarz.c"
+	cd /home/bruce/bzr/shmupwarz/install/src && valac-0.34 -C -b /home/bruce/bzr/shmupwarz/src -d /home/bruce/bzr/shmupwarz/install/src --pkg=SDL2_gfx --pkg=SDL2_image --pkg=SDL2_mixer --pkg=SDL2_ttf --pkg=sdl2 --pkg=Bosco --pkg=Entitas --pkg=gee-0.8 --pkg=gio-2.0 --pkg=glib-2.0 --pkg=gobject-2.0 --vapidir=/home/bruce/bzr/shmupwarz/src/vapis --disable-warnings --gresources=/home/bruce/bzr/shmupwarz/data/resources.gresource.xml /home/bruce/bzr/shmupwarz/install/src/Config.vala /home/bruce/bzr/shmupwarz/src/Components.gs /home/bruce/bzr/shmupwarz/src/Entities.gs /home/bruce/bzr/shmupwarz/src/Game.gs /home/bruce/bzr/shmupwarz/src/Main.gs /home/bruce/bzr/shmupwarz/src/Systems/CollisionSystem.gs /home/bruce/bzr/shmupwarz/src/Systems/ColorTweenSystem.gs /home/bruce/bzr/shmupwarz/src/Systems/DestroySystem.gs /home/bruce/bzr/shmupwarz/src/Systems/EntitySpawningTimerSystem.gs /home/bruce/bzr/shmupwarz/src/Systems/ExpiringSystem.gs /home/bruce/bzr/shmupwarz/src/Systems/HealthRenderSystem.gs /home/bruce/bzr/shmupwarz/src/Systems/HudRenderSystem.gs /home/bruce/bzr/shmupwarz/src/Systems/MovementSystem.gs /home/bruce/bzr/shmupwarz/src/Systems/PlayerInputSystem.gs /home/bruce/bzr/shmupwarz/src/Systems/RemoveOffscreenShipsSystem.gs /home/bruce/bzr/shmupwarz/src/Systems/RenderPositionSystem.gs /home/bruce/bzr/shmupwarz/src/Systems/ScaleTweenSystem.gs /home/bruce/bzr/shmupwarz/src/Systems/SoundEffectSystem.gs /home/bruce/bzr/shmupwarz/src/Systems/ViewManagerSystem.gs /home/bruce/bzr/shmupwarz/src/shmupwarz.vala
 	cd /home/bruce/bzr/shmupwarz/install/src && touch /home/bruce/bzr/shmupwarz/install/src/shmupwarz_valac.stamp
 
 src/CMakeFiles/shmupwarz.dir/Config.c.o: src/CMakeFiles/shmupwarz.dir/flags.make
@@ -233,9 +237,33 @@ src/CMakeFiles/shmupwarz.dir/Game.c.o.provides: src/CMakeFiles/shmupwarz.dir/Gam
 src/CMakeFiles/shmupwarz.dir/Game.c.o.provides.build: src/CMakeFiles/shmupwarz.dir/Game.c.o
 
 
+src/CMakeFiles/shmupwarz.dir/Main.c.o: src/CMakeFiles/shmupwarz.dir/flags.make
+src/CMakeFiles/shmupwarz.dir/Main.c.o: src/Main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bruce/bzr/shmupwarz/install/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object src/CMakeFiles/shmupwarz.dir/Main.c.o"
+	cd /home/bruce/bzr/shmupwarz/install/src && /usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/shmupwarz.dir/Main.c.o   -c /home/bruce/bzr/shmupwarz/install/src/Main.c
+
+src/CMakeFiles/shmupwarz.dir/Main.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/shmupwarz.dir/Main.c.i"
+	cd /home/bruce/bzr/shmupwarz/install/src && /usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/bruce/bzr/shmupwarz/install/src/Main.c > CMakeFiles/shmupwarz.dir/Main.c.i
+
+src/CMakeFiles/shmupwarz.dir/Main.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/shmupwarz.dir/Main.c.s"
+	cd /home/bruce/bzr/shmupwarz/install/src && /usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/bruce/bzr/shmupwarz/install/src/Main.c -o CMakeFiles/shmupwarz.dir/Main.c.s
+
+src/CMakeFiles/shmupwarz.dir/Main.c.o.requires:
+
+.PHONY : src/CMakeFiles/shmupwarz.dir/Main.c.o.requires
+
+src/CMakeFiles/shmupwarz.dir/Main.c.o.provides: src/CMakeFiles/shmupwarz.dir/Main.c.o.requires
+	$(MAKE) -f src/CMakeFiles/shmupwarz.dir/build.make src/CMakeFiles/shmupwarz.dir/Main.c.o.provides.build
+.PHONY : src/CMakeFiles/shmupwarz.dir/Main.c.o.provides
+
+src/CMakeFiles/shmupwarz.dir/Main.c.o.provides.build: src/CMakeFiles/shmupwarz.dir/Main.c.o
+
+
 src/CMakeFiles/shmupwarz.dir/Systems/CollisionSystem.c.o: src/CMakeFiles/shmupwarz.dir/flags.make
 src/CMakeFiles/shmupwarz.dir/Systems/CollisionSystem.c.o: src/Systems/CollisionSystem.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bruce/bzr/shmupwarz/install/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object src/CMakeFiles/shmupwarz.dir/Systems/CollisionSystem.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bruce/bzr/shmupwarz/install/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object src/CMakeFiles/shmupwarz.dir/Systems/CollisionSystem.c.o"
 	cd /home/bruce/bzr/shmupwarz/install/src && /usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/shmupwarz.dir/Systems/CollisionSystem.c.o   -c /home/bruce/bzr/shmupwarz/install/src/Systems/CollisionSystem.c
 
 src/CMakeFiles/shmupwarz.dir/Systems/CollisionSystem.c.i: cmake_force
@@ -259,7 +287,7 @@ src/CMakeFiles/shmupwarz.dir/Systems/CollisionSystem.c.o.provides.build: src/CMa
 
 src/CMakeFiles/shmupwarz.dir/Systems/ColorTweenSystem.c.o: src/CMakeFiles/shmupwarz.dir/flags.make
 src/CMakeFiles/shmupwarz.dir/Systems/ColorTweenSystem.c.o: src/Systems/ColorTweenSystem.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bruce/bzr/shmupwarz/install/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object src/CMakeFiles/shmupwarz.dir/Systems/ColorTweenSystem.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bruce/bzr/shmupwarz/install/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object src/CMakeFiles/shmupwarz.dir/Systems/ColorTweenSystem.c.o"
 	cd /home/bruce/bzr/shmupwarz/install/src && /usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/shmupwarz.dir/Systems/ColorTweenSystem.c.o   -c /home/bruce/bzr/shmupwarz/install/src/Systems/ColorTweenSystem.c
 
 src/CMakeFiles/shmupwarz.dir/Systems/ColorTweenSystem.c.i: cmake_force
@@ -283,7 +311,7 @@ src/CMakeFiles/shmupwarz.dir/Systems/ColorTweenSystem.c.o.provides.build: src/CM
 
 src/CMakeFiles/shmupwarz.dir/Systems/DestroySystem.c.o: src/CMakeFiles/shmupwarz.dir/flags.make
 src/CMakeFiles/shmupwarz.dir/Systems/DestroySystem.c.o: src/Systems/DestroySystem.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bruce/bzr/shmupwarz/install/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object src/CMakeFiles/shmupwarz.dir/Systems/DestroySystem.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bruce/bzr/shmupwarz/install/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object src/CMakeFiles/shmupwarz.dir/Systems/DestroySystem.c.o"
 	cd /home/bruce/bzr/shmupwarz/install/src && /usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/shmupwarz.dir/Systems/DestroySystem.c.o   -c /home/bruce/bzr/shmupwarz/install/src/Systems/DestroySystem.c
 
 src/CMakeFiles/shmupwarz.dir/Systems/DestroySystem.c.i: cmake_force
@@ -307,7 +335,7 @@ src/CMakeFiles/shmupwarz.dir/Systems/DestroySystem.c.o.provides.build: src/CMake
 
 src/CMakeFiles/shmupwarz.dir/Systems/EntitySpawningTimerSystem.c.o: src/CMakeFiles/shmupwarz.dir/flags.make
 src/CMakeFiles/shmupwarz.dir/Systems/EntitySpawningTimerSystem.c.o: src/Systems/EntitySpawningTimerSystem.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bruce/bzr/shmupwarz/install/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object src/CMakeFiles/shmupwarz.dir/Systems/EntitySpawningTimerSystem.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bruce/bzr/shmupwarz/install/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object src/CMakeFiles/shmupwarz.dir/Systems/EntitySpawningTimerSystem.c.o"
 	cd /home/bruce/bzr/shmupwarz/install/src && /usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/shmupwarz.dir/Systems/EntitySpawningTimerSystem.c.o   -c /home/bruce/bzr/shmupwarz/install/src/Systems/EntitySpawningTimerSystem.c
 
 src/CMakeFiles/shmupwarz.dir/Systems/EntitySpawningTimerSystem.c.i: cmake_force
@@ -331,7 +359,7 @@ src/CMakeFiles/shmupwarz.dir/Systems/EntitySpawningTimerSystem.c.o.provides.buil
 
 src/CMakeFiles/shmupwarz.dir/Systems/ExpiringSystem.c.o: src/CMakeFiles/shmupwarz.dir/flags.make
 src/CMakeFiles/shmupwarz.dir/Systems/ExpiringSystem.c.o: src/Systems/ExpiringSystem.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bruce/bzr/shmupwarz/install/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object src/CMakeFiles/shmupwarz.dir/Systems/ExpiringSystem.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bruce/bzr/shmupwarz/install/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object src/CMakeFiles/shmupwarz.dir/Systems/ExpiringSystem.c.o"
 	cd /home/bruce/bzr/shmupwarz/install/src && /usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/shmupwarz.dir/Systems/ExpiringSystem.c.o   -c /home/bruce/bzr/shmupwarz/install/src/Systems/ExpiringSystem.c
 
 src/CMakeFiles/shmupwarz.dir/Systems/ExpiringSystem.c.i: cmake_force
@@ -355,7 +383,7 @@ src/CMakeFiles/shmupwarz.dir/Systems/ExpiringSystem.c.o.provides.build: src/CMak
 
 src/CMakeFiles/shmupwarz.dir/Systems/HealthRenderSystem.c.o: src/CMakeFiles/shmupwarz.dir/flags.make
 src/CMakeFiles/shmupwarz.dir/Systems/HealthRenderSystem.c.o: src/Systems/HealthRenderSystem.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bruce/bzr/shmupwarz/install/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object src/CMakeFiles/shmupwarz.dir/Systems/HealthRenderSystem.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bruce/bzr/shmupwarz/install/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object src/CMakeFiles/shmupwarz.dir/Systems/HealthRenderSystem.c.o"
 	cd /home/bruce/bzr/shmupwarz/install/src && /usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/shmupwarz.dir/Systems/HealthRenderSystem.c.o   -c /home/bruce/bzr/shmupwarz/install/src/Systems/HealthRenderSystem.c
 
 src/CMakeFiles/shmupwarz.dir/Systems/HealthRenderSystem.c.i: cmake_force
@@ -379,7 +407,7 @@ src/CMakeFiles/shmupwarz.dir/Systems/HealthRenderSystem.c.o.provides.build: src/
 
 src/CMakeFiles/shmupwarz.dir/Systems/HudRenderSystem.c.o: src/CMakeFiles/shmupwarz.dir/flags.make
 src/CMakeFiles/shmupwarz.dir/Systems/HudRenderSystem.c.o: src/Systems/HudRenderSystem.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bruce/bzr/shmupwarz/install/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object src/CMakeFiles/shmupwarz.dir/Systems/HudRenderSystem.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bruce/bzr/shmupwarz/install/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object src/CMakeFiles/shmupwarz.dir/Systems/HudRenderSystem.c.o"
 	cd /home/bruce/bzr/shmupwarz/install/src && /usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/shmupwarz.dir/Systems/HudRenderSystem.c.o   -c /home/bruce/bzr/shmupwarz/install/src/Systems/HudRenderSystem.c
 
 src/CMakeFiles/shmupwarz.dir/Systems/HudRenderSystem.c.i: cmake_force
@@ -403,7 +431,7 @@ src/CMakeFiles/shmupwarz.dir/Systems/HudRenderSystem.c.o.provides.build: src/CMa
 
 src/CMakeFiles/shmupwarz.dir/Systems/MovementSystem.c.o: src/CMakeFiles/shmupwarz.dir/flags.make
 src/CMakeFiles/shmupwarz.dir/Systems/MovementSystem.c.o: src/Systems/MovementSystem.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bruce/bzr/shmupwarz/install/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object src/CMakeFiles/shmupwarz.dir/Systems/MovementSystem.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bruce/bzr/shmupwarz/install/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object src/CMakeFiles/shmupwarz.dir/Systems/MovementSystem.c.o"
 	cd /home/bruce/bzr/shmupwarz/install/src && /usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/shmupwarz.dir/Systems/MovementSystem.c.o   -c /home/bruce/bzr/shmupwarz/install/src/Systems/MovementSystem.c
 
 src/CMakeFiles/shmupwarz.dir/Systems/MovementSystem.c.i: cmake_force
@@ -427,7 +455,7 @@ src/CMakeFiles/shmupwarz.dir/Systems/MovementSystem.c.o.provides.build: src/CMak
 
 src/CMakeFiles/shmupwarz.dir/Systems/PlayerInputSystem.c.o: src/CMakeFiles/shmupwarz.dir/flags.make
 src/CMakeFiles/shmupwarz.dir/Systems/PlayerInputSystem.c.o: src/Systems/PlayerInputSystem.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bruce/bzr/shmupwarz/install/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object src/CMakeFiles/shmupwarz.dir/Systems/PlayerInputSystem.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bruce/bzr/shmupwarz/install/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object src/CMakeFiles/shmupwarz.dir/Systems/PlayerInputSystem.c.o"
 	cd /home/bruce/bzr/shmupwarz/install/src && /usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/shmupwarz.dir/Systems/PlayerInputSystem.c.o   -c /home/bruce/bzr/shmupwarz/install/src/Systems/PlayerInputSystem.c
 
 src/CMakeFiles/shmupwarz.dir/Systems/PlayerInputSystem.c.i: cmake_force
@@ -451,7 +479,7 @@ src/CMakeFiles/shmupwarz.dir/Systems/PlayerInputSystem.c.o.provides.build: src/C
 
 src/CMakeFiles/shmupwarz.dir/Systems/RemoveOffscreenShipsSystem.c.o: src/CMakeFiles/shmupwarz.dir/flags.make
 src/CMakeFiles/shmupwarz.dir/Systems/RemoveOffscreenShipsSystem.c.o: src/Systems/RemoveOffscreenShipsSystem.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bruce/bzr/shmupwarz/install/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object src/CMakeFiles/shmupwarz.dir/Systems/RemoveOffscreenShipsSystem.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bruce/bzr/shmupwarz/install/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object src/CMakeFiles/shmupwarz.dir/Systems/RemoveOffscreenShipsSystem.c.o"
 	cd /home/bruce/bzr/shmupwarz/install/src && /usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/shmupwarz.dir/Systems/RemoveOffscreenShipsSystem.c.o   -c /home/bruce/bzr/shmupwarz/install/src/Systems/RemoveOffscreenShipsSystem.c
 
 src/CMakeFiles/shmupwarz.dir/Systems/RemoveOffscreenShipsSystem.c.i: cmake_force
@@ -475,7 +503,7 @@ src/CMakeFiles/shmupwarz.dir/Systems/RemoveOffscreenShipsSystem.c.o.provides.bui
 
 src/CMakeFiles/shmupwarz.dir/Systems/RenderPositionSystem.c.o: src/CMakeFiles/shmupwarz.dir/flags.make
 src/CMakeFiles/shmupwarz.dir/Systems/RenderPositionSystem.c.o: src/Systems/RenderPositionSystem.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bruce/bzr/shmupwarz/install/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object src/CMakeFiles/shmupwarz.dir/Systems/RenderPositionSystem.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bruce/bzr/shmupwarz/install/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object src/CMakeFiles/shmupwarz.dir/Systems/RenderPositionSystem.c.o"
 	cd /home/bruce/bzr/shmupwarz/install/src && /usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/shmupwarz.dir/Systems/RenderPositionSystem.c.o   -c /home/bruce/bzr/shmupwarz/install/src/Systems/RenderPositionSystem.c
 
 src/CMakeFiles/shmupwarz.dir/Systems/RenderPositionSystem.c.i: cmake_force
@@ -499,7 +527,7 @@ src/CMakeFiles/shmupwarz.dir/Systems/RenderPositionSystem.c.o.provides.build: sr
 
 src/CMakeFiles/shmupwarz.dir/Systems/ScaleTweenSystem.c.o: src/CMakeFiles/shmupwarz.dir/flags.make
 src/CMakeFiles/shmupwarz.dir/Systems/ScaleTweenSystem.c.o: src/Systems/ScaleTweenSystem.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bruce/bzr/shmupwarz/install/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object src/CMakeFiles/shmupwarz.dir/Systems/ScaleTweenSystem.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bruce/bzr/shmupwarz/install/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object src/CMakeFiles/shmupwarz.dir/Systems/ScaleTweenSystem.c.o"
 	cd /home/bruce/bzr/shmupwarz/install/src && /usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/shmupwarz.dir/Systems/ScaleTweenSystem.c.o   -c /home/bruce/bzr/shmupwarz/install/src/Systems/ScaleTweenSystem.c
 
 src/CMakeFiles/shmupwarz.dir/Systems/ScaleTweenSystem.c.i: cmake_force
@@ -523,7 +551,7 @@ src/CMakeFiles/shmupwarz.dir/Systems/ScaleTweenSystem.c.o.provides.build: src/CM
 
 src/CMakeFiles/shmupwarz.dir/Systems/SoundEffectSystem.c.o: src/CMakeFiles/shmupwarz.dir/flags.make
 src/CMakeFiles/shmupwarz.dir/Systems/SoundEffectSystem.c.o: src/Systems/SoundEffectSystem.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bruce/bzr/shmupwarz/install/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object src/CMakeFiles/shmupwarz.dir/Systems/SoundEffectSystem.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bruce/bzr/shmupwarz/install/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object src/CMakeFiles/shmupwarz.dir/Systems/SoundEffectSystem.c.o"
 	cd /home/bruce/bzr/shmupwarz/install/src && /usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/shmupwarz.dir/Systems/SoundEffectSystem.c.o   -c /home/bruce/bzr/shmupwarz/install/src/Systems/SoundEffectSystem.c
 
 src/CMakeFiles/shmupwarz.dir/Systems/SoundEffectSystem.c.i: cmake_force
@@ -547,7 +575,7 @@ src/CMakeFiles/shmupwarz.dir/Systems/SoundEffectSystem.c.o.provides.build: src/C
 
 src/CMakeFiles/shmupwarz.dir/Systems/ViewManagerSystem.c.o: src/CMakeFiles/shmupwarz.dir/flags.make
 src/CMakeFiles/shmupwarz.dir/Systems/ViewManagerSystem.c.o: src/Systems/ViewManagerSystem.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bruce/bzr/shmupwarz/install/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object src/CMakeFiles/shmupwarz.dir/Systems/ViewManagerSystem.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bruce/bzr/shmupwarz/install/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object src/CMakeFiles/shmupwarz.dir/Systems/ViewManagerSystem.c.o"
 	cd /home/bruce/bzr/shmupwarz/install/src && /usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/shmupwarz.dir/Systems/ViewManagerSystem.c.o   -c /home/bruce/bzr/shmupwarz/install/src/Systems/ViewManagerSystem.c
 
 src/CMakeFiles/shmupwarz.dir/Systems/ViewManagerSystem.c.i: cmake_force
@@ -571,7 +599,7 @@ src/CMakeFiles/shmupwarz.dir/Systems/ViewManagerSystem.c.o.provides.build: src/C
 
 src/CMakeFiles/shmupwarz.dir/shmupwarz.c.o: src/CMakeFiles/shmupwarz.dir/flags.make
 src/CMakeFiles/shmupwarz.dir/shmupwarz.c.o: src/shmupwarz.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bruce/bzr/shmupwarz/install/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object src/CMakeFiles/shmupwarz.dir/shmupwarz.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bruce/bzr/shmupwarz/install/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object src/CMakeFiles/shmupwarz.dir/shmupwarz.c.o"
 	cd /home/bruce/bzr/shmupwarz/install/src && /usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/shmupwarz.dir/shmupwarz.c.o   -c /home/bruce/bzr/shmupwarz/install/src/shmupwarz.c
 
 src/CMakeFiles/shmupwarz.dir/shmupwarz.c.i: cmake_force
@@ -595,7 +623,7 @@ src/CMakeFiles/shmupwarz.dir/shmupwarz.c.o.provides.build: src/CMakeFiles/shmupw
 
 src/CMakeFiles/shmupwarz.dir/__/data/resources.gresource.xml.c.o: src/CMakeFiles/shmupwarz.dir/flags.make
 src/CMakeFiles/shmupwarz.dir/__/data/resources.gresource.xml.c.o: data/resources.gresource.xml.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bruce/bzr/shmupwarz/install/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object src/CMakeFiles/shmupwarz.dir/__/data/resources.gresource.xml.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bruce/bzr/shmupwarz/install/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building C object src/CMakeFiles/shmupwarz.dir/__/data/resources.gresource.xml.c.o"
 	cd /home/bruce/bzr/shmupwarz/install/src && /usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/shmupwarz.dir/__/data/resources.gresource.xml.c.o   -c /home/bruce/bzr/shmupwarz/install/data/resources.gresource.xml.c
 
 src/CMakeFiles/shmupwarz.dir/__/data/resources.gresource.xml.c.i: cmake_force
@@ -623,6 +651,7 @@ shmupwarz_OBJECTS = \
 "CMakeFiles/shmupwarz.dir/Components.c.o" \
 "CMakeFiles/shmupwarz.dir/Entities.c.o" \
 "CMakeFiles/shmupwarz.dir/Game.c.o" \
+"CMakeFiles/shmupwarz.dir/Main.c.o" \
 "CMakeFiles/shmupwarz.dir/Systems/CollisionSystem.c.o" \
 "CMakeFiles/shmupwarz.dir/Systems/ColorTweenSystem.c.o" \
 "CMakeFiles/shmupwarz.dir/Systems/DestroySystem.c.o" \
@@ -647,6 +676,7 @@ src/shmupwarz: src/CMakeFiles/shmupwarz.dir/Config.c.o
 src/shmupwarz: src/CMakeFiles/shmupwarz.dir/Components.c.o
 src/shmupwarz: src/CMakeFiles/shmupwarz.dir/Entities.c.o
 src/shmupwarz: src/CMakeFiles/shmupwarz.dir/Game.c.o
+src/shmupwarz: src/CMakeFiles/shmupwarz.dir/Main.c.o
 src/shmupwarz: src/CMakeFiles/shmupwarz.dir/Systems/CollisionSystem.c.o
 src/shmupwarz: src/CMakeFiles/shmupwarz.dir/Systems/ColorTweenSystem.c.o
 src/shmupwarz: src/CMakeFiles/shmupwarz.dir/Systems/DestroySystem.c.o
@@ -665,7 +695,7 @@ src/shmupwarz: src/CMakeFiles/shmupwarz.dir/shmupwarz.c.o
 src/shmupwarz: src/CMakeFiles/shmupwarz.dir/__/data/resources.gresource.xml.c.o
 src/shmupwarz: src/CMakeFiles/shmupwarz.dir/build.make
 src/shmupwarz: src/CMakeFiles/shmupwarz.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/bruce/bzr/shmupwarz/install/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Linking C executable shmupwarz"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/bruce/bzr/shmupwarz/install/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Linking C executable shmupwarz"
 	cd /home/bruce/bzr/shmupwarz/install/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/shmupwarz.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -677,6 +707,7 @@ src/CMakeFiles/shmupwarz.dir/requires: src/CMakeFiles/shmupwarz.dir/Config.c.o.r
 src/CMakeFiles/shmupwarz.dir/requires: src/CMakeFiles/shmupwarz.dir/Components.c.o.requires
 src/CMakeFiles/shmupwarz.dir/requires: src/CMakeFiles/shmupwarz.dir/Entities.c.o.requires
 src/CMakeFiles/shmupwarz.dir/requires: src/CMakeFiles/shmupwarz.dir/Game.c.o.requires
+src/CMakeFiles/shmupwarz.dir/requires: src/CMakeFiles/shmupwarz.dir/Main.c.o.requires
 src/CMakeFiles/shmupwarz.dir/requires: src/CMakeFiles/shmupwarz.dir/Systems/CollisionSystem.c.o.requires
 src/CMakeFiles/shmupwarz.dir/requires: src/CMakeFiles/shmupwarz.dir/Systems/ColorTweenSystem.c.o.requires
 src/CMakeFiles/shmupwarz.dir/requires: src/CMakeFiles/shmupwarz.dir/Systems/DestroySystem.c.o.requires
@@ -704,6 +735,7 @@ src/CMakeFiles/shmupwarz.dir/depend: src/Config.c
 src/CMakeFiles/shmupwarz.dir/depend: src/Components.c
 src/CMakeFiles/shmupwarz.dir/depend: src/Entities.c
 src/CMakeFiles/shmupwarz.dir/depend: src/Game.c
+src/CMakeFiles/shmupwarz.dir/depend: src/Main.c
 src/CMakeFiles/shmupwarz.dir/depend: src/Systems/CollisionSystem.c
 src/CMakeFiles/shmupwarz.dir/depend: src/Systems/ColorTweenSystem.c
 src/CMakeFiles/shmupwarz.dir/depend: src/Systems/DestroySystem.c

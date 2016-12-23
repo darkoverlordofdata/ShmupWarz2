@@ -61,10 +61,6 @@ stdlib.h
 -
 string.h
 -
-glib/gstdio.h
--
-gio/gio.h
--
 Bosco.h
 -
 Entitas.h
@@ -79,9 +75,23 @@ SDL2/SDL_events.h
 -
 SDL2/SDL_keyboard.h
 -
-SDL2/SDL_mouse.h
--
 SDL2/SDL_image.h
+-
+
+/home/bruce/bzr/shmupwarz/install/src/Main.c
+glib.h
+-
+glib-object.h
+-
+stdlib.h
+-
+string.h
+-
+glib/gstdio.h
+-
+gio/gio.h
+-
+Bosco.h
 -
 
 /home/bruce/bzr/shmupwarz/install/src/Systems/CollisionSystem.c

@@ -1,6 +1,7 @@
 src/Components.gs
 src/Entities.gs
 src/Game.gs
+src/Main.gs
 src/Systems/CollisionSystem.gs
 src/Systems/ColorTweenSystem.gs
 src/Systems/DestroySystem.gs

@@ -57,8 +57,6 @@ data/CMakeFiles/resources_gresource_xml: data/resources.gresource.xml.c
 
 
 data/resources.gresource.xml.c: ../data/resources.gresource.xml
-data/resources.gresource.xml.c: ../data/fonts/Arial.ttf
-data/resources.gresource.xml.c: ../data/fonts/TitanOne-Regular.ttf
 data/resources.gresource.xml.c: ../data/images/background.bmp
 data/resources.gresource.xml.c: ../data/images/bang.bmp
 data/resources.gresource.xml.c: ../data/images/bullet.bmp

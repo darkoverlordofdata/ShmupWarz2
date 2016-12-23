@@ -10,25 +10,12 @@ uses Entitas
 uses SDL
 uses SDLTTF
 
-/**
- *  args[0] = "shmupwarz"
- *  args[1] = optional base /tmp/<path> when run as AppImage
- */
-def main(args: array of string)
-
-    var path = GLib.FileUtils.read_link("/proc/self/exe")
-    var proc = File.new_for_path(path)
-    // skip up the folder tree to put us at root level of appImage or project folder in dev
-    var root = proc.resolve_relative_path("../../../").get_path()
-    var game = new ShmupWarz.Game(root)
-    game.Run()
-
 namespace ShmupWarz
 
     // Resource URI
     const RES : string = "resource:///darkoverlordofdata/shmupwarz"
-    const SCREEN_WIDTH:int = 800
-    const SCREEN_HEIGHT:int = 600
+    const SCREEN_WIDTH :int = 800
+    const SCREEN_HEIGHT :int = 600
 
     /** 
     * Start the application
@@ -37,8 +24,8 @@ namespace ShmupWarz
     class Game : AbstractGame
 
         world : World
+        arial : Bosco.Font
         player : PlayerInputSystem
-        arial: Bosco.Font
 
         construct(rootPath: string)
             super()
@@ -48,9 +35,6 @@ namespace ShmupWarz
             height = SCREEN_HEIGHT
             running = true
             defaultFont = rootPath+"/fonts/OpenDyslexic-Bold.otf"
-            var check = File.new_for_path(defaultFont)
-            if !check.query_exists()
-                defaultFont = Constants.DATADIR+"/fonts/TitanOne-Regular.ttf"
 
         /**
         *  OnLoop
@@ -107,13 +91,16 @@ namespace ShmupWarz
             if e.type == SDL.EventType.QUIT
                 running = false
 
-            if e.type != EventType.MOUSEMOTION && e.type != EventType.MOUSEBUTTONDOWN && e.type != EventType.MOUSEBUTTONUP
-                return
             /* Mouse Events*/
-            x:int = 0
-            y:int = 0
-            Input.Cursor.get_state(ref x, ref y)
-            player.onMouseEvent(e.type, x, y)
+            if e.type == EventType.MOUSEMOTION || e.type == EventType.MOUSEBUTTONDOWN || e.type == EventType.MOUSEBUTTONUP
+                player.onMouseEvent(e.type, e.motion.x, e.motion.y)
+                return
+
+            /* Touch Events*/
+            if e.type == EventType.FINGERMOTION || e.type == EventType.FINGERDOWN || e.type == EventType.FINGERUP
+                player.onMouseEvent(e.type, (int)e.tfinger.x, (int)e.tfinger.y)
+                return
+
 
         /**
         *  OnCleanup

@@ -9,6 +9,8 @@ src/CMakeFiles/shmupwarz.dir/Entities.c.o
  /home/bruce/bzr/shmupwarz/install/src/Entities.c
 src/CMakeFiles/shmupwarz.dir/Game.c.o
  /home/bruce/bzr/shmupwarz/install/src/Game.c
+src/CMakeFiles/shmupwarz.dir/Main.c.o
+ /home/bruce/bzr/shmupwarz/install/src/Main.c
 src/CMakeFiles/shmupwarz.dir/Systems/CollisionSystem.c.o
  /home/bruce/bzr/shmupwarz/install/src/Systems/CollisionSystem.c
 src/CMakeFiles/shmupwarz.dir/Systems/ColorTweenSystem.c.o

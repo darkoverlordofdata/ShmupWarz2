@@ -149,8 +149,8 @@ struct _ShmupWarzGame {
 	BoscoAbstractGame parent_instance;
 	ShmupWarzGamePrivate * priv;
 	EntitasWorld* world;
-	ShmupWarzPlayerInputSystem* player;
 	BoscoFont* arial;
+	ShmupWarzPlayerInputSystem* player;
 };
 
 struct _ShmupWarzGameClass {
