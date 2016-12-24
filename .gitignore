@@ -1,6 +1,7 @@
 .bzr
 *~
 *.AppImage
+install
 # Compiled source #
 ###################
 *.com

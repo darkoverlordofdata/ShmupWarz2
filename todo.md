@@ -1,7 +1,13 @@
 # todo
 
-@probonopd has a good idea for doing releases (see Issue #2 ). 
-I think appimage makes more sense for games than ppa.
+## workflow
+@probonopd makes a good case for doing releases (see Issue #2 ). 
+Currently, everything is compiled on my desktop, an ElementaryOS-Loki environment.
 
-put trisquel on the other laptop, it's good for testing install 'cause it's strict gnu.
+* compile locally using docker with ubuntu 12.04. 
+* update job stream to work on centos
+* set up on travis-ci
+
+
+
 
