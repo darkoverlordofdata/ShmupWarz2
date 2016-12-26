@@ -1,12 +1,12 @@
 {
-  "namespace": "Example",
+  "namespace": "shmupwarz",
   "src": "src",
   "output": {
-    "systems":"Systems"
+    "systems": "Systems"
   },
   "alloc": {
-    "entities": 200,
-    "components": 128
+    "entities": 128,
+    "components": 64
   },
   "components": {
     "Bounds": [
@@ -37,21 +37,12 @@
     "Expires": [
       "delay:double"
     ],
-    "Firing": false,
     "Health": [
       "health:double",
       "maximumHealth:double"
     ],
     "Layer": [
       "ordinal:int"
-    ],
-    "Life": [
-      "count:int"
-    ],
-    "Mine" : false,
-    "Mouse": [
-      "x:double",
-      "y:double"
     ],
     "Player": false,
     "Position": [
@@ -82,13 +73,13 @@
     ],
     "Text": [
       "text:string",
-      "sprite:Object?"      
+      "sprite:Object?"
     ],
     "Tint": [
-        "r:int",
-        "g:int",
-        "b:int",
-        "a:int"
+      "r:int",
+      "g:int",
+      "b:int",
+      "a:int"
     ],
     "Velocity": [
       "x:double",
@@ -146,10 +137,9 @@
       "IExecuteSystem"
     ],
     "ViewManagerSystem": [
-      "IExecuteSystem",
-      "IInitializeSystem"
+      "ISetWorld",
+      "IExecuteSystem"
     ]
   },
-  "entities": {},
-  "extensions": {}
+  "entities": {}
 }

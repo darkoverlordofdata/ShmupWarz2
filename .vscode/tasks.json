@@ -15,7 +15,7 @@
         },
         {
             "taskName": "clean",
-            "args": ["rm -r ${workspaceRoot}/install"]
+            "args": ["rm -r ${workspaceRoot}/install && mkdir ${workspaceRoot}/install"]
         },
         {
             "taskName": "update",

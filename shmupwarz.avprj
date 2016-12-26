@@ -10,6 +10,7 @@ gresource: resources_gresource_xml data/resources.gresource.xml
 vapidir: src/vapis
 
 vala_binary: src/shmupwarz
+version: 0.0.1
 compile_options: --disable-warnings
 compile_c_options: -w
 *use_gresource: resources_gresource_xml

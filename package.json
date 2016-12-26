@@ -1,0 +1,28 @@
+{
+  "name": "shmupwarz",
+  "version": "0.0.1",
+  "description": "dev tools",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "entitas": "entitas"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/darkoverlordofdata/ShmupWarz-AppImage.git"
+  },
+  "keywords": [
+    "game"
+  ],
+  "author": "darkoverlordofdata",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/darkoverlordofdata/ShmupWarz-AppImage/issues"
+  },
+  "homepage": "https://github.com/darkoverlordofdata/ShmupWarz-AppImage#readme",
+  "devDependencies": {
+    "entitas-cli": "^0.1.0"
+  }
+}
