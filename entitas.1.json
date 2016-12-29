@@ -1,24 +1,14 @@
 {
-<<<<<<< Updated upstream
-  "namespace": "shmupwarz",
+  "namespace": "Example",
   "src": "src",
   "output": {
-    "systems": "Systems"
-=======
-  "namespace":"shmupwarz",
-  "src": "lib/src",
-  "output": {
-    "javascript": "web/src/shmupwarz/generatedExtensions.js",
-    "typescript": "lib/src/generatedComponents.ts",
-    "declaration": "lib/ext/shmupwarz.d.ts"
->>>>>>> Stashed changes
+    "systems":"Systems"
   },
   "alloc": {
-    "entities": 128,
-    "components": 64
+    "entities": 200,
+    "components": 128
   },
   "components": {
-<<<<<<< Updated upstream
     "Bounds": [
       "radius:double"
     ],
@@ -47,12 +37,21 @@
     "Expires": [
       "delay:double"
     ],
+    "Firing": false,
     "Health": [
       "health:double",
       "maximumHealth:double"
     ],
     "Layer": [
       "ordinal:int"
+    ],
+    "Life": [
+      "count:int"
+    ],
+    "Mine" : false,
+    "Mouse": [
+      "x:double",
+      "y:double"
     ],
     "Player": false,
     "Position": [
@@ -83,13 +82,13 @@
     ],
     "Text": [
       "text:string",
-      "sprite:Object?"
+      "sprite:Object?"      
     ],
     "Tint": [
-      "r:int",
-      "g:int",
-      "b:int",
-      "a:int"
+        "r:int",
+        "g:int",
+        "b:int",
+        "a:int"
     ],
     "Velocity": [
       "x:double",
@@ -147,16 +146,10 @@
       "IExecuteSystem"
     ],
     "ViewManagerSystem": [
-      "ISetWorld",
-      "IExecuteSystem"
+      "IExecuteSystem",
+      "IInitializeSystem"
     ]
   },
-  "entities": {}
-=======
-  },
-  "systems": {
-  },
-  "entities": {
-  }
->>>>>>> Stashed changes
+  "entities": {},
+  "extensions": {}
 }
