@@ -1,0 +1,38 @@
+Source: shmupwarz
+Maintainer: bruce davidson <darkoverlordofdata@gmail.com>
+Priority: optional
+Section: games
+Build-Depends: build-essential, 
+                po-debconf, 
+                valac, 
+                libsdl2-image-dev, 
+                libsdl2-mixer-dev, 
+                libsdl2-ttf-dev, 
+                libbosco, libentitas, 
+                libgee-0.8-dev, 
+                libsdl2-dev, 
+                libglib2.0-dev, 
+                cmake, 
+                gettext, 
+                pkg-config, 
+                gcc, 
+                g++, 
+                make, 
+                intltool
+
+Package: shmupwarz
+Architecture: any
+Version: 1.0.0
+Depends: libsdl2-image-2.0-0, 
+            libsdl2-2.0-0, 
+            libsdl2-mixer-2.0-0, 
+            libsdl2-ttf-2.0-0, 
+            libbosco, 
+            libgee-0.8-2, 
+            libglib2.0-0, 
+            libentitas, 
+            libc6-dev
+Description: ShmmupWarz
+ Give Me Those Shmup Wars
+ .
+ Demo of libbosco & libentitas

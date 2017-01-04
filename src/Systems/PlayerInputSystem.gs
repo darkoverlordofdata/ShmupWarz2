@@ -1,7 +1,8 @@
 [indent=4]
-uses SDL
-uses Bosco
-uses Entitas
+uses
+    SDL
+    Bosco
+    Entitas
 
 namespace ShmupWarz
 
@@ -26,11 +27,11 @@ namespace ShmupWarz
                 when EventType.MOUSEMOTION
                     moveTo(x, y)
 
-                when EventType.MOUSEBUTTONDOWN, EventType.FINGERMOTION, EventType.FINGERDOWN
+                when EventType.MOUSEBUTTONDOWN
                     moveTo(x, y)
                     _mouseDown = true
 
-                when EventType.MOUSEBUTTONUP, EventType.FINGERUP
+                when EventType.MOUSEBUTTONUP
                     _mouseDown = false
 
         def setWorld(world:World)
