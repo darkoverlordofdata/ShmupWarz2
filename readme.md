@@ -1,17 +1,17 @@
 # ShmupWarz
 
 Reboot. this is the master branch.
+The appimage branch is the same, but builds an appimage.
 
 ## status
 
-export overlap2d to data folder, and package with gresource.
+This is not a finished game - just endless waves of enemies and an endless supply of bullets. 
+There are no levels, no game over, no score, no lives - that's next. 
 
+## todo
 
-Desktop version references shared libraries: libbosco & libentitas
-
-resources are embeded using gresource
-
-vscode + autovala = RAD 
+wip - adding yakkety & zesty builds on lauchpad
+wip - integrate optional overlap2d support
 
 ## install
 ```

@@ -6,7 +6,7 @@
             "type": "lldb",
             "request": "launch",
             "cwd": "${workspaceRoot}/install/src",
-            "program": "${workspaceRoot}/install/src/${workspaceRootFolderName}",
+            "program": "${workspaceRoot}/install/src/shmupwarz",
             "args": []
         }
     ]
