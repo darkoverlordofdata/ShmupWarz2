@@ -1,8 +1,8 @@
 [indent=4]
-uses Bosco
-uses Entitas
-uses GLib
-uses SDL
+uses
+    Bosco
+    Entitas
+    GLib
 
 namespace ShmupWarz
 

@@ -42,26 +42,26 @@ namespace ShmupWarz
     *  Create Background
     */
     def createBackground() : Entity
-        var e = World.instance.createEntity("background")
-        addPosition(e, 0, 0)
-        addScale(e, 2, 1)
-        addResource(e, @"$RES/images/background.bmp", null, true)
-        return e
-
+        var entity = World.instance.createEntity("background")
+        addPosition(entity, 0, 0)
+        addScale(entity, 2, 1)
+        addResource(entity, @"$RES/images/background.bmp", null, true)
+        return entity
 
     /**
     *  Create Player
     */
     def createPlayer() : Entity
-        var e = World.instance.createEntity("player")
-        setPlayer(e, true)
-        addBounds(e, 43)
-        addHealth(e, 100, 100)
-        addVelocity(e, 0, 0)
-        addLayer(e, Layer.PLAYER)
-        addPosition(e, SCREEN_WIDTH/2, SCREEN_HEIGHT-80)
-        addResource(e, @"$RES/images/fighter.bmp", null, false)
-        return e
+
+        var entity = World.instance.createEntity("player")
+        setPlayer(entity, true)
+        addBounds(entity, 43)
+        addHealth(entity, 100, 100)
+        addVelocity(entity, 0, 0)
+        addLayer(entity, Layer.PLAYER)
+        addPosition(entity, SCREEN_WIDTH/2, SCREEN_HEIGHT-80)
+        addResource(entity, @"$RES/images/fighter.bmp", null, false)
+        return entity
     /**
     *  Create Bullet
     */
@@ -72,19 +72,19 @@ namespace ShmupWarz
         var m = 255.0
         var a = 255.0
         var s = 10.0
-        var e =  World.instance.createEntity("bullet")
-        setBullet(e, true)
-        addHealth(e, 1.5, 1.5)
-        addPosition(e, x, y)
-        addVelocity(e, 0, -800)
-        addTint(e, 0xAD, 0xFF, 0x2F, 255)
-        addColorTween(e, r, m, s, g, m, s, b, m, s, a, m, s, true, true, true, true, true)
-        addBounds(e, 5)
-        addExpires(e, 1)
-        addLayer(e, Layer.BULLET)
-        addResource(e, @"$RES/images/bullet.bmp", null, false)
-        addSoundEffect(e, Effect.PEW)
-        return e
+        var entity =  World.instance.createEntity("bullet")
+        setBullet(entity, true)
+        addHealth(entity, 1.5, 1.5)
+        addPosition(entity, x, y)
+        addVelocity(entity, 0, -800)
+        addTint(entity, 0xAD, 0xFF, 0x2F, 255)
+        addColorTween(entity, r, m, s, g, m, s, b, m, s, a, m, s, true, true, true, true, true)
+        addBounds(entity, 5)
+        addExpires(entity, 1)
+        addLayer(entity, Layer.BULLET)
+        addResource(entity, @"$RES/images/bullet.bmp", null, false)
+        addSoundEffect(entity, Effect.PEW)
+        return entity
 
     /**
     *  Create Particle
@@ -95,15 +95,15 @@ namespace ShmupWarz
         var velocityX = magnitude * Math.cos(radians)
         var velocityY = magnitude * Math.sin(radians)
         var scale = World.random.double_range(0.1, 1.0)
-        var e = World.instance.createEntity("particle")
-        addPosition(e, x, y)
-        addVelocity(e, velocityX, velocityY)
-        addExpires(e, 1)
-        addLayer(e, Layer.PARTICLE)
-        addScale(e, scale, scale)
-        addTint(e, 0xFA, 0xFA, 0xD2, 255)
-        addResource(e, @"$RES/images/star.bmp", null, false)
-        return e
+        var entity = World.instance.createEntity("particle")
+        addPosition(entity, x, y)
+        addVelocity(entity, velocityX, velocityY)
+        addExpires(entity, 1)
+        addLayer(entity, Layer.PARTICLE)
+        addScale(entity, scale, scale)
+        addTint(entity, 0xFA, 0xFA, 0xD2, 255)
+        addResource(entity, @"$RES/images/star.bmp", null, false)
+        return entity
 
     /**
     *  Create Explosion
@@ -115,17 +115,17 @@ namespace ShmupWarz
         var m = 255.0
         var a = 255.0
         var s = 10.0
-        var e = World.instance.createEntity("explosion")
-        addPosition(e, x, y)
-        addExpires(e, 1.0)
-        addLayer(e, Layer.PARTICLE)
-        addScale(e, 0.5, 0.5)
-        addSoundEffect(e, Effect.ASPLODE)
-        addScaleTween(e, 0.001, 0.5, -3, false, true)
-        addTint(e, 0xFA, 0xFA, 0xD2, 255)
-        addColorTween(e, r, m, s, g, m, s, b, m, s, a, m, s, true, true, true, true, true)
-        addResource(e, @"$RES/images/explosion.bmp", null, false)
-        return e
+        var entity = World.instance.createEntity("explosion")
+        addPosition(entity, x, y)
+        addExpires(entity, 1.0)
+        addLayer(entity, Layer.PARTICLE)
+        addScale(entity, 0.5, 0.5)
+        addSoundEffect(entity, Effect.ASPLODE)
+        addScaleTween(entity, 0.001, 0.5, -3, false, true)
+        addTint(entity, 0xFA, 0xFA, 0xD2, 255)
+        addColorTween(entity, r, m, s, g, m, s, b, m, s, a, m, s, true, true, true, true, true)
+        addResource(entity, @"$RES/images/explosion.bmp", null, false)
+        return entity
 
     /**
     *  Create Small Explosion
@@ -137,17 +137,17 @@ namespace ShmupWarz
         var m = 255.0
         var a = 255.0
         var s = 10.0
-        var e = World.instance.createEntity("explosion")
-        addPosition(e, x, y)
-        addExpires(e, 1.0)
-        addLayer(e, Layer.PARTICLE)
-        addScale(e, 1.0, 1.0)
-        addSoundEffect(e, Effect.SMALLASPLODE)
-        addScaleTween(e, 0.001, 1.0, -3, false, true)
-        addTint(e, 0xEE, 0xE8, 0xAA, 255)
-        addColorTween(e, r, m, s, g, m, s, b, m, s, a, m, s, true, true, true, true, true)
-        addResource(e, @"$RES/images/bang.bmp", null, false)
-        return e
+        var entity = World.instance.createEntity("explosion")
+        addPosition(entity, x, y)
+        addExpires(entity, 1.0)
+        addLayer(entity, Layer.PARTICLE)
+        addScale(entity, 1.0, 1.0)
+        addSoundEffect(entity, Effect.SMALLASPLODE)
+        addScaleTween(entity, 0.001, 1.0, -3, false, true)
+        addTint(entity, 0xEE, 0xE8, 0xAA, 255)
+        addColorTween(entity, r, m, s, g, m, s, b, m, s, a, m, s, true, true, true, true, true)
+        addResource(entity, @"$RES/images/bang.bmp", null, false)
+        return entity
 
     /**
     *  Create Small Enemy
@@ -155,16 +155,16 @@ namespace ShmupWarz
     def createEnemy1() : Entity
         var x = World.random.int_range(0, SCREEN_WIDTH)
         var y = SCREEN_HEIGHT/2 - 200
-        var e = World.instance.createEntity("enemy1")
-        setEnemy(e, true)
-        addBounds(e, 20)
-        addHealth(e, 10, 10)
-        addVelocity(e, 0, 40)
-        addLayer(e, Layer.ACTORS_1)
-        addPosition(e, x, y)
-        addText(e, "", null)
-        addResource(e, @"$RES/images/enemy1.bmp", null, false)
-        return e
+        var entity = World.instance.createEntity("enemy1")
+        setEnemy(entity, true)
+        addBounds(entity, 20)
+        addHealth(entity, 10, 10)
+        addVelocity(entity, 0, 40)
+        addLayer(entity, Layer.ACTORS_1)
+        addPosition(entity, x, y)
+        addText(entity, "", null)
+        addResource(entity, @"$RES/images/enemy1.bmp", null, false)
+        return entity
 
 
     /**
@@ -173,16 +173,16 @@ namespace ShmupWarz
     def createEnemy2() : Entity
         var x = World.random.int_range(0, SCREEN_WIDTH)
         var y = SCREEN_HEIGHT/2 - 100
-        var e = World.instance.createEntity("enemy2")
-        setEnemy(e, true)
-        addBounds(e, 40)
-        addHealth(e, 20, 20)
-        addVelocity(e, 0, 30)
-        addLayer(e, Layer.ACTORS_2)
-        addPosition(e, x, y)
-        addText(e, "", null)
-        addResource(e, @"$RES/images/enemy2.bmp", null, false)
-        return e
+        var entity = World.instance.createEntity("enemy2")
+        setEnemy(entity, true)
+        addBounds(entity, 40)
+        addHealth(entity, 20, 20)
+        addVelocity(entity, 0, 30)
+        addLayer(entity, Layer.ACTORS_2)
+        addPosition(entity, x, y)
+        addText(entity, "", null)
+        addResource(entity, @"$RES/images/enemy2.bmp", null, false)
+        return entity
 
 
     /**
@@ -191,16 +191,16 @@ namespace ShmupWarz
     def createEnemy3() : Entity
         var x = World.random.int_range(0, SCREEN_WIDTH)
         var y = SCREEN_HEIGHT/2 - 50
-        var e = World.instance.createEntity("enemy3")
-        setEnemy(e, true)
-        addBounds(e, 70)
-        addHealth(e, 60, 60)
-        addVelocity(e, 0, 20)
-        addLayer(e, Layer.ACTORS_3)
-        addPosition(e, x, y)
-        addText(e, "", null)
-        addResource(e, @"$RES/images/enemy3.bmp", null, false)
-        return e
+        var entity = World.instance.createEntity("enemy3")
+        setEnemy(entity, true)
+        addBounds(entity, 70)
+        addHealth(entity, 60, 60)
+        addVelocity(entity, 0, 20)
+        addLayer(entity, Layer.ACTORS_3)
+        addPosition(entity, x, y)
+        addText(entity, "", null)
+        addResource(entity, @"$RES/images/enemy3.bmp", null, false)
+        return entity
 
 
 

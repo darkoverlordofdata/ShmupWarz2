@@ -7,13 +7,7 @@
     "doc": "doc"
   },
   "scripts": {
-<<<<<<< Updated upstream
     "entitas": "entitas"
-=======
-    "entitas": "entitas",
-    "codegen": "entitas generate -p gs -t src",
-    "test": "echo \"Error: no test specified\" && exit 1"
->>>>>>> Stashed changes
   },
   "repository": {
     "type": "git",
@@ -29,10 +23,6 @@
   },
   "homepage": "https://github.com/darkoverlordofdata/ShmupWarz-AppImage#readme",
   "devDependencies": {
-<<<<<<< Updated upstream
-=======
-    "coffee-script": "^1.12.2",
->>>>>>> Stashed changes
     "entitas-cli": "^0.1.0"
   }
 }

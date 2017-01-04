@@ -9,7 +9,7 @@
     "suppressTaskName": true,
     "tasks": [
         {
-            "isBuildCommand": true,
+            "isBuildCommand",
             "taskName": "build",
             "args": ["cd install && make"]
         },
@@ -27,15 +27,7 @@
         },
         {
             "taskName": "push",
-            "args": ["bzr push lp:~darkoverlordofdata/+junk/shmupwarz"]
-        },
-        {
-            "taskName": "appimage",
-            "args": ["cp -f install/src/shmupwarz ShmupWarz.AppDir/usr/bin && ./appimagetool-x86_64.AppImage ShmupWarz.AppDir -n"]
-        },
-        {
-            "taskName": "run",
-            "args": ["./ShmupWarz-x86_64.AppImage"]
+            "args": ["bzr push lp:~darkoverlordofdata/+junk/${workspaceRootFolderName}"]
         }
     ]
 }

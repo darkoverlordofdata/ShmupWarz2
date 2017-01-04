@@ -1,7 +1,6 @@
 src/Components.gs
 src/Entities.gs
 src/Game.gs
-src/Main.gs
 src/Systems/CollisionSystem.gs
 src/Systems/ColorTweenSystem.gs
 src/Systems/DestroySystem.gs
@@ -16,4 +15,17 @@ src/Systems/RenderPositionSystem.gs
 src/Systems/ScaleTweenSystem.gs
 src/Systems/SoundEffectSystem.gs
 src/Systems/ViewManagerSystem.gs
+src/o2d/Composite.gs
+src/o2d/Image9patch.gs
+src/o2d/Label.gs
+src/o2d/Layer.gs
+src/o2d/LibraryItem.gs
+src/o2d/Overlap2D.gs
+src/o2d/Physics.gs
+src/o2d/PhysicsPropertiesVO.gs
+src/o2d/Point.gs
+src/o2d/Project.gs
+src/o2d/Resolution.gs
+src/o2d/Scene.gs
+src/o2d/Shape.gs
 src/shmupwarz.vala
