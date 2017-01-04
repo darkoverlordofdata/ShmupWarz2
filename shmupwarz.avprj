@@ -1,35 +1,36 @@
 ### AutoVala Project ###
 autovala_version: 24
 project_name: shmupwarz
-vala_version: 0.30
+*vala_version: 0.34
 
 custom: data/local/fonts share/fonts
 
-*gresource: o2d_gresource_xml data/o2d.gresource.xml
-*gresource: resources_gresource_xml data/resources.gresource.xml
+gresource: resources_gresource_xml data/resources.gresource.xml
 
 vapidir: src/vapis
 
 vala_binary: src/shmupwarz
+version: 0.0.1
 compile_options: --disable-warnings
-compile_c_options: -g
-use_gresource: o2d_gresource_xml
-use_gresource: resources_gresource_xml
+compile_c_options: -w
+*use_gresource: resources_gresource_xml
+# ensure the correct version: SDL2
+vala_check_package: SDL2_gfx
 vala_check_package: SDL2_image
 vala_check_package: SDL2_mixer
 vala_check_package: SDL2_ttf
 vala_check_package: bosco
 vala_check_package: entitas
-vala_check_package: gee-0.8
-vala_check_package: json-glib-1.0
 vala_check_package: sdl2
+*vala_check_package: gee-0.8
 *vala_check_package: gio-2.0
 *vala_check_package: glib-2.0
 *vala_check_package: gobject-2.0
-c_library: m
+*c_library: m
 *vala_source: Components.gs
 *vala_source: Entities.gs
 *vala_source: Game.gs
+*vala_source: Main.gs
 *vala_source: Systems/CollisionSystem.gs
 *vala_source: Systems/ColorTweenSystem.gs
 *vala_source: Systems/DestroySystem.gs
@@ -44,19 +45,6 @@ c_library: m
 *vala_source: Systems/ScaleTweenSystem.gs
 *vala_source: Systems/SoundEffectSystem.gs
 *vala_source: Systems/ViewManagerSystem.gs
-*vala_source: o2d/Composite.gs
-*vala_source: o2d/Image9patch.gs
-*vala_source: o2d/Label.gs
-*vala_source: o2d/Layer.gs
-*vala_source: o2d/LibraryItem.gs
-*vala_source: o2d/Overlap2D.gs
-*vala_source: o2d/Physics.gs
-*vala_source: o2d/PhysicsPropertiesVO.gs
-*vala_source: o2d/Point.gs
-*vala_source: o2d/Project.gs
-*vala_source: o2d/Resolution.gs
-*vala_source: o2d/Scene.gs
-*vala_source: o2d/Shape.gs
 *vala_source: shmupwarz.vala
 
 
@@ -65,6 +53,7 @@ c_library: m
 *translate: genie src/Components.gs
 *translate: genie src/Entities.gs
 *translate: genie src/Game.gs
+*translate: genie src/Main.gs
 *translate: genie src/Systems/CollisionSystem.gs
 *translate: genie src/Systems/ColorTweenSystem.gs
 *translate: genie src/Systems/DestroySystem.gs
@@ -79,22 +68,11 @@ c_library: m
 *translate: genie src/Systems/ScaleTweenSystem.gs
 *translate: genie src/Systems/SoundEffectSystem.gs
 *translate: genie src/Systems/ViewManagerSystem.gs
-*translate: genie src/o2d/Composite.gs
-*translate: genie src/o2d/Image9patch.gs
-*translate: genie src/o2d/Label.gs
-*translate: genie src/o2d/Layer.gs
-*translate: genie src/o2d/LibraryItem.gs
-*translate: genie src/o2d/Overlap2D.gs
-*translate: genie src/o2d/Physics.gs
-*translate: genie src/o2d/PhysicsPropertiesVO.gs
-*translate: genie src/o2d/Point.gs
-*translate: genie src/o2d/Project.gs
-*translate: genie src/o2d/Resolution.gs
-*translate: genie src/o2d/Scene.gs
-*translate: genie src/o2d/Shape.gs
 *translate: vala src/shmupwarz.vala
 
 *data: data/local
+
+*appdata: data/shmupwarz.appdata.xml
 
 *doc: doc
 

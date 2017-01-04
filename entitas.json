@@ -1,14 +1,24 @@
 {
+<<<<<<< Updated upstream
   "namespace": "shmupwarz",
   "src": "src",
   "output": {
     "systems": "Systems"
+=======
+  "namespace":"shmupwarz",
+  "src": "lib/src",
+  "output": {
+    "javascript": "web/src/shmupwarz/generatedExtensions.js",
+    "typescript": "lib/src/generatedComponents.ts",
+    "declaration": "lib/ext/shmupwarz.d.ts"
+>>>>>>> Stashed changes
   },
   "alloc": {
     "entities": 128,
     "components": 64
   },
   "components": {
+<<<<<<< Updated upstream
     "Bounds": [
       "radius:double"
     ],
@@ -142,4 +152,11 @@
     ]
   },
   "entities": {}
+=======
+  },
+  "systems": {
+  },
+  "entities": {
+  }
+>>>>>>> Stashed changes
 }

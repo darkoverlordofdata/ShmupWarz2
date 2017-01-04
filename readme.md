@@ -1,35 +1,22 @@
 # ShmupWarz
 
-Reboot. this is the master branch.
+
+Oh, Give Me Those Shmup Wars
 
 
-Desktop version references shared libraries: libbosco & libentitas
+## Instructions
+mouse or touch to move
+mouse button, touch, or press 'z' to fire
 
-resources are embeded using gresource
 
-vscode + autovala = RAD 
+## v0.0.1-alpha
+This is not a finished game - just endless waves of enemies and an endless supply of bullets.
+There are no levels, no game over, no score, no lives - that's next.
+This is to test the release process, but the code might run on flavors of ubuntu 16.04
+* development system - ElementaryOS-Loki, based on Ubuntu 16.04
+* test system - Trisquel 7.0, also based on Ubuntu 16.04
 
-## install
-```
-sudo add-apt-repository ppa:darkoverlordofdata/bosco
-sudo apt-get update
-sudo apt-get shmupwarz
-```
 
-## build
-```
-sudo apt-get install build-essential cmake valac bzr
-sudo apt-get install libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev libsdl2-net-dev  
-sudo add-apt-repository ppa:darkoverlordofdata/bosco
-sudo apt-get update
-sudo apt-get install libbosco, libentitas
-bzr branch lp:~darkoverlordofdata/+junk/shmupwarz
-cd shmupwarz
-mkdir install
-cd install
-cmake ..
-make
-sudo make install
-shmupwarz
-```
+[ShmupWarz-x86_64.AppImage download](https://github.com/darkoverlordofdata/ShmupWarz-AppImage/releases/download/v0.0.1-alpha/ShmupWarz-x86_64.AppImage) 
+
 

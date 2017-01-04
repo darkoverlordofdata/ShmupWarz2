@@ -1,5 +1,8 @@
 //using GLib.Math
 
+namespace ShmupWarz {
+
+}
 /**
 
 ### AutoVala Project ###
@@ -14,23 +17,25 @@ gresource: resources_gresource_xml data/resources.gresource.xml
 vapidir: src/vapis
 
 vala_binary: src/shmupwarz
+compile_options: --disable-warnings
 compile_c_options: -w
-use_gresource: resources_gresource_xml
-vala_check_package: Bosco
-vala_check_package: Entitas
+*use_gresource: resources_gresource_xml
 vala_check_package: SDL2_gfx
 vala_check_package: SDL2_image
 vala_check_package: SDL2_mixer
 vala_check_package: SDL2_ttf
-vala_check_package: gee-0.8
 vala_check_package: sdl2
+*vala_check_package: Bosco
+*vala_check_package: Entitas
+*vala_check_package: gee-0.8
 *vala_check_package: gio-2.0
 *vala_check_package: glib-2.0
 *vala_check_package: gobject-2.0
-c_library: m
+*c_library: m
 *vala_source: Components.gs
 *vala_source: Entities.gs
 *vala_source: Game.gs
+*vala_source: Main.gs
 *vala_source: Systems/CollisionSystem.gs
 *vala_source: Systems/ColorTweenSystem.gs
 *vala_source: Systems/DestroySystem.gs
@@ -53,6 +58,7 @@ c_library: m
 *translate: genie src/Components.gs
 *translate: genie src/Entities.gs
 *translate: genie src/Game.gs
+*translate: genie src/Main.gs
 *translate: genie src/Systems/CollisionSystem.gs
 *translate: genie src/Systems/ColorTweenSystem.gs
 *translate: genie src/Systems/DestroySystem.gs
@@ -75,8 +81,7 @@ c_library: m
 
 *desktop: data/shmupwarz.desktop
 
+*full_icon: Hicolor Applications data/icons/shmupwarz.png
+
 
  */
-namespace ShmupWarz {
-    
-}
