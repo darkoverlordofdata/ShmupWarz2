@@ -2,6 +2,7 @@
 *~
 *.AppImage
 install
+build_dir
 # Compiled source #
 ###################
 *.com

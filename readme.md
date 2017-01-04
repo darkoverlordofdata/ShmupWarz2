@@ -6,15 +6,6 @@ Reboot. this is the master branch.
 
 export overlap2d to data folder, and package with gresource.
 
-works great, but fails commit to github. 
-gresource generates a .c source file 113 mb.
-Git won't accept file larger than 100mb.
-
-113 mb of .c code.
-wow.
-
-I'll have to precompile into a seperate resource .so Then it will be more like a 10mb binary image.
-
 
 Desktop version references shared libraries: libbosco & libentitas
 
