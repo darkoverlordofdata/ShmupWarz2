@@ -12,11 +12,11 @@
 		<file>particles/pulse</file>
 		<file>particles/portalOut</file>
 		<file>particles/particles</file>
-		<file preprocess='to-pixdata'>orig/pack.png</file>
+		<file>orig/pack.png</file>
 		<file>orig/pack.atlas</file>
 		<file>orig/sprite_animations/minePack/minePack.atlas</file>
-		<file preprocess='to-pixdata'>orig/sprite_animations/minePack/minePack.png</file>
-		<file preprocess='to-pixdata'>orig/sprite_animations/explosion/explosion.png</file>
+		<file>orig/sprite_animations/minePack/minePack.png</file>
+		<file>orig/sprite_animations/explosion/explosion.png</file>
 		<file>orig/sprite_animations/explosion/explosion.atlas</file>
 		<file>freetypefonts/Arial.ttf</file>
 		<file>freetypefonts/OpenDyslexic-Regular.ttf</file>
