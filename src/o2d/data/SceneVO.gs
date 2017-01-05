@@ -19,17 +19,7 @@ namespace Overlap2D
             ambientColor = {1, 1, 1, 1}
             // verticalGuides = new list of double
             // horizontalGuides = new list of double
-            load(json)
-
-        /**
-         * deserialize properites from json
-         */
-        def load(json: Json.Object)
-            if json.has_member("sceneName")
-                sceneName = json.get_string_member("sceneName")
-                
-            if json.has_member("composite")
-                composite = new CompositeVO(json.get_object_member("composite"))
+            parseIt(this, json)
 
 
         /**

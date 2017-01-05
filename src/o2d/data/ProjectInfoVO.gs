@@ -20,7 +20,7 @@ namespace Overlap2D
             scenes = new list of SceneVO
             libraryItems = new dict of string, CompositeItemVO
             _uri = uri
-            load(json)
+            parseIt(this, json)
 
 
         /**
@@ -32,29 +32,6 @@ namespace Overlap2D
                     return resolution
             return null
 
-        /**
-         * deserialize properites from json
-         */
-        def load(json: Json.Object)
-            if json.has_member("pixelToWorld")
-                pixelToWorld = (int)json.get_int_member("pixelToWorld")
-
-            if json.has_member("originalResolution")    
-                originalResolution = new ResolutionEntryVO(json.get_object_member("originalResolution"))
-
-            var scenesJson = json.get_array_member("scenes")
-            for var sceneJson in scenesJson.get_elements() 
-                scenes.add(new SceneVO(sceneJson.get_object()))
-                
-            var itemsJson = json.get_object_member("libraryItems")
-            for var itemKey in itemsJson.get_members()
-                //print "itemKey %s", itemKey
-                var item = new CompositeItemVO(itemsJson.get_object_member(itemKey))
-                libraryItems[item.itemName] = item
-            
-            /* finish loading scenes */
-            for var scene in scenes
-                loadScene(uri, scene)
             
         /**
          * to_string with indentation

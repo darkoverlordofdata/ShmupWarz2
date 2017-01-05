@@ -25,31 +25,8 @@ namespace Overlap2D
             sImage9patchs = new list of Image9patchVO
             sLabels = new list of LabelVO
             layers = new list of LayerItemVO
-            load(json)
-
-        /**
-         * deserialize properites from json
-         */
-        def load(json: Json.Object)
-
-            /* load patch9 imahes*/
-            if json.has_member("sImage9patchs")
-                var imagesJson = json.get_array_member("sImage9patchs")
-                for var imageJson in imagesJson.get_elements() 
-                    sImage9patchs.add(new Image9patchVO(imageJson.get_object()))
-
-            /* load sprite labels */
-            if json.has_member("sLabels")
-                var labelsJson = json.get_array_member("sLabels")
-                for var labelJson in labelsJson.get_elements() 
-                    sLabels.add(new LabelVO(labelJson.get_object()))
-
-            /* load display layers */
-            if json.has_member("layers")
-                var layersJson = json.get_array_member("layers")
-                for var layerJson in layersJson.get_elements() 
-                    layers.add(new LayerItemVO(layerJson.get_object()))
-
+            parseIt(this, json)
+            
         /**
          * to_string with indentation
          */

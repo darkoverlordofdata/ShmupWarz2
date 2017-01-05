@@ -21,44 +21,8 @@ namespace Overlap2D
         prop height: double
         prop width: double
         construct(json: Json.Object)
-            load(json)
+            parseIt(this, json)
 
-        /**
-         * deserialize properites from json
-         */
-        def load(json: Json.Object)
-            if json.has_member("x")
-                x = (double)json.get_double_member("x")
-
-            if json.has_member("y")
-                y = (double)json.get_double_member("y")
-
-            if json.has_member("originX")
-                originX = (double)json.get_double_member("originX")
-
-            if json.has_member("originY")    
-                originY = (double)json.get_double_member("originY")
-
-            if json.has_member("zIndex")
-                zIndex = (int)json.get_int_member("zIndex")
-
-            if json.has_member("layerName")
-                layerName = json.get_string_member("layerName")
-
-            if json.has_member("composite")
-                composite = new CompositeVO(json.get_object_member("composite"))
-
-            if json.has_member("shape")
-                shape = new ShapeVO(json.get_object_member("shape"))
-            
-            if json.has_member("physics")
-                physics = new PhysicsBodyDataVO(json.get_object_member("physics"))
-
-            if json.has_member("height")
-                height = (double)json.get_double_member("height")
-
-            if json.has_member("width")    
-                width = (double)json.get_double_member("width")
 
         /**
          * to_string with indentation

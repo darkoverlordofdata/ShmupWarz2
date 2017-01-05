@@ -16,35 +16,8 @@ namespace Overlap2D
         prop multiline: bool
 
         construct(json: Json.Object)
-            super(json)
-            load(json)
+            parseIt(this, json)
 
-        /**
-         * deserialize properites from json
-         */
-        def load(json: Json.Object)
-            super.load(json)
-
-            if json.has_member("text")
-                text = json.get_string_member("text")
-
-            if json.has_member("style")
-                style = json.get_string_member("style")
-            
-            if json.has_member("size")
-                size = (int)json.get_int_member("size")
-
-            if json.has_member("align")    
-                align = (int)json.get_int_member("align")
-
-            if json.has_member("height")    
-                height = (double)json.get_double_member("height")
-
-            if json.has_member("width")    
-                width = (double)json.get_double_member("width")
-
-            if json.has_member("multiline")    
-                multiline = (bool)json.get_boolean_member("multiline")
 
         /**
          * to_string with indentation

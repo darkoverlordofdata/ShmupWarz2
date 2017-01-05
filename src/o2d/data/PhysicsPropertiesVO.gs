@@ -12,23 +12,8 @@ namespace Overlap2D
         prop sleepVelocity: double
         prop enabled: bool
         construct(json: Json.Object)
-            load(json)
+            parseIt(this, json)
 
-        /**
-         * deserialize properites from json
-         */
-        def load(json: Json.Object)
-            if json.has_member("gravityX")
-                gravityX = (double)json.get_double_member("gravityX")
-
-            if json.has_member("gravityY")
-                gravityY = (double)json.get_double_member("gravityY")
-
-            if json.has_member("sleepVelocity")
-                sleepVelocity = (double)json.get_double_member("sleepVelocity")
-
-            if json.has_member("enabled")
-                enabled = (bool)json.get_int_member("enabled")
 
         /**
          * to_string with indentation

@@ -16,35 +16,8 @@ namespace Overlap2D
         prop friction: double
         prop restitution: double
         construct(json: Json.Object)
-            load(json)
+            parseIt(this, json)
 
-        /**
-         * deserialize properites from json
-         */
-        def load(json: Json.Object)
-            if json.has_member("bodyType")
-                bodyType = (int)json.get_int_member("bodyType")
-
-            if json.has_member("mass")
-                mass = (double)json.get_double_member("mass")
-
-            if json.has_member("allowSleep")
-                allowSleep = (bool)json.get_boolean_member("allowSleep")
-
-            if json.has_member("awake")
-                allowSleep = (bool)json.get_boolean_member("awake")
-
-            if json.has_member("sensor")
-                allowSleep = (bool)json.get_boolean_member("sensor")
-
-            if json.has_member("density")
-                density = (double)json.get_double_member("density")
-
-            if json.has_member("friction")
-                friction = (double)json.get_double_member("friction")
-
-            if json.has_member("restitution")
-                restitution = (double)json.get_double_member("restitution")
 
 
         /**

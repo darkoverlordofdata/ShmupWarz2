@@ -13,7 +13,7 @@ namespace Overlap2D
         prop base: int
 
         construct(json: Json.Object)
-            load(json)
+            parseIt(this, json)
 
         /**
          * getMultiplier
@@ -28,19 +28,7 @@ namespace Overlap2D
 
             return mul
 
-        /**
-         * deserialize properites from json
-         */
-        def load(json: Json.Object)
-            if json.has_member("name")
-                name = json.get_string_member("name")
 
-            if json.has_member("width")
-                width = (int)json.get_int_member("width")
-
-            if json.has_member("height")
-                height = (int)json.get_int_member("height")
-        
         /**
          * to_string with indentation
          */

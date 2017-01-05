@@ -11,23 +11,8 @@ namespace Overlap2D
         prop width: double
         prop height: double
         construct(json: Json.Object)
-            super(json)
-            load(json)
+            parseIt(this, json)
 
-        /**
-         * deserialize properites from json
-         */
-        def load(json: Json.Object)
-            super.load(json)
-
-            if json.has_member("imageName")
-                imageName = json.get_string_member("imageName")
-
-            if json.has_member("height")
-                height = (double)json.get_double_member("height")
-
-            if json.has_member("width")
-                width = (double)json.get_double_member("width")
 
         /**
          * to_string with indentation

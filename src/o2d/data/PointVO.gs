@@ -10,17 +10,7 @@ namespace Overlap2D
         prop x: double
         prop y: double
         construct(json: Json.Object)
-            load(json)
-
-        /**
-         * deserialize properites from json
-         */
-        def load(json: Json.Object)
-            if json.has_member("x")
-                x = (double)json.get_double_member("x")
-
-            if json.has_member("y")
-                y = (double)json.get_double_member("y")
+            parseIt(this, json)
 
         /**
          * to_string with indentation
