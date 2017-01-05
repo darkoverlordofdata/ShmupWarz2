@@ -53,6 +53,11 @@ namespace ShmupWarz
     */
     def createPlayer() : Entity
 
+        // defined in overlap2d in project.libraryItem["player"]
+        // var o = project.libraryItem["player"]
+        // look in pack.png at rect(o.x, o.y. o.width, o.height)
+        //
+
         var entity = World.instance.createEntity("player")
         setPlayer(entity, true)
         addBounds(entity, 43)
@@ -66,12 +71,12 @@ namespace ShmupWarz
     *  Create Bullet
     */
     def createBullet(x : double, y : double) : Entity
-        var r =(double) 0xad
-        var g =(double) 0xaf
-        var b =(double) 0x2f
-        var m = 255.0
-        var a = 255.0
-        var s = 10.0
+        var r =(double) 0xad    // min red
+        var g =(double) 0xaf    // min green
+        var b =(double) 0x2f    // min blue
+        var m = 255.0           // max color
+        var s = 10.0            // speed
+        var a = 255.0           // alpha
         var entity =  World.instance.createEntity("bullet")
         setBullet(entity, true)
         addHealth(entity, 1.5, 1.5)
@@ -109,12 +114,12 @@ namespace ShmupWarz
     *  Create Explosion
     */
     def createExplosion(x: double, y: double) : Entity
-        var r =(double) 0xaa
-        var g =(double) 0xaa
-        var b =(double) 0xa2
-        var m = 255.0
-        var a = 255.0
-        var s = 10.0
+        var r = (double) 0xaa   // min red
+        var g = (double) 0xaa   // min green
+        var b = (double) 0xa2   // min blue
+        var m = 255.0           // max color
+        var s = 10.0            // speed
+        var a = 255.0           // alpha
         var entity = World.instance.createEntity("explosion")
         addPosition(entity, x, y)
         addExpires(entity, 1.0)
@@ -131,12 +136,12 @@ namespace ShmupWarz
     *  Create Small Explosion
     */
     def createBang(x: double, y: double) : Entity
-        var r =(double) 0xae
-        var g =(double) 0xa8
-        var b =(double) 0xaa
-        var m = 255.0
-        var a = 255.0
-        var s = 10.0
+        var r = (double) 0xae   // min red
+        var g = (double) 0xa8   // min green
+        var b = (double) 0xaa   // min blue
+        var m = 255.0           // max color
+        var s = 10.0            // speed
+        var a = 255.0           // alpha
         var entity = World.instance.createEntity("explosion")
         addPosition(entity, x, y)
         addExpires(entity, 1.0)

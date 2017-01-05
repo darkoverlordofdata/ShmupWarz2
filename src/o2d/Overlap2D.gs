@@ -35,14 +35,14 @@ namespace Overlap2D
     /**
      * load Overlap2D values for the project at URI/project.dt
      */
-    def load(uri: string): Project
+    def load(uri: string): ProjectInfoVO
         var stream = readStream(@"$uri/project.dt")
-        return new Project(uri, loadJson(stream))
+        return new ProjectInfoVO(uri, loadJson(stream))
 
     /**
      * load the remaining scene data from URI/scenes/<SceneName>.dt
      */
-    def private loadScene(uri: string, scene: Scene)
+    def private loadScene(uri: string, scene: SceneVO)
         var name = scene.sceneName
         var stream = readStream(@"$uri/scenes/$name.dt")
         scene.load(loadJson(stream))
@@ -50,14 +50,16 @@ namespace Overlap2D
     /**
      * read in the stream, either from file or gresource
      */
-    def private readStream(path:string) : InputStream
+    def private readStream(path: string) : InputStream
         if path.index_of("resource:///") == 0
             return GLib.resources_open_stream(path.substring(11), 0)
         else
             var project = File.new_for_path(path)
-            if !project.query_exists()
+            if project.query_exists()
+                return project.read()
+            else
                 print "o2d project file %s not found", path
-            return project.read()
+                return null
 
     /**
      * read and parse the json object from the stream
@@ -65,7 +67,7 @@ namespace Overlap2D
      * @param stream the input stream
      * @return the Json.Object
      */
-    def private loadJson(stream:InputStream): Json.Object
+    def private loadJson(stream: InputStream): Json.Object
         var st = new BufferedInputStream(stream)
         var sb = new StringBuilder()
         buffer: array of uint8 = new array of uint8[100]

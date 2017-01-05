@@ -6,26 +6,33 @@ namespace Overlap2D
     /**
      *
      */
-    class LibraryItem : Object
+    class MainItemVO : Object
         prop itemName: string
         prop tags: array of string
+        prop x: double
+        prop y: double
         prop originX: double
         prop originY: double
-        prop zIndex: double
+        prop zIndex: int
         prop layerName: string
-        prop composite: Composite?
-        prop shape: Shape?
-        prop physics: Physics?
+        prop composite: CompositeVO?
+        prop shape: ShapeVO?
+        prop physics: PhysicsBodyDataVO?
         prop height: double
         prop width: double
-        construct(name: string, json: Json.Object)
-            itemName = name
+        construct(json: Json.Object)
             load(json)
 
         /**
-         * load properites from json
+         * deserialize properites from json
          */
         def load(json: Json.Object)
+            if json.has_member("x")
+                x = (double)json.get_double_member("x")
+
+            if json.has_member("y")
+                y = (double)json.get_double_member("y")
+
             if json.has_member("originX")
                 originX = (double)json.get_double_member("originX")
 
@@ -33,19 +40,19 @@ namespace Overlap2D
                 originY = (double)json.get_double_member("originY")
 
             if json.has_member("zIndex")
-                zIndex = (double)json.get_double_member("zIndex")
+                zIndex = (int)json.get_int_member("zIndex")
 
             if json.has_member("layerName")
                 layerName = json.get_string_member("layerName")
 
             if json.has_member("composite")
-                composite = new Composite(json.get_object_member("composite"))
+                composite = new CompositeVO(json.get_object_member("composite"))
 
             if json.has_member("shape")
-                shape = new Shape(json.get_object_member("shape"))
+                shape = new ShapeVO(json.get_object_member("shape"))
             
             if json.has_member("physics")
-                physics = new Physics(json.get_object_member("physics"))
+                physics = new PhysicsBodyDataVO(json.get_object_member("physics"))
 
             if json.has_member("height")
                 height = (double)json.get_double_member("height")
@@ -57,7 +64,13 @@ namespace Overlap2D
          * to_string with indentation
          */
         def to_string(z:int=0) : string
-            return string.join("\n", "<LibraryItem> {",
+            return string.join("\n", "<MainItem> {",
+                to_string_helper(z),
+                string.join("", tab(z), "}"))
+
+
+        def to_string_helper(z:int=0) : string
+            return string.join(
                 string.join("", tab(z+1), "tags:[", string.joinv(",",tags), "]"),
                 string.join("", tab(z+1), "itemName:", itemName),
                 string.join("", tab(z+1), "height:", height.to_string()),
@@ -68,5 +81,6 @@ namespace Overlap2D
                 string.join("", tab(z+1), "layerName:", layerName),
                 string.join("", tab(z+1), "shape:", shape == null ? "{}" : shape.to_string(z+1)),
                 string.join("", tab(z+1), "physics:", physics == null ? "{}" : physics.to_string(z+1)),
-                string.join("", tab(z+1), "composite:", composite == null ? "{}" : composite.to_string(z+1)),
-                string.join("", tab(z), "}"))
+                string.join("", tab(z+1), "composite:", composite == null ? "{}" : composite.to_string(z+1))
+                )
+

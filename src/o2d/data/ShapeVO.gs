@@ -10,15 +10,15 @@ namespace Overlap2D
      * for now, not used
      */
         
-    class Shape : Object
-        prop polygons: list of ArrayList of Point
+    class ShapeVO : Object
+        prop polygons: list of ArrayList of PointVO
 
         construct(json: Json.Object)
-            polygons = new list of ArrayList of Point
+            polygons = new list of ArrayList of PointVO
             load(json)
 
         /**
-         * load properites from json
+         * deserialize properites from json
          */
         def load(json: Json.Object)
             if json.has_member("polygons")
@@ -26,10 +26,10 @@ namespace Overlap2D
                 for var poly in json.get_array_member("polygons").get_elements()
                     var point_array = poly.get_array()
                     //print "point %d", (int)point_array.get_length()
-                    var points = new ArrayList of Point
+                    var points = new ArrayList of PointVO
                     polygons.add(points)
                     for var i = 0 to (point_array.get_length()-1)
-                        points.add(new Point(point_array.get_object_element(i)))
+                        points.add(new PointVO(point_array.get_object_element(i)))
 
         /**
          * to_string with indentation

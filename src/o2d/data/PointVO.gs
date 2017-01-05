@@ -6,14 +6,14 @@ namespace Overlap2D
     /**
      *
      */
-    class Point : Object
+    class PointVO : Object
         prop x: double
         prop y: double
         construct(json: Json.Object)
             load(json)
 
         /**
-         * load properites from json
+         * deserialize properites from json
          */
         def load(json: Json.Object)
             if json.has_member("x")

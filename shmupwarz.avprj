@@ -44,19 +44,23 @@ c_library: m
 *vala_source: Systems/ScaleTweenSystem.gs
 *vala_source: Systems/SoundEffectSystem.gs
 *vala_source: Systems/ViewManagerSystem.gs
-*vala_source: o2d/Composite.gs
-*vala_source: o2d/Image9patch.gs
-*vala_source: o2d/Label.gs
-*vala_source: o2d/Layer.gs
-*vala_source: o2d/LibraryItem.gs
 *vala_source: o2d/Overlap2D.gs
-*vala_source: o2d/Physics.gs
-*vala_source: o2d/PhysicsPropertiesVO.gs
-*vala_source: o2d/Point.gs
-*vala_source: o2d/Project.gs
-*vala_source: o2d/Resolution.gs
-*vala_source: o2d/Scene.gs
-*vala_source: o2d/Shape.gs
+*vala_source: o2d/Parser.gs
+*vala_source: o2d/SceneLoader.gs
+*vala_source: o2d/data/CompositeItemVO.gs
+*vala_source: o2d/data/CompositeVO.gs
+*vala_source: o2d/data/Image9patchVO.gs
+*vala_source: o2d/data/LabelVO.gs
+*vala_source: o2d/data/LayerItemVO.gs
+*vala_source: o2d/data/MainItemVO.gs
+*vala_source: o2d/data/PhysicsBodyDataVO.gs
+*vala_source: o2d/data/PhysicsPropertiesVO.gs
+*vala_source: o2d/data/PointVO.gs
+*vala_source: o2d/data/ProjectInfoVO.gs
+*vala_source: o2d/data/ResolutionEntryVO.gs
+*vala_source: o2d/data/SceneVO.gs
+*vala_source: o2d/data/ShapeVO.gs
+*vala_source: o2d/resources/ResourceManager.gs
 *vala_source: shmupwarz.vala
 
 
@@ -79,19 +83,23 @@ c_library: m
 *translate: genie src/Systems/ScaleTweenSystem.gs
 *translate: genie src/Systems/SoundEffectSystem.gs
 *translate: genie src/Systems/ViewManagerSystem.gs
-*translate: genie src/o2d/Composite.gs
-*translate: genie src/o2d/Image9patch.gs
-*translate: genie src/o2d/Label.gs
-*translate: genie src/o2d/Layer.gs
-*translate: genie src/o2d/LibraryItem.gs
 *translate: genie src/o2d/Overlap2D.gs
-*translate: genie src/o2d/Physics.gs
-*translate: genie src/o2d/PhysicsPropertiesVO.gs
-*translate: genie src/o2d/Point.gs
-*translate: genie src/o2d/Project.gs
-*translate: genie src/o2d/Resolution.gs
-*translate: genie src/o2d/Scene.gs
-*translate: genie src/o2d/Shape.gs
+*translate: genie src/o2d/Parser.gs
+*translate: genie src/o2d/SceneLoader.gs
+*translate: genie src/o2d/data/CompositeItemVO.gs
+*translate: genie src/o2d/data/CompositeVO.gs
+*translate: genie src/o2d/data/Image9patchVO.gs
+*translate: genie src/o2d/data/LabelVO.gs
+*translate: genie src/o2d/data/LayerItemVO.gs
+*translate: genie src/o2d/data/MainItemVO.gs
+*translate: genie src/o2d/data/PhysicsBodyDataVO.gs
+*translate: genie src/o2d/data/PhysicsPropertiesVO.gs
+*translate: genie src/o2d/data/PointVO.gs
+*translate: genie src/o2d/data/ProjectInfoVO.gs
+*translate: genie src/o2d/data/ResolutionEntryVO.gs
+*translate: genie src/o2d/data/SceneVO.gs
+*translate: genie src/o2d/data/ShapeVO.gs
+*translate: genie src/o2d/resources/ResourceManager.gs
 *translate: vala src/shmupwarz.vala
 
 *data: data/local

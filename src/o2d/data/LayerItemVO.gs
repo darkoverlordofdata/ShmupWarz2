@@ -6,7 +6,7 @@ namespace Overlap2D
     /**
      *
      */
-    class Layer : Object
+    class LayerItemVO : Object
         prop layerName: string
         prop isVisible: bool
         prop isLocked: bool
@@ -14,7 +14,7 @@ namespace Overlap2D
             load(json)
 
         /**
-         * load properites from json
+         * deserialize properites from json
          */
         def load(json: Json.Object)
             if json.has_member("layerName")

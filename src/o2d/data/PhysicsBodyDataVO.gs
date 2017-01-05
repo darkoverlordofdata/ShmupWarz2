@@ -6,7 +6,7 @@ namespace Overlap2D
     /**
      *
      */
-    class Physics : Object
+    class PhysicsBodyDataVO : Object
         prop bodyType: int
         prop mass: double
         prop allowSleep: bool
@@ -19,7 +19,7 @@ namespace Overlap2D
             load(json)
 
         /**
-         * load properites from json
+         * deserialize properites from json
          */
         def load(json: Json.Object)
             if json.has_member("bodyType")
@@ -51,7 +51,7 @@ namespace Overlap2D
          * to_string with indentation
          */
         def to_string(z:int=0) : string
-            return string.join("\n", "<Physics> {",
+            return string.join("\n", "<PhysicsBody> {",
                 string.join("", tab(z+1), "bodyType:", bodyType.to_string()),
                 string.join("", tab(z+1), "mass:", mass.to_string()),
                 string.join("", tab(z+1), "allowSleep:", allowSleep.to_string()),

@@ -1,30 +1,10 @@
 # ShmupWarz
-
-Reboot. this is the master branch.
-The appimage branch is the same, but builds an appimage.
+Give Me Those Shmup Wars
 
 ## status
 
 This is not a finished game - just endless waves of enemies and an endless supply of bullets. 
 There are no levels, no game over, no score, no lives - that's next. 
-
-
-## todo
-
-wip - integrate optional overlap2d support
-
-
-## overlap2d
-
-    resource://...
-
-    project.dt
-    scenes/MenuScene.dt
-    scenes/MainScene.dt
-    scenes/OptionScene.dt
-    scenes/LeaderboardScene.dt
-    orig/pack.atlas
-    orig/pack.png
 
 
 ## install

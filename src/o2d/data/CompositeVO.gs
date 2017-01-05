@@ -6,18 +6,29 @@ namespace Overlap2D
     /**
      *
      */
-    class Composite
-        prop sImage9patchs : list of Image9patch
-        prop sLabels: list of Label
-        prop layers: list of Layer
+    class CompositeVO
+        // prop sImages: list of SimpleImageVO
+        prop sImage9patchs: list of Image9patchVO
+        // prop sTextBox: list of TextBoxVO
+        prop sLabels: list of LabelVO
+        // prop sComposites: list of CompositeItemVO
+        // prop sSelectBoxes: list of SelectBoxVO
+        // prop sParticleEffects: list of ParticleEffectVO
+        // prop sLights: list of LightVO
+        // prop sSpineAnimations: list of SpineVO
+        // prop sSpriteAnimations: list of SpriteAnimationVO
+        // prop sSpriterAnimations: list of SpriterVO
+        // prop sColorPrimitives: list of ColorPrimitiveVO
+        prop layers: list of LayerItemVO
+
         construct(json: Json.Object)
-            sImage9patchs = new list of Image9patch
-            sLabels = new list of Label
-            layers = new list of Layer
+            sImage9patchs = new list of Image9patchVO
+            sLabels = new list of LabelVO
+            layers = new list of LayerItemVO
             load(json)
 
         /**
-         * load properites from json
+         * deserialize properites from json
          */
         def load(json: Json.Object)
 
@@ -25,19 +36,19 @@ namespace Overlap2D
             if json.has_member("sImage9patchs")
                 var imagesJson = json.get_array_member("sImage9patchs")
                 for var imageJson in imagesJson.get_elements() 
-                    sImage9patchs.add(new Image9patch(imageJson.get_object()))
+                    sImage9patchs.add(new Image9patchVO(imageJson.get_object()))
 
             /* load sprite labels */
             if json.has_member("sLabels")
                 var labelsJson = json.get_array_member("sLabels")
                 for var labelJson in labelsJson.get_elements() 
-                    sLabels.add(new Label(labelJson.get_object()))
+                    sLabels.add(new LabelVO(labelJson.get_object()))
 
             /* load display layers */
             if json.has_member("layers")
                 var layersJson = json.get_array_member("layers")
                 for var layerJson in layersJson.get_elements() 
-                    layers.add(new Layer(layerJson.get_object()))
+                    layers.add(new LayerItemVO(layerJson.get_object()))
 
         /**
          * to_string with indentation

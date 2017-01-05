@@ -58,6 +58,8 @@ add_subdirectory(po)
 add_subdirectory(src/Systems)
 add_subdirectory(data)
 add_subdirectory(data/icons)
+add_subdirectory(src/o2d/resources)
 add_subdirectory(data/local/fonts)
+add_subdirectory(src/o2d/data)
 add_subdirectory(src)
 

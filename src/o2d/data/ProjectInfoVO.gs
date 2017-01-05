@@ -6,46 +6,56 @@ namespace Overlap2D
     /**
      *
      */
-    class Project : Object
-        prop pixelToWorld : double
-        prop originalResolution : Resolution
-        prop scenes: list of Scene 
-        prop libraryItems: dict of string, LibraryItem
+    class ProjectInfoVO : Object
+        prop pixelToWorld : int
+        prop originalResolution : ResolutionEntryVO
+        prop resolutions: list of ResolutionEntryVO
+        prop scenes: list of SceneVO 
+        prop libraryItems: dict of string, CompositeItemVO
         prop readonly uri: string
+
         construct(uri: string, json: Json.Object)
+
+            resolutions = new list of ResolutionEntryVO
+            scenes = new list of SceneVO
+            libraryItems = new dict of string, CompositeItemVO
             _uri = uri
             load(json)
 
+
         /**
-         * load properites from json
+         * getResolution
+         */
+        def getResolution(name: string): ResolutionEntryVO
+            for resolution in resolutions
+                if resolution.name == name
+                    return resolution
+            return null
+
+        /**
+         * deserialize properites from json
          */
         def load(json: Json.Object)
             if json.has_member("pixelToWorld")
-                pixelToWorld = (double)json.get_double_member("pixelToWorld")
+                pixelToWorld = (int)json.get_int_member("pixelToWorld")
 
             if json.has_member("originalResolution")    
-                originalResolution = new Resolution(json.get_object_member("originalResolution"))
+                originalResolution = new ResolutionEntryVO(json.get_object_member("originalResolution"))
 
             var scenesJson = json.get_array_member("scenes")
-            scenes = new list of Scene
-
             for var sceneJson in scenesJson.get_elements() 
-                scenes.add(new Scene(sceneJson.get_object()))
+                scenes.add(new SceneVO(sceneJson.get_object()))
                 
             var itemsJson = json.get_object_member("libraryItems")
-            libraryItems = new dict of string, LibraryItem
-
             for var itemKey in itemsJson.get_members()
                 //print "itemKey %s", itemKey
-                var item = new LibraryItem(itemKey, itemsJson.get_object_member(itemKey))
+                var item = new CompositeItemVO(itemsJson.get_object_member(itemKey))
                 libraryItems[item.itemName] = item
             
             /* finish loading scenes */
             for var scene in scenes
                 loadScene(uri, scene)
-
-
-
+            
         /**
          * to_string with indentation
          */

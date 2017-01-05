@@ -15,7 +15,7 @@ namespace Overlap2D
             load(json)
 
         /**
-         * load properites from json
+         * deserialize properites from json
          */
         def load(json: Json.Object)
             if json.has_member("gravityX")
