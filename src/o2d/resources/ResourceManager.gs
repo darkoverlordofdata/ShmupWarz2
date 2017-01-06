@@ -16,24 +16,54 @@ namespace Overlap2D
 
         prop readonly projectVO : ProjectInfoVO
         prop readonly loadedSceneVOs : dict of string, SceneVO
-        prop readonly preparedSceneNames : array of string
+        prop readonly preparedSceneNames : list of string
+        prop readonly uri: string
 
-        construct()
+        construct(uri: string)
+            _uri = uri
             _loadedSceneVOs = new dict of string, SceneVO
-            _preparedSceneNames = new array of string[0]
+            _preparedSceneNames = new list of string
 
+        /**
+        * Easy use loader
+        * Iterates through all scenes and schedules all for loading
+        * Prepares all the assets to be loaded that are used in scheduled scenes
+        * finally loads all the prepared assets
+        */
         def initAllResources()
-            pass
+            loadProjectVO()
+            for var scene in _projectVO.scenes
+                loadSceneVO(scene.sceneName)
+                scheduleScene(scene.sceneName)
+            //prepareAssetsToLoad()
+            //loadAssets()
+                
+        /**
+        * Schedules scene for later loading
+        * if later prepareAssetsToLoad function will be called it will only prepare assets that are used in scheduled scene
+        *
+        * @param name - scene file name without ".dt" extension
+        */
+        def scheduleScene(name: string)
+            if (name in loadedSceneVOs)
+                preparedSceneNames.add(name)
 
         def loadProjectVO(): ProjectInfoVO
-            return null
+            var stream = readStream(@"$uri/project.dt")
+            var json = loadJson(stream)
+            _projectVO = new ProjectInfoVO(json)
+            return _projectVO
 
-        def loadSceneVO(): SceneVO
-            return null
+        def loadSceneVO(sceneName: string): SceneVO
+            var stream = readStream(@"$uri/scenes/$sceneName.dt")
+            var json = loadJson(stream)
+            var sceneVO = new SceneVO(json)
+            loadedSceneVOs[sceneName] = sceneVO
+            return sceneVO
         
         def getProjectVO(): ProjectInfoVO
-            return null
+            return _projectVO
 
         def getSceneVO(name: string): SceneVO
-            return null
+            return loadedSceneVOs[name]
 

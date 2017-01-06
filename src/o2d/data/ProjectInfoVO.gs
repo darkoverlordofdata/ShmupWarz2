@@ -12,14 +12,12 @@ namespace Overlap2D
         prop resolutions: list of ResolutionEntryVO
         prop scenes: list of SceneVO 
         prop libraryItems: dict of string, CompositeItemVO
-        prop readonly uri: string
 
-        construct(uri: string, json: Json.Object)
+        construct(json: Json.Object)
 
             resolutions = new list of ResolutionEntryVO
             scenes = new list of SceneVO
             libraryItems = new dict of string, CompositeItemVO
-            _uri = uri
             parseIt(this, json)
 
 

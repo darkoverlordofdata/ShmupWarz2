@@ -10,7 +10,8 @@ namespace Overlap2D
         prop width: double
         prop height: double
         construct(json: Json.Object)
-            parseIt(this, json)
+            super(json)
+            // parseIt(this, json)
 
 
         /**

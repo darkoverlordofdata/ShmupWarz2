@@ -6,7 +6,7 @@ namespace Overlap2D
     /**
      *
      */
-    class CompositeVO
+    class CompositeVO : Object
         // prop sImages: list of SimpleImageVO
         prop sImage9patchs: list of Image9patchVO
         // prop sTextBox: list of TextBoxVO

@@ -45,9 +45,9 @@ namespace ShmupWarz
             var proc = File.new_for_path(path)
             var rootPath = proc.resolve_relative_path("../../../").get_path()
 
-            var prj = Overlap2D.load(RES)
-
-            //print prj.to_string()
+            var loader = new Overlap2D.SceneLoader(RES)
+            loader.loadScene("MenuScene") //, new Viewport(320, 480))
+            //val playButtonVo = sceneLoader.loadVoFromLibrary("playButton")
 
             name = "Shmup Warz"
             width = SCREEN_WIDTH

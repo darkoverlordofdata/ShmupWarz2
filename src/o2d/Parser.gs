@@ -1,13 +1,15 @@
 [indent=4]
 uses Gee
 namespace Overlap2D
-/**
- * Parse Values Aspect
- *
- *
- *
- */
-
+    /**
+     * Parse Values Aspect
+     *
+     * parse the json node, deserializeing to the target
+     *
+     * @param target the explicit this Object
+     * @param json the json node being parsed
+     *
+     */
     def parseIt(target: Object, json: Json.Object)
 
         if target isa CompositeItemVO do parseCompositeItemVO((CompositeItemVO)target, json)
@@ -26,13 +28,16 @@ namespace Overlap2D
             
     
     def parseCompositeItemVO(it: CompositeItemVO, json: Json.Object)
+        //print "parseCompositeItemVO"
         if json.has_member("height")
             it.height = (double)json.get_double_member("height")
+
         if json.has_member("width")
             it.width = (double)json.get_double_member("width")
             
     
     def parseCompositeVO(it: CompositeVO, json: Json.Object)    
+        //print "parseCompositeVO"
         if json.has_member("sImage9patchs")
             var imagesJson = json.get_array_member("sImage9patchs")
             for var imageJson in imagesJson.get_elements() 
@@ -49,7 +54,8 @@ namespace Overlap2D
                 it.layers.add(new LayerItemVO(layerJson.get_object()))
             
     
-    def parseImage9patchVO(it: Image9patchVO, json: Json.Object)    
+    def parseImage9patchVO(it: Image9patchVO, json: Json.Object)  
+        //print "parseImage9patchVO" 
         if json.has_member("imageName")
             it.imageName = json.get_string_member("imageName")
 
@@ -61,6 +67,7 @@ namespace Overlap2D
             
     
     def parseLabelVO(it: LabelVO, json: Json.Object)    
+        //print "parseLabelVO"
         if json.has_member("text")
             it.text = json.get_string_member("text")
 
@@ -85,17 +92,19 @@ namespace Overlap2D
             
     
     def parseLayerItemVO(it: LayerItemVO, json: Json.Object)    
+        //print "parseLayerItemVO"
         if json.has_member("layerName")
             it.layerName = json.get_string_member("layerName")
-        // is the layer visible?
+
         if json.has_member("isVisible")
             it.isLocked = (bool)json.get_boolean_member("isVisible")
-        // if the layer is locked, it cannot be changed
+
         if json.has_member("isLocked")
             it.isLocked = (bool)json.get_boolean_member("isLocked")
             
     
-    def parseMainItemVO(it: MainItemVO, json: Json.Object)    
+    def parseMainItemVO(it: MainItemVO, json: Json.Object)  
+        //print "parseMainItemVO"  
         if json.has_member("x")
             it.x = (double)json.get_double_member("x")
 
@@ -131,7 +140,8 @@ namespace Overlap2D
 
             
     
-    def parsePhysicsBodyDataVO(it: PhysicsBodyDataVO, json: Json.Object)    
+    def parsePhysicsBodyDataVO(it: PhysicsBodyDataVO, json: Json.Object)  
+        //print "parsePhysicsBodyDataVO"  
         if json.has_member("bodyType")
             it.bodyType = (int)json.get_int_member("bodyType")
 
@@ -159,6 +169,7 @@ namespace Overlap2D
             
     
     def parsePhysicsPropertiesVO(it: PhysicsPropertiesVO, json: Json.Object)    
+        //print "parsePhysicsPropertiesVO"
         if json.has_member("gravityX")
             it.gravityX = (double)json.get_double_member("gravityX")
 
@@ -180,7 +191,8 @@ namespace Overlap2D
             it.y = (double)json.get_double_member("y")
             
     
-    def parseProjectInfoVO(it: ProjectInfoVO, json: Json.Object)    
+    def parseProjectInfoVO(it: ProjectInfoVO, json: Json.Object)   
+        //print "parseProjectInfoVO" 
         if json.has_member("pixelToWorld")
             it.pixelToWorld = (int)json.get_int_member("pixelToWorld")
 
@@ -193,12 +205,12 @@ namespace Overlap2D
             
         var itemsJson = json.get_object_member("libraryItems")
         for var itemKey in itemsJson.get_members()
-            //print "itemKey %s", itemKey
             var item = new CompositeItemVO(itemsJson.get_object_member(itemKey))
             it.libraryItems[item.itemName] = item
             
     
     def parseResolutionEntryVO(it: ResolutionEntryVO, json: Json.Object)    
+        //print "parseResolutionEntryVO"
         if json.has_member("name")
             it.name = json.get_string_member("name")
 
@@ -209,7 +221,8 @@ namespace Overlap2D
             it.height = (int)json.get_int_member("height")
             
     
-    def parseSceneVO(it: SceneVO, json: Json.Object)    
+    def parseSceneVO(it: SceneVO, json: Json.Object)  
+        //print "parseSceneVO"  
         if json.has_member("sceneName")
             it.sceneName = json.get_string_member("sceneName")
             
@@ -218,11 +231,11 @@ namespace Overlap2D
             
     
     def parseShapeVO(it: ShapeVO, json: Json.Object)    
+        //print "parseShapeVO"
         if json.has_member("polygons")
-            //print "polygon"
+            ////print "polygon"
             for var poly in json.get_array_member("polygons").get_elements()
                 var point_array = poly.get_array()
-                //print "point %d", (int)point_array.get_length()
                 var points = new ArrayList of PointVO
                 it.polygons.add(points)
                 for var i = 0 to (point_array.get_length()-1)

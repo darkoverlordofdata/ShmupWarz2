@@ -16,7 +16,7 @@ namespace Overlap2D
         prop multiline: bool
 
         construct(json: Json.Object)
-            parseIt(this, json)
+            super(json)
 
 
         /**

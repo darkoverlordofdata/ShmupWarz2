@@ -6,16 +6,14 @@ namespace Overlap2D
         
         prop readonly rm: ResourceManager
         prop readonly sceneVO: SceneVO
-        prop readonly name: string
 
-        construct()
-            _rm = new ResourceManager()
+        construct(uri: string)
+            _rm = new ResourceManager(uri)
             rm.initAllResources()
-            //initSceneLoader()
 
-        def loadScene(sceneName: string)
-            _name = sceneName
+        def loadScene(sceneName: string): SceneVO
             _sceneVO = rm.getSceneVO(sceneName)
+            return _sceneVO
 
         def loadVoFromLibrary(libraryName: string) : CompositeItemVO
             var projectInfoVO = rm.getProjectVO()

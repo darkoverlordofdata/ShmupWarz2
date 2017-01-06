@@ -35,17 +35,16 @@ namespace Overlap2D
     /**
      * load Overlap2D values for the project at URI/project.dt
      */
-    def load(uri: string): ProjectInfoVO
-        var stream = readStream(@"$uri/project.dt")
-        return new ProjectInfoVO(uri, loadJson(stream))
+    // def load(uri: string): ProjectInfoVO
+    //     return new ProjectInfoVO(loadJson(readStream(@"$uri/project.dt")))
 
     /**
      * load the remaining scene data from URI/scenes/<SceneName>.dt
      */
-    def private loadScene(uri: string, scene: SceneVO)
-        var name = scene.sceneName
-        var stream = readStream(@"$uri/scenes/$name.dt")
-        scene.load(loadJson(stream))
+    // def private loadScene(uri: string, scene: SceneVO)
+    //     var name = scene.sceneName
+    //     var stream = readStream(@"$uri/scenes/$name.dt")
+        //scene.load(loadJson(stream))
 
     /**
      * read in the stream, either from file or gresource
