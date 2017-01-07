@@ -2,7 +2,7 @@
 /**
  * load overlap2d project.dt
  */
-namespace Overlap2D
+namespace Overlap2D.Data
     /**
      *
      */
@@ -16,7 +16,5 @@ namespace Overlap2D
          * to_string with indentation
          */
         def to_string(z:int=0) : string
-            return string.join("\n", "<Point> {",
-                string.join("", tab(z+1), "x:", x.to_string()),
-                string.join("", tab(z+1), "y:", y.to_string()),
-                string.join("", tab(z), "}"))
+            return toString(this, z)
+            

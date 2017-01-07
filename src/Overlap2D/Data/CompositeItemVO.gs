@@ -2,7 +2,7 @@
 /**
  * Patch9 Image
  */
-namespace Overlap2D
+namespace Overlap2D.Data
     /**
      *
      */
@@ -18,9 +18,5 @@ namespace Overlap2D
          * to_string with indentation
          */
         def to_string(z:int=0) : string
-            return string.join("\n", "<CompositeItem> {",
-                to_string_helper(z),
-                string.join("", tab(z+1), "height:", height.to_string()),
-                string.join("", tab(z+1), "width:", width.to_string()),
-                string.join("", tab(z), "}"))
+            return toString(this, z)
         

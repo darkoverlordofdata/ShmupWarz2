@@ -3,4 +3,4 @@
 
 include (Translations)
 add_translations_directory("shmupwarz")
-add_translations_catalog("shmupwarz" ../src ../src/Systems ../src/o2d ../src/o2d/data ../src/o2d/resources )
+add_translations_catalog("shmupwarz" ../src ../src/Overlap2D/Data ../src/Overlap2D ../src/Overlap2D/Resources ../src/Systems )

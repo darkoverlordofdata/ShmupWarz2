@@ -45,9 +45,11 @@ namespace ShmupWarz
             var proc = File.new_for_path(path)
             var rootPath = proc.resolve_relative_path("../../../").get_path()
 
-            var loader = new Overlap2D.SceneLoader(RES)
-            loader.loadScene("MenuScene") //, new Viewport(320, 480))
-            //val playButtonVo = sceneLoader.loadVoFromLibrary("playButton")
+            var sceneLoader = new Overlap2D.SceneLoader(RES)
+            sceneLoader.loadScene("MenuScene") //, new Viewport(320, 480))
+            var playButtonVo = sceneLoader.loadVoFromLibrary("playButton")
+
+            print "playButtonVo %s", playButtonVo.to_string()
 
             name = "Shmup Warz"
             width = SCREEN_WIDTH
@@ -57,6 +59,7 @@ namespace ShmupWarz
             var check = File.new_for_path(defaultFont)
             if !check.query_exists()
                 defaultFont = Constants.DATADIR+"/fonts/TitanOne-Regular.ttf"
+
 
         /**
         *  OnLoop

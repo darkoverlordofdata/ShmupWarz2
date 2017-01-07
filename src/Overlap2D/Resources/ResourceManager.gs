@@ -1,6 +1,7 @@
 [indent=4]
+uses Overlap2D.Data
 
-namespace Overlap2D    
+namespace Overlap2D.Resources
 
     
     class ResourceManager : Object

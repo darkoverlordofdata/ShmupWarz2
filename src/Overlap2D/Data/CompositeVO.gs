@@ -2,7 +2,7 @@
 /**
  * load overlap2d project.dt
  */
-namespace Overlap2D
+namespace Overlap2D.Data
     /**
      *
      */
@@ -31,25 +31,6 @@ namespace Overlap2D
          * to_string with indentation
          */
         def to_string(z:int=0) : string
-            var sb1 = new StringBuilder()
-            if sImage9patchs.size > 0
-                for var obj1 in sImage9patchs
-                    sb1.append(obj1.to_string(z+1))
-
-            var sb2 = new StringBuilder()
-            if sLabels.size > 0
-                for var obj2 in sLabels
-                    sb2.append(obj2.to_string(z+1))
-
-            var sb3 = new StringBuilder()
-            if layers.size > 0
-                for var obj3 in layers
-                    sb3.append(obj3.to_string(z+1))
-        
-            return string.join("\n", "<Composite> {",
-                string.join("", tab(z+1), "sImage9patchs:", sb1.str),
-                string.join("", tab(z+1), "sLabels:", sb2.str),
-                string.join("", tab(z+1), "layers:", sb3.str),
-                string.join("", tab(z), "}"))
+            return toString(this, z)
 
 

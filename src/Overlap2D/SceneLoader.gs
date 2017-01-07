@@ -1,4 +1,6 @@
 [indent=4]
+uses Overlap2D.Data
+uses Overlap2D.Resources
 
 namespace Overlap2D
 
@@ -17,5 +19,11 @@ namespace Overlap2D
 
         def loadVoFromLibrary(libraryName: string) : CompositeItemVO
             var projectInfoVO = rm.getProjectVO()
+            print projectInfoVO.to_string()
+            for var item in projectInfoVO.libraryItems.values
+                print "%f, %f, %f, %f", item.x, item.y, item.width, item.height
+            // for var n=0 to (projectInfoVO.libraryItems.size-1)
+            //     print "%d) %s", n,  projectInfoVO.libraryItems[n].itemName
+
             var compositeItemVO = projectInfoVO.libraryItems[libraryName]
             return compositeItemVO
