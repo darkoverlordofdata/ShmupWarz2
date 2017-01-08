@@ -43,6 +43,7 @@ c_library: m
 *vala_source: Overlap2D/Data/ResolutionEntryVO.gs
 *vala_source: Overlap2D/Data/SceneVO.gs
 *vala_source: Overlap2D/Data/ShapeVO.gs
+*vala_source: Overlap2D/Data/SimpleImageVO.gs
 *vala_source: Overlap2D/Overlap2D.gs
 *vala_source: Overlap2D/ParseIt.gs
 *vala_source: Overlap2D/Resources/ResourceManager.gs
@@ -83,6 +84,7 @@ c_library: m
 *translate: genie src/Overlap2D/Data/ResolutionEntryVO.gs
 *translate: genie src/Overlap2D/Data/SceneVO.gs
 *translate: genie src/Overlap2D/Data/ShapeVO.gs
+*translate: genie src/Overlap2D/Data/SimpleImageVO.gs
 *translate: genie src/Overlap2D/Overlap2D.gs
 *translate: genie src/Overlap2D/ParseIt.gs
 *translate: genie src/Overlap2D/Resources/ResourceManager.gs

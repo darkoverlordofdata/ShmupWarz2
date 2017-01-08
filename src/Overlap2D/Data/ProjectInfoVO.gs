@@ -14,7 +14,6 @@ namespace Overlap2D.Data
         prop libraryItems: dict of string, CompositeItemVO
 
         construct(json: Json.Object)
-
             resolutions = new list of ResolutionEntryVO
             scenes = new list of SceneVO
             libraryItems = new dict of string, CompositeItemVO

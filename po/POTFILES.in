@@ -14,6 +14,7 @@ src/Overlap2D/Data/ProjectInfoVO.gs
 src/Overlap2D/Data/ResolutionEntryVO.gs
 src/Overlap2D/Data/SceneVO.gs
 src/Overlap2D/Data/ShapeVO.gs
+src/Overlap2D/Data/SimpleImageVO.gs
 src/Overlap2D/Overlap2D.gs
 src/Overlap2D/ParseIt.gs
 src/Overlap2D/Resources/ResourceManager.gs

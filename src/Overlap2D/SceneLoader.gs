@@ -15,15 +15,11 @@ namespace Overlap2D
 
         def loadScene(sceneName: string): SceneVO
             _sceneVO = rm.getSceneVO(sceneName)
+            print "sceneName = %s", sceneName
+            print _sceneVO.to_string()
             return _sceneVO
 
         def loadVoFromLibrary(libraryName: string) : CompositeItemVO
             var projectInfoVO = rm.getProjectVO()
-            print projectInfoVO.to_string()
-            for var item in projectInfoVO.libraryItems.values
-                print "%f, %f, %f, %f", item.x, item.y, item.width, item.height
-            // for var n=0 to (projectInfoVO.libraryItems.size-1)
-            //     print "%d) %s", n,  projectInfoVO.libraryItems[n].itemName
-
             var compositeItemVO = projectInfoVO.libraryItems[libraryName]
             return compositeItemVO

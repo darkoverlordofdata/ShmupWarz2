@@ -53,13 +53,17 @@ namespace Overlap2D.Resources
             var stream = readStream(@"$uri/project.dt")
             var json = loadJson(stream)
             _projectVO = new ProjectInfoVO(json)
+            //print "Loaded project"
+            var str = _projectVO.to_string()
             return _projectVO
 
         def loadSceneVO(sceneName: string): SceneVO
+            print "loadSceneVO %s", @"$uri/scenes/$sceneName.dt"
             var stream = readStream(@"$uri/scenes/$sceneName.dt")
             var json = loadJson(stream)
             var sceneVO = new SceneVO(json)
             loadedSceneVOs[sceneName] = sceneVO
+            print "Loaded %s", sceneName
             return sceneVO
         
         def getProjectVO(): ProjectInfoVO

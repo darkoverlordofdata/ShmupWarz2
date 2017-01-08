@@ -49,7 +49,9 @@ namespace ShmupWarz
             sceneLoader.loadScene("MenuScene") //, new Viewport(320, 480))
             var playButtonVo = sceneLoader.loadVoFromLibrary("playButton")
 
-            print "playButtonVo %s", playButtonVo.to_string()
+            // print "playButtonVo %s", sceneLoader.rm.getProjectVO().to_string()
+
+            // print "playButtonVo %s", playButtonVo.to_string()
 
             name = "Shmup Warz"
             width = SCREEN_WIDTH

@@ -12,13 +12,13 @@ namespace Overlap2D.Data
         prop lightSystemEnabled: bool
         prop ambientColor: array of double
         prop physicsPropertiesVO: PhysicsPropertiesVO?
-        // prop verticalGuides : list of double
-        // prop horizontalGuides : list of double
+        prop verticalGuides : list of double?
+        prop horizontalGuides : list of double?
 
         construct(json: Json.Object)
             ambientColor = {1, 1, 1, 1}
-            // verticalGuides = new list of double
-            // horizontalGuides = new list of double
+            verticalGuides = new list of double?
+            horizontalGuides = new list of double?
             parseIt(this, json)
 
 

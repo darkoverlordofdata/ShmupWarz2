@@ -24,15 +24,6 @@
 namespace Overlap2D
 
     /**
-     * tab x n
-     * usage: obj.to_string(x+1)
-     */
-    def private tab(n:int):string
-        var sb = new StringBuilder()
-        for var i=1 to n do sb.append("  ")
-        return sb.str
-
-    /**
      * load Overlap2D values for the project at URI/project.dt
      */
     // def load(uri: string): ProjectInfoVO

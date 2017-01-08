@@ -7,7 +7,7 @@ namespace Overlap2D.Data
      *
      */
     class CompositeVO : Object
-        // prop sImages: list of SimpleImageVO
+        prop sImages: list of SimpleImageVO
         prop sImage9patchs: list of Image9patchVO
         // prop sTextBox: list of TextBoxVO
         prop sLabels: list of LabelVO
@@ -22,6 +22,7 @@ namespace Overlap2D.Data
         prop layers: list of LayerItemVO
 
         construct(json: Json.Object)
+            sImages = new list of SimpleImageVO
             sImage9patchs = new list of Image9patchVO
             sLabels = new list of LabelVO
             layers = new list of LayerItemVO
