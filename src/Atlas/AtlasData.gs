@@ -10,6 +10,18 @@ namespace ShmupWarz
         InvalidData
 
 
+    /**
+     * read in the stream, either from file or gresource
+     */
+    def private readStream(path: string): InputStream raises IOException
+        if path.index_of("resource:///") == 0
+            return GLib.resources_open_stream(path.substring(11), 0)
+        else
+            var project = File.new_for_path(path)
+            if project.query_exists()
+                return project.read()
+            else
+                raise new IOException.FileNotFound(path)
 
     /**
      *  load a libgdx format atlas
@@ -22,8 +34,7 @@ namespace ShmupWarz
         /**
          * @param root location of resources
          */
-        construct(root: string)
-            _root = root
+        construct()
             _textures = new HashSet of Texture
             _regions = new list of AtlasRegion
 
@@ -36,10 +47,10 @@ namespace ShmupWarz
              * @param imagesDir for the bitmap(s)
              * @param flip
              */
-            construct(packFile: File, imagesDir: File, flip: bool)
+            construct(packFile: string, imagesDir: string, flip: bool)
                 _pages = new list of Page
                 _regions = new list of Region
-                var reader = new DataInputStream(packFile.read())
+                var reader = new DataInputStream(readStream(packFile))
                 try
                     pageImage: Page = null
                     while true
@@ -48,7 +59,7 @@ namespace ShmupWarz
                         if line.strip().length == 0
                             pageImage = null
                         else if pageImage == null
-                            var file = imagesDir.get_child(line)
+                            var file = imagesDir+"/"+line
                             var width = 0
                             var height = 0
                             if readTuple(reader) == 2
@@ -116,7 +127,7 @@ namespace ShmupWarz
              * povo - one for each atlas file 
              */
             class static Page
-                prop textureFile: File
+                prop textureFile: string
                 prop texture: Texture
                 prop height: int
                 prop width: int
@@ -126,7 +137,7 @@ namespace ShmupWarz
                 prop magFilter: int
                 prop uWrap: int
                 prop vWrap: int
-                construct(handle: File, width: int, height: int, useMipMaps: bool, format: Format, minFilter: int,
+                construct(handle: string, width: int, height: int, useMipMaps: bool, format: Format, minFilter: int,
                     magFilter: int, uWrap: int, vWrap: int)
                     _textureFile = handle
                     _height = height
@@ -172,11 +183,12 @@ namespace ShmupWarz
          * @param data config to load images from
          */
         def load(data: TextureAtlasData)
+        
             texture: Texture = null
             var pageToTexture = new dict of TextureAtlasData.Page, Texture
             for page in data.pages
                 if page.texture == null
-                    texture = new Texture(page.textureFile.get_path()) //, page.format, page.useMipMaps)
+                    texture = new Texture(page.textureFile) //, page.format, page.useMipMaps)
                 else    
                     texture = page.texture
                 texture.setFilter(page.minFilter, page.magFilter)

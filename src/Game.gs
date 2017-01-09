@@ -47,15 +47,8 @@ namespace ShmupWarz
             var name = playButtonVo.composite.sImage9patchs[0].imageName
             print "%s(%d, %d, %d, %d)", name, (int)playButtonVo.x, (int)playButtonVo.y, (int)playButtonVo.width, (int)playButtonVo.height
 
-            var res = File.new_for_path("/home/bruce/Git/ShmupWarz/data/orig/")
-            var pack = File.new_for_path("/home/bruce/Git/ShmupWarz/data/orig/pack.atlas")
-
-            // var pack = File.new_for_path(@"$RES/orig/pack.atlas")
-            // var res = File.new_for_path(@"$RES/orig/")
-
-            var loader = new TextureAtlas(RES)
-            // loader.load(new TextureAtlas.TextureAtlasData("orig/pack.atlas", "orig", false))
-            loader.load(new TextureAtlas.TextureAtlasData(pack, res, false))
+            var loader = new TextureAtlas()
+            loader.load(new TextureAtlas.TextureAtlasData(@"$RES/orig/pack.atlas", @"$RES/orig", false))
             print loader.regions[0].name
 
             name = "Shmup Warz"
