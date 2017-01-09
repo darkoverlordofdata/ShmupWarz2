@@ -10,18 +10,7 @@ namespace ShmupWarz
         InvalidData
 
 
-    /**
-     * read in the stream, either from file or gresource
-     */
-    def private readStream(path: string): InputStream raises IOException
-        if path.index_of("resource:///") == 0
-            return GLib.resources_open_stream(path.substring(11), 0)
-        else
-            var project = File.new_for_path(path)
-            if project.query_exists()
-                return project.read()
-            else
-                raise new IOException.FileNotFound(path)
+
 
     /**
      *  load a libgdx format atlas
@@ -29,7 +18,6 @@ namespace ShmupWarz
     class TextureAtlas : Object
         prop readonly textures: HashSet of Texture
         prop readonly regions: list of AtlasRegion
-        prop readonly root: string
 
         /**
          * @param root location of resources
@@ -232,6 +220,17 @@ namespace ShmupWarz
             var ts = line.split(":")
             if ts.length == 0 do raise new IOException.InvalidData("invalid line %s", line)
             return ts[1].strip()
+
+        /** read in the stream, either from file or gresource */
+        def static readStream(path: string): InputStream raises IOException
+            if path.index_of("resource:///") == 0
+                return GLib.resources_open_stream(path.substring(11), 0)
+            else
+                var project = File.new_for_path(path)
+                if project.query_exists()
+                    return project.read()
+                else
+                    raise new IOException.FileNotFound(path)
 
         /** Describes the region of a packed image and provides information about the original image before it was packed. */
         class static AtlasRegion : TextureRegion
