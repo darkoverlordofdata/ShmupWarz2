@@ -20,6 +20,12 @@ namespace ShmupWarz {
                 default: assert_not_reached();
             }
         }
+
+        public bool isMipMap() {
+            return this != TextureFilter.Nearest && this != TextureFilter.Linear;
+        }
+
+
         public string to_string() {
             switch (this) {
                 case Nearest: return "Nearest";

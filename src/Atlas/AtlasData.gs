@@ -9,21 +9,36 @@ namespace ShmupWarz
         FileIsLocked
         InvalidData
 
+
+
     /**
-     *  libgdx format atlas
+     *  load a libgdx format atlas
      */
     class TextureAtlas : Object
-        prop static tuple: array of string// = new array of string[4]
-        prop textures: HashSet of Texture
-        prop regions: list of AtlasRegion
+        prop readonly textures: HashSet of Texture
+        prop readonly regions: list of AtlasRegion
+        prop readonly root: string
 
-        class static TextureAtlasData
+        /**
+         * @param root location of resources
+         */
+        construct(root: string)
+            _root = root
+            _textures = new HashSet of Texture
+            _regions = new list of AtlasRegion
+
+        class static TextureAtlasData : Object
             prop pages: list of Page
             prop regions: list of Region
+
+            /**
+             * @param packFile the atlas file
+             * @param imagesDir for the bitmap(s)
+             * @param flip
+             */
             construct(packFile: File, imagesDir: File, flip: bool)
-                pages = new list of Page
-                regions = new list of Region
-                flip = false
+                _pages = new list of Page
+                _regions = new list of Region
                 var reader = new DataInputStream(packFile.read())
                 try
                     pageImage: Page = null
@@ -39,12 +54,11 @@ namespace ShmupWarz
                             if readTuple(reader) == 2
                                 width = int.parse(tuple[0])
                                 height = int.parse(tuple[1])
-                                print "height, width = %d,%d", width, height
                                 readTuple(reader)
                             var format = Format.from(tuple[0])
                             readTuple(reader)
-                            var min = int.parse(tuple[0])
-                            var max = int.parse(tuple[1])
+                            var min = TextureFilter.from(tuple[0])
+                            var max = TextureFilter.from(tuple[1])
                             var direction = readValue(reader)
                             var repeatX = TextureWrap.ClampToEdge
                             var repeatY = TextureWrap.ClampToEdge
@@ -55,9 +69,8 @@ namespace ShmupWarz
                             else if direction == "xy"
                                 repeatX = TextureWrap.Repeat
                                 repeatY = TextureWrap.Repeat
-                            
-                            var isMipMap =  min != TextureFilter.Nearest && min != TextureFilter.Linear
-                            pageImage = new Page(file, width, height, isMipMap, format, min, max, repeatX, repeatY)
+
+                            pageImage = new Page(file, width, height, min.isMipMap(), format, min, max, repeatX, repeatY)
                             pages.add(pageImage)
                         else
                             var rotate = bool.parse(readValue(reader))
@@ -84,11 +97,11 @@ namespace ShmupWarz
                                     readTuple(reader)
 
                             region.originalWidth = int.parse(tuple[0])
-                            region.originalHeight = int.parse(tuple[0])
+                            region.originalHeight = int.parse(tuple[1])
 
                             readTuple(reader)
                             region.offsetX = int.parse(tuple[0])
-                            region.offsetY = int.parse(tuple[0])
+                            region.offsetY = int.parse(tuple[1])
 
                             region.index = int.parse(readValue(reader))
 
@@ -99,18 +112,21 @@ namespace ShmupWarz
                 except e: Error
                     print e.message
 
+            /**
+             * povo - one for each atlas file 
+             */
             class static Page
                 prop textureFile: File
                 prop texture: Texture
-                prop height: double
-                prop width: double
+                prop height: int
+                prop width: int
                 prop useMipMaps: bool
                 prop format: Format
                 prop minFilter: int
                 prop magFilter: int
                 prop uWrap: int
                 prop vWrap: int
-                construct(handle: File, width: double, height: double, useMipMaps: bool, format: Format, minFilter: int,
+                construct(handle: File, width: int, height: int, useMipMaps: bool, format: Format, minFilter: int,
                     magFilter: int, uWrap: int, vWrap: int)
                     _textureFile = handle
                     _height = height
@@ -123,12 +139,15 @@ namespace ShmupWarz
                     _vWrap = vWrap
 
 
+            /**
+             * povo - one for each region in the atlas file 
+             */
             class static Region
                 prop page: Page
                 prop index: int
                 prop name: string
-                prop offsetX: double
-                prop offsetY: double
+                prop offsetX: int
+                prop offsetY: int
                 prop originalWidth: int
                 prop originalHeight: int
                 prop rotate: bool
@@ -149,6 +168,9 @@ namespace ShmupWarz
                     _rotate = rotate
 
 
+        /**
+         * @param data config to load images from
+         */
         def load(data: TextureAtlasData)
             texture: Texture = null
             var pageToTexture = new dict of TextureAtlasData.Page, Texture
@@ -180,7 +202,8 @@ namespace ShmupWarz
                 regions.add(atlasRegion)
 
 
-
+        /** tuple used to return the parsed values */
+        prop private static tuple: array of string
 	    /** Returns the number of tuple values read (1, 2 or 4). */
         def static readTuple(reader: DataInputStream): int raises IOException
             var line = reader.read_line()
@@ -191,7 +214,7 @@ namespace ShmupWarz
                 tuple[i] = tuple[i].strip()
             return tuple.length
 
-
+        /** Returns the single value */
         def static readValue(reader: DataInputStream): string raises IOException
             var line = reader.read_line()
             var ts = line.split(":")
@@ -210,10 +233,10 @@ namespace ShmupWarz
             * packer. */
             prop name: string
 		    /** The offset from the left of the original image to the left of the packed image, after whitespace was removed for packing. */
-            prop offsetX: double
+            prop offsetX: int
             /** The offset from the bottom of the original image to the bottom of the packed image, after whitespace was removed for
             * packing. */
-            prop offsetY: double
+            prop offsetY: int
 		    /** The width of the image, after whitespace was removed for packing. */
             prop packedWidth: int
 		    /** The height of the image, after whitespace was removed for packing. */
