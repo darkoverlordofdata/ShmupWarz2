@@ -26,29 +26,15 @@ vala_check_package: sdl2
 *vala_check_package: gio-2.0
 *vala_check_package: glib-2.0
 *vala_check_package: gobject-2.0
+*vala_check_package: overlap2d
 c_library: m
+*vala_source: Atlas/AtlasData.gs
+*vala_source: Atlas/Texture.gs
+*vala_source: Atlas/TextureEnums.vala
+*vala_source: Atlas/TextureRegion.gs
 *vala_source: Components.gs
 *vala_source: Entities.gs
 *vala_source: Game.gs
-*vala_source: Overlap2D/Data/CompositeItemVO.gs
-*vala_source: Overlap2D/Data/CompositeVO.gs
-*vala_source: Overlap2D/Data/Image9patchVO.gs
-*vala_source: Overlap2D/Data/LabelVO.gs
-*vala_source: Overlap2D/Data/LayerItemVO.gs
-*vala_source: Overlap2D/Data/MainItemVO.gs
-*vala_source: Overlap2D/Data/PhysicsBodyDataVO.gs
-*vala_source: Overlap2D/Data/PhysicsPropertiesVO.gs
-*vala_source: Overlap2D/Data/PointVO.gs
-*vala_source: Overlap2D/Data/ProjectInfoVO.gs
-*vala_source: Overlap2D/Data/ResolutionEntryVO.gs
-*vala_source: Overlap2D/Data/SceneVO.gs
-*vala_source: Overlap2D/Data/ShapeVO.gs
-*vala_source: Overlap2D/Data/SimpleImageVO.gs
-*vala_source: Overlap2D/Overlap2D.gs
-*vala_source: Overlap2D/ParseIt.gs
-*vala_source: Overlap2D/Resources/ResourceManager.gs
-*vala_source: Overlap2D/SceneLoader.gs
-*vala_source: Overlap2D/ToString.gs
 *vala_source: Systems/CollisionSystem.gs
 *vala_source: Systems/ColorTweenSystem.gs
 *vala_source: Systems/DestroySystem.gs
@@ -68,28 +54,13 @@ c_library: m
 
 *po: po
 
+*translate: genie src/Atlas/AtlasData.gs
+*translate: genie src/Atlas/Texture.gs
+*translate: vala src/Atlas/TextureEnums.vala
+*translate: genie src/Atlas/TextureRegion.gs
 *translate: genie src/Components.gs
 *translate: genie src/Entities.gs
 *translate: genie src/Game.gs
-*translate: genie src/Overlap2D/Data/CompositeItemVO.gs
-*translate: genie src/Overlap2D/Data/CompositeVO.gs
-*translate: genie src/Overlap2D/Data/Image9patchVO.gs
-*translate: genie src/Overlap2D/Data/LabelVO.gs
-*translate: genie src/Overlap2D/Data/LayerItemVO.gs
-*translate: genie src/Overlap2D/Data/MainItemVO.gs
-*translate: genie src/Overlap2D/Data/PhysicsBodyDataVO.gs
-*translate: genie src/Overlap2D/Data/PhysicsPropertiesVO.gs
-*translate: genie src/Overlap2D/Data/PointVO.gs
-*translate: genie src/Overlap2D/Data/ProjectInfoVO.gs
-*translate: genie src/Overlap2D/Data/ResolutionEntryVO.gs
-*translate: genie src/Overlap2D/Data/SceneVO.gs
-*translate: genie src/Overlap2D/Data/ShapeVO.gs
-*translate: genie src/Overlap2D/Data/SimpleImageVO.gs
-*translate: genie src/Overlap2D/Overlap2D.gs
-*translate: genie src/Overlap2D/ParseIt.gs
-*translate: genie src/Overlap2D/Resources/ResourceManager.gs
-*translate: genie src/Overlap2D/SceneLoader.gs
-*translate: genie src/Overlap2D/ToString.gs
 *translate: genie src/Systems/CollisionSystem.gs
 *translate: genie src/Systems/ColorTweenSystem.gs
 *translate: genie src/Systems/DestroySystem.gs

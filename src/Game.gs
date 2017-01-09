@@ -1,10 +1,10 @@
+[indent=4]
 /**
  * Game.gs
  *
  * 
  *
  */
-[indent=4]
 uses Bosco
 uses Entitas
 uses SDL
@@ -12,10 +12,6 @@ uses SDLTTF
 uses Overlap2D
 
 
-/**
- *  args[0] = "shmupwarz"
- *  args[1] = optional base /tmp/<path> when run as AppImage
- */
 def main(args: array of string)
 
     var game = new ShmupWarz.Game()
@@ -48,10 +44,13 @@ namespace ShmupWarz
             var sceneLoader = new Overlap2D.SceneLoader(RES)
             sceneLoader.loadScene("MenuScene") //, new Viewport(320, 480))
             var playButtonVo = sceneLoader.loadVoFromLibrary("playButton")
+            var name = playButtonVo.composite.sImage9patchs[0].imageName
+            print "%s(%d, %d, %d, %d)", name, (int)playButtonVo.x, (int)playButtonVo.y, (int)playButtonVo.width, (int)playButtonVo.height
 
-            // print "playButtonVo %s", sceneLoader.rm.getProjectVO().to_string()
+            var res = File.new_for_path("/home/bruce/Git/ShmupWarz/data/orig/")
+            var pack = File.new_for_path("/home/bruce/Git/ShmupWarz/data/orig/pack.atlas")
 
-            // print "playButtonVo %s", playButtonVo.to_string()
+            var atlas = new TextureAtlas.TextureAtlasData(pack, res, false)
 
             name = "Shmup Warz"
             width = SCREEN_WIDTH
