@@ -1,7 +1,3 @@
-src/Atlas/AtlasData.gs
-src/Atlas/Texture.gs
-src/Atlas/TextureEnums.vala
-src/Atlas/TextureRegion.gs
 src/Components.gs
 src/Entities.gs
 src/Game.gs

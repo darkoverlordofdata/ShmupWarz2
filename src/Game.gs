@@ -17,6 +17,7 @@ def main(args: array of string)
     var game = new ShmupWarz.Game()
     game.Run()
 
+
 namespace ShmupWarz
 
     // Resource URI
@@ -46,10 +47,6 @@ namespace ShmupWarz
             var playButtonVo = sceneLoader.loadVoFromLibrary("playButton")
             var name = playButtonVo.composite.sImage9patchs[0].imageName
             print "%s(%d, %d, %d, %d)", name, (int)playButtonVo.x, (int)playButtonVo.y, (int)playButtonVo.width, (int)playButtonVo.height
-
-            var loader = new TextureAtlas()
-            loader.load(new TextureAtlas.TextureAtlasData(@"$RES/orig/pack.atlas", @"$RES/orig", false))
-            print loader.regions[0].name
 
             name = "Shmup Warz"
             width = SCREEN_WIDTH

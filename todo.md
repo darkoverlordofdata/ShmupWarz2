@@ -5,6 +5,15 @@
 
 The existing design work for this is done using overlap2d
 
+* &#10004; load images from overlap2d pack.atlas
+* &loz; load overlap2d library items
+* &loz; load scenes
+* &loz; load ui buttons
+* &loz; load ut 9patch
+
+
+
+
     project.dt
     scenes/MenuScene.dt
     scenes/MainScene.dt

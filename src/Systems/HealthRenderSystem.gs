@@ -14,7 +14,6 @@ namespace ShmupWarz
         _world : World
         _group : Group
 
-
         construct(game : Game)
             _game = game
 

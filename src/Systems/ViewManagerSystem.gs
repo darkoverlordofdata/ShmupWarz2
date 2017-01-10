@@ -9,14 +9,17 @@ namespace ShmupWarz
     class ViewManagerSystem : Object implements ISystem, IInitializeSystem, ISetWorld
 
         _renderer : unowned Video.Renderer
+        _window : unowned Video.Window
         _sprites : GenericArray of Sprite
         _group : Group
         _world : World
         _game : Game
+        _atlas: Bosco.TextureAtlas
 
         construct(game : Game)
             _game = game
             _renderer = _game.renderer
+            _window = _game.window
 
         def setWorld(world : World)
             _world = world
@@ -30,19 +33,31 @@ namespace ShmupWarz
             _group.onEntityAdded.add(onEntityAdded)
             _game.sprites = new GenericArray of Sprite
             _sprites = _game.sprites
+            // load the overlap2d atlas
+            _atlas = new Bosco.TextureAtlas()
+            _atlas.load(new Bosco.TextureAtlas.TextureAtlasData(@"$RES/orig/pack.atlas", @"$RES/orig", false))
+            // for var region in _atlas.regions
+            //     print region.name
+
 
 
         /**
         *  OnEntityAdded event:
         */
         def onEntityAdded(g : Group, e : Entity, ix : int, c : IComponent)
-
             scale : ScaleComponent
             layer : LayerComponent
             ordinal : int = 0
 
             var res = (ResourceComponent)c
-            res.sprite = Sprite.fromFile(_renderer, res.path)
+
+            if res.path.index_of("/") == 0 || res.path.index_of("resource://") == 0
+                // simple file
+                res.sprite = Sprite.fromFile(_game.renderer, res.path)
+            else
+                // get from atlas
+                res.sprite = Sprite.fromAtlas(_renderer, _window, _atlas, res.path)
+
             var sprite = (Sprite)res.sprite
             if sprite == null
                 print "Failed to load %s", res.path

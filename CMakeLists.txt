@@ -54,7 +54,6 @@ if ( NOT WHERE_GRESOURCE )
 endif()
 
 add_subdirectory(src/vapis)
-add_subdirectory(src/Atlas)
 add_subdirectory(po)
 add_subdirectory(src/Systems)
 add_subdirectory(data)

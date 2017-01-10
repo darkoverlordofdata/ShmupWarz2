@@ -45,7 +45,7 @@ namespace ShmupWarz
         var entity = World.instance.createEntity("background")
         addPosition(entity, 0, 0)
         addScale(entity, 2, 1)
-        addResource(entity, @"$RES/images/background.bmp", null, true)
+        addResource(entity, "BackdropBlackLittleSparkBlack", null, true)
         return entity
 
     /**
@@ -65,7 +65,7 @@ namespace ShmupWarz
         addVelocity(entity, 0, 0)
         addLayer(entity, Layer.PLAYER)
         addPosition(entity, SCREEN_WIDTH/2, SCREEN_HEIGHT-80)
-        addResource(entity, @"$RES/images/fighter.bmp", null, false)
+        addResource(entity, "spaceshipspr", null, false)
         return entity
     /**
     *  Create Bullet
@@ -87,7 +87,7 @@ namespace ShmupWarz
         addBounds(entity, 5)
         addExpires(entity, 1)
         addLayer(entity, Layer.BULLET)
-        addResource(entity, @"$RES/images/bullet.bmp", null, false)
+        addResource(entity, "bullet", null, false)
         addSoundEffect(entity, Effect.PEW)
         return entity
 
@@ -107,7 +107,7 @@ namespace ShmupWarz
         addLayer(entity, Layer.PARTICLE)
         addScale(entity, scale, scale)
         addTint(entity, 0xFA, 0xFA, 0xD2, 255)
-        addResource(entity, @"$RES/images/star.bmp", null, false)
+        addResource(entity, "star", null, false)
         return entity
 
     /**
@@ -129,7 +129,7 @@ namespace ShmupWarz
         addScaleTween(entity, 0.001, 0.5, -3, false, true)
         addTint(entity, 0xFA, 0xFA, 0xD2, 255)
         addColorTween(entity, r, m, s, g, m, s, b, m, s, a, m, s, true, true, true, true, true)
-        addResource(entity, @"$RES/images/explosion.bmp", null, false)
+        addResource(entity, "explosion", null, false)
         return entity
 
     /**
@@ -151,7 +151,7 @@ namespace ShmupWarz
         addScaleTween(entity, 0.001, 1.0, -3, false, true)
         addTint(entity, 0xEE, 0xE8, 0xAA, 255)
         addColorTween(entity, r, m, s, g, m, s, b, m, s, a, m, s, true, true, true, true, true)
-        addResource(entity, @"$RES/images/bang.bmp", null, false)
+        addResource(entity, "bang", null, false)
         return entity
 
     /**
@@ -168,7 +168,7 @@ namespace ShmupWarz
         addLayer(entity, Layer.ACTORS_1)
         addPosition(entity, x, y)
         addText(entity, "", null)
-        addResource(entity, @"$RES/images/enemy1.bmp", null, false)
+        addResource(entity, "enemy1", null, false)
         return entity
 
 
@@ -186,7 +186,7 @@ namespace ShmupWarz
         addLayer(entity, Layer.ACTORS_2)
         addPosition(entity, x, y)
         addText(entity, "", null)
-        addResource(entity, @"$RES/images/enemy2.bmp", null, false)
+        addResource(entity, "enemy2", null, false)
         return entity
 
 
@@ -204,7 +204,7 @@ namespace ShmupWarz
         addLayer(entity, Layer.ACTORS_3)
         addPosition(entity, x, y)
         addText(entity, "", null)
-        addResource(entity, @"$RES/images/enemy3.bmp", null, false)
+        addResource(entity, "enemy3", null, false)
         return entity
 
 

@@ -1848,7 +1848,6 @@ namespace SDL {
 		 Video.Surface dst, Video.Rect? dstrect);
 
 		[CCode (type_id = "SDL_Surface", cname = "SDL_Surface", ref_function = "SDL_Surface_up", unref_function = "SDL_FreeSurface", cheader_filename = "SDL2/SDL_surface.h")]
-		[Compact]
 		public class Surface {
 			public uint32 flags;
 			public Video.PixelFormat format;
