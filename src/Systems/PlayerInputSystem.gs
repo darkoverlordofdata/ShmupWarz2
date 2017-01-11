@@ -9,13 +9,13 @@ namespace ShmupWarz
     class PlayerInputSystem : Object implements ISystem, ISetWorld, IInitializeSystem, IExecuteSystem
         _group : Group
         _world : World
-        _game : Game
+        _game : Shmup
         _mouseDown : bool
         _mouseDefined : bool = false
         _timeToFire : double = 0
         FireRate : static double = 0.1
 
-        construct(game : Game)
+        construct(game : Shmup)
             _game = game
 
         /**

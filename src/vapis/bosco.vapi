@@ -210,11 +210,11 @@ namespace Bosco {
 		public int x;
 		public int y;
 		public Sprite ();
-		public static Bosco.Sprite? fromAtlas (SDL.Video.Renderer renderer, SDL.Video.Window window, Bosco.TextureAtlas atlas, string name);
+		public static Bosco.Sprite? fromAtlas (SDL.Video.Renderer renderer, Bosco.TextureAtlas atlas, string name);
 		public static Bosco.Sprite? fromFile (SDL.Video.Renderer renderer, string path);
 		public static Bosco.Sprite? fromRenderedText (SDL.Video.Renderer renderer, Bosco.Font font, string text, SDL.Video.Color color);
 		public void render (SDL.Video.Renderer renderer, int x, int y, SDL.Video.Rect? clip = null);
-		public void setText (SDL.Video.Renderer renderer, SDLTTF.Font font, string text, SDL.Video.Color color);
+		public void setText (SDL.Video.Renderer renderer, Bosco.Font font, string text, SDL.Video.Color color);
 	}
 	[CCode (cheader_filename = "bosco.h")]
 	public class Texture : GLib.Object {

@@ -8,11 +8,11 @@ namespace ShmupWarz
 
     class CollisionSystem : Object implements ISystem, ISetWorld, IInitializeSystem, IExecuteSystem
         _world : World
-        _game : Game
+        _game : Shmup
         _bullets : Group
         _enemies : Group
 
-        construct(game : Game)
+        construct(game : Shmup)
             _game = game
 
         def setWorld(world : World)

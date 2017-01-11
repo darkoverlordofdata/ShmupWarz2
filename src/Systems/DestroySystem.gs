@@ -8,10 +8,10 @@ namespace ShmupWarz
     class DestroySystem : Object implements ISystem, ISetWorld, IInitializeSystem, IExecuteSystem
         _world : World
         _group : Group
-        _game : Game
+        _game : Shmup
         _sprites : GenericArray of Sprite
 
-        construct(game : Game)
+        construct(game : Shmup)
             _game = game
 
         def setWorld(world : World)

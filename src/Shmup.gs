@@ -13,13 +13,11 @@ uses Overlap2D
 
 
 def main(args: array of string)
-
-    var game = new ShmupWarz.Game()
+    var game = new ShmupWarz.Shmup()
     game.Run()
 
 
 namespace ShmupWarz
-
     // Resource URI
     const RES : string = "resource:///darkoverlordofdata/shmupwarz"
     const SCREEN_WIDTH:int = 800
@@ -28,7 +26,7 @@ namespace ShmupWarz
     /** 
     * Start the application
     */
-    class Game : AbstractGame
+    class Shmup : AbstractGame
 
         world : World
         player : PlayerInputSystem

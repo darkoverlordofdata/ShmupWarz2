@@ -8,9 +8,9 @@ namespace ShmupWarz
     class MovementSystem : Object implements ISystem, ISetWorld, IInitializeSystem, IExecuteSystem
         _world : World
         _group : Group
-        _game : Game
+        _game : Shmup
 
-        construct(game : Game)
+        construct(game : Shmup)
             _game = game
 
         def setWorld(world : World)

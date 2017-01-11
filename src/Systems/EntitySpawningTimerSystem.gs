@@ -6,13 +6,13 @@ uses
 namespace ShmupWarz
 
     class EntitySpawningTimerSystem : Object implements ISystem, ISetWorld, IInitializeSystem, IExecuteSystem
-        _game : Game
+        _game : Shmup
         _world : World
         _timer1 : double
         _timer2 : double
         _timer3 : double
 
-        construct(game : Game)
+        construct(game : Shmup)
             _game = game
 
         def setWorld(world : World)

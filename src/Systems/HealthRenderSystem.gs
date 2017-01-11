@@ -10,11 +10,11 @@ namespace ShmupWarz
 
     class HealthRenderSystem : Object implements  ISetWorld,  IExecuteSystem,  IInitializeSystem, ISystem
 
-        _game : Game
+        _game : Shmup
         _world : World
         _group : Group
 
-        construct(game : Game)
+        construct(game : Shmup)
             _game = game
 
         def setWorld(world: World)

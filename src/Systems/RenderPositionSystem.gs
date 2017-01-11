@@ -9,10 +9,10 @@ namespace ShmupWarz
     class RenderPositionSystem : Object implements ISystem, ISetWorld, IInitializeSystem, IExecuteSystem
         _renderer : unowned Video.Renderer
         _group: Group
-        _game : Game
+        _game : Shmup
         _sprites : GenericArray of Sprite
 
-        construct(game : Game)
+        construct(game : Shmup)
             _game = game
             _renderer = _game.renderer
 

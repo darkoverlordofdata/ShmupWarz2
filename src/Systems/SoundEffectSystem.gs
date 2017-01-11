@@ -9,12 +9,12 @@ namespace ShmupWarz
 
     class SoundEffectSystem : Object implements ISystem, ISetWorld, IInitializeSystem, IExecuteSystem
         _group: Group
-        _game : Game
+        _game : Shmup
         _pew : Sound
         _asplode : Sound
         _smallasplode : Sound
 
-        construct(game : Game)
+        construct(game : Shmup)
             _game = game
 
         def setWorld(world:World)
