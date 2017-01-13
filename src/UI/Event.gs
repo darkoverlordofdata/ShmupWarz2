@@ -9,8 +9,8 @@ uses Bosco
 
 namespace Bosco.UI
 
-    interface EventListener
-        def abstract handle(event: Event)
+    interface EventListener : Object
+        def abstract handle(event: Event): bool
 
     class Event: Object implements Poolable
         stage: private Stage
@@ -25,7 +25,7 @@ namespace Bosco.UI
         def handle()
             handled = true
 
-        def cencel()
+        def cancel()
             cancelled = true
             stopped = true
             handled = true
@@ -50,13 +50,13 @@ namespace Bosco.UI
         def setTarget(targetActor:Actor)
             this.targetActor = targetActor
 
-        def getListenerActor()
+        def getListenerActor(): Actor
             return listenerActor
 
         def setListenerActor(listenerActor:Actor)
             this.listenerActor = listenerActor
 
-        def getBubbles()
+        def getBubbles(): bool
             return bubbles
 
         def setBubbles(bubbles: bool)

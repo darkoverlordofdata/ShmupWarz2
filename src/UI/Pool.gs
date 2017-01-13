@@ -29,7 +29,7 @@ namespace Bosco.UI
         def obtain(): T
             return freeObjects.get_length() == 0 ? newObject() : freeObjects.pop_head()
     
-        def free(object: T)
+        def free(object: Object)
             if object == null do raise new Exception.IllegalArgumentException("object cannot be null.")
             if freeObjects.get_length() < max
                 freeObjects.push_head(object)

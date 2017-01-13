@@ -30,23 +30,14 @@ vala_check_package: sdl2
 c_library: m
 *vala_source: Components.gs
 *vala_source: Entities.gs
-*vala_source: Game/Actor.gs
-*vala_source: Game/ApplicationListener.gs
-*vala_source: Game/CompositeActor.gs
-*vala_source: Game/Event.gs
-*vala_source: Game/Game.gs
 *vala_source: Game/GameScene.gs
-*vala_source: Game/Group.gs
-*vala_source: Game/InputAdapter.gs
-*vala_source: Game/InputProcessor.gs
 *vala_source: Game/MenuScene.gs
 *vala_source: Game/MenuUI.gs
 *vala_source: Game/OptionUI.gs
-*vala_source: Game/Pool.gs
 *vala_source: Game/ScoreUI.gs
-*vala_source: Game/Screen.gs
 *vala_source: Game/ShmupWarzGame.gs
-*vala_source: Game/Stage.gs
+*vala_source: Math/Rectangle.gs
+*vala_source: Math/Vector2.gs
 *vala_source: Shmup.gs
 *vala_source: Systems/CollisionSystem.gs
 *vala_source: Systems/ColorTweenSystem.gs
@@ -62,6 +53,25 @@ c_library: m
 *vala_source: Systems/ScaleTweenSystem.gs
 *vala_source: Systems/SoundEffectSystem.gs
 *vala_source: Systems/ViewManagerSystem.gs
+*vala_source: UI/Action.gs
+*vala_source: UI/Actor.gs
+*vala_source: UI/ApplicationListener.gs
+*vala_source: UI/Batch.gs
+*vala_source: UI/ClickListener.gs
+*vala_source: UI/Event.gs
+*vala_source: UI/FocusEvent.gs
+*vala_source: UI/Game.gs
+*vala_source: UI/Group.gs
+*vala_source: UI/InputAdapter.gs
+*vala_source: UI/InputEvent.gs
+*vala_source: UI/InputListener.gs
+*vala_source: UI/InputProcessor.gs
+*vala_source: UI/Pool.gs
+*vala_source: UI/Pools.gs
+*vala_source: UI/Screen.gs
+*vala_source: UI/Stage.gs
+*vala_source: UI/Viewport.gs
+*vala_source: o2d/CompositeActor.gs
 *vala_source: shmupwarz.vala
 
 
@@ -69,23 +79,14 @@ c_library: m
 
 *translate: genie src/Components.gs
 *translate: genie src/Entities.gs
-*translate: genie src/Game/Actor.gs
-*translate: genie src/Game/ApplicationListener.gs
-*translate: genie src/Game/CompositeActor.gs
-*translate: genie src/Game/Event.gs
-*translate: genie src/Game/Game.gs
 *translate: genie src/Game/GameScene.gs
-*translate: genie src/Game/Group.gs
-*translate: genie src/Game/InputAdapter.gs
-*translate: genie src/Game/InputProcessor.gs
 *translate: genie src/Game/MenuScene.gs
 *translate: genie src/Game/MenuUI.gs
 *translate: genie src/Game/OptionUI.gs
-*translate: genie src/Game/Pool.gs
 *translate: genie src/Game/ScoreUI.gs
-*translate: genie src/Game/Screen.gs
 *translate: genie src/Game/ShmupWarzGame.gs
-*translate: genie src/Game/Stage.gs
+*translate: genie src/Math/Rectangle.gs
+*translate: genie src/Math/Vector2.gs
 *translate: genie src/Shmup.gs
 *translate: genie src/Systems/CollisionSystem.gs
 *translate: genie src/Systems/ColorTweenSystem.gs
@@ -101,6 +102,25 @@ c_library: m
 *translate: genie src/Systems/ScaleTweenSystem.gs
 *translate: genie src/Systems/SoundEffectSystem.gs
 *translate: genie src/Systems/ViewManagerSystem.gs
+*translate: genie src/UI/Action.gs
+*translate: genie src/UI/Actor.gs
+*translate: genie src/UI/ApplicationListener.gs
+*translate: genie src/UI/Batch.gs
+*translate: genie src/UI/ClickListener.gs
+*translate: genie src/UI/Event.gs
+*translate: genie src/UI/FocusEvent.gs
+*translate: genie src/UI/Game.gs
+*translate: genie src/UI/Group.gs
+*translate: genie src/UI/InputAdapter.gs
+*translate: genie src/UI/InputEvent.gs
+*translate: genie src/UI/InputListener.gs
+*translate: genie src/UI/InputProcessor.gs
+*translate: genie src/UI/Pool.gs
+*translate: genie src/UI/Pools.gs
+*translate: genie src/UI/Screen.gs
+*translate: genie src/UI/Stage.gs
+*translate: genie src/UI/Viewport.gs
+*translate: genie src/o2d/CompositeActor.gs
 *translate: vala src/shmupwarz.vala
 
 *data: data/local

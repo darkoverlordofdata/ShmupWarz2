@@ -7,9 +7,6 @@
  */
 namespace Bosco.UI
 
-    /** An adapter class for {@link InputProcessor}. You can derive from this and only override what you are interested in.
-     * 
-     * @author mzechner */
     class InputAdapter : Object implements InputProcessor
 
         def keyDown(keycode: int): bool

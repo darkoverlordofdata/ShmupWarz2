@@ -3,6 +3,7 @@ uses
     Bosco
     Entitas
     GLib
+    GLib.Math
 
 namespace ShmupWarz
 
