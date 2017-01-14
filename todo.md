@@ -12,7 +12,10 @@ Bosco can now load sprites from pack.atlas:
 * &loz; load ui buttons
 * &loz; load ut 9patch
 
+There is so much functinality in libgdx...
 
+I need a liteweight version of libgdx in vala -
+libsdx  - uses SDL, not OpenGL - 2d only
 
 
     project.dt

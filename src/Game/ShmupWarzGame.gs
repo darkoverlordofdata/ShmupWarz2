@@ -6,7 +6,8 @@
  *
  */
 uses Overlap2D
-uses Bosco.UI
+uses sdx
+uses sdx.scenes.scene2d
 
 namespace ShmupWarz
 
