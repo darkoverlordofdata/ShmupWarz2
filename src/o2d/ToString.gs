@@ -172,6 +172,7 @@ namespace o2d
          *  MainItemVO
          *
          * uniqueId: int
+         * itemIdentifier: string
          * itemName: string
          * tags: array of string
          * x: double
@@ -190,15 +191,20 @@ namespace o2d
         def static MainItemVO(it: MainItemVO, z:int=0): string
             //print "to_string: MainItemVO"uniqueId
             return string.join("\n", 
-                string.join("", tab(z+2), "tags:[", string.joinv(",",it.tags), "]"),
+                string.join("", tab(z+2), "tags:[", string.joinv(",",it.tags.to_array()), "]"),
                 string.join("", tab(z+2), "uniqueId:", it.uniqueId.to_string()),
+                string.join("", tab(z+2), "itemIdentifier:", it.itemIdentifier),
                 string.join("", tab(z+2), "itemName:", it.itemName),
+                string.join("", tab(z+2), "scaleX:", it.scaleX.to_string()),
+                string.join("", tab(z+2), "scaleY:", it.scaleY.to_string()),
                 string.join("", tab(z+2), "x:", it.x.to_string()),
                 string.join("", tab(z+2), "y:", it.y.to_string()),
                 string.join("", tab(z+2), "originX:", it.originX.to_string()),
                 string.join("", tab(z+2), "originY:", it.originY.to_string()),
+                string.join("", tab(z+2), "rotation:", it.rotation.to_string()),
                 string.join("", tab(z+2), "zIndex:", it.zIndex.to_string()),
                 string.join("", tab(z+2), "layerName:", it.layerName),
+                string.join("", tab(z+2), "tint: "+ double_array_to_string(it.tint)),
                 string.join("", tab(z+2), "shape:", it.shape == null ? "{}" : "\n"+it.shape.to_string(z+1)),
                 string.join("", tab(z+2), "physics:", it.physics == null ? "{}" : "\n"+it.physics.to_string(z+1)),
                 string.join("", tab(z+2), "composite:", it.composite == null ? "{}" : "\n"+it.composite.to_string(z+1))

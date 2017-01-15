@@ -16,4 +16,7 @@ namespace sdx.graphics.s2d
 
         prop sprites: GenericArray
 
+        def setColor(r: double, g: double, b: double, a: double)
+            pass
+
         

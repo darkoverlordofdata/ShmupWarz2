@@ -77,13 +77,15 @@ c_library: m
 *vala_source: o2d/scene2d/CompositeActor.gs
 *vala_source: o2d/utils/CustomVariables.gs
 *vala_source: sdx/ApplicationListener.gs
-*vala_source: sdx/Batch.gs
 *vala_source: sdx/Exceptions.gs
 *vala_source: sdx/Game.gs
 *vala_source: sdx/InputAdapter.gs
 *vala_source: sdx/InputProcessor.gs
 *vala_source: sdx/Screen.gs
+*vala_source: sdx/graphics/Color.gs
 *vala_source: sdx/graphics/Texture.gs
+*vala_source: sdx/graphics/s2d/Batch.gs
+*vala_source: sdx/graphics/s2d/NinePatch.gs
 *vala_source: sdx/graphics/s2d/TextureAtlas.gs
 *vala_source: sdx/graphics/s2d/TextureEnums.vala
 *vala_source: sdx/graphics/s2d/TextureRegion.gs
@@ -97,11 +99,19 @@ c_library: m
 *vala_source: sdx/scenes/scene2d/InputListener.gs
 *vala_source: sdx/scenes/scene2d/Stage.gs
 *vala_source: sdx/scenes/scene2d/ui/Image.gs
+*vala_source: sdx/scenes/scene2d/ui/Label.gs
+*vala_source: sdx/scenes/scene2d/ui/Scaling.vala
 *vala_source: sdx/scenes/scene2d/ui/Widget.gs
+*vala_source: sdx/scenes/scene2d/utils/BaseDrawable.gs
 *vala_source: sdx/scenes/scene2d/utils/ClickListener.gs
+*vala_source: sdx/scenes/scene2d/utils/Drawable.gs
 *vala_source: sdx/scenes/scene2d/utils/FocusEvent.gs
 *vala_source: sdx/scenes/scene2d/utils/FocusListener.gs
 *vala_source: sdx/scenes/scene2d/utils/Layout.gs
+*vala_source: sdx/scenes/scene2d/utils/NinePatchDrawable.gs
+*vala_source: sdx/scenes/scene2d/utils/TextureRegionDrawable.gs
+*vala_source: sdx/scenes/scene2d/utils/TransformDrawable.gs
+*vala_source: sdx/utils/Align.gs
 *vala_source: sdx/utils/Pool.gs
 *vala_source: sdx/utils/Pools.gs
 *vala_source: sdx/utils/viewport/Viewport.gs
@@ -159,13 +169,15 @@ c_library: m
 *translate: genie src/o2d/scene2d/CompositeActor.gs
 *translate: genie src/o2d/utils/CustomVariables.gs
 *translate: genie src/sdx/ApplicationListener.gs
-*translate: genie src/sdx/Batch.gs
 *translate: genie src/sdx/Exceptions.gs
 *translate: genie src/sdx/Game.gs
 *translate: genie src/sdx/InputAdapter.gs
 *translate: genie src/sdx/InputProcessor.gs
 *translate: genie src/sdx/Screen.gs
+*translate: genie src/sdx/graphics/Color.gs
 *translate: genie src/sdx/graphics/Texture.gs
+*translate: genie src/sdx/graphics/s2d/Batch.gs
+*translate: genie src/sdx/graphics/s2d/NinePatch.gs
 *translate: genie src/sdx/graphics/s2d/TextureAtlas.gs
 *translate: vala src/sdx/graphics/s2d/TextureEnums.vala
 *translate: genie src/sdx/graphics/s2d/TextureRegion.gs
@@ -179,11 +191,19 @@ c_library: m
 *translate: genie src/sdx/scenes/scene2d/InputListener.gs
 *translate: genie src/sdx/scenes/scene2d/Stage.gs
 *translate: genie src/sdx/scenes/scene2d/ui/Image.gs
+*translate: genie src/sdx/scenes/scene2d/ui/Label.gs
+*translate: vala src/sdx/scenes/scene2d/ui/Scaling.vala
 *translate: genie src/sdx/scenes/scene2d/ui/Widget.gs
+*translate: genie src/sdx/scenes/scene2d/utils/BaseDrawable.gs
 *translate: genie src/sdx/scenes/scene2d/utils/ClickListener.gs
+*translate: genie src/sdx/scenes/scene2d/utils/Drawable.gs
 *translate: genie src/sdx/scenes/scene2d/utils/FocusEvent.gs
 *translate: genie src/sdx/scenes/scene2d/utils/FocusListener.gs
 *translate: genie src/sdx/scenes/scene2d/utils/Layout.gs
+*translate: genie src/sdx/scenes/scene2d/utils/NinePatchDrawable.gs
+*translate: genie src/sdx/scenes/scene2d/utils/TextureRegionDrawable.gs
+*translate: genie src/sdx/scenes/scene2d/utils/TransformDrawable.gs
+*translate: genie src/sdx/utils/Align.gs
 *translate: genie src/sdx/utils/Pool.gs
 *translate: genie src/sdx/utils/Pools.gs
 *translate: genie src/sdx/utils/viewport/Viewport.gs

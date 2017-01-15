@@ -11,7 +11,7 @@ namespace o2d.data
         prop sImage9patchs: list of Image9patchVO
         // prop sTextBox: list of TextBoxVO
         prop sLabels: list of LabelVO
-        // prop sComposites: list of CompositeItemVO
+        prop sComposites: list of CompositeItemVO
         // prop sSelectBoxes: list of SelectBoxVO
         // prop sParticleEffects: list of ParticleEffectVO
         // prop sLights: list of LightVO
@@ -25,6 +25,7 @@ namespace o2d.data
             sImages = new list of SimpleImageVO
             sImage9patchs = new list of Image9patchVO
             sLabels = new list of LabelVO
+            sComposites = new list of CompositeItemVO
             layers = new list of LayerItemVO
             parseIt(this, json)
             

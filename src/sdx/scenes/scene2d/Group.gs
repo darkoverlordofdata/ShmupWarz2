@@ -19,7 +19,7 @@ namespace sdx.scenes.scene2d
 
     class Group : Actor implements Cullable
 
-        prop children: ArrayList of Actor = new ArrayList of Actor 
+        prop children: list of Actor = new list of Actor 
 
         prop stage: Stage
             get

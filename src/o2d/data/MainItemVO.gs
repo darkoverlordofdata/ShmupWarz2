@@ -8,14 +8,20 @@ namespace o2d.data
      */
     class abstract MainItemVO : Object
         prop uniqueId: int
+        prop itemIdentifier: string
         prop itemName: string
-        prop tags: array of string
+        prop tags: list of string
+        prop customVars: string
         prop x: double
         prop y: double
+        prop scaleX: double = 1.0f
+        prop scaleY: double = 1.0f
         prop originX: double
         prop originY: double
+        prop rotation: double
         prop zIndex: int
         prop layerName: string
+        prop tint: array of double = {1, 1, 1, 1}
         prop composite: CompositeVO?
         prop shape: ShapeVO?
         prop physics: PhysicsBodyDataVO?

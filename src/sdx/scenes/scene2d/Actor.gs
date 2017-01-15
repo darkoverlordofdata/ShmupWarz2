@@ -7,9 +7,9 @@
  */
 uses Gee
 uses GLib
-uses Bosco
 uses sdx
 uses sdx.math
+uses sdx.graphics
 uses sdx.graphics.s2d
 uses sdx.utils
 
@@ -28,12 +28,12 @@ namespace sdx.scenes.scene2d
         prop parent: Group
         prop touchable: Touchable = Touchable.enabled
         prop userObject: Object
-        //prop color: SDL.Video.Color// = Color.White
+        prop color: Color// = Color.White
         prop name: string
 
-        listeners: ArrayList of EventListener
-        captureListeners: ArrayList of EventListener
-        actions: ArrayList of Action
+        listeners: list of EventListener
+        captureListeners: list of EventListener
+        actions: list of Action
 
         visible: bool = true
         x: double
@@ -76,7 +76,7 @@ namespace sdx.scenes.scene2d
             if event.getStage() == null do event.setStage(stage)
             event.setTarget(this)
 
-            var ancestors = (ArrayList of Group) Pools.obtain(typeof(ArrayList of Group))
+            var ancestors = (list of Group) Pools.obtain(typeof(list of Group))
             var parent = this.parent
             while parent != null
                 ancestors.add(parent)
@@ -148,7 +148,7 @@ namespace sdx.scenes.scene2d
             return listeners.remove(listener)
 
             
-        def getListeners(): ArrayList of EventListener
+        def getListeners(): list of EventListener
             return listeners
 
 
@@ -164,7 +164,7 @@ namespace sdx.scenes.scene2d
                 raise new Exception.IllegalArgumentException("listener cannot be null.")    
             return captureListeners.remove(listener)
 
-        def getCaptureListeners(): ArrayList of EventListener
+        def getCaptureListeners(): list of EventListener
             return captureListeners
 
         def addAction(action:Action)
@@ -175,7 +175,7 @@ namespace sdx.scenes.scene2d
         def removeAction(action:Action)
             if actions.remove(action) do action.actor = null
 
-        def getActions(): ArrayList of Action
+        def getActions(): list of Action
             return actions
 
         def hasActions(): bool  
@@ -344,6 +344,13 @@ namespace sdx.scenes.scene2d
         def setScaleY(scaleXY: double)
             this.scaleX = scaleXY
             this.scaleY = scaleXY
+
+        def setScale(scaleX: double, scaleY: double=0)
+            if scaleY == 0 do scaleY = scaleX
+            this.scaleX = scaleX
+            this.scaleY = scaleY
+            
+
 
         def scaleBy(scaleX: double, scaleY: double)
             this.scaleX += scaleX

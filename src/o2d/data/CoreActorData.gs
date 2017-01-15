@@ -14,7 +14,7 @@ namespace o2d.data
 
     class CoreActorData
         prop id: string
-        prop tags: ArrayList of string
+        prop tags: list of string
         prop layerIndex: int
         prop customVars: CustomVariables
 

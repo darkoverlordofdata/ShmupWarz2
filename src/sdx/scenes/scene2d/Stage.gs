@@ -54,7 +54,7 @@ namespace sdx.scenes.scene2d
         mouseOverActor: Actor
         keyboardFocus: Actor
         scrollFocus: Actor
-        touchFocuses: ArrayList of TouchFocus = new ArrayList of TouchFocus    
+        touchFocuses: list of TouchFocus = new list of TouchFocus    
         actionsRequestRendering: bool = true
                 
         construct(viewport: Viewport=null, batch: Batch=null)
@@ -343,7 +343,7 @@ namespace sdx.scenes.scene2d
         def addAction(action: Action)
             root.addAction(action)
 
-        def getActors(): ArrayList of Actor
+        def getActors(): list of Actor
             return root.children
 
         def addListener(listener: EventListener): bool

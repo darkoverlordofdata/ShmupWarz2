@@ -136,6 +136,15 @@ namespace o2d
             if json.has_member("uniqueId")
                 it.uniqueId = (int)json.get_int_member("uniqueId")
 
+            if json.has_member("itemIdentifier")
+                it.itemIdentifier = json.get_string_member("itemIdentifier")
+
+            if json.has_member("scaleX")
+                it.scaleX = (double)json.get_double_member("scaleX")
+
+            if json.has_member("scaleY")
+                it.scaleY = (double)json.get_double_member("scaleY")
+                
             if json.has_member("x")
                 it.x = (double)json.get_double_member("x")
 
@@ -148,11 +157,21 @@ namespace o2d
             if json.has_member("originY")    
                 it.originY = (double)json.get_double_member("originY")
 
+            if json.has_member("rotation")    
+                it.rotation = (double)json.get_double_member("rotation")
+
             if json.has_member("zIndex")
                 it.zIndex = (int)json.get_int_member("zIndex")
 
             if json.has_member("layerName")
                 it.layerName = json.get_string_member("layerName")
+
+            if json.has_member("tint")
+                for var tint in json.get_array_member("tint").get_elements()
+                    var tint_array = tint.get_array()
+                    it.tint = new array of double[tint_array.get_length()]
+                    for var i = 0 to (tint_array.get_length()-1)
+                        it.tint[i] =(tint_array.get_double_element(i))
 
             if json.has_member("composite")
                 it.composite = new data.CompositeVO(json.get_object_member("composite"))
@@ -288,7 +307,7 @@ namespace o2d
                 ////print "polygon"
                 for var poly in json.get_array_member("polygons").get_elements()
                     var point_array = poly.get_array()
-                    var points = new ArrayList of data.PointVO
+                    var points = new list of data.PointVO
                     it.polygons.add(points)
                     for var i = 0 to (point_array.get_length()-1)
                         points.add(new data.PointVO(point_array.get_object_element(i)))
