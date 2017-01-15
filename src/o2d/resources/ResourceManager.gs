@@ -1,10 +1,11 @@
 [indent=4]
+uses sdx.graphics.s2d
 uses o2d.data
 
 namespace o2d.resources
 
     
-    class ResourceManager : Object
+    class ResourceManager : Object implements IDataLoader, IAssetLoader, IResourceRetriever
 
         const packResolutionName: string = "orig"
         const scenesPath: string = "scenes"
@@ -49,14 +50,6 @@ namespace o2d.resources
             if (name in loadedSceneVOs)
                 preparedSceneNames.add(name)
 
-        def loadProjectVO(): ProjectInfoVO
-            var stream = readStream(@"$uri/project.dt")
-            var json = loadJson(stream)
-            _projectVO = new ProjectInfoVO(json)
-            //print "Loaded project"
-            var str = _projectVO.to_string()
-            return _projectVO
-
         def loadSceneVO(sceneName: string): SceneVO
             // print "loadSceneVO %s", @"$uri/scenes/$sceneName.dt"
             var stream = readStream(@"$uri/scenes/$sceneName.dt")
@@ -66,9 +59,48 @@ namespace o2d.resources
             // print "Loaded %s", sceneName
             return sceneVO
         
-        def getProjectVO(): ProjectInfoVO
+        def loadProjectVO(): ProjectInfoVO
+            var stream = readStream(@"$uri/project.dt")
+            var json = loadJson(stream)
+            _projectVO = new ProjectInfoVO(json)
+            //print "Loaded project"
+            var str = _projectVO.to_string()
             return _projectVO
+
+        def loadAtlasPack()
+            pass
+
+        def loadParticleEffects()
+            pass
+            
+        def loadSpriteAnimations()
+            pass
+            
+        def loadSpineAnimations()
+            pass
+            
+        def loadFonts()
+            pass
+            
+        def loadShaders()
+            pass
+            
+        def loadSpriterAnimations()
+            pass
+            
+        def getTextureRegion(name: string): TextureRegion
+            return null
+
+        def getSpriteAnimation(name: string): TextureAtlas
+            return null
 
         def getSceneVO(name: string): SceneVO
             return loadedSceneVOs[name]
+
+        def getProjectVO(): ProjectInfoVO
+            return _projectVO
+
+        def getLoadedResolution(): ResolutionEntryVO
+            return null
+
 

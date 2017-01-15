@@ -5,11 +5,32 @@
  * 
  *
  */
-uses Overlap2D
+//uses Overlap2D
 uses sdx
 uses sdx.scenes.scene2d
+uses sdx.scenes.scene2d.utils
+uses o2d
+uses o2d.data
+uses o2d.scene2d
 
 namespace ShmupWarz
+
+    class MenuListener : ClickListener
+        game: ShmupWarzGame
+        option: string
+        construct(game: ShmupWarzGame, option: string)
+            this.game = game
+            this.option = option
+        def clicked(event: InputEvent, x:double, y:double)
+            case option
+                when "play"
+                    pass//game.play()
+                when "score"
+                    pass//game.score()
+                when "option"
+                    pass//game.option()
+
+
 
     class MenuUI: Stage
         prop game: ShmupWarzGame
@@ -20,42 +41,30 @@ namespace ShmupWarz
             sceneLoader.loadScene("MenuScene") //, new FitViewport(350f, 480f))
             var pixelFactor = game.desktop ? game.scale : game.density > 1 ? 2 : 1
             var playButtonVo = sceneLoader.loadVoFromLibrary("playButton")
-            // var playButtonActor = new CompositeActor(playButtonVo, sceneLoader.getRm)
-            // var col = (getWidth-playButtonActor.getWidth*pixelFactor)/2f
-            // var row = (pixelFactor-1f)*100f-200f*pixelFactor
-            //   addActor(playButtonActor)
-            //   playButtonActor.setX(col)
-            //   playButtonActor.setY(row+220f*2f*pixelFactor)
-            //   playButtonActor.setScale(pixelFactor)
-            //   playButtonActor.addListener(new ClickListener() {
-            //     override def clicked(event: InputEvent, x: Float, y: Float) {
-            //       game.playGame()
-            //     }
-            //   })
+            var playButtonActor = new CompositeActor(playButtonVo, sceneLoader.rm)
+            var col = (width-playButtonActor.width*pixelFactor)/2
+            var row = (pixelFactor-1)*100-200*pixelFactor
+            addActor(playButtonActor)
+            playButtonActor.setX(col)
+            playButtonActor.setY(row+220*2*pixelFactor)
+            playButtonActor.setScale(pixelFactor)
+            playButtonActor.addListener(new MenuListener(game, "play"))
 
-            //   val scoreButtonVo  = sceneLoader.loadVoFromLibrary("scoreButton")
-            //   val scoreButtonActor = new CompositeActor(scoreButtonVo, sceneLoader.getRm)
-            //   addActor(scoreButtonActor)
-            //   scoreButtonActor.setX(col)
-            //   scoreButtonActor.setY(row+180f*2f*pixelFactor)
-            //   scoreButtonActor.setScale(pixelFactor)
-            //   scoreButtonActor.addListener(new ClickListener() {
-            //     override def clicked(event: InputEvent, x: Float, y: Float) {
-            //       game.scoreGame()
-            //     }
-            //   })
+            var scoreButtonVo  = sceneLoader.loadVoFromLibrary("scoreButton")
+            var scoreButtonActor = new CompositeActor(scoreButtonVo, sceneLoader.rm)
+            addActor(scoreButtonActor)
+            scoreButtonActor.setX(col)
+            scoreButtonActor.setY(row+180*2*pixelFactor)
+            scoreButtonActor.setScale(pixelFactor)
+            scoreButtonActor.addListener(new MenuListener(game, "score"))
 
-            //   val optionButtonVo  = sceneLoader.loadVoFromLibrary("optionButton")
-            //   val optionButtonActor = new CompositeActor(optionButtonVo, sceneLoader.getRm)
-            //   addActor(optionButtonActor)
-            //   optionButtonActor.setX(col)
-            //   optionButtonActor.setY(row+140f*2f*pixelFactor)
-            //   optionButtonActor.setScale(pixelFactor)
-            //   optionButtonActor.addListener(new ClickListener() {
-            //     override def clicked(event: InputEvent, x: Float, y: Float) {
-            //       game.optionsGame()
-            //     }
-            //   })
+            var optionButtonVo  = sceneLoader.loadVoFromLibrary("optionButton")
+            var optionButtonActor = new CompositeActor(optionButtonVo, sceneLoader.rm)
+            addActor(optionButtonActor)
+            optionButtonActor.setX(col)
+            optionButtonActor.setY(row+140*2*pixelFactor)
+            optionButtonActor.setScale(pixelFactor)
+            optionButtonActor.addListener(new MenuListener(game, "option"))
 
             //   Gdx.input.setInputProcessor(this)
 

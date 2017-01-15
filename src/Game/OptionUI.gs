@@ -5,11 +5,22 @@
  * 
  *
  */
-uses Overlap2D
+//uses Overlap2D
 uses sdx
 uses sdx.scenes.scene2d
+uses sdx.scenes.scene2d.utils
+uses o2d
+uses o2d.data
+uses o2d.scene2d
 
 namespace ShmupWarz
+
+    class OptionListener : ClickListener
+        game: ShmupWarzGame
+        construct(game: ShmupWarzGame)
+            this.game = game
+        def clicked(event: InputEvent, x:double, y:double)
+            pass//game.menuGame()
 
     class OptionUI: Stage
         prop game: ShmupWarzGame
@@ -18,21 +29,17 @@ namespace ShmupWarz
         construct(game: ShmupWarzGame, sceneLoader: SceneLoader)
             sceneLoader.loadScene("OptionsScene") //, new FitViewport(350f, 480f))
 
-            //   val backButtonVo = sceneLoader.loadVoFromLibrary("backButton")
-            //   val backButtonActor = new CompositeActor(backButtonVo, sceneLoader.getRm)
-            //   val pixelFactor = if (game.desktop) game.scale else if (Gdx.graphics.getDensity > 1f) 2f else 1f
-            //   // val pixelFactor = if (Gdx.graphics.getDensity > 1f) 2f else 1f
-            //   val col = (getWidth-backButtonActor.getWidth*pixelFactor)/2f
-            //   val row = (pixelFactor-1f)*100f-200f*pixelFactor
+              var backButtonVo = sceneLoader.loadVoFromLibrary("backButton")
+              var backButtonActor = new CompositeActor(backButtonVo, sceneLoader.rm)
+              var pixelFactor = 1// game.desktop ? game.scale : (Gdx.graphics.getDensity > 1 ? 2 else 1
+              // var pixelFactor = if (Gdx.graphics.getDensity > 1f) 2f else 1f
+              var col = (width-backButtonActor.width*pixelFactor)/2
+              var row = (pixelFactor-1)*100-200*pixelFactor
 
-            //   addActor(backButtonActor)
-            //   backButtonActor.setX(col)
-            //   backButtonActor.setY(row+110f*2f*pixelFactor)
-            //   backButtonActor.setScale(pixelFactor)
-            //   backButtonActor.addListener(new ClickListener() {
-            //     override def clicked(event: InputEvent, x: Float, y: Float) {
-            //       game.menuGame()
-            //     }
-            //   })
+              addActor(backButtonActor)
+              backButtonActor.setX(col)
+              backButtonActor.setY(row+110*2*pixelFactor)
+              backButtonActor.setScale(pixelFactor)
+              backButtonActor.addListener(new OptionListener(game))
 
             //   Gdx.input.setInputProcessor(this)

@@ -70,6 +70,8 @@ c_library: m
 *vala_source: o2d/data/SceneVO.gs
 *vala_source: o2d/data/ShapeVO.gs
 *vala_source: o2d/data/SimpleImageVO.gs
+*vala_source: o2d/resources/IAssetLoader.gs
+*vala_source: o2d/resources/IDataLoader.gs
 *vala_source: o2d/resources/IResourceRetriever.gs
 *vala_source: o2d/resources/ResourceManager.gs
 *vala_source: o2d/scene2d/BuiltItemHandler.gs
@@ -162,6 +164,8 @@ c_library: m
 *translate: genie src/o2d/data/SceneVO.gs
 *translate: genie src/o2d/data/ShapeVO.gs
 *translate: genie src/o2d/data/SimpleImageVO.gs
+*translate: genie src/o2d/resources/IAssetLoader.gs
+*translate: genie src/o2d/resources/IDataLoader.gs
 *translate: genie src/o2d/resources/IResourceRetriever.gs
 *translate: genie src/o2d/resources/ResourceManager.gs
 *translate: genie src/o2d/scene2d/BuiltItemHandler.gs

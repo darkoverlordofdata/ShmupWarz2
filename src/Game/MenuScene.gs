@@ -5,9 +5,12 @@
  * 
  *
  */
-uses Overlap2D
+//uses Overlap2D
 uses sdx
 uses sdx.scenes.scene2d
+uses o2d
+uses o2d.data
+uses o2d.scene2d
 
 namespace ShmupWarz
 

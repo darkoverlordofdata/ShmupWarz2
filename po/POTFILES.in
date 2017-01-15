@@ -40,6 +40,8 @@ src/o2d/data/ResolutionEntryVO.gs
 src/o2d/data/SceneVO.gs
 src/o2d/data/ShapeVO.gs
 src/o2d/data/SimpleImageVO.gs
+src/o2d/resources/IAssetLoader.gs
+src/o2d/resources/IDataLoader.gs
 src/o2d/resources/IResourceRetriever.gs
 src/o2d/resources/ResourceManager.gs
 src/o2d/scene2d/BuiltItemHandler.gs
