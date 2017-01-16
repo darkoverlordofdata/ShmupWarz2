@@ -5,7 +5,6 @@
  * 
  *
  */
-uses Bosco
 uses sdx
 uses GLib
 

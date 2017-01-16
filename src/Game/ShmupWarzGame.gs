@@ -5,14 +5,23 @@
  * 
  *
  */
-//uses Overlap2D
 uses sdx
 uses sdx.scenes.scene2d
 uses o2d
 uses o2d.data
 uses o2d.scene2d
 
+def main(args: array of string)
+    // var game = new ShmupWarz.Shmup()
+    var game = new ShmupWarz.ShmupWarzGame(true, 1.0)
+    game.Run()
+    
 namespace ShmupWarz
+    const RES : string = "resource:///darkoverlordofdata/shmupwarz"
+    const SCREEN_WIDTH:int = 800
+    const SCREEN_HEIGHT:int = 600
+
+
 
     class ShmupWarzGame : Game
 
@@ -24,7 +33,10 @@ namespace ShmupWarz
         prop optionScene: MenuScene
         prop scoreScene: MenuScene
         
+        prop arial: sdx.Font
+
         construct(desktop: bool, scale: double)
+            super()
             _density = 1
             _desktop = desktop
             _scale = scale

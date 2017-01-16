@@ -7,7 +7,6 @@
  */
 uses Gee
 uses GLib
-uses Bosco
 uses sdx
 uses sdx.math
 

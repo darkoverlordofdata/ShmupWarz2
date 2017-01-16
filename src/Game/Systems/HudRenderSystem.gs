@@ -1,9 +1,8 @@
 [indent=4]
-uses
-    SDL
-    SDLTTF
-    Bosco
-    Entitas
+uses SDL
+uses SDLTTF
+uses sdx
+uses Entitas
 
 
 namespace ShmupWarz
@@ -14,21 +13,21 @@ namespace ShmupWarz
         const TOTAL_RETAINED : string   = "Total reusable:          %3d"
         const TOTAL_REUSABLE : string   = "Total retained:          %3d"
 
-        _game : Shmup
+        _game : ShmupWarzGame
         _world : World
-        _font: Bosco.Font
+        _font: sdx.Font
         _activeEntities : Sprite
         _totalRetained : Sprite
         _totalReusable : Sprite
 
-        construct(game : Shmup)
+        construct(game : ShmupWarzGame)
             _game = game
 
         def setWorld(world : World)
             _world = world
 
         def initialize()
-            _font = Bosco.Font.fromFile(_game.defaultFont, 16)
+            _font = sdx.Font.fromFile(_game.defaultFont, 16)
             _game.sprites.add(_activeEntities = createText(0, 40, ACTIVE_ENTITIES.printf(_world.count)))
             _game.sprites.add(_totalRetained = createText(0, 60, TOTAL_RETAINED.printf(_world.reusableEntitiesCount)))
             _game.sprites.add(_totalReusable = createText(0, 80, TOTAL_REUSABLE.printf(_world.retainedEntitiesCount)))
@@ -39,7 +38,7 @@ namespace ShmupWarz
             setText(_totalReusable, TOTAL_REUSABLE.printf(_world.reusableEntitiesCount))
 
         def createText(x : int, y : int, text : string) : Sprite
-            var sprite = Sprite.fromRenderedText(_game.renderer, _font, text, Color.White)
+            var sprite = Sprite.fromRenderedText(_game.renderer, _font, text, sdx.graphics.Color.White)
             sprite.x = x
             sprite.y = y
             sprite.layer = Layer.HUD
@@ -47,6 +46,6 @@ namespace ShmupWarz
             return sprite
 
         def setText(sprite : Sprite, text : string)
-            sprite.setText(_game.renderer, _font, text, Color.White)
+            sprite.setText(_game.renderer, _font, text, sdx.graphics.Color.White)
 
 

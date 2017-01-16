@@ -5,7 +5,6 @@
  * 
  *
  */
-uses Bosco
 
 namespace sdx
 

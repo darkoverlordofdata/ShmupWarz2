@@ -1,18 +1,17 @@
 [indent=4]
-uses
-    SDL
-    Bosco
-    Entitas
+uses SDL
+uses sdx
+uses Entitas
 
 namespace ShmupWarz
 
     class RenderPositionSystem : Object implements ISystem, ISetWorld, IInitializeSystem, IExecuteSystem
         _renderer : unowned Video.Renderer
         _group: Group
-        _game : Shmup
+        _game : ShmupWarzGame
         _sprites : GenericArray of Sprite
 
-        construct(game : Shmup)
+        construct(game : ShmupWarzGame)
             _game = game
             _renderer = _game.renderer
 

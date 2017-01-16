@@ -115,7 +115,7 @@ namespace o2d.scene2d
 
         def buildLabels(itemHandler: BuiltItemHandler, labels: list of LabelVO)
             for lab in labels
-                var style = new Label.LabelStyle(Bosco.Font.fromFile(lab.style, lab.size), Color.WHITE)
+                var style = new Label.LabelStyle(sdx.Font.fromFile(lab.style, lab.size), Color.WHITE)
                 var label = new Label.style(lab.text, style)
                 label.setAlignment(lab.align)
                 label.setWidth(lab.width * pixelsPerWU / resMultiplier)

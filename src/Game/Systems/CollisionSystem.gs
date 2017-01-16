@@ -1,19 +1,18 @@
 [indent=4]
-uses
-    Bosco
-    Entitas
-    GLib
-    GLib.Math
+uses GLib
+uses GLib.Math
+uses Entitas
+uses sdx
 
 namespace ShmupWarz
 
     class CollisionSystem : Object implements ISystem, ISetWorld, IInitializeSystem, IExecuteSystem
         _world : World
-        _game : Shmup
+        _game : ShmupWarzGame
         _bullets : Group
         _enemies : Group
 
-        construct(game : Shmup)
+        construct(game : ShmupWarzGame)
             _game = game
 
         def setWorld(world : World)

@@ -18,7 +18,7 @@ namespace sdx.scenes.scene2d.ui
 
         construct(text: string, font: string, color: Color, size: int)
             this.text = text
-            setStyle(new LabelStyle(Bosco.Font.fromFile(font, size), color))
+            setStyle(new LabelStyle(sdx.Font.fromFile(font, size), color))
             if text != null && text.length > 0 do setSize(getPrefWidth(), getPrefHeight())
 
         construct style(text: string, style: LabelStyle)
@@ -28,9 +28,9 @@ namespace sdx.scenes.scene2d.ui
             
 
         class static LabelStyle : Object
-            font: Bosco.Font
+            font: sdx.Font
             fontColor: Color
-            construct(font: Bosco.Font, color: Color)
+            construct(font: sdx.Font, color: Color)
                 this.font = font
                 this.fontColor = color
 

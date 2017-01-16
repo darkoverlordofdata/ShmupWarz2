@@ -1,8 +1,8 @@
 [indent=4]
-uses
-    SDL
-    Bosco
-    Entitas
+uses SDL
+uses sdx
+uses sdx.graphics.s2d
+uses Entitas
 
 namespace ShmupWarz
 
@@ -11,10 +11,10 @@ namespace ShmupWarz
         _sprites : GenericArray of Sprite
         _group : Group
         _world : World
-        _game : Shmup
-        _atlas: Bosco.TextureAtlas
+        _game : ShmupWarzGame
+        _atlas: TextureAtlas
 
-        construct(game : Shmup)
+        construct(game : ShmupWarzGame)
             _game = game
 
         def setWorld(world : World)
@@ -30,8 +30,8 @@ namespace ShmupWarz
             _game.sprites = new GenericArray of Sprite
             _sprites = _game.sprites
             // load the overlap2d atlas
-            _atlas = new Bosco.TextureAtlas()
-            _atlas.load(new Bosco.TextureAtlas.TextureAtlasData(@"$RES/orig/pack.atlas", @"$RES/orig", false))
+            _atlas = new TextureAtlas()
+            _atlas.load(new TextureAtlas.TextureAtlasData(@"$RES/orig/pack.atlas", @"$RES/orig", false))
 
         /**
         *  OnEntityAdded event:

@@ -5,7 +5,6 @@
  * 
  *
  */
-//uses Overlap2D
 uses sdx
 uses sdx.scenes.scene2d
 uses o2d

@@ -18,7 +18,6 @@ use_gresource: resources_gresource_xml
 vala_check_package: SDL2_image
 vala_check_package: SDL2_mixer
 vala_check_package: SDL2_ttf
-vala_check_package: bosco
 vala_check_package: entitas
 vala_check_package: gee-0.8
 vala_check_package: json-glib-1.0
@@ -26,7 +25,6 @@ vala_check_package: sdl2
 *vala_check_package: gio-2.0
 *vala_check_package: glib-2.0
 *vala_check_package: gobject-2.0
-*vala_check_package: overlap2d
 c_library: m
 *vala_source: Components.gs
 *vala_source: Entities.gs
@@ -36,21 +34,20 @@ c_library: m
 *vala_source: Game/OptionUI.gs
 *vala_source: Game/ScoreUI.gs
 *vala_source: Game/ShmupWarzGame.gs
-*vala_source: Shmup.gs
-*vala_source: Systems/CollisionSystem.gs
-*vala_source: Systems/ColorTweenSystem.gs
-*vala_source: Systems/DestroySystem.gs
-*vala_source: Systems/EntitySpawningTimerSystem.gs
-*vala_source: Systems/ExpiringSystem.gs
-*vala_source: Systems/HealthRenderSystem.gs
-*vala_source: Systems/HudRenderSystem.gs
-*vala_source: Systems/MovementSystem.gs
-*vala_source: Systems/PlayerInputSystem.gs
-*vala_source: Systems/RemoveOffscreenShipsSystem.gs
-*vala_source: Systems/RenderPositionSystem.gs
-*vala_source: Systems/ScaleTweenSystem.gs
-*vala_source: Systems/SoundEffectSystem.gs
-*vala_source: Systems/ViewManagerSystem.gs
+*vala_source: Game/Systems/CollisionSystem.gs
+*vala_source: Game/Systems/ColorTweenSystem.gs
+*vala_source: Game/Systems/DestroySystem.gs
+*vala_source: Game/Systems/EntitySpawningTimerSystem.gs
+*vala_source: Game/Systems/ExpiringSystem.gs
+*vala_source: Game/Systems/HealthRenderSystem.gs
+*vala_source: Game/Systems/HudRenderSystem.gs
+*vala_source: Game/Systems/MovementSystem.gs
+*vala_source: Game/Systems/PlayerInputSystem.gs
+*vala_source: Game/Systems/RemoveOffscreenShipsSystem.gs
+*vala_source: Game/Systems/RenderPositionSystem.gs
+*vala_source: Game/Systems/ScaleTweenSystem.gs
+*vala_source: Game/Systems/SoundEffectSystem.gs
+*vala_source: Game/Systems/ViewManagerSystem.gs
 *vala_source: o2d/Overlap2D.gs
 *vala_source: o2d/ParseIt.gs
 *vala_source: o2d/SceneLoader.gs
@@ -78,12 +75,18 @@ c_library: m
 *vala_source: o2d/scene2d/ButtonClickListener.gs
 *vala_source: o2d/scene2d/CompositeActor.gs
 *vala_source: o2d/utils/CustomVariables.gs
+*vala_source: sdx/AbstractGame.gs
 *vala_source: sdx/ApplicationListener.gs
+*vala_source: sdx/Color.gs
 *vala_source: sdx/Exceptions.gs
+*vala_source: sdx/Font.gs
 *vala_source: sdx/Game.gs
 *vala_source: sdx/InputAdapter.gs
 *vala_source: sdx/InputProcessor.gs
 *vala_source: sdx/Screen.gs
+*vala_source: sdx/Sound.gs
+*vala_source: sdx/Sprite.gs
+*vala_source: sdx/Version.gs
 *vala_source: sdx/graphics/Color.gs
 *vala_source: sdx/graphics/Texture.gs
 *vala_source: sdx/graphics/s2d/Batch.gs
@@ -130,21 +133,20 @@ c_library: m
 *translate: genie src/Game/OptionUI.gs
 *translate: genie src/Game/ScoreUI.gs
 *translate: genie src/Game/ShmupWarzGame.gs
-*translate: genie src/Shmup.gs
-*translate: genie src/Systems/CollisionSystem.gs
-*translate: genie src/Systems/ColorTweenSystem.gs
-*translate: genie src/Systems/DestroySystem.gs
-*translate: genie src/Systems/EntitySpawningTimerSystem.gs
-*translate: genie src/Systems/ExpiringSystem.gs
-*translate: genie src/Systems/HealthRenderSystem.gs
-*translate: genie src/Systems/HudRenderSystem.gs
-*translate: genie src/Systems/MovementSystem.gs
-*translate: genie src/Systems/PlayerInputSystem.gs
-*translate: genie src/Systems/RemoveOffscreenShipsSystem.gs
-*translate: genie src/Systems/RenderPositionSystem.gs
-*translate: genie src/Systems/ScaleTweenSystem.gs
-*translate: genie src/Systems/SoundEffectSystem.gs
-*translate: genie src/Systems/ViewManagerSystem.gs
+*translate: genie src/Game/Systems/CollisionSystem.gs
+*translate: genie src/Game/Systems/ColorTweenSystem.gs
+*translate: genie src/Game/Systems/DestroySystem.gs
+*translate: genie src/Game/Systems/EntitySpawningTimerSystem.gs
+*translate: genie src/Game/Systems/ExpiringSystem.gs
+*translate: genie src/Game/Systems/HealthRenderSystem.gs
+*translate: genie src/Game/Systems/HudRenderSystem.gs
+*translate: genie src/Game/Systems/MovementSystem.gs
+*translate: genie src/Game/Systems/PlayerInputSystem.gs
+*translate: genie src/Game/Systems/RemoveOffscreenShipsSystem.gs
+*translate: genie src/Game/Systems/RenderPositionSystem.gs
+*translate: genie src/Game/Systems/ScaleTweenSystem.gs
+*translate: genie src/Game/Systems/SoundEffectSystem.gs
+*translate: genie src/Game/Systems/ViewManagerSystem.gs
 *translate: genie src/o2d/Overlap2D.gs
 *translate: genie src/o2d/ParseIt.gs
 *translate: genie src/o2d/SceneLoader.gs
@@ -172,12 +174,18 @@ c_library: m
 *translate: genie src/o2d/scene2d/ButtonClickListener.gs
 *translate: genie src/o2d/scene2d/CompositeActor.gs
 *translate: genie src/o2d/utils/CustomVariables.gs
+*translate: genie src/sdx/AbstractGame.gs
 *translate: genie src/sdx/ApplicationListener.gs
+*translate: genie src/sdx/Color.gs
 *translate: genie src/sdx/Exceptions.gs
+*translate: genie src/sdx/Font.gs
 *translate: genie src/sdx/Game.gs
 *translate: genie src/sdx/InputAdapter.gs
 *translate: genie src/sdx/InputProcessor.gs
 *translate: genie src/sdx/Screen.gs
+*translate: genie src/sdx/Sound.gs
+*translate: genie src/sdx/Sprite.gs
+*translate: genie src/sdx/Version.gs
 *translate: genie src/sdx/graphics/Color.gs
 *translate: genie src/sdx/graphics/Texture.gs
 *translate: genie src/sdx/graphics/s2d/Batch.gs

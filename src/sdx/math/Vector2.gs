@@ -5,7 +5,7 @@
  * 
  *
  */
-uses Bosco
+uses sdx
 uses GLib
 
 namespace sdx.math

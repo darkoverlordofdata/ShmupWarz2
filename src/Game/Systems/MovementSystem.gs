@@ -1,16 +1,15 @@
 [indent=4]
-uses
-    Bosco
-    Entitas
+uses sdx
+uses Entitas
 
 namespace ShmupWarz
 
     class MovementSystem : Object implements ISystem, ISetWorld, IInitializeSystem, IExecuteSystem
         _world : World
         _group : Group
-        _game : Shmup
+        _game : ShmupWarzGame
 
-        construct(game : Shmup)
+        construct(game : ShmupWarzGame)
             _game = game
 
         def setWorld(world : World)

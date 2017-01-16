@@ -1,20 +1,19 @@
 [indent=4]
-uses
-    SDL
-    SDLMixer
-    Bosco
-    Entitas
+uses SDL
+uses SDLMixer
+uses sdx
+uses Entitas
 
 namespace ShmupWarz
 
     class SoundEffectSystem : Object implements ISystem, ISetWorld, IInitializeSystem, IExecuteSystem
         _group: Group
-        _game : Shmup
+        _game : ShmupWarzGame
         _pew : Sound
         _asplode : Sound
         _smallasplode : Sound
 
-        construct(game : Shmup)
+        construct(game : ShmupWarzGame)
             _game = game
 
         def setWorld(world:World)

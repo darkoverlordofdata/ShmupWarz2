@@ -1,18 +1,17 @@
 [indent=4]
-uses
-    Bosco
-    Entitas
+uses sdx
+uses Entitas
 
 namespace ShmupWarz
 
     class EntitySpawningTimerSystem : Object implements ISystem, ISetWorld, IInitializeSystem, IExecuteSystem
-        _game : Shmup
+        _game : ShmupWarzGame
         _world : World
         _timer1 : double
         _timer2 : double
         _timer3 : double
 
-        construct(game : Shmup)
+        construct(game : ShmupWarzGame)
             _game = game
 
         def setWorld(world : World)

@@ -6,7 +6,6 @@
  *
  */
 uses Gee
-uses Bosco
 uses sdx
 uses sdx.math
 

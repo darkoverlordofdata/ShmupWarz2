@@ -6,7 +6,6 @@
  *
  */
 uses sdx
-uses Bosco
 uses GLib
 
 namespace sdx.utils

@@ -1,5 +1,5 @@
 [indent=4]
-uses Bosco
+uses sdx
 uses Entitas
 uses SDLTTF
 //uses SDL
@@ -10,11 +10,11 @@ namespace ShmupWarz
 
     class HealthRenderSystem : Object implements  ISetWorld,  IExecuteSystem,  IInitializeSystem, ISystem
 
-        _game : Shmup
+        _game : ShmupWarzGame
         _world : World
         _group : Group
 
-        construct(game : Shmup)
+        construct(game : ShmupWarzGame)
             _game = game
 
         def setWorld(world: World)
@@ -35,13 +35,13 @@ namespace ShmupWarz
                 if pct == text.text
                     sprite = (Sprite)text.sprite
                     if sprite == null
-                        sprite = Sprite.fromRenderedText(_game.renderer, _game.arial, text.text, Color.Lime)
+                        sprite = Sprite.fromRenderedText(_game.renderer, _game.arial, text.text, sdx.graphics.Color.Lime)
                         sprite.centered = false
                         text.sprite = sprite
                 else
                     text.text = pct
                     text.sprite = null
-                    sprite = Sprite.fromRenderedText(_game.renderer, _game.arial, text.text, Color.LimeGreen)
+                    sprite = Sprite.fromRenderedText(_game.renderer, _game.arial, text.text, sdx.graphics.Color.LimeGreen)
                     sprite.centered = false
                     text.sprite = sprite
 
