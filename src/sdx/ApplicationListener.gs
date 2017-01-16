@@ -6,7 +6,7 @@
  *
  */
 namespace sdx
-    interface ApplicationListener
+    interface ApplicationListener : Object
         def abstract create()
         def abstract resize(width: int, height: int)
         def abstract render(delta: double)

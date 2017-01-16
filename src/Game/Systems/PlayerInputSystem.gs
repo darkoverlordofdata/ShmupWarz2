@@ -59,7 +59,7 @@ namespace ShmupWarz
             var pos = getPosition(entity)
 
             if _mouseDefined
-                if _mouseDown || _game.keys[Input.Keycode.z] != 0
+                if _mouseDown || _game.keys[SDL.Input.Keycode.z] != 0
                     if _timeToFire <= 0
                         createBullet(pos.x - 27, pos.y + 2)
                         createBullet(pos.x + 27, pos.y + 2)

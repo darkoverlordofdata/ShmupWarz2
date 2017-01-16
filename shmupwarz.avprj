@@ -76,14 +76,20 @@ c_library: m
 *vala_source: o2d/scene2d/CompositeActor.gs
 *vala_source: o2d/utils/CustomVariables.gs
 *vala_source: sdx/AbstractGame.gs
+*vala_source: sdx/Application.gs
 *vala_source: sdx/ApplicationListener.gs
-*vala_source: sdx/Color.gs
+*vala_source: sdx/Audio.gs
 *vala_source: sdx/Exceptions.gs
+*vala_source: sdx/Files.gs
 *vala_source: sdx/Font.gs
 *vala_source: sdx/Game.gs
+*vala_source: sdx/Graphics.gs
+*vala_source: sdx/Input.gs
 *vala_source: sdx/InputAdapter.gs
 *vala_source: sdx/InputProcessor.gs
+*vala_source: sdx/Net.gs
 *vala_source: sdx/Screen.gs
+*vala_source: sdx/Sdx.gs
 *vala_source: sdx/Sound.gs
 *vala_source: sdx/Sprite.gs
 *vala_source: sdx/Version.gs
@@ -175,14 +181,20 @@ c_library: m
 *translate: genie src/o2d/scene2d/CompositeActor.gs
 *translate: genie src/o2d/utils/CustomVariables.gs
 *translate: genie src/sdx/AbstractGame.gs
+*translate: genie src/sdx/Application.gs
 *translate: genie src/sdx/ApplicationListener.gs
-*translate: genie src/sdx/Color.gs
+*translate: genie src/sdx/Audio.gs
 *translate: genie src/sdx/Exceptions.gs
+*translate: genie src/sdx/Files.gs
 *translate: genie src/sdx/Font.gs
 *translate: genie src/sdx/Game.gs
+*translate: genie src/sdx/Graphics.gs
+*translate: genie src/sdx/Input.gs
 *translate: genie src/sdx/InputAdapter.gs
 *translate: genie src/sdx/InputProcessor.gs
+*translate: genie src/sdx/Net.gs
 *translate: genie src/sdx/Screen.gs
+*translate: genie src/sdx/Sdx.gs
 *translate: genie src/sdx/Sound.gs
 *translate: genie src/sdx/Sprite.gs
 *translate: genie src/sdx/Version.gs

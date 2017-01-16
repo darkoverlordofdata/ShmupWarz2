@@ -8,7 +8,7 @@
 
 namespace sdx
 
-    class abstract Game : AbstractGame implements ApplicationListener
+    class abstract Game : Application implements ApplicationListener
         screen : Screen
 
         def abstract create()

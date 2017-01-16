@@ -14,7 +14,7 @@ uses o2d.scene2d
 def main(args: array of string)
     // var game = new ShmupWarz.Shmup()
     var game = new ShmupWarz.ShmupWarzGame(true, 1.0)
-    game.Run()
+    game.run()
     
 namespace ShmupWarz
     const RES : string = "resource:///darkoverlordofdata/shmupwarz"
@@ -45,7 +45,7 @@ namespace ShmupWarz
             var proc = File.new_for_path(path)
             var rootPath = proc.resolve_relative_path("../../../").get_path()     
             defaultFont = rootPath+"/fonts/OpenDyslexic-Bold.otf"
-            running = true
+            game = this
 
         def override create()
             print "ShmupWarzGame - create"

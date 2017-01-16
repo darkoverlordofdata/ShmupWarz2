@@ -1,5 +1,5 @@
 /**
- * AbstractGame.gs
+ * Application.gs
  *
  * Author: 
  *      bruce davidson
@@ -14,9 +14,9 @@ uses SDLTTF
 namespace sdx
 
     /**
-     * Initialize SDL and manage game loop life cycle
+     * SDL Application
      */
-    class AbstractGame : Object
+    class Application : Object
 
         name : string
         width : int
@@ -40,6 +40,8 @@ namespace sdx
         _elapsed: double = 0.0
         _frames: int = 0
 
+        game: ApplicationListener
+
         construct() 
             print "initialize sdx"
             new sdx.graphics.Color(0)
@@ -47,13 +49,15 @@ namespace sdx
         /**
          * Run - start the game loop
          */
-        def Run() : int
-            if Initialize() == false
+        def run() : int
+            if initialize() == false
                 return -1
 
+            game.create()
             evt : Event
             var k = 0
             _currentTime = (double)GLib.get_real_time()/1000000.0
+            running = true
             while running
                 running = false
                 while Event.poll(out evt) != 0
@@ -64,7 +68,7 @@ namespace sdx
                             keys[evt.key.keysym.sym] = 0
 
                     /* Callback to event processor */
-                    Events(evt)
+                    events(evt)
 
                 /* calculate time */
                 _lastTime = _currentTime
@@ -72,11 +76,11 @@ namespace sdx
                 _delta = (_currentTime - _lastTime)
 
                 /** Callback to update game logic/physics */
-                Update(_delta)
+                game.render(_delta)
                 /* yield to events */
                 GLib.Thread.usleep(1000) 
                 /* Callback to draw the game */
-                Draw(_delta)
+                draw(_delta)
                 if showFps
                     _frames++
                     _elapsed = _elapsed + _delta
@@ -91,7 +95,7 @@ namespace sdx
                     _fpsSprite.centered = false
 
             /* Cleanup */
-            Dispose()
+            dispose()
             return 0
 
         /**
@@ -99,15 +103,7 @@ namespace sdx
          *
          * @param event
          */
-        def virtual Events(e: Event)
-            pass
-
-        /**
-         * Update callback
-         *
-         * @param delta ms
-         */
-        def virtual Update(delta: double)
+        def virtual events(e: Event)
             pass
 
         /**
@@ -115,7 +111,7 @@ namespace sdx
          *
          * @param delta ms
          */
-        def virtual Draw(delta: double)
+        def virtual draw(delta: double)
             renderer.set_draw_color(0x0, 0x0, 0x0, 0x0)
             renderer.clear()
 
@@ -133,13 +129,13 @@ namespace sdx
         /**
          * Do the cleanup callback
          */
-        def virtual Dispose()
+        def virtual dispose()
             pass
 
         /**
          * Initialize SDL
          */
-        def virtual Initialize() : bool
+        def virtual initialize() : bool
 
             if SDL.init(SDL.InitFlag.VIDEO) < 0
                 print "SDL could not initialize! SDL Error: %s", SDL.get_error()
