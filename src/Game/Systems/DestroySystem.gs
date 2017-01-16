@@ -8,8 +8,8 @@ namespace ShmupWarz
         _world : World
         _group : Group
         _game : ShmupWarzGame
-        _sprites : GenericArray of Sprite
-
+        _sprites : list of Sprite
+        
         construct(game : ShmupWarzGame)
             _game = game
 
@@ -26,10 +26,10 @@ namespace ShmupWarz
             for var entity in _group.getEntities()
                 if hasResource(entity)
                     res = getResource(entity)
-                    for var i=0 to (_sprites.length-1)
+                    for s in _sprites
                         var sprite = (Sprite)res.sprite
-                        if _sprites[i].id == sprite.id
-                            _sprites.remove_index(i)
+                        if s.id == sprite.id
+                            _sprites.remove(s)
                             break
 
                 _world.destroyEntity(entity)

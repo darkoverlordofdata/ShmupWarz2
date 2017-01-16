@@ -9,7 +9,7 @@ namespace ShmupWarz
         _renderer : unowned Video.Renderer
         _group: Group
         _game : ShmupWarzGame
-        _sprites : GenericArray of Sprite
+        _sprites : list of Sprite
 
         construct(game : ShmupWarzGame)
             _game = game

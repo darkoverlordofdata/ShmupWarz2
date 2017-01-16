@@ -1,10 +1,6 @@
 /**
  * AbstractGame.gs
  *
- * Copyright 2016 Dark Overlord of Data
- * This library is free software; you can redistribute it and/or
- * modify it under the terms of the he MIT License (MIT).
- *
  * Author: 
  *      bruce davidson
  */
@@ -29,7 +25,7 @@ namespace sdx
         running : bool
         window : Window
         renderer : Renderer
-        sprites : GenericArray of Sprite
+        sprites : list of Sprite = new list of Sprite
         onetime : list of Sprite = new list of Sprite
         keys : array of uint8 = new array of uint8[255]
         
@@ -56,8 +52,10 @@ namespace sdx
                 return -1
 
             evt : Event
-            _currentTime = (double)GLib.get_real_time()/1000000.0 
+            var k = 0
+            _currentTime = (double)GLib.get_real_time()/1000000.0
             while running
+                running = false
                 while Event.poll(out evt) != 0
                     case evt.type // patch for keyboardGetState
                         when  SDL.EventType.KEYDOWN
@@ -79,7 +77,6 @@ namespace sdx
                 GLib.Thread.usleep(1000) 
                 /* Callback to draw the game */
                 Draw(_delta)
-                
                 if showFps
                     _frames++
                     _elapsed = _elapsed + _delta
@@ -122,11 +119,10 @@ namespace sdx
             renderer.set_draw_color(0x0, 0x0, 0x0, 0x0)
             renderer.clear()
 
-            for var i=0 to (sprites.length-1)
-                var sprite = sprites[i]
+            for sprite in sprites
                 sprite.render(this.renderer, sprite.x, sprite.y)
 
-            if showFps do _fpsSprite.render(this.renderer, 0, 0)
+            if showFps && _fpsSprite != null do _fpsSprite.render(this.renderer, 0, 0)
 
             for var sprite in onetime  
                 sprite.render(this.renderer, sprite.x, sprite.y)

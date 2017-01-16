@@ -43,6 +43,7 @@ namespace sdx
         centered : bool = true
         layer : int = 0
         id : int = ++uniqueId
+        path: string
 
         /**
          * Don't allow free-range sprites
@@ -62,6 +63,7 @@ namespace sdx
         def static fromRenderedText(renderer: Video.Renderer, font : sdx.Font, text : string, color : sdx.graphics.Color) : Sprite?
             var sprite = new Sprite()
             var textSurface = font.render(text, color)
+            sprite.path = text
 
             if textSurface == null
                 print "Unable to render text surface!"
@@ -105,6 +107,7 @@ namespace sdx
                     sprite.texture.set_blend_mode(Video.BlendMode.BLEND)
                     sprite.width = surface.w
                     sprite.height = surface.h
+                    sprite.path = name
                     return sprite
             return null
 
@@ -118,6 +121,7 @@ namespace sdx
         def static fromFile(renderer: Video.Renderer, path: string) : Sprite?
             surface: Video.Surface
             var sprite = new Sprite()
+            sprite.path = path
 
             if path.index_of("resource:///") == 0
                 try
