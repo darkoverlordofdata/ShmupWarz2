@@ -25,8 +25,8 @@ namespace o2d.scene2d
         pixelsPerWU: double
         resMultiplier: double
         vo: CompositeItemVO
-        indexes: dict of int, Actor
-        layerMap: dict of string, LayerItemVO
+        indexes: dict of int, Actor = new dict of int, Actor
+        layerMap: dict of string, LayerItemVO = new dict of string, LayerItemVO
 
         construct(vo: CompositeItemVO = null, ir: IResourceRetriever = null)
             if vo != null do initialize(vo, ir, new BuiltItemHandler.Default())
@@ -53,15 +53,21 @@ namespace o2d.scene2d
         def build(vo: CompositeItemVO, itemHandler: BuiltItemHandler, isRoot: bool)
             buildImages(itemHandler, vo.composite.sImages)
             build9PatchImages(itemHandler, vo.composite.sImage9patchs)
+            print "buildLabels"
             buildLabels(itemHandler, vo.composite.sLabels)
+            print "buildComposites"
             buildComposites(itemHandler, vo.composite.sComposites)
+            print "processZIndexes"
             processZIndexes()
+            print "recalculateSize"
             recalculateSize()
+            print "buildCoreData?"
 
             if isRoot
                 buildCoreData(this, vo)
                 itemHandler.onItemBuild(this)
-
+            print "END"
+            
         def buildComposites(itemHandler: BuiltItemHandler, composites: list of CompositeItemVO)
             for var composite in composites
                 var className = getClassName(composite.customVars)
@@ -94,6 +100,7 @@ namespace o2d.scene2d
             
             return className
 
+
         def buildImages(itemHandler: BuiltItemHandler, images: list of SimpleImageVO)
             for var i=0 to (images.size-1)
                 var image = new Image.region(ir.getTextureRegion(images[i].imageName))
@@ -102,10 +109,19 @@ namespace o2d.scene2d
                 itemHandler.onItemBuild(image)
 
         def build9PatchImages(itemHandler: BuiltItemHandler, patches: list of Image9patchVO)
+            print "build9PatchImages"
             for patch in patches
+                print "patch (%s)/(%s)", patch.imageName, patch.layerName
+
                 var region = (TextureAtlas.AtlasRegion) ir.getTextureRegion(patch.imageName)
+                print "region - %s", patch.imageName
+
                 var ninePatch = new NinePatch(region, region.splits[0], region.splits[1], region.splits[2], region.splits[3])
+                print "ninePatch"
+
                 var image = new Image.ninepatch(ninePatch)
+                print "image"
+
                 image.setWidth(patch.width*pixelsPerWU/resMultiplier)
                 image.setHeight(patch.height * pixelsPerWU/resMultiplier)
                 processMain(image, patch)

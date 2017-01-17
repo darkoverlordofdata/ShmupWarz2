@@ -18,7 +18,7 @@ namespace o2d.data
         /**
          * getMultiplier
          */
-        def getMultiplier(originalResolution: ResolutionEntryVO): double
+        def getMultiplier(originalResolution: ResolutionEntryVO?): double
             mul: double
 
             if base == 0

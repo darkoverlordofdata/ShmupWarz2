@@ -1,6 +1,7 @@
 [indent=4]
 uses SDL
 uses sdx
+uses sdx.files
 uses sdx.graphics.s2d
 uses Entitas
 
@@ -31,7 +32,9 @@ namespace ShmupWarz
             _sprites = _game.sprites
             // load the overlap2d atlas
             _atlas = new TextureAtlas()
-            _atlas.load(new TextureAtlas.TextureAtlasData(@"$RES/orig/pack.atlas", @"$RES/orig", false))
+            var imageFile = new FileHandle("orig/pack.atlas", sdx.FileType.Resource)
+            var imageDir = new FileHandle("orig", sdx.FileType.Resource)
+            _atlas.load(new TextureAtlas.TextureAtlasData(imageFile, imageDir, false))
 
         /**
         *  OnEntityAdded event:

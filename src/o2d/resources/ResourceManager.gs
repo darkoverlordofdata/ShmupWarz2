@@ -1,4 +1,8 @@
 [indent=4]
+
+
+uses sdx
+uses sdx.files
 uses sdx.graphics.s2d
 uses o2d.data
 
@@ -17,14 +21,14 @@ namespace o2d.resources
         const shadersPath: string = "shaders"
 
         prop readonly projectVO : ProjectInfoVO
-        prop readonly loadedSceneVOs : dict of string, SceneVO
-        prop readonly preparedSceneNames : list of string
+        prop readonly loadedSceneVOs : dict of string, SceneVO = new dict of string, SceneVO
+        prop readonly preparedSceneNames : list of string = new list of string
         prop readonly uri: string
+
+        mainPack: private TextureAtlas
 
         construct(uri: string)
             _uri = uri
-            _loadedSceneVOs = new dict of string, SceneVO
-            _preparedSceneNames = new list of string
 
         /**
         * Easy use loader
@@ -38,7 +42,7 @@ namespace o2d.resources
                 loadSceneVO(scene.sceneName)
                 scheduleScene(scene.sceneName)
             //prepareAssetsToLoad()
-            //loadAssets()
+            loadAssets()
                 
         /**
         * Schedules scene for later loading
@@ -51,24 +55,39 @@ namespace o2d.resources
                 preparedSceneNames.add(name)
 
         def loadSceneVO(sceneName: string): SceneVO
-            // print "loadSceneVO %s", @"$uri/scenes/$sceneName.dt"
             var stream = readStream(@"$uri/scenes/$sceneName.dt")
             var json = loadJson(stream)
             var sceneVO = new SceneVO(json)
             loadedSceneVOs[sceneName] = sceneVO
-            // print "Loaded %s", sceneName
             return sceneVO
         
         def loadProjectVO(): ProjectInfoVO
             var stream = readStream(@"$uri/project.dt")
             var json = loadJson(stream)
             _projectVO = new ProjectInfoVO(json)
-            //print "Loaded project"
-            var str = _projectVO.to_string()
+            // print "PARSED"
+            // var str = _projectVO.to_string()
+            // print str
             return _projectVO
 
+        def loadAssets()
+            print "loadAssets"
+            loadAtlasPack()
+            print "loadAtlasPack"
+            loadParticleEffects()
+            loadSpineAnimations()
+            loadSpriteAnimations()
+            loadSpriterAnimations()
+            loadFonts()
+            loadShaders()
+
+
         def loadAtlasPack()
-            pass
+            var packFile = Sdx.files.resource(packResolutionName + Files.seperator + "pack.atlas")
+            if !packFile.exists()
+                print "Unable to find file %s", packFile.getPath()
+                return
+            mainPack = new TextureAtlas.file(packFile)
 
         def loadParticleEffects()
             pass
@@ -89,7 +108,8 @@ namespace o2d.resources
             pass
             
         def getTextureRegion(name: string): TextureRegion
-            return null
+            print "getTextureRegion %s", name
+            return mainPack.findRegion(name)
 
         def getSpriteAnimation(name: string): TextureAtlas
             return null
@@ -101,6 +121,9 @@ namespace o2d.resources
             return _projectVO
 
         def getLoadedResolution(): ResolutionEntryVO
-            return null
+            if packResolutionName == "orig"
+                return getProjectVO().originalResolution
+            
+            return getProjectVO().getResolution(packResolutionName)
 
 

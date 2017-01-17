@@ -10,7 +10,7 @@ namespace o2d.data
         prop uniqueId: int
         prop itemIdentifier: string
         prop itemName: string
-        prop tags: list of string
+        prop tags: list of string = new list of string
         prop customVars: string
         prop x: double
         prop y: double

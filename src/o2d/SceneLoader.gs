@@ -11,7 +11,9 @@ namespace o2d
 
         construct(uri: string)
             _rm = new ResourceManager(uri)
+            print "SceneLoader %s", uri
             rm.initAllResources()
+            print "SceneLoader initialized"
 
         def loadScene(sceneName: string): SceneVO
             _sceneVO = rm.getSceneVO(sceneName)

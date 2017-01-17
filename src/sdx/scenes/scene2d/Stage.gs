@@ -56,7 +56,7 @@ namespace sdx.scenes.scene2d
         touchFocuses: list of TouchFocus = new list of TouchFocus    
         actionsRequestRendering: bool = true
                 
-        construct(viewport: Viewport=null, batch: Batch=null)
+        construct(viewport: Viewport?=null, batch: Batch?=null)
             this.viewport = viewport == null ? new Viewport() : viewport
             ownsBatch = batch == null
             this.batch = ownsBatch ? new Batch() : batch

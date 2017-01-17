@@ -188,10 +188,16 @@ namespace o2d
          * width: double
          *
          */
+        def static private tags_helper(tags: list of string) : string
+            if tags != null 
+                return string.joinv(",", tags.to_array())
+            else
+                return ""
+
         def static MainItemVO(it: MainItemVO, z:int=0): string
             //print "to_string: MainItemVO"uniqueId
             return string.join("\n", 
-                string.join("", tab(z+2), "tags:[", string.joinv(",",it.tags.to_array()), "]"),
+                string.join("", tab(z+2), "tags:[", tags_helper(it.tags), "]"),
                 string.join("", tab(z+2), "uniqueId:", it.uniqueId.to_string()),
                 string.join("", tab(z+2), "itemIdentifier:", it.itemIdentifier),
                 string.join("", tab(z+2), "itemName:", it.itemName),

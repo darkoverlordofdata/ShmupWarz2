@@ -65,6 +65,7 @@ src/sdx/Sdx.gs
 src/sdx/Sound.gs
 src/sdx/Sprite.gs
 src/sdx/Version.gs
+src/sdx/files/FileHandle.gs
 src/sdx/graphics/Color.gs
 src/sdx/graphics/Texture.gs
 src/sdx/graphics/s2d/Batch.gs

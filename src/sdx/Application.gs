@@ -42,9 +42,8 @@ namespace sdx
 
         game: ApplicationListener
 
-        construct() 
-            print "initialize sdx"
-            new sdx.graphics.Color(0)
+        construct(base:string) 
+            new Sdx(this, base) // initialization
 
         /**
          * Run - start the game loop

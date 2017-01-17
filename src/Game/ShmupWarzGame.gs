@@ -36,7 +36,7 @@ namespace ShmupWarz
         prop arial: sdx.Font
 
         construct(desktop: bool, scale: double)
-            super()
+            super("resource:///darkoverlordofdata/shmupwarz")
             _density = 1
             _desktop = desktop
             _scale = scale

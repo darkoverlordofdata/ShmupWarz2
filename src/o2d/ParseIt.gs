@@ -167,11 +167,10 @@ namespace o2d
                 it.layerName = json.get_string_member("layerName")
 
             if json.has_member("tint")
+                it.tint = new array of double[4]
+                var tint_i = 0
                 for var tint in json.get_array_member("tint").get_elements()
-                    var tint_array = tint.get_array()
-                    it.tint = new array of double[tint_array.get_length()]
-                    for var i = 0 to (tint_array.get_length()-1)
-                        it.tint[i] =(tint_array.get_double_element(i))
+                    it.tint[tint_i++] = tint.get_double()
 
             if json.has_member("composite")
                 it.composite = new data.CompositeVO(json.get_object_member("composite"))

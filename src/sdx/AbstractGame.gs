@@ -40,10 +40,8 @@ namespace sdx
         _elapsed: double = 0.0
         _frames: int = 0
 
-        construct() 
-            print "initialize sdx"
-            new sdx.graphics.Color(0)
-
+        construct()
+            print "AbstractGame initialized"
         /**
          * Run - start the game loop
          */

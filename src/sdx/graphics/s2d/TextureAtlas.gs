@@ -4,6 +4,7 @@
  *
  */
 uses Gee
+uses sdx.files
 uses sdx.graphics
 
 namespace sdx.graphics.s2d
@@ -12,15 +13,17 @@ namespace sdx.graphics.s2d
      *  load a libgdx format atlas
      */
     class TextureAtlas : Object
-        prop readonly textures: HashSet of Texture
-        prop readonly regions: list of AtlasRegion
+        prop readonly textures: HashSet of Texture = new HashSet of Texture
+        prop readonly regions: list of AtlasRegion = new list of AtlasRegion
 
         /**
          * @param root location of resources
          */
-        construct()
-            _textures = new HashSet of Texture
-            _regions = new list of AtlasRegion
+        construct(data: TextureAtlasData?=null)
+            if data != null do load(data)
+
+        construct file(packFile: FileHandle, imageDir: FileHandle?=null, flip:bool=false)
+            this(new TextureAtlasData(packFile, imageDir == null ? packFile.getParent() : imageDir, flip))
 
         class static TextureAtlasData : Object
             prop pages: list of Page
@@ -31,10 +34,10 @@ namespace sdx.graphics.s2d
              * @param imagesDir for the bitmap(s)
              * @param flip
              */
-            construct(packFile: string, imagesDir: string, flip: bool)
+            construct(packFile: FileHandle, imagesDir: FileHandle, flip: bool)
                 _pages = new list of Page
                 _regions = new list of Region
-                var reader = new DataInputStream(readStream(packFile))
+                var reader = new DataInputStream(packFile.read())
                 try
                     pageImage: Page = null
                     while true
@@ -43,7 +46,7 @@ namespace sdx.graphics.s2d
                         if line.strip().length == 0
                             pageImage = null
                         else if pageImage == null
-                            var file = imagesDir+"/"+line
+                            var file = imagesDir.child(line)
                             var width = 0
                             var height = 0
                             if readTuple(reader) == 2
@@ -107,11 +110,12 @@ namespace sdx.graphics.s2d
                 except e: Error
                     print e.message
 
+
             /**
              * povo - one for each atlas file 
              */
             class static Page
-                prop textureFile: string
+                prop textureFile: FileHandle
                 prop texture: Texture
                 prop height: int
                 prop width: int
@@ -121,7 +125,7 @@ namespace sdx.graphics.s2d
                 prop magFilter: int
                 prop uWrap: int
                 prop vWrap: int
-                construct(handle: string, width: int, height: int, useMipMaps: bool, format: Format, minFilter: int,
+                construct(handle: FileHandle, width: int, height: int, useMipMaps: bool, format: Format, minFilter: int,
                     magFilter: int, uWrap: int, vWrap: int)
                     _textureFile = handle
                     _height = height
@@ -163,6 +167,17 @@ namespace sdx.graphics.s2d
                     _rotate = rotate
 
 
+
+        def findRegion(name:string, index:int=-1): AtlasRegion
+            print "findRegion %s", name
+            for region in regions   
+                if index == -1
+                    if region.name == name do return region
+                else
+                    if region.name == name && region.index == index do return region
+
+            return null
+
         /**
          * @param data config to load images from
          */
@@ -181,6 +196,7 @@ namespace sdx.graphics.s2d
                 pageToTexture[page] = texture
 
             for region in data.regions
+                print "$$"
                 var width = region.width
                 var height = region.height
                 var atlasRegion = new AtlasRegion(pageToTexture[region.page], region.left, region.top,
@@ -196,7 +212,7 @@ namespace sdx.graphics.s2d
                 atlasRegion.pads = region.pads
                 if region.flip do atlasRegion.flip(false, true)
                 regions.add(atlasRegion)
-
+            print "DONE"
 
         /** tuple used to return the parsed values */
         prop private static tuple: array of string
@@ -217,16 +233,6 @@ namespace sdx.graphics.s2d
             if ts.length == 0 do raise new IOException.InvalidData("invalid line %s", line)
             return ts[1].strip()
 
-        /** read in the stream, either from file or gresource */
-        def static readStream(path: string): InputStream raises IOException
-            if path.index_of("resource:///") == 0
-                return GLib.resources_open_stream(path.substring(11), 0)
-            else
-                var project = File.new_for_path(path)
-                if project.query_exists()
-                    return project.read()
-                else
-                    raise new IOException.FileNotFound(path)
 
         /** Describes the region of a packed image and provides information about the original image before it was packed. */
         class static AtlasRegion : TextureRegion

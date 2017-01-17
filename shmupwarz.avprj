@@ -93,6 +93,7 @@ c_library: m
 *vala_source: sdx/Sound.gs
 *vala_source: sdx/Sprite.gs
 *vala_source: sdx/Version.gs
+*vala_source: sdx/files/FileHandle.gs
 *vala_source: sdx/graphics/Color.gs
 *vala_source: sdx/graphics/Texture.gs
 *vala_source: sdx/graphics/s2d/Batch.gs
@@ -198,6 +199,7 @@ c_library: m
 *translate: genie src/sdx/Sound.gs
 *translate: genie src/sdx/Sprite.gs
 *translate: genie src/sdx/Version.gs
+*translate: genie src/sdx/files/FileHandle.gs
 *translate: genie src/sdx/graphics/Color.gs
 *translate: genie src/sdx/graphics/Texture.gs
 *translate: genie src/sdx/graphics/s2d/Batch.gs

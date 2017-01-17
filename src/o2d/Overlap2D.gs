@@ -36,6 +36,7 @@ namespace o2d
             else
                 print "o2d project file %s not found", path
                 return null
+                
 
     /**
      * read and parse the json object from the stream
