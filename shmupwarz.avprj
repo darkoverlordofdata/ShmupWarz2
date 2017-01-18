@@ -74,7 +74,6 @@ c_library: m
 *vala_source: o2d/scene2d/ButtonClickListener.gs
 *vala_source: o2d/scene2d/CompositeActor.gs
 *vala_source: o2d/utils/CustomVariables.gs
-*vala_source: sdx/AbstractGame.gs
 *vala_source: sdx/Application.gs
 *vala_source: sdx/ApplicationListener.gs
 *vala_source: sdx/Audio.gs
@@ -180,7 +179,6 @@ c_library: m
 *translate: genie src/o2d/scene2d/ButtonClickListener.gs
 *translate: genie src/o2d/scene2d/CompositeActor.gs
 *translate: genie src/o2d/utils/CustomVariables.gs
-*translate: genie src/sdx/AbstractGame.gs
 *translate: genie src/sdx/Application.gs
 *translate: genie src/sdx/ApplicationListener.gs
 *translate: genie src/sdx/Audio.gs

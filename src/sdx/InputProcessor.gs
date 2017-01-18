@@ -7,7 +7,7 @@
  */
 namespace sdx
 
-    interface InputProcessor
+    interface InputProcessor : Object
         def abstract keyDown(keycode: int): bool
         def abstract keyUp(keycode: int): bool
         def abstract keyTyped(character: char): bool

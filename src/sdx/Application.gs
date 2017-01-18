@@ -6,15 +6,12 @@
  */
 [indent=4]
 uses SDL
-uses SDL.Input
 uses SDL.Video
-uses SDLMixer    
-uses SDLTTF
 
 namespace sdx
 
     /**
-     * SDL Application
+     * Core SDL Application
      */
     class Application : Object
 

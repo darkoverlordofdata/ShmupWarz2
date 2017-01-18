@@ -46,7 +46,6 @@ src/o2d/scene2d/BuiltItemHandler.gs
 src/o2d/scene2d/ButtonClickListener.gs
 src/o2d/scene2d/CompositeActor.gs
 src/o2d/utils/CustomVariables.gs
-src/sdx/AbstractGame.gs
 src/sdx/Application.gs
 src/sdx/ApplicationListener.gs
 src/sdx/Audio.gs

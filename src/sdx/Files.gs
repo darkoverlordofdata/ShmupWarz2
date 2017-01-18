@@ -23,7 +23,6 @@ namespace sdx
 
         const static separator: string = "/"
 
-        // prop static readonly seperator: string = "/" //DIR_SEPARATOR_S
         prop readonly isResource: bool
         prop readonly resourcePath: string
 

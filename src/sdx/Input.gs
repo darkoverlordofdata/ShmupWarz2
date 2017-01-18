@@ -10,6 +10,11 @@ namespace sdx
 
     class Input : Object
 
+        processor: private InputProcessor
+        keys : private array of uint8 = new array of uint8[255]
+        evt : private SDL.Event
+
+
         enum static Buttons
             LEFT
             RIGHT
@@ -163,12 +168,32 @@ namespace sdx
             NUMPAD_8 = 152
             NUMPAD_9 = 153
 
+        def processEvents()
+            if processor != null
+                while SDL.Event.poll(out evt) != 0
+                    case evt.type
+                    
+                        when  SDL.EventType.KEYDOWN
+                            keys[evt.key.keysym.sym] = 1
+                            processor.keyDown(evt.key.keysym.sym)
 
-        construct()
-            pass
-            
+                        when  SDL.EventType.KEYUP
+                            keys[evt.key.keysym.sym] = 0
+                            processor.keyUp(evt.key.keysym.sym)
+
+                        when  SDL.EventType.MOUSEMOTION
+                            processor.touchDragged(evt.motion.x, evt.motion.y, 0)
+                            processor.mouseMoved(evt.motion.x, evt.motion.y)
+
+                        when  SDL.EventType.MOUSEBUTTONDOWN
+                            processor.touchDown(evt.motion.x, evt.motion.y, 0, 0)
+
+                        when  SDL.EventType.MOUSEBUTTONUP
+                            processor.touchUp(evt.motion.x, evt.motion.y, 0, 0)
+
     
+
         def setInputProcessor(processor: InputProcessor)
-            pass
+            this.processor = processor
 
 
