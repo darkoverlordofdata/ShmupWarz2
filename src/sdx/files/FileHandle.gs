@@ -12,7 +12,7 @@ namespace sdx.files
             _type = type
             _path = fileName
             if Sdx.files.isResource && type == FileType.Resource && fileName.substring(0,1) != "/"
-                _file = File.new_for_path(Sdx.files.resourcePath + Sdx.files.seperator + fileName)
+                _file = File.new_for_path(Sdx.files.resourcePath + Sdx.files.separator + fileName)
             else
                 _file = File.new_for_path(fileName)
 
@@ -38,7 +38,7 @@ namespace sdx.files
                 return file.query_exists()
 
         def child(name: string): FileHandle
-            return new FileHandle(file.get_path() + Sdx.files.seperator + name, _type)
+            return new FileHandle(file.get_path() + Sdx.files.separator + name, _type)
         
 
         def read(): InputStream

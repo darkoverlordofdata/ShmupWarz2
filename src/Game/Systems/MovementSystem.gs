@@ -7,9 +7,9 @@ namespace ShmupWarz
     class MovementSystem : Object implements ISystem, ISetWorld, IInitializeSystem, IExecuteSystem
         _world : World
         _group : Group
-        _game : ShmupWarzGame
+        _game : GameScene
 
-        construct(game : ShmupWarzGame)
+        construct(game : GameScene)
             _game = game
 
         def setWorld(world : World)
@@ -22,8 +22,8 @@ namespace ShmupWarz
             for var entity in _group.getEntities()
                 var pos = getPosition(entity)
                 var vel = getVelocity(entity)
-                pos.x += (vel.x * _game.delta)
-                pos.y += (vel.y * _game.delta)
+                pos.x += (vel.x * Sdx.graphics.deltaTime)
+                pos.y += (vel.y * Sdx.graphics.deltaTime)
 
 
 

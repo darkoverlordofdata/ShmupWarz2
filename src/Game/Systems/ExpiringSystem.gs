@@ -8,9 +8,9 @@ namespace ShmupWarz
     class ExpiringSystem : Object implements ISystem, ISetWorld, IInitializeSystem, IExecuteSystem
         _world : World
         _group : Group
-        _game : ShmupWarzGame
+        _game : GameScene
 
-        construct(game : ShmupWarzGame)
+        construct(game : GameScene)
             _game = game
 
         def setWorld(world:World)
@@ -21,7 +21,7 @@ namespace ShmupWarz
 
         def execute()
             for var entity in _group.getEntities()
-                if (getExpires(entity).delay -= _game.delta) <= 0
+                if (getExpires(entity).delay -= Sdx.graphics.deltaTime) <= 0
                     setDestroy(entity, true)
 
 

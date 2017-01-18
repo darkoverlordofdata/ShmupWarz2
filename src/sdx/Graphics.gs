@@ -10,7 +10,9 @@ namespace sdx
 
     class Graphics : Object
 
-        construct()
-            pass
-            
+        prop deltaTime: float
+        prop width: int
+        prop height: int
+        prop sprites : list of Sprite = new list of Sprite
+                    
     

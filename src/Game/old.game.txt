@@ -64,6 +64,7 @@ namespace ShmupWarz
         def override Update(delta: double)
             world.execute()
 
+
         /**
         *  OnInit
         *

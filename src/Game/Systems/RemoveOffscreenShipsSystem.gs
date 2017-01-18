@@ -7,9 +7,9 @@ namespace ShmupWarz
     class RemoveOffscreenShipsSystem : Object implements ISystem, ISetWorld, IInitializeSystem, IExecuteSystem
         _world : World
         _group : Group
-        _game : ShmupWarzGame
+        _game : GameScene
 
-        construct(game : ShmupWarzGame)
+        construct(game : GameScene)
             _game = game
 
         def setWorld(world : World)

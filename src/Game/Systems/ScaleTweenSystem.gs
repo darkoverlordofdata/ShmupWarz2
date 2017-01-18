@@ -7,9 +7,9 @@ namespace ShmupWarz
     class ScaleTweenSystem : Object implements ISystem, ISetWorld, IInitializeSystem, IExecuteSystem
         _world : World
         _group : Group
-        _game : ShmupWarzGame
+        _game : GameScene
 
-        construct(game : ShmupWarzGame)
+        construct(game : GameScene)
             _game = game
 
         def setWorld(world : World)
@@ -28,8 +28,8 @@ namespace ShmupWarz
                     var sprite = (Sprite)res.sprite
                     var scale = sprite.scale
 
-                    sprite.scale.x += scaleTween.speed * _game.delta
-                    sprite.scale.y += scaleTween.speed * _game.delta
+                    sprite.scale.x += scaleTween.speed * Sdx.graphics.deltaTime
+                    sprite.scale.y += scaleTween.speed * Sdx.graphics.deltaTime
 
                     if scale.x > scaleTween.max
                         sprite.scale.x = scaleTween.max

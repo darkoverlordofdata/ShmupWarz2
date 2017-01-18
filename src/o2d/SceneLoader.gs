@@ -9,9 +9,8 @@ namespace o2d
         prop readonly rm: ResourceManager
         prop readonly sceneVO: SceneVO
 
-        construct(uri: string)
-            _rm = new ResourceManager(uri)
-            print "SceneLoader %s", uri
+        construct()
+            _rm = new ResourceManager()
             rm.initAllResources()
             print "SceneLoader initialized"
 

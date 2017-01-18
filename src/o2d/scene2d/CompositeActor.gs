@@ -28,8 +28,8 @@ namespace o2d.scene2d
         indexes: dict of int, Actor = new dict of int, Actor
         layerMap: dict of string, LayerItemVO = new dict of string, LayerItemVO
 
-        construct(vo: CompositeItemVO, ir: IResourceRetriever)
-            this.builder(vo, ir, new BuiltItemHandler.Default())
+        construct(vo: CompositeItemVO?=null, ir: IResourceRetriever?=null)
+            if vo != null do this.builder(vo, ir, new BuiltItemHandler.Default())
 
         construct builder(vo: CompositeItemVO, ir: IResourceRetriever, itemHandler: BuiltItemHandler, isRoot: bool=true)
             initialize(vo, ir, itemHandler, isRoot)

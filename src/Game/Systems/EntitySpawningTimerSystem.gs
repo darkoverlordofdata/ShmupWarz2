@@ -5,13 +5,13 @@ uses Entitas
 namespace ShmupWarz
 
     class EntitySpawningTimerSystem : Object implements ISystem, ISetWorld, IInitializeSystem, IExecuteSystem
-        _game : ShmupWarzGame
+        _game : GameScene
         _world : World
         _timer1 : double
         _timer2 : double
         _timer3 : double
 
-        construct(game : ShmupWarzGame)
+        construct(game : GameScene)
             _game = game
 
         def setWorld(world : World)
@@ -28,7 +28,7 @@ namespace ShmupWarz
             _timer3 = spawnEnemy(_timer3, Enemy.Enemy3)
 
         def spawnEnemy(t : double, enemy : Enemy) : double
-            var delta = t - _game.delta
+            var delta = t - Sdx.graphics.deltaTime
             result : double
             if delta < 0
                 case enemy

@@ -22,6 +22,7 @@ namespace sdx
         width : int
         height : int
         defaultFont: string
+        font: sdx.Font
         running : bool
         window : Window
         renderer : Renderer

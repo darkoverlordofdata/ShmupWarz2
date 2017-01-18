@@ -7,10 +7,10 @@ namespace ShmupWarz
     class DestroySystem : Object implements ISystem, ISetWorld, IInitializeSystem, IExecuteSystem
         _world : World
         _group : Group
-        _game : ShmupWarzGame
+        _game : GameScene
         _sprites : list of Sprite
         
-        construct(game : ShmupWarzGame)
+        construct(game : GameScene)
             _game = game
 
         def setWorld(world : World)
@@ -18,7 +18,7 @@ namespace ShmupWarz
 
         def initialize()
             _group = _world.getGroup(Matcher.AllOf({Component.Destroy}))
-            _sprites = _game.sprites
+            _sprites = Sdx.app.sprites
 
         def execute()
             res : ResourceComponent

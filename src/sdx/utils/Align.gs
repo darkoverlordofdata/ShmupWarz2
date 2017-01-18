@@ -5,7 +5,8 @@
  * 
  *
  */
-namespace sdx.scenes.scene2d.ui
+
+namespace sdx.utils
 
     class Align : Object
 

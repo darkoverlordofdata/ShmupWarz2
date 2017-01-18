@@ -48,7 +48,6 @@ c_library: m
 *vala_source: Game/Systems/ScaleTweenSystem.gs
 *vala_source: Game/Systems/SoundEffectSystem.gs
 *vala_source: Game/Systems/ViewManagerSystem.gs
-*vala_source: o2d/Overlap2D.gs
 *vala_source: o2d/ParseIt.gs
 *vala_source: o2d/SceneLoader.gs
 *vala_source: o2d/ToString.gs
@@ -90,9 +89,9 @@ c_library: m
 *vala_source: sdx/Net.gs
 *vala_source: sdx/Screen.gs
 *vala_source: sdx/Sdx.gs
-*vala_source: sdx/Sound.gs
 *vala_source: sdx/Sprite.gs
 *vala_source: sdx/Version.gs
+*vala_source: sdx/audio/Sound.gs
 *vala_source: sdx/files/FileHandle.gs
 *vala_source: sdx/graphics/Color.gs
 *vala_source: sdx/graphics/Texture.gs
@@ -124,6 +123,7 @@ c_library: m
 *vala_source: sdx/scenes/scene2d/utils/TextureRegionDrawable.gs
 *vala_source: sdx/scenes/scene2d/utils/TransformDrawable.gs
 *vala_source: sdx/utils/Align.gs
+*vala_source: sdx/utils/Json.gs
 *vala_source: sdx/utils/Pool.gs
 *vala_source: sdx/utils/Pools.gs
 *vala_source: sdx/utils/viewport/Viewport.gs
@@ -154,7 +154,6 @@ c_library: m
 *translate: genie src/Game/Systems/ScaleTweenSystem.gs
 *translate: genie src/Game/Systems/SoundEffectSystem.gs
 *translate: genie src/Game/Systems/ViewManagerSystem.gs
-*translate: genie src/o2d/Overlap2D.gs
 *translate: genie src/o2d/ParseIt.gs
 *translate: genie src/o2d/SceneLoader.gs
 *translate: genie src/o2d/ToString.gs
@@ -196,9 +195,9 @@ c_library: m
 *translate: genie src/sdx/Net.gs
 *translate: genie src/sdx/Screen.gs
 *translate: genie src/sdx/Sdx.gs
-*translate: genie src/sdx/Sound.gs
 *translate: genie src/sdx/Sprite.gs
 *translate: genie src/sdx/Version.gs
+*translate: genie src/sdx/audio/Sound.gs
 *translate: genie src/sdx/files/FileHandle.gs
 *translate: genie src/sdx/graphics/Color.gs
 *translate: genie src/sdx/graphics/Texture.gs
@@ -230,6 +229,7 @@ c_library: m
 *translate: genie src/sdx/scenes/scene2d/utils/TextureRegionDrawable.gs
 *translate: genie src/sdx/scenes/scene2d/utils/TransformDrawable.gs
 *translate: genie src/sdx/utils/Align.gs
+*translate: genie src/sdx/utils/Json.gs
 *translate: genie src/sdx/utils/Pool.gs
 *translate: genie src/sdx/utils/Pools.gs
 *translate: genie src/sdx/utils/viewport/Viewport.gs

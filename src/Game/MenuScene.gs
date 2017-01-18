@@ -31,6 +31,7 @@ namespace ShmupWarz
         def resume()
             pass
         def render(delta: double)
+            print "render %f", delta
             // Gdx.gl.glClearColor(0f, 0f, 0f, 1f)
             // Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT)
             // sceneLoader.engine.update(delta)

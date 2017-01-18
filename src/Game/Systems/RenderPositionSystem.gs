@@ -8,18 +8,18 @@ namespace ShmupWarz
     class RenderPositionSystem : Object implements ISystem, ISetWorld, IInitializeSystem, IExecuteSystem
         _renderer : unowned Video.Renderer
         _group: Group
-        _game : ShmupWarzGame
+        _game : GameScene
         _sprites : list of Sprite
 
-        construct(game : ShmupWarzGame)
+        construct(game : GameScene)
             _game = game
-            _renderer = _game.renderer
+            _renderer = Sdx.app.renderer
 
         def setWorld(world:World)
             _group = world.getGroup(Matcher.AllOf({Component.Resource, Component.Position}))
 
         def initialize()
-            _sprites = _game.sprites
+            _sprites = Sdx.app.sprites
 
         def execute()
             for var entity in _group.getEntities()

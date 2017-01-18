@@ -10,11 +10,11 @@ namespace ShmupWarz
 
     class HealthRenderSystem : Object implements  ISetWorld,  IExecuteSystem,  IInitializeSystem, ISystem
 
-        _game : ShmupWarzGame
+        _game : GameScene
         _world : World
         _group : Group
 
-        construct(game : ShmupWarzGame)
+        construct(game : GameScene)
             _game = game
 
         def setWorld(world: World)
@@ -35,18 +35,18 @@ namespace ShmupWarz
                 if pct == text.text
                     sprite = (Sprite)text.sprite
                     if sprite == null
-                        sprite = Sprite.fromRenderedText(_game.renderer, _game.arial, text.text, sdx.graphics.Color.Lime)
+                        sprite = Sprite.fromRenderedText(Sdx.app.renderer, Sdx.app.font, text.text, sdx.graphics.Color.Lime)
                         sprite.centered = false
                         text.sprite = sprite
                 else
                     text.text = pct
                     text.sprite = null
-                    sprite = Sprite.fromRenderedText(_game.renderer, _game.arial, text.text, sdx.graphics.Color.LimeGreen)
+                    sprite = Sprite.fromRenderedText(Sdx.app.renderer, Sdx.app.font, text.text, sdx.graphics.Color.LimeGreen)
                     sprite.centered = false
                     text.sprite = sprite
 
                 sprite.x = (int)position.x
                 sprite.y = (int)position.y
-                _game.onetime.add(sprite)
+                Sdx.app.onetime.add(sprite)
 
 

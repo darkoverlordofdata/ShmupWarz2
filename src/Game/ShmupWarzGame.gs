@@ -12,16 +12,12 @@ uses o2d.data
 uses o2d.scene2d
 
 def main(args: array of string)
-    // var game = new ShmupWarz.Shmup()
     var game = new ShmupWarz.ShmupWarzGame(true, 1.0)
     game.run()
     
 namespace ShmupWarz
-    const RES : string = "resource:///darkoverlordofdata/shmupwarz"
     const SCREEN_WIDTH:int = 800
     const SCREEN_HEIGHT:int = 600
-
-
 
     class ShmupWarzGame : Game
 
@@ -48,19 +44,18 @@ namespace ShmupWarz
             game = this
 
         def override create()
-            menuGame()
+            playGame()
 
         def menuGame() 
-            var sceneLoader = new SceneLoader(RES)
+            var sceneLoader = new SceneLoader()
             menuScene = new MenuScene(sceneLoader, new MenuUI(this, sceneLoader))
             optionScene = null
             scoreScene = null
             gameScene = null
             setScreen(menuScene)
-            print "OK!"
         
         def optionsGame() 
-            var sceneLoader = new SceneLoader(RES)
+            var sceneLoader = new SceneLoader()
             menuScene = null
             optionScene = new MenuScene(sceneLoader, new OptionUI(this, sceneLoader))
             setScreen(optionScene)
@@ -69,7 +64,7 @@ namespace ShmupWarz
         
 
         def scoreGame() 
-            var sceneLoader = new SceneLoader(RES)
+            var sceneLoader = new SceneLoader()
             menuScene = null
             optionScene = null
             scoreScene = new MenuScene(sceneLoader, new ScoreUI(this, sceneLoader))

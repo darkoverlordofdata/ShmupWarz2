@@ -4,6 +4,7 @@
 uses sdx
 uses sdx.files
 uses sdx.graphics.s2d
+uses sdx.utils
 uses o2d.data
 
 namespace o2d.resources
@@ -23,12 +24,8 @@ namespace o2d.resources
         prop readonly projectVO : ProjectInfoVO
         prop readonly loadedSceneVOs : dict of string, SceneVO = new dict of string, SceneVO
         prop readonly preparedSceneNames : list of string = new list of string
-        prop readonly uri: string
-
         mainPack: private TextureAtlas
 
-        construct(uri: string)
-            _uri = uri
 
         /**
         * Easy use loader
@@ -51,19 +48,19 @@ namespace o2d.resources
         * @param name - scene file name without ".dt" extension
         */
         def scheduleScene(name: string)
-            if (name in loadedSceneVOs)
+            if name in loadedSceneVOs
                 preparedSceneNames.add(name)
 
         def loadSceneVO(sceneName: string): SceneVO
-            var stream = readStream(@"$uri/scenes/$sceneName.dt")
-            var json = loadJson(stream)
+            var file = Sdx.files.resource(scenesPath + Files.separator + sceneName + ".dt")
+            var json = JSON.parse(file.read())
             var sceneVO = new SceneVO(json)
             loadedSceneVOs[sceneName] = sceneVO
             return sceneVO
         
         def loadProjectVO(): ProjectInfoVO
-            var stream = readStream(@"$uri/project.dt")
-            var json = loadJson(stream)
+            var file = Sdx.files.resource("project.dt")
+            var json = JSON.parse(file.read())
             _projectVO = new ProjectInfoVO(json)
             return _projectVO
 
@@ -78,7 +75,7 @@ namespace o2d.resources
 
 
         def loadAtlasPack()
-            var packFile = Sdx.files.resource(packResolutionName + Files.seperator + "pack.atlas")
+            var packFile = Sdx.files.resource(packResolutionName + Files.separator + "pack.atlas")
             if !packFile.exists()
                 print "Unable to find file %s", packFile.getPath()
                 return

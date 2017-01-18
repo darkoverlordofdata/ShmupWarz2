@@ -5,12 +5,13 @@
  * Author: 
  *      bruce davidson
  */
-
+uses sdx.files
+uses sdx.audio
 namespace sdx
 
     class Audio : Object
 
-        construct()
-            pass
+        def newSound(file: FileHandle): Sound
+            return new Sound(file)
             
     

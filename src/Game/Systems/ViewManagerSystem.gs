@@ -12,10 +12,10 @@ namespace ShmupWarz
         _sprites : list of Sprite
         _group : Group
         _world : World
-        _game : ShmupWarzGame
+        _game : GameScene
         _atlas: TextureAtlas
 
-        construct(game : ShmupWarzGame)
+        construct(game : GameScene)
             _game = game
 
         def setWorld(world : World)
@@ -28,8 +28,8 @@ namespace ShmupWarz
         def initialize()
             _group = _world.getGroup(Matcher.AllOf({Component.Resource}))
             _group.onEntityAdded.add(onEntityAdded)
-            // _game.sprites = new GenericArray of Sprite
-            _sprites = _game.sprites
+            // Sdx.app.sprites = new GenericArray of Sprite
+            _sprites = Sdx.app.sprites
             // load the overlap2d atlas
             _atlas = new TextureAtlas()
             var imageFile = new FileHandle("orig/pack.atlas", sdx.FileType.Resource)
@@ -47,9 +47,9 @@ namespace ShmupWarz
             var res = (ResourceComponent)c
 
             if res.path.index_of("/") == 0 || res.path.index_of("resource://") == 0
-                res.sprite = Sprite.fromFile(_game.renderer, res.path)
+                res.sprite = Sprite.fromFile(Sdx.app.renderer, res.path)
             else
-                res.sprite = Sprite.fromAtlas(_game.renderer, _atlas, res.path)
+                res.sprite = Sprite.fromAtlas(Sdx.app.renderer, _atlas, res.path)
 
             var sprite = (Sprite)res.sprite
             if sprite == null
