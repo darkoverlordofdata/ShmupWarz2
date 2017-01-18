@@ -12,7 +12,7 @@ uses o2d.utils
 
 namespace o2d.data
 
-    class CoreActorData
+    class CoreActorData : Object
         prop id: string
         prop tags: list of string
         prop layerIndex: int

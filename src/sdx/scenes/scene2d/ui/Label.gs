@@ -6,26 +6,30 @@
  *
  */
 uses sdx.graphics
+uses sdx.graphics.s2d
+uses sdx.math
+uses sdx.scenes.scene2d.utils
+uses sdx.utils
 
 namespace sdx.scenes.scene2d.ui
 
-    class Label : Image
+    class Label : Widget
 
         text: string
         _style: LabelStyle
         labelAlign: int = Align.left
         lineAlign: int = Align.left
 
-        construct(text: string, font: string, color: Color, size: int)
-            this.text = text
-            setStyle(new LabelStyle(sdx.Font.fromFile(font, size), color))
-            if text != null && text.length > 0 do setSize(getPrefWidth(), getPrefHeight())
-
-        construct style(text: string, style: LabelStyle)
+        construct(text: string, style: LabelStyle)
             this.text = text
             setStyle(style)
             if text != null && text.length > 0 do setSize(getPrefWidth(), getPrefHeight())
+
+
             
+        // construct style(text: string, font: string, color: Color, size: int)
+        //     this(text, new LabelStyle(sdx.Font.fromFile(font, size), color))
+
 
         class static LabelStyle : Object
             font: sdx.Font
@@ -36,14 +40,17 @@ namespace sdx.scenes.scene2d.ui
 
 
              
-            // TODO: 
-            // create drawable for surfaceFromRenderedText        
-            // super(drawable) 
+        def layout()
+            var textSurface = _style.font.render(text, _style.fontColor)
+            var texture = SDL.Video.Texture.create_from_surface(Sdx.app.renderer, textSurface)            
+
+        def draw(batch: Batch, parentAlpha: double)
+            pass
 
         def setStyle(style: LabelStyle)
-            if _style == null
+            if style == null
                 raise new Exception.IllegalArgumentException("style cannot be null.")
-            if _style.font == null
+            if style.font == null
                 raise new Exception.IllegalArgumentException("Missing LabelStyle font.")
             _style = style
             invalidateHierarchy()

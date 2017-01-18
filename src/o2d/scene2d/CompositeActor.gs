@@ -28,11 +28,11 @@ namespace o2d.scene2d
         indexes: dict of int, Actor = new dict of int, Actor
         layerMap: dict of string, LayerItemVO = new dict of string, LayerItemVO
 
-        construct(vo: CompositeItemVO = null, ir: IResourceRetriever = null)
-            if vo != null do initialize(vo, ir, new BuiltItemHandler.Default())
+        construct(vo: CompositeItemVO, ir: IResourceRetriever)
+            this.builder(vo, ir, new BuiltItemHandler.Default())
 
         construct builder(vo: CompositeItemVO, ir: IResourceRetriever, itemHandler: BuiltItemHandler, isRoot: bool=true)
-            initialize(vo, ir, new BuiltItemHandler.Default())
+            initialize(vo, ir, itemHandler, isRoot)
 
         def initialize(vo: CompositeItemVO, ir: IResourceRetriever, itemHandler: BuiltItemHandler, isRoot: bool=true)
             this.vo = vo
@@ -47,26 +47,21 @@ namespace o2d.scene2d
 
         def makeLayerMap(vo: CompositeItemVO)
             layerMap.clear()
+            layerMap[vo.layerName] = LayerItemVO.createDefault(vo.layerName)
             for layer in vo.composite.layers
                 layerMap[layer.layerName] = layer
 
         def build(vo: CompositeItemVO, itemHandler: BuiltItemHandler, isRoot: bool)
             buildImages(itemHandler, vo.composite.sImages)
             build9PatchImages(itemHandler, vo.composite.sImage9patchs)
-            print "buildLabels"
             buildLabels(itemHandler, vo.composite.sLabels)
-            print "buildComposites"
             buildComposites(itemHandler, vo.composite.sComposites)
-            print "processZIndexes"
             processZIndexes()
-            print "recalculateSize"
             recalculateSize()
-            print "buildCoreData?"
 
             if isRoot
                 buildCoreData(this, vo)
                 itemHandler.onItemBuild(this)
-            print "END"
             
         def buildComposites(itemHandler: BuiltItemHandler, composites: list of CompositeItemVO)
             for var composite in composites
@@ -109,19 +104,10 @@ namespace o2d.scene2d
                 itemHandler.onItemBuild(image)
 
         def build9PatchImages(itemHandler: BuiltItemHandler, patches: list of Image9patchVO)
-            print "build9PatchImages"
             for patch in patches
-                print "patch (%s)/(%s)", patch.imageName, patch.layerName
-
                 var region = (TextureAtlas.AtlasRegion) ir.getTextureRegion(patch.imageName)
-                print "region - %s", patch.imageName
-
                 var ninePatch = new NinePatch(region, region.splits[0], region.splits[1], region.splits[2], region.splits[3])
-                print "ninePatch"
-
                 var image = new Image.ninepatch(ninePatch)
-                print "image"
-
                 image.setWidth(patch.width*pixelsPerWU/resMultiplier)
                 image.setHeight(patch.height * pixelsPerWU/resMultiplier)
                 processMain(image, patch)
@@ -132,7 +118,7 @@ namespace o2d.scene2d
         def buildLabels(itemHandler: BuiltItemHandler, labels: list of LabelVO)
             for lab in labels
                 var style = new Label.LabelStyle(sdx.Font.fromFile(lab.style, lab.size), Color.WHITE)
-                var label = new Label.style(lab.text, style)
+                var label = new Label(lab.text, style)
                 label.setAlignment(lab.align)
                 label.setWidth(lab.width * pixelsPerWU / resMultiplier)
                 label.setHeight(lab.height * pixelsPerWU / resMultiplier)
@@ -142,6 +128,9 @@ namespace o2d.scene2d
 
 
         def processMain(actor: Actor, composite: MainItemVO)
+            // print "===================================="
+            // print vo.to_string()
+            // print "===================================="
             actor.name = vo.itemIdentifier
             buildCoreData(actor, vo)
             actor.setPosition(vo.x * pixelsPerWU/resMultiplier, vo.y * pixelsPerWU/resMultiplier)
@@ -151,7 +140,7 @@ namespace o2d.scene2d
             actor.color = new Color.rgba(vo.tint[0], vo.tint[1], vo.tint[2], vo.tint[3])
 
             indexes[getLayerIndex(vo.layerName) + vo.zIndex] = actor
-
+            var zz = layerMap.has_key(vo.layerName)
             if layerMap[vo.layerName].isVisible
                 actor.setVisible(true)
             else

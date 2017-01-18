@@ -10,8 +10,8 @@ namespace o2d.data
         prop layerName: string
         prop isVisible: bool
         prop isLocked: bool
-        construct(json: Json.Object)
-            parseIt(this, json)
+        construct(json: Json.Object?=null)
+            if json != null do parseIt(this, json)
 
 
         /**
@@ -19,3 +19,10 @@ namespace o2d.data
          */
         def to_string(z:int=0) : string
             return toString(this, z)
+
+        def static createDefault(name:string="Default"): LayerItemVO
+            var layerItemVO = new LayerItemVO()
+            layerItemVO.layerName = name
+            layerItemVO.isVisible = true
+            return layerItemVO
+        

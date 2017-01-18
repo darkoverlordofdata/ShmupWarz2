@@ -23,6 +23,7 @@ namespace sdx.scenes.scene2d.ui
         imageWidth: double
         imageHeight: double
         drawable: Drawable
+        
 
         construct(drawable: Drawable=null, scaling:Scaling=Scaling.stretch, align:int=Align.center)
             setDrawable(drawable)
@@ -38,9 +39,8 @@ namespace sdx.scenes.scene2d.ui
             setSize(getPrefWidth(), getPrefHeight())
 
         construct ninepatch(patch:NinePatch)
-            this(new NinePatchDrawable(patch), Scaling.stretch, Align.center)
-            
-
+            var d = new NinePatchDrawable(patch)
+            this(d, Scaling.stretch, Align.center)
 
         def layout()
             if drawable == null do return

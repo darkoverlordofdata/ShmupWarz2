@@ -65,15 +65,10 @@ namespace o2d.resources
             var stream = readStream(@"$uri/project.dt")
             var json = loadJson(stream)
             _projectVO = new ProjectInfoVO(json)
-            // print "PARSED"
-            // var str = _projectVO.to_string()
-            // print str
             return _projectVO
 
         def loadAssets()
-            print "loadAssets"
             loadAtlasPack()
-            print "loadAtlasPack"
             loadParticleEffects()
             loadSpineAnimations()
             loadSpriteAnimations()
@@ -108,7 +103,6 @@ namespace o2d.resources
             pass
             
         def getTextureRegion(name: string): TextureRegion
-            print "getTextureRegion %s", name
             return mainPack.findRegion(name)
 
         def getSpriteAnimation(name: string): TextureAtlas

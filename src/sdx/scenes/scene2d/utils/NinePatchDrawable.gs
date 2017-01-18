@@ -13,7 +13,8 @@ namespace sdx.scenes.scene2d.utils
 
         patch: private NinePatch
 
-        construct(patch: NinePatch)
+        construct(patch: NinePatch?)
+            super(null)
             setPatch(patch)
 
         construct drawable(drawable: NinePatchDrawable)
@@ -30,6 +31,7 @@ namespace sdx.scenes.scene2d.utils
 
         def setPatch(patch: NinePatch) 
             this.patch = patch
+        
             setMinWidth(patch.getTotalWidth())
             setMinHeight(patch.getTotalHeight())
             setTopHeight(patch.getPadTop())

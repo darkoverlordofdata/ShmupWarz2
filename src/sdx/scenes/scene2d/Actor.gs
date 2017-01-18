@@ -31,9 +31,9 @@ namespace sdx.scenes.scene2d
         prop color: Color// = Color.White
         prop name: string
 
-        listeners: list of EventListener
-        captureListeners: list of EventListener
-        actions: list of Action
+        listeners: list of EventListener = new list of EventListener
+        captureListeners: list of EventListener = new list of EventListener
+        actions: list of Action = new list of Action
 
         visible: bool = true
         x: double

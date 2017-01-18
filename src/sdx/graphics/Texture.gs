@@ -28,34 +28,30 @@ namespace sdx.graphics
         prop height: int
             get
                 return data.h
-        construct uri(path: string)
-            _path = path
-            if _path.index_of("resource:///") == 0
-                try
-                    var ptr  = GLib.resources_lookup_data(_path.substring(11), 0)
-                    var rw = new RWops.from_mem((void*)ptr.get_data(), (int)ptr.get_size())
-                    data = new Video.Surface.from_bmp_rw(rw)
-
-                except e: Error
-                    data = null
-                    print "Error loading resource: %s\n", e.message
-
-            else if _path.index_of("file:///") == 0
-                data = SDLImage.load(_path.substring(7))
-            else
-                data = SDLImage.load(_path)
-                
-
 
         construct(file: FileHandle)
+            _path = file.getPath()
             if Sdx.files.isResource && file.getType() == FileType.Resource
                 var ptr = file.bytes()
                 var rw = new RWops.from_mem((void*)ptr.get_data(), (int)ptr.get_size())
                 data = new Video.Surface.from_bmp_rw(rw)
             
             else 
-                data = SDLImage.load(_path)
+                data = SDLImage.load(file.getPath())
 
+
+        construct uri(path: string)
+            _path = path
+            if _path.index_of("resource:///") == 0
+                var ptr  = GLib.resources_lookup_data(_path.substring(11), 0)
+                var rw = new RWops.from_mem((void*)ptr.get_data(), (int)ptr.get_size())
+                data = new Video.Surface.from_bmp_rw(rw)
+
+            else if _path.index_of("file:///") == 0
+                data = SDLImage.load(_path.substring(7))
+
+            else
+                data = SDLImage.load(_path)
 
 
         def setFilter(minFilter: int, magFilter: int)

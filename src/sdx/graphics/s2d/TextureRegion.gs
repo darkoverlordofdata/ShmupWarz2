@@ -55,8 +55,6 @@ namespace sdx.graphics.s2d
                 v2 = adjustY
 
         def setRegionXY(x: int, y: int, width: int, height: int)
-            print "TextureRegion "
-            print "width %d", texture.width
             var invTexWidth = 1 / texture.width
             var invTexHeight = 1 / texture.height
             setRegion(x * invTexWidth, y * invTexHeight,(x + width) * invTexWidth,(y + height) * invTexHeight)

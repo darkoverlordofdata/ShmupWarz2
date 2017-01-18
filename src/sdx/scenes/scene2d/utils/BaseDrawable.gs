@@ -20,7 +20,7 @@ namespace sdx.scenes.scene2d.utils
         minWidth: double 
         minHeight: double
 
-        construct(drawable: Drawable = null)
+        construct(drawable: Drawable? = null)
             if drawable == null do return
             if drawable isa BaseDrawable do name = ((BaseDrawable)drawable).name
             leftWidth = drawable.getLeftWidth()

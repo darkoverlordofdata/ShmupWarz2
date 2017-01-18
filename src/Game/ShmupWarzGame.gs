@@ -48,7 +48,6 @@ namespace ShmupWarz
             game = this
 
         def override create()
-            print "ShmupWarzGame - create"
             menuGame()
 
         def menuGame() 
@@ -58,6 +57,7 @@ namespace ShmupWarz
             scoreScene = null
             gameScene = null
             setScreen(menuScene)
+            print "OK!"
         
         def optionsGame() 
             var sceneLoader = new SceneLoader(RES)

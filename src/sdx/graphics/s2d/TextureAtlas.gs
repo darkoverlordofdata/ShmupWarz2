@@ -169,7 +169,6 @@ namespace sdx.graphics.s2d
 
 
         def findRegion(name:string, index:int=-1): AtlasRegion
-            print "findRegion %s", name
             for region in regions   
                 if index == -1
                     if region.name == name do return region
@@ -196,7 +195,6 @@ namespace sdx.graphics.s2d
                 pageToTexture[page] = texture
 
             for region in data.regions
-                print "$$"
                 var width = region.width
                 var height = region.height
                 var atlasRegion = new AtlasRegion(pageToTexture[region.page], region.left, region.top,
@@ -212,7 +210,6 @@ namespace sdx.graphics.s2d
                 atlasRegion.pads = region.pads
                 if region.flip do atlasRegion.flip(false, true)
                 regions.add(atlasRegion)
-            print "DONE"
 
         /** tuple used to return the parsed values */
         prop private static tuple: array of string
