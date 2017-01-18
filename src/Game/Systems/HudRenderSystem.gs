@@ -1,6 +1,4 @@
 [indent=4]
-uses SDL
-uses SDLTTF
 uses sdx
 uses Entitas
 

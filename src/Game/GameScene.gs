@@ -16,47 +16,20 @@ namespace ShmupWarz
 
     class GameScene : Object implements Screen
 
-        prop sceneLoader: SceneLoader
-        prop ui: Stage
-        prop readonly width: int
-        prop readonly height: int
-        prop readonly scale: double
-        
-        world : World
-        player : PlayerInputSystem
+        prop readonly width: int = Sdx.graphics.width
+        prop readonly height: int = Sdx.graphics.height
+        prop readonly scale: double = Sdx.graphics.scale
+        prop readonly pixelFactor: double = Sdx.graphics.pixelFactor
+        prop readonly world : World
+        prop readonly player : PlayerInputSystem
 
         construct(desktop: bool, scale: double)
-            _sceneLoader = sceneLoader
-            _ui = ui
-            _width = Sdx.graphics.width
-            _height = Sdx.graphics.height
-            _scale = 1.0
-            
-        def hide()
-            pass
-        def dispose()
-            pass
-        def pause()
-            pass
-        def show()
-            pass
-        def resume()
-            pass
-        def render(delta: double)
-            world.execute()
-            // Gdx.gl.glClearColor(0f, 0f, 0f, 1f)
-            // Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT)
-            // sceneLoader.engine.update(delta)
-            // ui.act()
-            // ui.draw()
+            _world = createSystems()
 
-        def resize(width: int, height: int)
-            pass    
-    
-        def createSystems()
-            world = new World(components
+        def createSystems(): World
+            return new World(components
                 ).add(new MovementSystem(this)
-                ).add(player = new PlayerInputSystem(this)
+                ).add(_player = new PlayerInputSystem(this)
                 ).add(new SoundEffectSystem(this)
                 ).add(new CollisionSystem(this)
                 ).add(new ExpiringSystem(this)
@@ -70,5 +43,22 @@ namespace ShmupWarz
                 ).add(new HudRenderSystem(this)
                 ).add(new DestroySystem(this)
                 ).initialize()
-            createBackground()
-            createPlayer()
+            
+        def hide()
+            pass
+        def dispose()
+            pass
+        def pause()
+            pass
+        def show()
+            pass
+        def resume()
+            pass
+        def render(delta: double)
+            world.execute()
+
+        def resize(width: int, height: int)
+            pass    
+    
+
+        

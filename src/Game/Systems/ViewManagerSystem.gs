@@ -1,5 +1,4 @@
 [indent=4]
-uses SDL
 uses sdx
 uses sdx.files
 uses sdx.graphics.s2d

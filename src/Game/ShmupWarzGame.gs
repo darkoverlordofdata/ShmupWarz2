@@ -16,9 +16,6 @@ def main(args: array of string)
     game.run()
     
 namespace ShmupWarz
-    const SCREEN_WIDTH:int = 800
-    const SCREEN_HEIGHT:int = 600
-
     class ShmupWarzGame : Game
 
         prop readonly desktop: bool

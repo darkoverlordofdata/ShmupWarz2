@@ -7,7 +7,7 @@
 [indent=4]
 uses Entitas
 uses GLib
-uses SDL
+uses sdx
 
 namespace ShmupWarz
 
@@ -64,7 +64,7 @@ namespace ShmupWarz
         addHealth(entity, 100, 100)
         addVelocity(entity, 0, 0)
         addLayer(entity, Layer.PLAYER)
-        addPosition(entity, SCREEN_WIDTH/2, SCREEN_HEIGHT-80)
+        addPosition(entity, Sdx.graphics.width/2, Sdx.graphics.height-80)
         addResource(entity, "spaceshipspr", null, false)
         return entity
     /**
@@ -158,8 +158,8 @@ namespace ShmupWarz
     *  Create Small Enemy
     */
     def createEnemy1() : Entity
-        var x = World.random.int_range(0, SCREEN_WIDTH)
-        var y = SCREEN_HEIGHT/2 - 200
+        var x = World.random.int_range(0, Sdx.graphics.width)
+        var y = Sdx.graphics.height/2 - 200
         var entity = World.instance.createEntity("enemy1")
         setEnemy(entity, true)
         addBounds(entity, 20)
@@ -176,8 +176,8 @@ namespace ShmupWarz
     *  Create Medium Sized Enemy
     */
     def createEnemy2() : Entity
-        var x = World.random.int_range(0, SCREEN_WIDTH)
-        var y = SCREEN_HEIGHT/2 - 100
+        var x = World.random.int_range(0, Sdx.graphics.width)
+        var y = Sdx.graphics.height/2 - 100
         var entity = World.instance.createEntity("enemy2")
         setEnemy(entity, true)
         addBounds(entity, 40)
@@ -194,8 +194,8 @@ namespace ShmupWarz
     *  Create Large Enemy
     */
     def createEnemy3() : Entity
-        var x = World.random.int_range(0, SCREEN_WIDTH)
-        var y = SCREEN_HEIGHT/2 - 50
+        var x = World.random.int_range(0, Sdx.graphics.width)
+        var y = Sdx.graphics.height/2 - 50
         var entity = World.instance.createEntity("enemy3")
         setEnemy(entity, true)
         addBounds(entity, 70)

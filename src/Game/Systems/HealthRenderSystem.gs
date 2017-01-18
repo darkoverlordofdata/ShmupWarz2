@@ -1,8 +1,6 @@
 [indent=4]
 uses sdx
 uses Entitas
-uses SDLTTF
-//uses SDL
 uses GLib
 
 namespace ShmupWarz 

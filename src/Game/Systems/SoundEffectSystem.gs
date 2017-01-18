@@ -1,6 +1,4 @@
 [indent=4]
-//uses SDL
-//uses SDLMixer
 uses sdx
 uses sdx.audio
 uses Entitas
