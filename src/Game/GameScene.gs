@@ -54,7 +54,7 @@ namespace ShmupWarz
             pass
         def resume()
             pass
-        def render(delta: double)
+        def render()
             world.execute()
 
         def resize(width: int, height: int)

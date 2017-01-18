@@ -32,11 +32,6 @@ namespace sdx
         showFps : bool = false
         _fpsFont: sdx.Font
         _fpsSprite : Sprite
-        _currentTime: double = 0.0
-        _lastTime: double = 0.0
-        _currentFps: double = 0.0
-        _elapsed: double = 0.0
-        _frames: int = 0
 
         game: ApplicationListener
 
@@ -51,44 +46,23 @@ namespace sdx
                 return -1
 
             game.create()
-            evt : Event
-            var k = 0
-            _currentTime = (double)GLib.get_real_time()/1000000.0
             running = true
             while running
                 running = false
-                while Event.poll(out evt) != 0
-                    case evt.type // patch for keyboardGetState
-                        when  SDL.EventType.KEYDOWN
-                            keys[evt.key.keysym.sym] = 1
-                        when  SDL.EventType.KEYUP
-                            keys[evt.key.keysym.sym] = 0
-
-                    /* Callback to event processor */
-                    events(evt)
+                Sdx.input.processEvents()
 
                 /* calculate time */
-                _lastTime = _currentTime
-                _currentTime = (double)GLib.get_real_time()/1000000.0
-                _delta = (_currentTime - _lastTime)
+                Sdx.graphics.updateTime()
 
                 /** Callback to update game logic/physics */
-                game.render(_delta)
+                game.render()
                 /* yield to events */
                 GLib.Thread.usleep(1000) 
                 /* Callback to draw the game */
-                draw(_delta)
+                draw()
                 if showFps
-                    _frames++
-                    _elapsed = _elapsed + _delta
-
-                    if _elapsed > 1.0
-                        _currentFps = (double)_frames / _elapsed
-                        _elapsed = 0.0
-                        _frames = 0
-
                     if _fpsSprite != null do _fpsSprite = null
-                    _fpsSprite = Sprite.fromRenderedText(this.renderer, _fpsFont, "%2.2f".printf(_currentFps), sdx.graphics.Color.AntiqueWhite)
+                    _fpsSprite = Sprite.fromRenderedText(this.renderer, _fpsFont, "%2.2f".printf(Sdx.graphics.fps), sdx.graphics.Color.AntiqueWhite)
                     _fpsSprite.centered = false
 
             /* Cleanup */
@@ -96,19 +70,11 @@ namespace sdx
             return 0
 
         /**
-         * Events callback
-         *
-         * @param event
-         */
-        def virtual events(e: Event)
-            pass
-
-        /**
          * Draw the current frame
          *
          * @param delta ms
          */
-        def virtual draw(delta: double)
+        def virtual draw()
             renderer.set_draw_color(0x0, 0x0, 0x0, 0x0)
             renderer.clear()
 
