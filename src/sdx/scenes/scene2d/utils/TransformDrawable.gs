@@ -1,10 +1,10 @@
-[indent=4]
 /**
  * TransformDrawable.gs
  *
  * 
  *
  */
+[indent=4]
 uses sdx.graphics.s2d
 
 

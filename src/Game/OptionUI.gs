@@ -1,10 +1,10 @@
-[indent=4]
 /**
  * Screen.gs
  *
  * 
  *
  */
+[indent=4]
 uses sdx
 uses sdx.scenes.scene2d
 uses sdx.scenes.scene2d.utils

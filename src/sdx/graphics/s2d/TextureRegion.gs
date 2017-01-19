@@ -1,8 +1,8 @@
-[indent=4]
 /**
  * TextureRegion.gs
  *
  */
+[indent=4]
 uses Gee
 uses GLib
 uses sdx.graphics

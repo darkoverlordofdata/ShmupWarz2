@@ -1,8 +1,8 @@
-[indent=4]
 /**
  * NinePatch.gs
  *
  */
+[indent=4]
 uses Gee
 uses sdx.graphics
 

@@ -1,7 +1,7 @@
-[indent=4]
 /**
  * Patch9 Image
  */
+[indent=4]
 namespace o2d.data
     /**
      *

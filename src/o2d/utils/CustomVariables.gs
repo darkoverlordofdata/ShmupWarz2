@@ -1,10 +1,10 @@
-[indent=4]
 /**
  * CustomVariables.gs
  *
  * 
  *
  */
+[indent=4]
 uses Gee
 uses GLib
 uses o2d.data

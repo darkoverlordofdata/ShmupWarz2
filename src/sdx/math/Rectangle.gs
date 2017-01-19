@@ -1,10 +1,10 @@
-[indent=4]
 /**
  * Rectangle.gs
  *
  * 
  *
  */
+[indent=4]
 uses GLib
 
 namespace sdx.math

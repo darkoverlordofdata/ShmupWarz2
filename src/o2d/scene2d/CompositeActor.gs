@@ -1,10 +1,10 @@
-[indent=4]
 /**
  * CompositeActor.gs
  *
  * 
  *
  */
+[indent=4]
 uses Gee
 uses GLib
 uses sdx

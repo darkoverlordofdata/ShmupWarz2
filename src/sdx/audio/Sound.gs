@@ -1,10 +1,10 @@
-[indent=4]
 /**
  * Sound.gs
  *
  * Author: 
  *      bruce davidson
  */
+[indent=4]
 uses sdx.files
 
 namespace sdx.audio

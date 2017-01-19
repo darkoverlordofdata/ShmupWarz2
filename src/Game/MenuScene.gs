@@ -1,10 +1,10 @@
-[indent=4]
 /**
  * MenuScene.gs
  *
  * 
  *
  */
+[indent=4]
 uses sdx
 uses sdx.scenes.scene2d
 uses o2d

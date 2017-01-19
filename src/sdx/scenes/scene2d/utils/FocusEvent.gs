@@ -1,10 +1,10 @@
-[indent=4]
 /**
  * FocusListener.gs
  *
  * 
  *
  */
+[indent=4]
 uses sdx
 uses sdx.utils
 uses sdx.scenes.scene2d

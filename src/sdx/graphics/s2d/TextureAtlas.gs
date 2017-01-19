@@ -1,8 +1,8 @@
-[indent=4]
 /**
  * TextureAtlas.gs
  *
  */
+[indent=4]
 uses Gee
 uses sdx.files
 uses sdx.graphics

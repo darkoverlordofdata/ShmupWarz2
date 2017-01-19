@@ -1,10 +1,10 @@
-[indent=4]
 /**
  * TextureRegionDrawable.gs
  *
  * 
  *
  */
+[indent=4]
 uses sdx.graphics.s2d
 
 namespace sdx.scenes.scene2d.utils

@@ -1,10 +1,10 @@
-[indent=4]
 /**
  * Drawable.gs
  *
  * 
  *
  */
+[indent=4]
 uses sdx
 uses sdx.graphics.s2d
 

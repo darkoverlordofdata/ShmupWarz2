@@ -1,7 +1,7 @@
-[indent=4]
 /**
  * load overlap2d project.dt
  */
+[indent=4]
 namespace o2d.data
     /**
      *

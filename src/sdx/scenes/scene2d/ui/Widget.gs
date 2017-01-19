@@ -1,10 +1,10 @@
-[indent=4]
 /**
  * Widget.gs
  *
  * 
  *
  */
+[indent=4]
 uses sdx
 uses sdx.graphics.s2d
 uses sdx.scenes.scene2d.utils

@@ -1,10 +1,10 @@
-[indent=4]
 /**
  * BuiltItemHandler.gs
  *
  * 
  *
  */
+[indent=4]
 uses Gee
 uses sdx
 uses sdx.math
@@ -16,11 +16,6 @@ namespace o2d.scene2d
     interface BuiltItemHandler : Object
         def abstract onItemBuild(item: Actor)
         class static Default : Object implements BuiltItemHandler
-            // def private contains(item: string, strings: array of string): bool
-            //     for s in strings
-            //         if s == item do return true
-            //     return false
-
             def onItemBuild(item: Actor)
                 if item isa CompositeActor
                     var data = (CoreActorData) item.userObject

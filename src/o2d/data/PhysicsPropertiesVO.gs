@@ -1,7 +1,7 @@
-[indent=4]
 /**
  * Physics Properties
  */
+[indent=4]
 namespace o2d.data
     /**
      *

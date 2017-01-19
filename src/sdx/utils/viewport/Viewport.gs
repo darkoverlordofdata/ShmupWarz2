@@ -1,10 +1,10 @@
-[indent=4]
 /**
  * Viewport.gs
  *
  * 
  *
  */
+[indent=4]
 uses Gee
 uses sdx
 uses sdx.math

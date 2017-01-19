@@ -1,4 +1,3 @@
-[indent=4]
 /**
  * Color.gs
  *
@@ -9,6 +8,7 @@
  * Author: 
  *      bruce davidson
  */
+[indent=4]
 uses Gee
 uses SDL
 uses GLib

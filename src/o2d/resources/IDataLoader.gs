@@ -1,10 +1,10 @@
-[indent=4]
 /**
  * IDataLoader.gs
  *
  * 
  *
  */
+[indent=4]
 uses Gee
 uses sdx
 uses sdx.math

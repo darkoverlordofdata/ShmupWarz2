@@ -1,10 +1,10 @@
-[indent=4]
 /**
  * Layout.gs
  *
  * 
  *
  */
+[indent=4]
 namespace sdx.scenes.scene2d.utils
 
     interface Layout : Object

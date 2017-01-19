@@ -1,10 +1,10 @@
-[indent=4]
 /**
  * NinePatchDrawable.gs
  *
  * 
  *
  */
+[indent=4]
 uses sdx.graphics
 uses sdx.graphics.s2d
 namespace sdx.scenes.scene2d.utils

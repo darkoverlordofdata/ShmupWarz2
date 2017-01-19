@@ -1,10 +1,10 @@
-[indent=4]
 /**
  * Vector2.gs
  *
  * 
  *
  */
+[indent=4]
 uses sdx
 uses GLib
 

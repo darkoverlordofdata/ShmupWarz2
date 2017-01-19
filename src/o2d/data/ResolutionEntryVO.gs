@@ -1,7 +1,7 @@
-[indent=4]
 /**
  * Screen Resolution
  */
+[indent=4]
 namespace o2d.data
     /**
      *

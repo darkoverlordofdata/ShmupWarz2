@@ -1,10 +1,10 @@
-[indent=4]
 /**
  * Image.gs
  *
  * 
  *
  */
+[indent=4]
 uses sdx.graphics
 uses sdx.graphics.s2d
 uses sdx.math

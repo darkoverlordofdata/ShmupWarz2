@@ -1,10 +1,10 @@
-[indent=4]
 /**
  * Event.gs
  *
  * 
  *
  */
+[indent=4]
 uses sdx
 uses sdx.utils
 
