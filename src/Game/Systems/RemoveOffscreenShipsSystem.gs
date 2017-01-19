@@ -19,11 +19,12 @@ namespace ShmupWarz
             _group = _world.getGroup(Matcher.AllOf({Component.Position, Component.Bounds}))
 
         def execute()
-            for var entity in _group.getEntities()
-                if hasPosition(entity)
-                    if getPosition(entity).y > _game.height - getBounds(entity).radius
-                        if !isPlayer(entity)
-                            setDestroy(entity, true)
+            for var e in _group.getEntities()
+                var entity = e as ShmupWarz.Entity
+                if entity.hasPosition
+                    if entity.position.y > _game.height - entity.bounds.radius
+                        if !entity.isPlayer
+                            entity.setDestroy(true)
                             
 
 

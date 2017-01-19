@@ -38,12 +38,13 @@ namespace ShmupWarz
         /**
         *  OnEntityAdded event:
         */
-        def onEntityAdded(g : Group, e : Entity, ix : int, c : IComponent)
+        def onEntityAdded(g : Group, e : IEntity, ix : int, c : IComponent)
             scale : ScaleComponent
             layer : LayerComponent
             ordinal : int = 0
 
             var res = (ResourceComponent)c
+            var entity = e as ShmupWarz.Entity
 
             if res.path.index_of("/") == 0 || res.path.index_of("resource://") == 0
                 res.sprite = Sprite.fromFile(Sdx.app.renderer, res.path)
@@ -55,18 +56,18 @@ namespace ShmupWarz
                 print "Failed to load %s", res.path
                 return
 
-            if hasScale(e)
-                sprite.scale.x = getScale(e).x
-                sprite.scale.y = getScale(e).y
+            if entity.hasScale
+                sprite.scale.x = entity.scale.x
+                sprite.scale.y = entity.scale.y
 
-            if hasLayer(e)
-                sprite.layer = getLayer(e).ordinal
-                ordinal = getLayer(e).ordinal
+            if entity.hasLayer
+                sprite.layer = entity.layer.ordinal
+                ordinal = entity.layer.ordinal
 
-            if hasTint(e)
-                sprite.color.r = (uint8)getTint(e).r
-                sprite.color.g = (uint8)getTint(e).g
-                sprite.color.b = (uint8)getTint(e).b
+            if entity.hasTint
+                sprite.color.r = (uint8)entity.tint.r
+                sprite.color.g = (uint8)entity.tint.g
+                sprite.color.b = (uint8)entity.tint.b
 
             if res.bgd
                 sprite.centered = false

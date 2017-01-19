@@ -33,7 +33,6 @@ namespace ShmupWarz
             _density = 1
             _desktop = desktop
             _scale = scale
-            initializePools()
             var path = GLib.FileUtils.read_link("/proc/self/exe")
             var proc = File.new_for_path(path)
             var rootPath = proc.resolve_relative_path("../../../").get_path()     

@@ -20,8 +20,9 @@ namespace ShmupWarz
             _group = _world.getGroup(Matcher.AllOf({Component.Expires}))
 
         def execute()
-            for var entity in _group.getEntities()
-                if (getExpires(entity).delay -= Sdx.graphics.deltaTime) <= 0
-                    setDestroy(entity, true)
+            for var e in _group.getEntities()
+                var entity = e as ShmupWarz.Entity
+                if (entity.expires.delay -= Sdx.graphics.deltaTime) <= 0
+                    entity.setDestroy(true)
 
 

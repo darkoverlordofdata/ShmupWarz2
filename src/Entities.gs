@@ -1,7 +1,7 @@
 /**
  * Entities.gs
  *
- * Entity factory
+ * IEntity factory
  *
  */
 [indent=4]
@@ -38,174 +38,175 @@ namespace ShmupWarz
         ASPLODE
         SMALLASPLODE
 
+
+// def createBackground() : Entity
+//     return World.instance.createEntity("background"
+//         ).addPosition(0, 0 
+//         ).addScale(2, 1
+//         ).addResource(RES+"/BackdropBlackLittleSparkBlack.png", null, true)
+
+
+    def createEntity(name:string): ShmupWarz.Entity
+        return (ShmupWarz.Entity)World.instance.createEntity(name)
     /**
     *  Create Background
     */
-    def createBackground() : Entity
-        var entity = World.instance.createEntity("background")
-        addPosition(entity, 0, 0)
-        addScale(entity, 2, 1)
-        addResource(entity, "BackdropBlackLittleSparkBlack", null, true)
-        return entity
+    def createBackground() : IEntity
+        return createEntity("background"
+        ).addPosition(0, 0
+        ).addScale(2, 1
+        ).addResource("BackdropBlackLittleSparkBlack", null, true)
 
     /**
     *  Create Player
     */
-    def createPlayer() : Entity
+    def createPlayer() : IEntity
 
         // defined in overlap2d in project.libraryItem["player"]
         // var o = project.libraryItem["player"]
         // look in pack.png at rect(o.x, o.y. o.width, o.height)
         //
 
-        var entity = World.instance.createEntity("player")
-        setPlayer(entity, true)
-        addBounds(entity, 43)
-        addHealth(entity, 100, 100)
-        addVelocity(entity, 0, 0)
-        addLayer(entity, Layer.PLAYER)
-        addPosition(entity, Sdx.graphics.width/2, Sdx.graphics.height-80)
-        addResource(entity, "spaceshipspr", null, false)
-        return entity
+        return createEntity("player"
+        ).setPlayer(true
+        ).addBounds(43
+        ).addHealth(100, 100
+        ).addVelocity(0, 0
+        ).addLayer(Layer.PLAYER
+        ).addPosition(Sdx.graphics.width/2, Sdx.graphics.height-80
+        ).addResource("spaceshipspr", null, false)
     /**
     *  Create Bullet
     */
-    def createBullet(x : double, y : double) : Entity
+    def createBullet(x : double, y : double) : IEntity
         var r =(double) 0xad    // min red
         var g =(double) 0xaf    // min green
         var b =(double) 0x2f    // min blue
         var m = 255.0           // max color
         var s = 10.0            // speed
         var a = 255.0           // alpha
-        var entity =  World.instance.createEntity("bullet")
-        setBullet(entity, true)
-        addHealth(entity, 1.5, 1.5)
-        addPosition(entity, x, y)
-        addVelocity(entity, 0, -800)
-        addTint(entity, 0xAD, 0xFF, 0x2F, 255)
-        addColorTween(entity, r, m, s, g, m, s, b, m, s, a, m, s, true, true, true, true, true)
-        addBounds(entity, 5)
-        addExpires(entity, 1)
-        addLayer(entity, Layer.BULLET)
-        addResource(entity, "bullet", null, false)
-        addSoundEffect(entity, Effect.PEW)
-        return entity
+        return createEntity("bullet"
+        ).setBullet(true
+        ).addHealth(1.5, 1.5
+        ).addPosition(x, y
+        ).addVelocity(0, -800
+        ).addTint(0xAD, 0xFF, 0x2F, 255
+        ).addColorTween(r, m, s, g, m, s, b, m, s, a, m, s, true, true, true, true, true
+        ).addBounds(5
+        ).addExpires(1
+        ).addLayer(Layer.BULLET
+        ).addResource("bullet", null, false
+        ).addSoundEffect(Effect.PEW)
 
     /**
     *  Create Particle
     */
-    def createParticle(x : double, y : double) : Entity
+    def createParticle(x : double, y : double) : IEntity
         var radians = World.random.next_double() * Tau
         var magnitude = World.random.int_range(0, 200)
         var velocityX = magnitude * Math.cos(radians)
         var velocityY = magnitude * Math.sin(radians)
         var scale = World.random.double_range(0.1, 1.0)
-        var entity = World.instance.createEntity("particle")
-        addPosition(entity, x, y)
-        addVelocity(entity, velocityX, velocityY)
-        addExpires(entity, 1)
-        addLayer(entity, Layer.PARTICLE)
-        addScale(entity, scale, scale)
-        addTint(entity, 0xFA, 0xFA, 0xD2, 255)
-        addResource(entity, "star", null, false)
-        return entity
+        return createEntity("particle"
+        ).addPosition(x, y
+        ).addVelocity(velocityX, velocityY
+        ).addExpires(1
+        ).addLayer(Layer.PARTICLE
+        ).addScale(scale, scale
+        ).addTint(0xFA, 0xFA, 0xD2, 255
+        ).addResource("star", null, false)
 
     /**
     *  Create Explosion
     */
-    def createExplosion(x: double, y: double) : Entity
+    def createExplosion(x: double, y: double) : IEntity
         var r = (double) 0xaa   // min red
         var g = (double) 0xaa   // min green
         var b = (double) 0xa2   // min blue
         var m = 255.0           // max color
         var s = 10.0            // speed
         var a = 255.0           // alpha
-        var entity = World.instance.createEntity("explosion")
-        addPosition(entity, x, y)
-        addExpires(entity, 1.0)
-        addLayer(entity, Layer.PARTICLE)
-        addScale(entity, 0.5, 0.5)
-        addSoundEffect(entity, Effect.ASPLODE)
-        addScaleTween(entity, 0.001, 0.5, -3, false, true)
-        addTint(entity, 0xFA, 0xFA, 0xD2, 255)
-        addColorTween(entity, r, m, s, g, m, s, b, m, s, a, m, s, true, true, true, true, true)
-        addResource(entity, "explosion", null, false)
-        return entity
+        return createEntity("explosion"
+        ).addPosition(x, y
+        ).addExpires(1.0
+        ).addLayer(Layer.PARTICLE
+        ).addScale(0.5, 0.5
+        ).addSoundEffect(Effect.ASPLODE
+        ).addScaleTween(0.001, 0.5, -3, false, true
+        ).addTint(0xFA, 0xFA, 0xD2, 255
+        ).addColorTween(r, m, s, g, m, s, b, m, s, a, m, s, true, true, true, true, true
+        ).addResource("explosion", null, false)
 
     /**
     *  Create Small Explosion
     */
-    def createBang(x: double, y: double) : Entity
+    def createBang(x: double, y: double) : IEntity
         var r = (double) 0xae   // min red
         var g = (double) 0xa8   // min green
         var b = (double) 0xaa   // min blue
         var m = 255.0           // max color
         var s = 10.0            // speed
         var a = 255.0           // alpha
-        var entity = World.instance.createEntity("explosion")
-        addPosition(entity, x, y)
-        addExpires(entity, 1.0)
-        addLayer(entity, Layer.PARTICLE)
-        addScale(entity, 1.0, 1.0)
-        addSoundEffect(entity, Effect.SMALLASPLODE)
-        addScaleTween(entity, 0.001, 1.0, -3, false, true)
-        addTint(entity, 0xEE, 0xE8, 0xAA, 255)
-        addColorTween(entity, r, m, s, g, m, s, b, m, s, a, m, s, true, true, true, true, true)
-        addResource(entity, "bang", null, false)
-        return entity
+        return createEntity("explosion"
+        ).addPosition(x, y
+        ).addExpires(1.0
+        ).addLayer(Layer.PARTICLE
+        ).addScale(1.0, 1.0
+        ).addSoundEffect(Effect.SMALLASPLODE
+        ).addScaleTween(0.001, 1.0, -3, false, true
+        ).addTint(0xEE, 0xE8, 0xAA, 255
+        ).addColorTween(r, m, s, g, m, s, b, m, s, a, m, s, true, true, true, true, true
+        ).addResource("bang", null, false)
 
     /**
     *  Create Small Enemy
     */
-    def createEnemy1() : Entity
+    def createEnemy1() : IEntity
         var x = World.random.int_range(0, Sdx.graphics.width)
         var y = Sdx.graphics.height/2 - 200
-        var entity = World.instance.createEntity("enemy1")
-        setEnemy(entity, true)
-        addBounds(entity, 20)
-        addHealth(entity, 10, 10)
-        addVelocity(entity, 0, 40)
-        addLayer(entity, Layer.ACTORS_1)
-        addPosition(entity, x, y)
-        addText(entity, "", null)
-        addResource(entity, "enemy1", null, false)
-        return entity
+        return createEntity("enemy1"
+        ).setEnemy(true
+        ).addBounds(20
+        ).addHealth(10, 10
+        ).addVelocity(0, 40
+        ).addLayer(Layer.ACTORS_1
+        ).addPosition(x, y
+        ).addText("", null
+        ).addResource("enemy1", null, false)
 
 
     /**
     *  Create Medium Sized Enemy
     */
-    def createEnemy2() : Entity
+    def createEnemy2() : IEntity
         var x = World.random.int_range(0, Sdx.graphics.width)
         var y = Sdx.graphics.height/2 - 100
-        var entity = World.instance.createEntity("enemy2")
-        setEnemy(entity, true)
-        addBounds(entity, 40)
-        addHealth(entity, 20, 20)
-        addVelocity(entity, 0, 30)
-        addLayer(entity, Layer.ACTORS_2)
-        addPosition(entity, x, y)
-        addText(entity, "", null)
-        addResource(entity, "enemy2", null, false)
-        return entity
+        return createEntity("enemy2"
+        ).setEnemy(true
+        ).addBounds(40
+        ).addHealth(20, 20
+        ).addVelocity(0, 30
+        ).addLayer(Layer.ACTORS_2
+        ).addPosition(x, y
+        ).addText("", null
+        ).addResource("enemy2", null, false)
 
 
     /**
     *  Create Large Enemy
     */
-    def createEnemy3() : Entity
+    def createEnemy3() : IEntity
         var x = World.random.int_range(0, Sdx.graphics.width)
         var y = Sdx.graphics.height/2 - 50
-        var entity = World.instance.createEntity("enemy3")
-        setEnemy(entity, true)
-        addBounds(entity, 70)
-        addHealth(entity, 60, 60)
-        addVelocity(entity, 0, 20)
-        addLayer(entity, Layer.ACTORS_3)
-        addPosition(entity, x, y)
-        addText(entity, "", null)
-        addResource(entity, "enemy3", null, false)
-        return entity
+        return createEntity("enemy3"
+        ).setEnemy(true
+        ).addBounds(70
+        ).addHealth(60, 60
+        ).addVelocity(0, 20
+        ).addLayer(Layer.ACTORS_3
+        ).addPosition(x, y
+        ).addText("", null
+        ).addResource("enemy3", null, false)
 
 
 

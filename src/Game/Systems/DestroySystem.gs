@@ -24,9 +24,10 @@ namespace ShmupWarz
         def execute()
             res : ResourceComponent
 
-            for var entity in _group.getEntities()
-                if hasResource(entity)
-                    res = getResource(entity)
+            for var e in _group.getEntities()
+                var entity = e as ShmupWarz.Entity
+                if entity.hasResource
+                    res = entity.resource
                     for s in _sprites
                         var sprite = (Sprite)res.sprite
                         if s.id == sprite.id

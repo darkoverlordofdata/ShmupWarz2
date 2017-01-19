@@ -14,7 +14,7 @@ uses Entitas
 
 namespace ShmupWarz
 
-    class GameScene : Object implements Screen
+    class GameScene : Object implements Screen, IEntityFactory
 
         prop readonly width: int = Sdx.graphics.width
         prop readonly height: int = Sdx.graphics.height
@@ -28,8 +28,17 @@ namespace ShmupWarz
             createBackground()
             createPlayer()
 
+
+        /**
+         * Callback from engine entity factory
+         */
+        def createEntity(componentsEnum: array of string, totalComponents: int): IEntity
+            return (IEntity)(new Entity(componentsEnum, totalComponents))
+
+
         def createSystems(): World
             return new World(components
+                ).setEntityFactory(this
                 ).add(new MovementSystem(this)
                 ).add(_player = new PlayerInputSystem(this)
                 ).add(new SoundEffectSystem(this)

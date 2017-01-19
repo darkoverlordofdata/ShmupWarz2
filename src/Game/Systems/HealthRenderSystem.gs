@@ -25,10 +25,11 @@ namespace ShmupWarz
         def execute()
             sprite:Sprite = null
 
-            for var entity in _group.getEntities()
-                var position = getPosition(entity)
-                var health = getHealth(entity)
-                var text = getText(entity)
+            for var e in _group.getEntities()
+                var entity = e as ShmupWarz.Entity
+                var position = entity.position
+                var health = entity.health
+                var text = entity.text
                 var pct = "%d%%".printf((int)Math.fmin(100, health.health/health.maximumHealth*100.0))
 
 

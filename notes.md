@@ -25,3 +25,25 @@ all of the associate code has been ported for the Scala version. This includes
 * overlap2d-runtime-libgdx
 
 working...just the core game. Next is getting the other screens working.
+add IEntity to entitas, allows return to fluent style in EntityFactory
+
+## library vs source code
+
+In a windows dev environment, I leave dll's everywhere.
+I've always taken for granted that libraries are the only way to go. 
+But is that true?
+Original shmupwars-vala uses source code. This reboot uses libraries entitas, bosco & overlap2d. 
+Which is better?
+
+Compiling from source 
+* autovala makes it easy to manage
+* libraries proliferate
+* source doesn't need to mess with installing compatible libs
+* can compiler do better optimization?
+* can compiler remove deadwood?
+* fewer externals make distribution easier. 
+* If I package resources in the executable, why not include libraries as well?
+
+
+
+

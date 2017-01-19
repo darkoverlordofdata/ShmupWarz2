@@ -20,12 +20,12 @@ namespace ShmupWarz
             _group = _world.getGroup(Matcher.AllOf({Component.ScaleTween, Component.Resource}))
 
         def execute()
-            for var entity in _group.getEntities()
-
-                var scaleTween = getScaleTween(entity)
+            for var e in _group.getEntities()
+                var entity = e as ShmupWarz.Entity
+                var scaleTween = entity.scaleTween
 
                 if scaleTween.active
-                    var res = getResource(entity)
+                    var res = entity.resource
                     var sprite = (Sprite)res.sprite
                     var scale = sprite.scale
 

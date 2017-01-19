@@ -21,9 +21,10 @@ namespace ShmupWarz
 
         def execute()
             var delta = Sdx.graphics.deltaTime
-            for var entity in _group.getEntities()
-                var tint = getTint(entity)
-                var tween = getColorTween(entity)
+            for var e in _group.getEntities()
+                var entity = e as ShmupWarz.Entity
+                var tint = entity.tint
+                var tween = entity.colorTween
                 
                 if tween.redAnimate
                     tint.r = tint.r + (int)((double)tween.redSpeed * delta)
@@ -57,7 +58,7 @@ namespace ShmupWarz
                         else
                             tween.alphaAnimate = false
 
-                var sprite = (Sprite)getResource(entity).sprite
+                var sprite = (Sprite)entity.resource.sprite
                 sprite.color.r = (uint8)tint.r
                 sprite.color.g = (uint8)tint.g
                 sprite.color.b = (uint8)tint.b

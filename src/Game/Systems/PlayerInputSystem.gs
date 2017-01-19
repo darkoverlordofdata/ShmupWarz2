@@ -43,9 +43,9 @@ namespace ShmupWarz
         */
         def execute()
             //try
-            var player = _group.getSingleEntity()
+            var player = _group.getSingleEntity() as ShmupWarz.Entity
             if player != null
-                var position = getPosition(player)
+                var position = player.position
                 position.x = _mouseX
                 position.y = _mouseY
 

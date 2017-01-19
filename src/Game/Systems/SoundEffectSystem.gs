@@ -25,8 +25,9 @@ namespace ShmupWarz
             _smallasplode = Sdx.audio.newSound(Sdx.files.resource("sounds/smallasplode.wav"))
 
         def execute()
-            for var entity in _group.getEntities()
-                case getSoundEffect(entity).effect
+            for var e in _group.getEntities()
+                var entity = e as ShmupWarz.Entity
+                case entity.soundEffect.effect
                     when 0  //Effect.PEW
                         _pew.play()
                     when 1  //Effect.ASPLODE

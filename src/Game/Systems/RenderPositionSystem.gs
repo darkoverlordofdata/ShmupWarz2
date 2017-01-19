@@ -20,9 +20,10 @@ namespace ShmupWarz
             _sprites = Sdx.app.sprites
 
         def execute()
-            for var entity in _group.getEntities()
-                var res = getResource(entity)
-                var pos = getPosition(entity)
+            for var e in _group.getEntities()
+                var entity = e as ShmupWarz.Entity
+                var res = entity.resource
+                var pos = entity.position
                 var sprite = (Sprite)res.sprite
                 sprite.x = (int)pos.x
                 sprite.y = (int)pos.y

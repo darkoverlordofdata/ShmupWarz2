@@ -1,0 +1,20 @@
+{
+  "default": {
+    "config": "tpl/default/entitas.json",
+    "src" : {
+      "controllers": [
+        "tpl/default/controllers/GameController.ts.liquid",
+        "tpl/default/controllers/InputController.ts.liquid",
+        "tpl/default/controllers/ScoreLabelController.ts.liquid"
+      ],
+      "systems": [
+        "tpl/default/systems/AddViewSystem.ts.liquid",
+        "tpl/default/systems/DestroySystem.ts.liquid",
+        "tpl/default/systems/ProcessInputSystem.ts.liquid",
+        "tpl/default/systems/RemoveViewSystem.ts.liquid",
+        "tpl/default/systems/RenderPositionSystem.ts.liquid",
+        "tpl/default/systems/ScoreSystem.ts.liquid"
+      ]
+    }
+  }
+}
