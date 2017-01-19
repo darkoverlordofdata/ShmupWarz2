@@ -1,5 +1,6 @@
 [indent=4]
 uses sdx
+uses sdx.graphics.s2d
 uses Entitas
 
 

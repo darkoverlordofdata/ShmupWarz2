@@ -1,11 +1,10 @@
-[indent=4]
 /**
  * Sdx.gs
  *
  * Author: 
  *      bruce davidson
  */
-
+[indent=4]
 namespace sdx
 
     class Sdx : Object

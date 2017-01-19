@@ -1,10 +1,10 @@
-[indent=4]
 /**
  * Pools.gs
  *
  * 
  *
  */
+[indent=4]
 uses sdx
 uses GLib
 

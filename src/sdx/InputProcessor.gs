@@ -1,10 +1,10 @@
-[indent=4]
 /**
  * InputProcessor.gs
  *
  * 
  *
  */
+[indent=4]
 namespace sdx
 
     interface InputProcessor : Object

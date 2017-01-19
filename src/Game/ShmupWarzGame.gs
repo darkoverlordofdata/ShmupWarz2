@@ -37,8 +37,8 @@ namespace ShmupWarz
             var path = GLib.FileUtils.read_link("/proc/self/exe")
             var proc = File.new_for_path(path)
             var rootPath = proc.resolve_relative_path("../../../").get_path()     
-            defaultFont = rootPath+"/fonts/OpenDyslexic-Bold.otf"
-            game = this
+            defaultFont = rootPath+"/data/fonts/OpenDyslexic-Bold.otf"
+            setApplicationListener(this)
 
         def override create()
             playGame()

@@ -1,10 +1,10 @@
-[indent=4]
 /**
  * Json.gs
  *
  * 
  *
  */
+[indent=4]
 namespace sdx.utils
 
     class JSON : Object

@@ -1,11 +1,10 @@
-[indent=4]
 /**
  * Files.gs
  *
  * Author: 
  *      bruce davidson
  */
-
+[indent=4]
 uses GLib
 uses sdx.files
 

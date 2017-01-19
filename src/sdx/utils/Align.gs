@@ -1,11 +1,10 @@
-[indent=4]
 /**
  * Align.gs
  *
  * 
  *
  */
-
+[indent=4]
 namespace sdx.utils
 
     class Align : Object

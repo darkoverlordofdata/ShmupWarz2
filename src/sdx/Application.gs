@@ -7,13 +7,15 @@
 [indent=4]
 uses SDL
 uses SDL.Video
-
+uses sdx.graphics.s2d
 namespace sdx
 
     /**
      * Core SDL Application
      */
     class Application : Object
+
+        const YieldForEventsMS: int = 1000
 
         name : string
         width : int
@@ -25,46 +27,35 @@ namespace sdx
         renderer : Renderer
         sprites : list of Sprite = new list of Sprite
         onetime : list of Sprite = new list of Sprite
-        keys : array of uint8 = new array of uint8[255]
-        
-        prop readonly delta : double
-
         showFps : bool = false
-        _fpsFont: sdx.Font
-        _fpsSprite : Sprite
-
-        game: ApplicationListener
+        fpsSprite : private Sprite
+        app: private ApplicationListener
 
         construct(base:string) 
             new Sdx(this, base) // initialization
+            width = Sdx.graphics.width
+            height = Sdx.graphics.height
+
+        def setApplicationListener(listener: ApplicationListener)
+            app = listener
 
         /**
          * Run - start the game loop
          */
         def run() : int
-            if initialize() == false
-                return -1
-
-            game.create()
-            running = true
-            while running
-                running = false
-                Sdx.input.processEvents()
-
-                /* calculate time */
+            if initialize() == false do return -1
+            app.create()
+            while Sdx.input.processEvents() && Sdx.input.keys[Input.Keys.ESCAPE] != 1
                 Sdx.graphics.updateTime()
-
-                /** Callback to update game logic/physics */
-                game.render()
-                /* yield to events */
-                GLib.Thread.usleep(1000) 
-                /* Callback to draw the game */
+                app.render()
+                if YieldForEventsMS > 0 do GLib.Thread.usleep(YieldForEventsMS) 
                 draw()
                 if showFps
-                    if _fpsSprite != null do _fpsSprite = null
-                    _fpsSprite = Sprite.fromRenderedText(this.renderer, _fpsFont, "%2.2f".printf(Sdx.graphics.fps), sdx.graphics.Color.AntiqueWhite)
-                    _fpsSprite.centered = false
+                    if fpsSprite != null do fpsSprite = null
+                    fpsSprite = Sprite.fromRenderedText(this.renderer, font, "%2.2f".printf(Sdx.graphics.fps), sdx.graphics.Color.AntiqueWhite)
+                    fpsSprite.centered = false
 
+                
             /* Cleanup */
             dispose()
             return 0
@@ -81,7 +72,7 @@ namespace sdx
             for sprite in sprites
                 sprite.render(this.renderer, sprite.x, sprite.y)
 
-            if showFps && _fpsSprite != null do _fpsSprite.render(this.renderer, 0, 0)
+            if showFps && fpsSprite != null do fpsSprite.render(this.renderer, 0, 0)
 
             for var sprite in onetime  
                 sprite.render(this.renderer, sprite.x, sprite.y)
@@ -99,6 +90,8 @@ namespace sdx
          * Initialize SDL
          */
         def virtual initialize() : bool
+
+            print "initialize (%d, %d)", height, width
 
             if SDL.init(SDL.InitFlag.VIDEO) < 0
                 print "SDL could not initialize! SDL Error: %s", SDL.get_error()
@@ -129,8 +122,8 @@ namespace sdx
 
             print "Initialize defaultFont = %s", defaultFont
             if defaultFont != ""
-                _fpsFont = sdx.Font.fromFile(defaultFont, 16)
-                if _fpsFont == null
+                font = sdx.Font.fromFile(defaultFont, 16)
+                if font == null
                     showFps = false
                     print "Failed to load font, showFps set to false. SDL Error: %s", SDL.get_error()
                 else

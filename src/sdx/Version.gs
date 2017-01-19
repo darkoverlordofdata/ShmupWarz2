@@ -9,7 +9,6 @@
  *      bruce davidson
  */
 [indent=4]
-
 namespace sdx
 
     const VERSION: string = "0.0.1"

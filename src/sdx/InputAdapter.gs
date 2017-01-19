@@ -1,10 +1,10 @@
-[indent=4]
 /**
  * InputAdapter.gs
  *
  * 
  *
  */
+[indent=4]
 namespace sdx
 
     class InputAdapter : Object implements InputProcessor

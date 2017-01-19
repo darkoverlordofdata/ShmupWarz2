@@ -1,5 +1,6 @@
 [indent=4]
 uses sdx
+uses sdx.graphics.s2d
 uses Entitas
 uses GLib
 
@@ -30,13 +31,16 @@ namespace ShmupWarz
                 var text = getText(entity)
                 var pct = "%d%%".printf((int)Math.fmin(100, health.health/health.maximumHealth*100.0))
 
+
                 if pct == text.text
+                    // print "HealthRenderSystem::execute0 %s - %s", entity.name, pct
                     sprite = (Sprite)text.sprite
                     if sprite == null
                         sprite = Sprite.fromRenderedText(Sdx.app.renderer, Sdx.app.font, text.text, sdx.graphics.Color.Lime)
                         sprite.centered = false
                         text.sprite = sprite
                 else
+                    // print "HealthRenderSystem::execute1 %s - %s", entity.name, pct
                     text.text = pct
                     text.sprite = null
                     sprite = Sprite.fromRenderedText(Sdx.app.renderer, Sdx.app.font, text.text, sdx.graphics.Color.LimeGreen)

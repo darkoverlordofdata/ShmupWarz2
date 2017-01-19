@@ -15,9 +15,9 @@ uses SDL
 uses SDLImage
 uses SDLTTF
 uses GLib
-uses sdx.graphics.s2d
+uses sdx
 
-namespace sdx
+namespace sdx.graphics.s2d
 
     struct Scale
         x : double
@@ -60,7 +60,7 @@ namespace sdx
          * @param color foregound text color (background transparent)
          * @return new Sprite
          */
-        def static fromRenderedText(renderer: Video.Renderer, font : sdx.Font, text : string, color : sdx.graphics.Color) : Sprite?
+        def static fromRenderedText(renderer: Video.Renderer, font : sdx.Font?, text : string, color : sdx.graphics.Color) : Sprite?
             var sprite = new Sprite()
             var textSurface = font.render(text, color)
             sprite.path = text

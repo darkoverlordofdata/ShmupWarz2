@@ -60,7 +60,6 @@ src/sdx/InputProcessor.gs
 src/sdx/Net.gs
 src/sdx/Screen.gs
 src/sdx/Sdx.gs
-src/sdx/Sprite.gs
 src/sdx/Version.gs
 src/sdx/audio/Sound.gs
 src/sdx/files/FileHandle.gs
@@ -68,6 +67,7 @@ src/sdx/graphics/Color.gs
 src/sdx/graphics/Texture.gs
 src/sdx/graphics/s2d/Batch.gs
 src/sdx/graphics/s2d/NinePatch.gs
+src/sdx/graphics/s2d/Sprite.gs
 src/sdx/graphics/s2d/TextureAtlas.gs
 src/sdx/graphics/s2d/TextureEnums.vala
 src/sdx/graphics/s2d/TextureRegion.gs

@@ -1,17 +1,17 @@
-[indent=4]
 /**
  * Input.gs
  *
  * Author: 
  *      bruce davidson
  */
-
+[indent=4]
 namespace sdx
 
     class Input : Object
 
+
+        prop readonly keys : array of uint8 = new array of uint8[255]
         processor: private InputProcessor
-        keys : private array of uint8 = new array of uint8[255]
         evt : private SDL.Event
 
 
@@ -168,7 +168,10 @@ namespace sdx
             NUMPAD_8 = 152
             NUMPAD_9 = 153
 
-        def processEvents()
+        def setInputProcessor(processor: InputProcessor)
+            this.processor = processor
+
+        def processEvents(): bool
             if processor != null
                 while SDL.Event.poll(out evt) != 0
                     case evt.type
@@ -191,9 +194,10 @@ namespace sdx
                         when  SDL.EventType.MOUSEBUTTONUP
                             processor.touchUp(evt.motion.x, evt.motion.y, 0, 0)
 
-    
+                        when SDL.EventType.QUIT
+                            return false
 
-        def setInputProcessor(processor: InputProcessor)
-            this.processor = processor
+            // return ((test++) == 0)  // run once
+            return true
 
-
+        test: int

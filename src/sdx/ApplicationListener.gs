@@ -1,10 +1,10 @@
-[indent=4]
 /**
  * ApplicationListener.gs
  *  port of libgdx.
  * 
  *
  */
+[indent=4]
 namespace sdx
     interface ApplicationListener : Object
         def abstract create()

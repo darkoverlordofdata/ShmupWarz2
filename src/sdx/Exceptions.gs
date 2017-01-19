@@ -1,10 +1,10 @@
-[indent=4]
 /**
  * Exception.gs
  *
  * 
  *
  */
+[indent=4]
 namespace sdx
 
     exception Exception 

@@ -88,7 +88,6 @@ c_library: m
 *vala_source: sdx/Net.gs
 *vala_source: sdx/Screen.gs
 *vala_source: sdx/Sdx.gs
-*vala_source: sdx/Sprite.gs
 *vala_source: sdx/Version.gs
 *vala_source: sdx/audio/Sound.gs
 *vala_source: sdx/files/FileHandle.gs
@@ -96,6 +95,7 @@ c_library: m
 *vala_source: sdx/graphics/Texture.gs
 *vala_source: sdx/graphics/s2d/Batch.gs
 *vala_source: sdx/graphics/s2d/NinePatch.gs
+*vala_source: sdx/graphics/s2d/Sprite.gs
 *vala_source: sdx/graphics/s2d/TextureAtlas.gs
 *vala_source: sdx/graphics/s2d/TextureEnums.vala
 *vala_source: sdx/graphics/s2d/TextureRegion.gs
@@ -193,7 +193,6 @@ c_library: m
 *translate: genie src/sdx/Net.gs
 *translate: genie src/sdx/Screen.gs
 *translate: genie src/sdx/Sdx.gs
-*translate: genie src/sdx/Sprite.gs
 *translate: genie src/sdx/Version.gs
 *translate: genie src/sdx/audio/Sound.gs
 *translate: genie src/sdx/files/FileHandle.gs
@@ -201,6 +200,7 @@ c_library: m
 *translate: genie src/sdx/graphics/Texture.gs
 *translate: genie src/sdx/graphics/s2d/Batch.gs
 *translate: genie src/sdx/graphics/s2d/NinePatch.gs
+*translate: genie src/sdx/graphics/s2d/Sprite.gs
 *translate: genie src/sdx/graphics/s2d/TextureAtlas.gs
 *translate: vala src/sdx/graphics/s2d/TextureEnums.vala
 *translate: genie src/sdx/graphics/s2d/TextureRegion.gs

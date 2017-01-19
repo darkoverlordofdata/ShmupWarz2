@@ -1,11 +1,10 @@
-[indent=4]
 /**
  * Graphics.gs
  *
  * Author: 
  *      bruce davidson
  */
-
+[indent=4]
 namespace sdx
 
     class Graphics : Object
