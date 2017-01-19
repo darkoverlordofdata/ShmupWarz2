@@ -11,8 +11,8 @@ namespace sdx
     class abstract Game : Application implements ApplicationListener
         screen : Screen
 
-        construct(base:string)
-            super(base)
+        construct(width:int, height: int, base:string)
+            super(width, height, base)
 
         def abstract create()
 

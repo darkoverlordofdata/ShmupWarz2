@@ -23,7 +23,5 @@ all of the associate code has been ported for the Scala version. This includes
 * shmupwarz-scala
 * libgdx
 * overlap2d-runtime-libgdx
-I have no expectation that any of this will run... The next step is to 
-walk thru the port and see what it is going to take to make it display a blank screen.
 
-dies in bosco. I need to merge bosco back into sdx. Then I can debug in the current session, also.
+working...just the core game. Next is getting the other screens working.

@@ -19,10 +19,10 @@ namespace ShmupWarz
 
         construct(game : GameScene)
             _game = game
-            Sdx.input.setInputProcessor(this)
             _width = game.width
             _height = game.height
             _scale = game.scale
+            Sdx.input.setInputProcessor(this)
 
         def setWorld(world:World)
             _world = world
@@ -35,7 +35,7 @@ namespace ShmupWarz
         */
         def moveTo(x : int, y : int)
             _mouseX = (int)((double)x/_scale)
-            _mouseY = (int)((double)(_height - y)/_scale)
+            _mouseY = (int)((double)y/_scale)
 
 
         /**
@@ -58,7 +58,7 @@ namespace ShmupWarz
 
 
         def keyDown(keycode: int): bool
-            if Input.Keys.Z == keycode do _shoot = true
+            if Input.Keys.z == keycode do _shoot = true
             return true
 
         def keyUp(keycode: int): bool

@@ -31,9 +31,7 @@ namespace ShmupWarz
 
 
         def collisionExists(e1: Entity, e2: Entity): bool
-            var result = false
-
-            if e1 == null || e2 == null do return result
+            if e1 == null || e2 == null do return false
 
             var p1 = getPosition(e1)
             var p2 = getPosition(e2)
@@ -42,9 +40,7 @@ namespace ShmupWarz
             var a = p1.x - p2.x
             var b = p1.y - p2.y
 
-            result = Math.sqrt(a * a + b * b) - (b1.radius) < (b2.radius)
-
-            return result
+            return Math.sqrt(a * a + b * b) - (b1.radius) < (b2.radius)
 
         def handleCollision(bullet: Entity, ship: Entity)
             var bp = getPosition(bullet)

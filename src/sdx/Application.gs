@@ -31,10 +31,8 @@ namespace sdx
         fpsSprite : private Sprite
         app: private ApplicationListener
 
-        construct(base:string) 
-            new Sdx(this, base) // initialization
-            width = Sdx.graphics.width
-            height = Sdx.graphics.height
+        construct(width: int, height: int, base:string) 
+            new Sdx(this, width, height, base) 
 
         def setApplicationListener(listener: ApplicationListener)
             app = listener
@@ -45,7 +43,7 @@ namespace sdx
         def run() : int
             if initialize() == false do return -1
             app.create()
-            while Sdx.input.processEvents() && Sdx.input.keys[Input.Keys.ESCAPE] != 1
+            while Sdx.input.processEvents() && Sdx.input.keys[Input.Keys.Esc] != 1
                 Sdx.graphics.updateTime()
                 app.render()
                 if YieldForEventsMS > 0 do GLib.Thread.usleep(YieldForEventsMS) 
@@ -55,8 +53,6 @@ namespace sdx
                     fpsSprite = Sprite.fromRenderedText(this.renderer, font, "%2.2f".printf(Sdx.graphics.fps), sdx.graphics.Color.AntiqueWhite)
                     fpsSprite.centered = false
 
-                
-            /* Cleanup */
             dispose()
             return 0
 

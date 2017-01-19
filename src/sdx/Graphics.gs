@@ -21,9 +21,10 @@ namespace sdx
         currentTime: private double = 0 
         elapsed: private double = 0
 
-        def setSize(width: int, height: int)
+        def setSize(width: int, height: int): Graphics
             _width = width
             _height = height
+            return this
 
         def updateTime()
             lastTime = currentTime

@@ -25,6 +25,8 @@ namespace ShmupWarz
 
         construct(desktop: bool, scale: double)
             _world = createSystems()
+            createBackground()
+            createPlayer()
 
         def createSystems(): World
             return new World(components

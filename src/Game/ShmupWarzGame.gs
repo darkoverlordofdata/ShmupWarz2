@@ -1,10 +1,10 @@
-[indent=4]
 /**
  * MenuScene.gs
  *
  * 
  *
  */
+[indent=4]
 uses sdx
 uses sdx.scenes.scene2d
 uses o2d
@@ -29,7 +29,7 @@ namespace ShmupWarz
         prop arial: sdx.Font
 
         construct(desktop: bool, scale: double)
-            super("resource:///darkoverlordofdata/shmupwarz")
+            super(800, 640, "resource:///darkoverlordofdata/shmupwarz")
             _density = 1
             _desktop = desktop
             _scale = scale

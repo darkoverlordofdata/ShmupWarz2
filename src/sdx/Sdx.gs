@@ -16,9 +16,11 @@ namespace sdx
         prop static readonly files: Files
         prop static readonly net: Net = new Net()
 
-        construct(app: Application, base: string)
+        construct(app: Application, width: int, height: int, base: string)
             _app = app
-            _graphics = new Graphics()
+            app.width = width
+            app.height = height
+            _graphics = new Graphics().setSize(width, height)
             _audio = new Audio()
             _input = new Input()
             _files = new Files(base)
