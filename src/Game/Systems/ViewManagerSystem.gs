@@ -44,7 +44,7 @@ namespace ShmupWarz
             ordinal : int = 0
 
             var res = (ResourceComponent)c
-            var entity = e as ShmupWarz.Entity
+            var entity = e as Entity
 
             if res.path.index_of("/") == 0 || res.path.index_of("resource://") == 0
                 res.sprite = Sprite.fromFile(Sdx.app.renderer, res.path)

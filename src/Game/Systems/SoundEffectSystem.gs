@@ -26,7 +26,7 @@ namespace ShmupWarz
 
         def execute()
             for var e in _group.getEntities()
-                var entity = e as ShmupWarz.Entity
+                var entity = e as Entity
                 case entity.soundEffect.effect
                     when 0  //Effect.PEW
                         _pew.play()

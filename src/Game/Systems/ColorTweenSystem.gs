@@ -22,7 +22,7 @@ namespace ShmupWarz
         def execute()
             var delta = Sdx.graphics.deltaTime
             for var e in _group.getEntities()
-                var entity = e as ShmupWarz.Entity
+                var entity = e as Entity
                 var tint = entity.tint
                 var tween = entity.colorTween
                 

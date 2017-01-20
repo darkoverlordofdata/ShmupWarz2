@@ -21,7 +21,7 @@ namespace ShmupWarz
 
         def execute()
             for var e in _group.getEntities()
-                var entity = e as ShmupWarz.Entity
+                var entity = e as Entity
                 var scaleTween = entity.scaleTween
 
                 if scaleTween.active

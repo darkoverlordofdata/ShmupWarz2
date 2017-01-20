@@ -21,7 +21,7 @@ namespace ShmupWarz
 
         def execute()
             for var e in _group.getEntities()
-                var entity = e as ShmupWarz.Entity
+                var entity = e as Entity
                 if (entity.expires.delay -= Sdx.graphics.deltaTime) <= 0
                     entity.setDestroy(true)
 

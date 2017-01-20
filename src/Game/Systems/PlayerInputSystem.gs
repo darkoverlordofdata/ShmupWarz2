@@ -43,7 +43,7 @@ namespace ShmupWarz
         */
         def execute()
             //try
-            var player = _group.getSingleEntity() as ShmupWarz.Entity
+            var player = _group.getSingleEntity() as Entity
             if player != null
                 var position = player.position
                 position.x = _mouseX

@@ -18,9 +18,9 @@ namespace ShmupWarz
         def initialize()
             _group = _world.getGroup(Matcher.AllOf({Component.Position, Component.Velocity}))
 
-        def execute()//ShmupWarz.Entity
+        def execute()
             for var e in _group.getEntities()
-                var entity = e as ShmupWarz.Entity
+                var entity = e as Entity
                 var pos = entity.position
                 var vel = entity.velocity
                 pos.x += (vel.x * Sdx.graphics.deltaTime)

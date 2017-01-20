@@ -54,4 +54,4 @@ npm run entitas -- create -s RenderPositionSystem ISetWorld IExecuteSystem
 npm run entitas -- create -s SoundEffectSystem ISetWorld IExecuteSystem IInitializeSystem
 npm run entitas -- create -s ScaleTweenSystem ISetWorld IExecuteSystem
 npm run entitas -- create -s ViewManagerSystem ISetWorld IExecuteSystem
-npm run entitas -- generate -p gs -t src
+npm run entitas -- generate -p gs

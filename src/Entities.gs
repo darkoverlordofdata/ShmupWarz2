@@ -39,13 +39,6 @@ namespace ShmupWarz
         SMALLASPLODE
 
 
-// def createBackground() : Entity
-//     return World.instance.createEntity("background"
-//         ).addPosition(0, 0 
-//         ).addScale(2, 1
-//         ).addResource(RES+"/BackdropBlackLittleSparkBlack.png", null, true)
-
-
     def createEntity(name:string): ShmupWarz.Entity
         return (ShmupWarz.Entity)World.instance.createEntity(name)
     /**

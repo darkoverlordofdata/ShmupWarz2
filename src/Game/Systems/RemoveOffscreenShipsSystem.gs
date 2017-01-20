@@ -20,7 +20,7 @@ namespace ShmupWarz
 
         def execute()
             for var e in _group.getEntities()
-                var entity = e as ShmupWarz.Entity
+                var entity = e as Entity
                 if entity.hasPosition
                     if entity.position.y > _game.height - entity.bounds.radius
                         if !entity.isPlayer

@@ -25,7 +25,7 @@ namespace ShmupWarz
             res : ResourceComponent
 
             for var e in _group.getEntities()
-                var entity = e as ShmupWarz.Entity
+                var entity = e as Entity
                 if entity.hasResource
                     res = entity.resource
                     for s in _sprites

@@ -26,11 +26,11 @@ namespace ShmupWarz
         def execute()
             for var entityA in _bullets.getEntities()
                 for var entityB in _enemies.getEntities()
-                    if collisionExists((ShmupWarz.Entity)entityA, (ShmupWarz.Entity)entityB)
-                        handleCollision((ShmupWarz.Entity)entityA, (ShmupWarz.Entity)entityB)
+                    if collisionExists((Entity)entityA, (Entity)entityB)
+                        handleCollision((Entity)entityA, (Entity)entityB)
 
 
-        def collisionExists(e1: ShmupWarz.Entity, e2: ShmupWarz.Entity): bool
+        def collisionExists(e1: Entity, e2: Entity): bool
             if e1 == null || e2 == null do return false
 
             var p1 = e1.position
@@ -42,7 +42,7 @@ namespace ShmupWarz
 
             return Math.sqrt(a * a + b * b) - (b1.radius) < (b2.radius)
 
-        def handleCollision(bullet: ShmupWarz.Entity, ship: ShmupWarz.Entity)
+        def handleCollision(bullet: Entity, ship: Entity)
             var bp = bullet.position
             var health = ship.health
             var position = ship.position

@@ -26,7 +26,7 @@ namespace ShmupWarz
             sprite:Sprite = null
 
             for var e in _group.getEntities()
-                var entity = e as ShmupWarz.Entity
+                var entity = e as Entity
                 var position = entity.position
                 var health = entity.health
                 var text = entity.text

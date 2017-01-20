@@ -21,7 +21,7 @@ namespace ShmupWarz
 
         def execute()
             for var e in _group.getEntities()
-                var entity = e as ShmupWarz.Entity
+                var entity = e as Entity
                 var res = entity.resource
                 var pos = entity.position
                 var sprite = (Sprite)res.sprite
