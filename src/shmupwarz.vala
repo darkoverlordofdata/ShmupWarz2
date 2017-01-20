@@ -1,3 +1,7 @@
 //using GLib.Math
+using Gee;
 
-namespace ShmupWarz {}
+namespace ShmupWarz {
+
+
+}

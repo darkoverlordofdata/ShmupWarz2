@@ -7,25 +7,25 @@ uses sdx
 namespace ShmupWarz
 
     class CollisionSystem : Object implements ISystem, ISetWorld, IInitializeSystem, IExecuteSystem
-        _world : World
-        _game : GameScene
-        _bullets : Group
-        _enemies : Group
+        game: GameScene
+        world: World
+        bullets: Group
+        enemies: Group
 
-        construct(game : GameScene)
-            _game = game
+        construct(game: GameScene)
+            this.game = game
 
-        def setWorld(world : World)
-            _world = world
+        def setWorld(world: World)
+            this.world = world
 
         def initialize()
-            _bullets = _world.getGroup(Matcher.AllOf({Component.Bullet}))
-            _enemies = _world.getGroup(Matcher.AllOf({Component.Enemy}))
+            bullets = world.getGroup(Matcher.AllOf({Component.Bullet}))
+            enemies = world.getGroup(Matcher.AllOf({Component.Enemy}))
 
 
         def execute()
-            for var entityA in _bullets.getEntities()
-                for var entityB in _enemies.getEntities()
+            for var entityA in bullets.getEntities()
+                for var entityB in enemies.getEntities()
                     if collisionExists((Entity)entityA, (Entity)entityB)
                         handleCollision((Entity)entityA, (Entity)entityB)
 

@@ -37,6 +37,7 @@ namespace ShmupWarz
             var proc = File.new_for_path(path)
             var rootPath = proc.resolve_relative_path("../../../").get_path()     
             defaultFont = rootPath+"/data/fonts/OpenDyslexic-Bold.otf"
+            initPools()
             setApplicationListener(this)
 
         def override create()

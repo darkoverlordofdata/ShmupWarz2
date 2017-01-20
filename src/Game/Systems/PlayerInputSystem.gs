@@ -5,37 +5,37 @@ uses Entitas
 namespace ShmupWarz
 
     class PlayerInputSystem : Object implements ISystem, ISetWorld, IInitializeSystem, IExecuteSystem, InputProcessor
-        _group : Group
-        _world : World
-        _game : GameScene
-        _timeToFire : double = 0
-        _shoot: bool
-        _mouseX: int
-        _mouseY: int
-        _width: int
-        _height: int
-        _scale: double
+        world: World
+        group: Group
+        game: GameScene
+        timeToFire: double = 0
+        shoot: bool
+        mouseX: int
+        mouseY: int
+        width: int
+        height: int
+        scale: double
         FireRate : static double = 0.1
 
-        construct(game : GameScene)
-            _game = game
-            _width = game.width
-            _height = game.height
-            _scale = game.scale
+        construct(game: GameScene)
+            this.game = game
+            width = game.width
+            height = game.height
+            scale = game.scale
             Sdx.input.setInputProcessor(this)
 
-        def setWorld(world:World)
-            _world = world
+        def setWorld(world: World)
+            this.world = world
 
         def initialize()
-            _group = _world.getGroup(Matcher.AllOf({Component.Player}))
+            group = world.getGroup(Matcher.AllOf({Component.Player}))
 
         /**
         * Move the player
         */
-        def moveTo(x : int, y : int)
-            _mouseX = (int)((double)x/_scale)
-            _mouseY = (int)((double)y/_scale)
+        def moveTo(x: int, y: int)
+            mouseX = (int)((double)x/scale)
+            mouseY = (int)((double)y/scale)
 
 
         /**
@@ -43,22 +43,22 @@ namespace ShmupWarz
         */
         def execute()
             //try
-            var player = _group.getSingleEntity() as Entity
+            var player = group.getSingleEntity() as Entity
             if player != null
                 var position = player.position
-                position.x = _mouseX
-                position.y = _mouseY
+                position.x = mouseX
+                position.y = mouseY
 
-                if _shoot do _timeToFire -= Sdx.graphics.deltaTime
-                if _timeToFire < 0
+                if shoot do timeToFire -= Sdx.graphics.deltaTime
+                if timeToFire < 0
                     createBullet(position.x - 27, position.y + 2)
                     createBullet(position.x + 27, position.y + 2)
-                    _timeToFire = FireRate
+                    timeToFire = FireRate
 
 
 
         def keyDown(keycode: int): bool
-            if Input.Keys.z == keycode do _shoot = true
+            if Input.Keys.z == keycode do shoot = true
             return true
 
         def keyUp(keycode: int): bool
@@ -69,11 +69,11 @@ namespace ShmupWarz
             
         def touchDown(screenX: int, screenY: int, pointer: int, button: int): bool
             moveTo(screenX, screenY)
-            _shoot = true
+            shoot = true
             return false
             
         def touchUp(screenX: int, screenY: int, pointer: int, button: int): bool
-            _shoot = false
+            shoot = false
             return true
             
         def touchDragged(screenX: int, screenY: int, pointer: int): bool

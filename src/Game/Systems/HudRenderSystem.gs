@@ -12,39 +12,39 @@ namespace ShmupWarz
         const TOTAL_RETAINED : string   = "Total reusable:          %3d"
         const TOTAL_REUSABLE : string   = "Total retained:          %3d"
 
-        _game : GameScene
-        _world : World
-        _font: sdx.Font
-        _activeEntities : Sprite
-        _totalRetained : Sprite
-        _totalReusable : Sprite
+        game: GameScene
+        world: World
+        font: sdx.Font
+        activeEntities: Sprite
+        totalRetained: Sprite
+        totalReusable: Sprite
 
-        construct(game : GameScene)
-            _game = game
+        construct(game: GameScene)
+            this.game = game
 
-        def setWorld(world : World)
-            _world = world
+        def setWorld(world: World)
+            this.world = world
 
         def initialize()
-            _font = sdx.Font.fromFile(Sdx.app.defaultFont, 16)
-            Sdx.app.sprites.add(_activeEntities = createText(0, 40, ACTIVE_ENTITIES.printf(_world.count)))
-            Sdx.app.sprites.add(_totalRetained = createText(0, 60, TOTAL_RETAINED.printf(_world.reusableEntitiesCount)))
-            Sdx.app.sprites.add(_totalReusable = createText(0, 80, TOTAL_REUSABLE.printf(_world.retainedEntitiesCount)))
+            font = sdx.Font.fromFile(Sdx.app.defaultFont, 16)
+            Sdx.app.sprites.add(activeEntities = createText(0, 40, ACTIVE_ENTITIES.printf(world.count)))
+            Sdx.app.sprites.add(totalRetained = createText(0, 60, TOTAL_RETAINED.printf(world.reusableEntitiesCount)))
+            Sdx.app.sprites.add(totalReusable = createText(0, 80, TOTAL_REUSABLE.printf(world.retainedEntitiesCount)))
 
         def execute()
-            setText(_activeEntities, ACTIVE_ENTITIES.printf(_world.count))
-            setText(_totalRetained, TOTAL_RETAINED.printf(_world.retainedEntitiesCount))
-            setText(_totalReusable, TOTAL_REUSABLE.printf(_world.reusableEntitiesCount))
+            setText(activeEntities, ACTIVE_ENTITIES.printf(world.count))
+            setText(totalRetained, TOTAL_RETAINED.printf(world.retainedEntitiesCount))
+            setText(totalReusable, TOTAL_REUSABLE.printf(world.reusableEntitiesCount))
 
-        def createText(x : int, y : int, text : string) : Sprite
-            var sprite = Sprite.fromRenderedText(Sdx.app.renderer, _font, text, sdx.graphics.Color.White)
+        def createText(x: int, y: int, text: string): Sprite
+            var sprite = Sprite.fromRenderedText(Sdx.app.renderer, font, text, sdx.graphics.Color.White)
             sprite.x = x
             sprite.y = y
             sprite.layer = Layer.HUD
             sprite.centered = false
             return sprite
 
-        def setText(sprite : Sprite, text : string)
-            sprite.setText(Sdx.app.renderer, _font, text, sdx.graphics.Color.White)
+        def setText(sprite: Sprite, text: string)
+            sprite.setText(Sdx.app.renderer, font, text, sdx.graphics.Color.White)
 
 

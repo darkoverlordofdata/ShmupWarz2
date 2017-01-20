@@ -6,7 +6,7 @@
 [indent=4]
 namespace ShmupWarz
 
-    const POOL_SIZE : int = 64
+    const POOL_SIZE : int = 128
 
     /**
     * Component extensions
@@ -149,58 +149,6 @@ namespace ShmupWarz
 
         construct(componentsEnum : array of string, totalComponents : int=32)
             super(componentsEnum, totalComponents)
-            /* Preallocate component pools*/
-            _boundsComponentPool = new GLib.Queue of BoundsComponent
-            for var i=1 to POOL_SIZE
-                _boundsComponentPool.push_head(new BoundsComponent())
-
-            _bulletComponent = new BulletComponent()
-            _colorTweenComponentPool = new GLib.Queue of ColorTweenComponent
-            for var i=1 to POOL_SIZE
-                _colorTweenComponentPool.push_head(new ColorTweenComponent())
-
-            _destroyComponent = new DestroyComponent()
-
-            _enemyComponent = new EnemyComponent()
-            _expiresComponentPool = new GLib.Queue of ExpiresComponent
-            for var i=1 to POOL_SIZE
-                _expiresComponentPool.push_head(new ExpiresComponent())
-            _healthComponentPool = new GLib.Queue of HealthComponent
-            for var i=1 to POOL_SIZE
-                _healthComponentPool.push_head(new HealthComponent())
-            _layerComponentPool = new GLib.Queue of LayerComponent
-            for var i=1 to POOL_SIZE
-                _layerComponentPool.push_head(new LayerComponent())
-
-            _playerComponent = new PlayerComponent()
-            _positionComponentPool = new GLib.Queue of PositionComponent
-            for var i=1 to POOL_SIZE
-                _positionComponentPool.push_head(new PositionComponent())
-            _resourceComponentPool = new GLib.Queue of ResourceComponent
-            for var i=1 to POOL_SIZE
-                _resourceComponentPool.push_head(new ResourceComponent())
-            _scaleTweenComponentPool = new GLib.Queue of ScaleTweenComponent
-            for var i=1 to POOL_SIZE
-                _scaleTweenComponentPool.push_head(new ScaleTweenComponent())
-            _scaleComponentPool = new GLib.Queue of ScaleComponent
-            for var i=1 to POOL_SIZE
-                _scaleComponentPool.push_head(new ScaleComponent())
-            _scoreComponentPool = new GLib.Queue of ScoreComponent
-            for var i=1 to POOL_SIZE
-                _scoreComponentPool.push_head(new ScoreComponent())
-            _soundEffectComponentPool = new GLib.Queue of SoundEffectComponent
-            for var i=1 to POOL_SIZE
-                _soundEffectComponentPool.push_head(new SoundEffectComponent())
-            _textComponentPool = new GLib.Queue of TextComponent
-            for var i=1 to POOL_SIZE
-                _textComponentPool.push_head(new TextComponent())
-            _tintComponentPool = new GLib.Queue of TintComponent
-            for var i=1 to POOL_SIZE
-                _tintComponentPool.push_head(new TintComponent())
-            _velocityComponentPool = new GLib.Queue of VelocityComponent
-            for var i=1 to POOL_SIZE
-                _velocityComponentPool.push_head(new VelocityComponent())
-
 
         /** Entity: Bounds methods*/
 
@@ -1079,43 +1027,97 @@ namespace ShmupWarz
 
 
         /** @type entitas.utils.GLib.Queue<Bounds> */
-        _boundsComponentPool : GLib.Queue of BoundsComponent
+    _boundsComponentPool : GLib.Queue of BoundsComponent
 
-        /** @type Bullet */
-        _bulletComponent : BulletComponent
+    /** @type Bullet */
+    _bulletComponent : BulletComponent
         /** @type entitas.utils.GLib.Queue<ColorTween> */
-        _colorTweenComponentPool : GLib.Queue of ColorTweenComponent
+    _colorTweenComponentPool : GLib.Queue of ColorTweenComponent
 
-        /** @type Destroy */
-        _destroyComponent : DestroyComponent
+    /** @type Destroy */
+    _destroyComponent : DestroyComponent
 
-        /** @type Enemy */
-        _enemyComponent : EnemyComponent
+    /** @type Enemy */
+    _enemyComponent : EnemyComponent
         /** @type entitas.utils.GLib.Queue<Expires> */
-        _expiresComponentPool : GLib.Queue of ExpiresComponent
+    _expiresComponentPool : GLib.Queue of ExpiresComponent
         /** @type entitas.utils.GLib.Queue<Health> */
-        _healthComponentPool : GLib.Queue of HealthComponent
+    _healthComponentPool : GLib.Queue of HealthComponent
         /** @type entitas.utils.GLib.Queue<Layer> */
-        _layerComponentPool : GLib.Queue of LayerComponent
+    _layerComponentPool : GLib.Queue of LayerComponent
 
-        /** @type Player */
-        _playerComponent : PlayerComponent
+    /** @type Player */
+    _playerComponent : PlayerComponent
         /** @type entitas.utils.GLib.Queue<Position> */
-        _positionComponentPool : GLib.Queue of PositionComponent
+    _positionComponentPool : GLib.Queue of PositionComponent
         /** @type entitas.utils.GLib.Queue<Resource> */
-        _resourceComponentPool : GLib.Queue of ResourceComponent
+    _resourceComponentPool : GLib.Queue of ResourceComponent
         /** @type entitas.utils.GLib.Queue<ScaleTween> */
-        _scaleTweenComponentPool : GLib.Queue of ScaleTweenComponent
+    _scaleTweenComponentPool : GLib.Queue of ScaleTweenComponent
         /** @type entitas.utils.GLib.Queue<Scale> */
-        _scaleComponentPool : GLib.Queue of ScaleComponent
+    _scaleComponentPool : GLib.Queue of ScaleComponent
         /** @type entitas.utils.GLib.Queue<Score> */
-        _scoreComponentPool : GLib.Queue of ScoreComponent
+    _scoreComponentPool : GLib.Queue of ScoreComponent
         /** @type entitas.utils.GLib.Queue<SoundEffect> */
-        _soundEffectComponentPool : GLib.Queue of SoundEffectComponent
+    _soundEffectComponentPool : GLib.Queue of SoundEffectComponent
         /** @type entitas.utils.GLib.Queue<Text> */
-        _textComponentPool : GLib.Queue of TextComponent
+    _textComponentPool : GLib.Queue of TextComponent
         /** @type entitas.utils.GLib.Queue<Tint> */
-        _tintComponentPool : GLib.Queue of TintComponent
+    _tintComponentPool : GLib.Queue of TintComponent
         /** @type entitas.utils.GLib.Queue<Velocity> */
-        _velocityComponentPool : GLib.Queue of VelocityComponent
+    _velocityComponentPool : GLib.Queue of VelocityComponent
+
+
+    def initPools()
+        /* Preallocate component pools*/
+        _boundsComponentPool = new GLib.Queue of BoundsComponent
+        for var i=1 to POOL_SIZE
+            _boundsComponentPool.push_head(new BoundsComponent())
+
+        _bulletComponent = new BulletComponent()
+        _colorTweenComponentPool = new GLib.Queue of ColorTweenComponent
+        for var i=1 to POOL_SIZE
+            _colorTweenComponentPool.push_head(new ColorTweenComponent())
+
+        _destroyComponent = new DestroyComponent()
+
+        _enemyComponent = new EnemyComponent()
+        _expiresComponentPool = new GLib.Queue of ExpiresComponent
+        for var i=1 to POOL_SIZE
+            _expiresComponentPool.push_head(new ExpiresComponent())
+        _healthComponentPool = new GLib.Queue of HealthComponent
+        for var i=1 to POOL_SIZE
+            _healthComponentPool.push_head(new HealthComponent())
+        _layerComponentPool = new GLib.Queue of LayerComponent
+        for var i=1 to POOL_SIZE
+            _layerComponentPool.push_head(new LayerComponent())
+
+        _playerComponent = new PlayerComponent()
+        _positionComponentPool = new GLib.Queue of PositionComponent
+        for var i=1 to POOL_SIZE
+            _positionComponentPool.push_head(new PositionComponent())
+        _resourceComponentPool = new GLib.Queue of ResourceComponent
+        for var i=1 to POOL_SIZE
+            _resourceComponentPool.push_head(new ResourceComponent())
+        _scaleTweenComponentPool = new GLib.Queue of ScaleTweenComponent
+        for var i=1 to POOL_SIZE
+            _scaleTweenComponentPool.push_head(new ScaleTweenComponent())
+        _scaleComponentPool = new GLib.Queue of ScaleComponent
+        for var i=1 to POOL_SIZE
+            _scaleComponentPool.push_head(new ScaleComponent())
+        _scoreComponentPool = new GLib.Queue of ScoreComponent
+        for var i=1 to POOL_SIZE
+            _scoreComponentPool.push_head(new ScoreComponent())
+        _soundEffectComponentPool = new GLib.Queue of SoundEffectComponent
+        for var i=1 to POOL_SIZE
+            _soundEffectComponentPool.push_head(new SoundEffectComponent())
+        _textComponentPool = new GLib.Queue of TextComponent
+        for var i=1 to POOL_SIZE
+            _textComponentPool.push_head(new TextComponent())
+        _tintComponentPool = new GLib.Queue of TintComponent
+        for var i=1 to POOL_SIZE
+            _tintComponentPool.push_head(new TintComponent())
+        _velocityComponentPool = new GLib.Queue of VelocityComponent
+        for var i=1 to POOL_SIZE
+            _velocityComponentPool.push_head(new VelocityComponent())
 

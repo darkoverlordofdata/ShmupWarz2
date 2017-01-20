@@ -6,22 +6,21 @@ uses Entitas
 namespace ShmupWarz
 
     class RenderPositionSystem : Object implements ISystem, ISetWorld, IInitializeSystem, IExecuteSystem
-        _group: Group
-        _game : GameScene
-        _sprites : list of Sprite
+        game: GameScene
+        world: World
+        group: MatchGroup
 
-        construct(game : GameScene)
-            _game = game
+        construct(game: GameScene)
+            this.game = game
 
-        def setWorld(world:World)
-            _group = world.getGroup(Matcher.AllOf({Component.Resource, Component.Position}))
+        def setWorld(world: World)
+            this.world = world
 
         def initialize()
-            _sprites = Sdx.app.sprites
+            group = MatchAllOf(world, {Component.Resource, Component.Position})
 
         def execute()
-            for var e in _group.getEntities()
-                var entity = e as Entity
+            for var entity in group
                 var res = entity.resource
                 var pos = entity.position
                 var sprite = (Sprite)res.sprite

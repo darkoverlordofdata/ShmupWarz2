@@ -7,33 +7,32 @@ uses Entitas
 namespace ShmupWarz
 
     class ViewManagerSystem : Object implements ISystem, IInitializeSystem, ISetWorld
+        game : GameScene
+        world : World
+        group : Group
+        sprites: list of Sprite
+        atlas: TextureAtlas
 
-        _sprites : list of Sprite
-        _group : Group
-        _world : World
-        _game : GameScene
-        _atlas: TextureAtlas
+        construct(game: GameScene)
+            this.game = game
 
-        construct(game : GameScene)
-            _game = game
-
-        def setWorld(world : World)
-            _world = world
+        def setWorld(world: World)
+            this.world = world
 
         /**
         * Listen for resources to be added
         * and then load them in from the file
         */
         def initialize()
-            _group = _world.getGroup(Matcher.AllOf({Component.Resource}))
-            _group.onEntityAdded.add(onEntityAdded)
+            group = world.getGroup(Matcher.AllOf({Component.Resource}))
+            group.onEntityAdded.add(onEntityAdded)
             // Sdx.app.sprites = new GenericArray of Sprite
-            _sprites = Sdx.app.sprites
+            sprites = Sdx.app.sprites
             // load the overlap2d atlas
-            _atlas = new TextureAtlas()
+            atlas = new TextureAtlas()
             var imageFile = new FileHandle("orig/pack.atlas", sdx.FileType.Resource)
             var imageDir = new FileHandle("orig", sdx.FileType.Resource)
-            _atlas.load(new TextureAtlas.TextureAtlasData(imageFile, imageDir, false))
+            atlas.load(new TextureAtlas.TextureAtlasData(imageFile, imageDir, false))
 
         /**
         *  OnEntityAdded event:
@@ -49,7 +48,7 @@ namespace ShmupWarz
             if res.path.index_of("/") == 0 || res.path.index_of("resource://") == 0
                 res.sprite = Sprite.fromFile(Sdx.app.renderer, res.path)
             else
-                res.sprite = Sprite.fromAtlas(Sdx.app.renderer, _atlas, res.path)
+                res.sprite = Sprite.fromAtlas(Sdx.app.renderer, atlas, res.path)
 
             var sprite = (Sprite)res.sprite
             if sprite == null
@@ -75,17 +74,17 @@ namespace ShmupWarz
             /**
             * Insert sprite in layer order
             */
-            if _sprites.size == 0
-                _sprites.add(sprite)
+            if sprites.size == 0
+                sprites.add(sprite)
             else
                 var i = 0
-                for s in _sprites
+                for s in sprites
                     if ordinal <= s.layer
-                        _sprites.insert(i, sprite)
+                        sprites.insert(i, sprite)
                         return
                     else
                         i++
-                _sprites.add(sprite)
+                sprites.add(sprite)
 
 
 

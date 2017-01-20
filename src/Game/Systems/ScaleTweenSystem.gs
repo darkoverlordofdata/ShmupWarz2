@@ -6,22 +6,21 @@ uses Entitas
 namespace ShmupWarz
 
     class ScaleTweenSystem : Object implements ISystem, ISetWorld, IInitializeSystem, IExecuteSystem
-        _world : World
-        _group : Group
-        _game : GameScene
+        game: GameScene
+        world: World
+        group: MatchGroup
 
-        construct(game : GameScene)
-            _game = game
+        construct(game: GameScene)
+            this.game = game
 
-        def setWorld(world : World)
-            _world = world
+        def setWorld(world: World)
+            this.world = world
 
         def initialize()
-            _group = _world.getGroup(Matcher.AllOf({Component.ScaleTween, Component.Resource}))
+            group = MatchAllOf(world, {Component.ScaleTween, Component.Resource})
 
         def execute()
-            for var e in _group.getEntities()
-                var entity = e as Entity
+            for var entity in group
                 var scaleTween = entity.scaleTween
 
                 if scaleTween.active
