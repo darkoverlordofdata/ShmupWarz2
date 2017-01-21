@@ -20,7 +20,8 @@ namespace o2d
             // print _sceneVO.to_string()
             return _sceneVO
 
-        def loadVoFromLibrary(libraryName: string) : CompositeItemVO
+        def loadVoFromLibrary(libraryName: string): CompositeItemVO
             var projectInfoVO = rm.getProjectVO()
             var compositeItemVO = projectInfoVO.libraryItems[libraryName]
             return compositeItemVO
+

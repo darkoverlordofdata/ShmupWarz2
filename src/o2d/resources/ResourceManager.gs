@@ -24,7 +24,7 @@ namespace o2d.resources
         prop readonly projectVO : ProjectInfoVO
         prop readonly loadedSceneVOs : dict of string, SceneVO = new dict of string, SceneVO
         prop readonly preparedSceneNames : list of string = new list of string
-        mainPack: private TextureAtlas
+        prop readonly mainPack: TextureAtlas
 
 
         /**
@@ -79,7 +79,7 @@ namespace o2d.resources
             if !packFile.exists()
                 print "Unable to find file %s", packFile.getPath()
                 return
-            mainPack = new TextureAtlas.file(packFile)
+            _mainPack = new TextureAtlas.file(packFile)
 
         def loadParticleEffects()
             pass

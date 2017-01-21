@@ -42,7 +42,7 @@ namespace ShmupWarz
     */
     def createBackground() : IEntity
         return createEntity("background", 0, 0, false
-            ).addScale(2,1
+            ).addScale(2, 1
             ).setActive(true)
 
     /**

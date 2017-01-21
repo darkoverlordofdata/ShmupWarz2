@@ -11,6 +11,7 @@ uses sdx
 uses sdx.utils
 uses sdx.graphics.s2d
 uses o2d.data
+uses o2d.resources
 
 
 namespace ShmupWarz
@@ -40,7 +41,6 @@ namespace ShmupWarz
         ASPLODE
         SMALLASPLODE
 
-
     /**
      * O2dLib
      *
@@ -48,35 +48,35 @@ namespace ShmupWarz
      */
     class O2dLib
 
-        const PROJECT: string = "project.dt"        /** Overlap2D Project data */
-        const SCENE: string = "scenes/MainScene.dt" /** Overlap2D Scene data */
-        const ATLAS: string = "orig/pack.atlas"     /** Overlap2D Packed atlas */
-
+        _rm: static ResourceManager
         _sprites: static TextureAtlas
         _project: static ProjectInfoVO
         _scene: static SceneVO
 
+        prop static rm: ResourceManager
+            get
+                if _rm == null
+                    _rm = new ResourceManager()
+                    _rm.initAllResources()
+                return _rm
+        
         prop static project: ProjectInfoVO
             get
                 if _project == null
-                    var file = Sdx.files.resource(PROJECT)
-                    var json = JSON.parse(file.read())
-                    _project = new ProjectInfoVO(json)
+                    _project = rm.loadProjectVO()
                 return _project
 
         prop static scene: SceneVO
             get
                 if _scene == null
-                    var file = Sdx.files.resource(SCENE)
-                    var json = JSON.parse(file.read())
-                    _scene = new SceneVO(json)
+                    _scene = rm.loadSceneVO("MainScene")
                 return _scene
 
         prop static sprites: TextureAtlas
             get
                 if _sprites == null
-                    var packFile = Sdx.files.resource(ATLAS)
-                    _sprites = new TextureAtlas.file(packFile)
+                    rm.loadAtlasPack()
+                    _sprites = rm.mainPack
                 return _sprites
                   
         
