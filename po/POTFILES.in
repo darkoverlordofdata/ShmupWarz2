@@ -21,7 +21,6 @@ src/Game/Systems/ScaleTweenSystem.gs
 src/Game/Systems/SoundEffectSystem.gs
 src/Game/Systems/ViewManagerSystem.gs
 src/MatchIterator.gs
-src/O2dLib.gs
 src/o2d/ParseIt.gs
 src/o2d/SceneLoader.gs
 src/o2d/ToString.gs

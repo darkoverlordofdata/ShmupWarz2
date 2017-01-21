@@ -11,9 +11,11 @@ namespace ShmupWarz
         world: World
         bullets: Group
         enemies: Group
+        factory: Entities
 
         construct(game: GameScene)
             this.game = game
+            factory = game.factory
 
         def setWorld(world: World)
             this.world = world
@@ -49,14 +51,14 @@ namespace ShmupWarz
             var x = bp.x
             var y = bp.y
 
-            createBang(x, y)
+            factory.createBang(x, y)
             var i = 5
-            while --i > 0 do createParticle(x, y)
+            while --i > 0 do factory.createParticle(x, y)
 
             if !bullet.isDestroy do bullet.setDestroy(true)
             health.health = health.health - bullet.health.health
             if health.health < 0
                 if !ship.isDestroy do ship.setDestroy(true)
-                createExplosion(position.x, position.y)
+                factory.createExplosion(position.x, position.y)
 
 

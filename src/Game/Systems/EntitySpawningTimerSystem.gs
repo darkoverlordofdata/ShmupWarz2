@@ -6,6 +6,7 @@ namespace ShmupWarz
 
     class EntitySpawningTimerSystem : Object implements ISystem, ISetWorld, IInitializeSystem, IExecuteSystem
         game: GameScene
+        factory: Entities
         world: World
         timer1: double
         timer2: double
@@ -13,6 +14,7 @@ namespace ShmupWarz
 
         construct(game: GameScene)
             this.game = game
+            factory = game.factory
 
         def setWorld(world: World)
             this.world = world
@@ -33,13 +35,13 @@ namespace ShmupWarz
             if delta < 0
                 case enemy
                     when Enemy.Enemy1
-                        createEnemy1()
+                        factory.createEnemy1()
                         result = 2.0
                     when Enemy.Enemy2
-                        createEnemy2()
+                        factory.createEnemy2()
                         result = 6.0
                     when Enemy.Enemy3
-                        createEnemy3()
+                        factory.createEnemy3()
                         result = 12.0
                     default
                         result = 0

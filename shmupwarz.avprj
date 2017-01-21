@@ -49,7 +49,6 @@ c_library: m
 *vala_source: Game/Systems/SoundEffectSystem.gs
 *vala_source: Game/Systems/ViewManagerSystem.gs
 *vala_source: MatchIterator.gs
-*vala_source: O2dLib.gs
 *vala_source: o2d/ParseIt.gs
 *vala_source: o2d/SceneLoader.gs
 *vala_source: o2d/ToString.gs
@@ -156,7 +155,6 @@ c_library: m
 *translate: genie src/Game/Systems/SoundEffectSystem.gs
 *translate: genie src/Game/Systems/ViewManagerSystem.gs
 *translate: genie src/MatchIterator.gs
-*translate: genie src/O2dLib.gs
 *translate: genie src/o2d/ParseIt.gs
 *translate: genie src/o2d/SceneLoader.gs
 *translate: genie src/o2d/ToString.gs

@@ -22,11 +22,13 @@ namespace ShmupWarz
         prop readonly pixelFactor: double = Sdx.graphics.pixelFactor
         prop readonly world : World
         prop readonly player : PlayerInputSystem
+        prop readonly factory: Entities
 
         construct(desktop: bool, scale: double)
+            _factory = new Entities()
             _world = createSystems()
-            createBackground()
-            createPlayer()
+            factory.createBackground()
+            factory.createPlayer()
 
 
         /**

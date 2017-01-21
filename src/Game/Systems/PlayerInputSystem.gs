@@ -8,6 +8,7 @@ namespace ShmupWarz
         world: World
         group: Group
         game: GameScene
+        factory: Entities
         timeToFire: double = 0
         shoot: bool
         mouseX: int
@@ -19,6 +20,7 @@ namespace ShmupWarz
 
         construct(game: GameScene)
             this.game = game
+            factory = game.factory
             width = game.width
             height = game.height
             scale = game.scale
@@ -51,8 +53,8 @@ namespace ShmupWarz
 
                 if shoot do timeToFire -= Sdx.graphics.deltaTime
                 if timeToFire < 0
-                    createBullet(position.x - 27, position.y + 2)
-                    createBullet(position.x + 27, position.y + 2)
+                    factory.createBullet(position.x - 27, position.y + 2)
+                    factory.createBullet(position.x + 27, position.y + 2)
                     timeToFire = FireRate
 
 
