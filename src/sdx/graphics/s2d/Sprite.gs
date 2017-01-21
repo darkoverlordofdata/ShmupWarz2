@@ -45,11 +45,28 @@ namespace sdx.graphics.s2d
         id : int = ++uniqueId
         path: string
 
-        /**
-         * Don't allow free-range sprites
-         */
-        construct private()
+        construct()
             pass
+
+        construct region(region:TextureAtlas.AtlasRegion)
+            var flags = (uint32)0x00010000  // SDL_SRCALPHA
+            var rmask = (uint32)0x000000ff  
+            var gmask = (uint32)0x0000ff00
+            var bmask = (uint32)0x00ff0000
+            var amask = (uint32)0xff000000
+
+            var x = region.top
+            var y = region.left
+            var w = region.width
+            var h = region.height
+            var surface = new Video.Surface.legacy_rgb(flags, region.width, region.height, 
+                    32, rmask, gmask, bmask, amask)
+            region.texture.data.blit({x, y, w, h}, surface, {0, 0, w, h})
+            this.texture = Video.Texture.create_from_surface(Sdx.app.renderer, surface)
+            this.texture.set_blend_mode(Video.BlendMode.BLEND)
+            this.width = surface.w
+            this.height = surface.h
+            this.path = region.name
 
         /**
          *  Create a sprite from text

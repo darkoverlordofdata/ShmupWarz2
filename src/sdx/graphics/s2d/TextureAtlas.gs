@@ -177,6 +177,17 @@ namespace sdx.graphics.s2d
 
             return null
 
+        def createSprite(name: string, index:int=-1): Sprite?
+            for region in regions
+                if index == -1
+                    if region.name == name
+                        return new Sprite.region(region)
+                else    
+                    if region.name == name && region.index == index
+                        return new Sprite.region(region)
+            return null
+        
+
         /**
          * @param data config to load images from
          */
