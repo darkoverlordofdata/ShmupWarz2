@@ -111,8 +111,8 @@ namespace ShmupWarz
 
     class ResourceComponent : Object implements Entitas.IComponent 
         path : string 
-        sprite : sdx.grahics.s2d.Sprite 
-        bgd : bool 
+        sprite : sdx.graphics.s2d.Sprite 
+        centered : bool 
 
     class ScaleTweenComponent : Object implements Entitas.IComponent 
         min : double 
@@ -133,7 +133,7 @@ namespace ShmupWarz
 
     class TextComponent : Object implements Entitas.IComponent 
         text : string 
-        sprite : sdx.grahics.s2d.Sprite 
+        sprite : sdx.graphics.s2d.Sprite 
 
     class TintComponent : Object implements Entitas.IComponent 
         r : int 
@@ -637,30 +637,30 @@ namespace ShmupWarz
 
         /**
          * @param path string
-         * @param sprite sdx.grahics.s2d.Sprite
-         * @param bgd bool
+         * @param sprite sdx.graphics.s2d.Sprite
+         * @param centered bool
          * @return entitas.Entity
          */
-        def addResource(path:string,sprite:sdx.grahics.s2d.Sprite?,bgd:bool) : Entity
+        def addResource(path:string,sprite:sdx.graphics.s2d.Sprite?,centered:bool) : Entity
             var c = _resourceComponentPool.length > 0 ? _resourceComponentPool.pop_head() : new ResourceComponent()
             c.path = path
             c.sprite = sprite
-            c.bgd = bgd
+            c.centered = centered
             addComponent(Component.Resource, c)
             return this
 
         /**
          * @param path string
-         * @param sprite sdx.grahics.s2d.Sprite
-         * @param bgd bool
+         * @param sprite sdx.graphics.s2d.Sprite
+         * @param centered bool
          * @return entitas.Entity
          */
-        def replaceResource(path:string,sprite:sdx.grahics.s2d.Sprite?,bgd:bool) : Entity
+        def replaceResource(path:string,sprite:sdx.graphics.s2d.Sprite?,centered:bool) : Entity
             var previousComponent = hasResource ? this.resource : null
             var c = _resourceComponentPool.length>0? _resourceComponentPool.pop_head() : new ResourceComponent()
             c.path = path
             c.sprite = sprite
-            c.bgd = bgd
+            c.centered = centered
             replaceComponent(Component.Resource, c) 
             if previousComponent != null
                 _resourceComponentPool.push_head(previousComponent)
@@ -905,10 +905,10 @@ namespace ShmupWarz
 
         /**
          * @param text string
-         * @param sprite sdx.grahics.s2d.Sprite
+         * @param sprite sdx.graphics.s2d.Sprite
          * @return entitas.Entity
          */
-        def addText(text:string,sprite:sdx.grahics.s2d.Sprite?) : Entity
+        def addText(text:string,sprite:sdx.graphics.s2d.Sprite?) : Entity
             var c = _textComponentPool.length > 0 ? _textComponentPool.pop_head() : new TextComponent()
             c.text = text
             c.sprite = sprite
@@ -917,10 +917,10 @@ namespace ShmupWarz
 
         /**
          * @param text string
-         * @param sprite sdx.grahics.s2d.Sprite
+         * @param sprite sdx.graphics.s2d.Sprite
          * @return entitas.Entity
          */
-        def replaceText(text:string,sprite:sdx.grahics.s2d.Sprite?) : Entity
+        def replaceText(text:string,sprite:sdx.graphics.s2d.Sprite?) : Entity
             var previousComponent = hasText ? this.text : null
             var c = _textComponentPool.length>0? _textComponentPool.pop_head() : new TextComponent()
             c.text = text

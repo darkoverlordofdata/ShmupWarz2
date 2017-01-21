@@ -57,7 +57,7 @@ namespace ShmupWarz
                         else
                             tween.alphaAnimate = false
 
-                var sprite = (Sprite)entity.resource.sprite
+                var sprite = entity.resource.sprite
                 sprite.color.r = (uint8)tint.r
                 sprite.color.g = (uint8)tint.g
                 sprite.color.b = (uint8)tint.b

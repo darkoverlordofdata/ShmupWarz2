@@ -23,7 +23,7 @@ namespace ShmupWarz
             for var entity in group
                 var res = entity.resource
                 var pos = entity.position
-                var sprite = (Sprite)res.sprite
+                var sprite = res.sprite
                 sprite.x = (int)pos.x
                 sprite.y = (int)pos.y
 

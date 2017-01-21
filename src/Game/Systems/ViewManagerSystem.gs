@@ -44,13 +44,7 @@ namespace ShmupWarz
 
             var entity = e as Entity
             var res = entity.resource
-
-            if res.path.index_of("/") == 0 || res.path.index_of("resource://") == 0
-                res.sprite = Sprite.fromFile(Sdx.app.renderer, res.path)
-            else
-                res.sprite = Sprite.fromAtlas(Sdx.app.renderer, atlas, res.path)
-
-            var sprite = (Sprite)res.sprite
+            var sprite = res.sprite
             if sprite == null
                 print "Failed to load %s", res.path
                 return
@@ -68,7 +62,7 @@ namespace ShmupWarz
                 sprite.color.g = (uint8)entity.tint.g
                 sprite.color.b = (uint8)entity.tint.b
 
-            if res.bgd
+            if res.centered
                 sprite.centered = false
 
             /**

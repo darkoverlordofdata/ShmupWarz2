@@ -15,6 +15,32 @@ uses o2d.data
 
 namespace ShmupWarz
 
+    enum Enemy
+        Enemy1
+        Enemy2
+        Enemy3
+
+
+    enum Layer
+        DEFAULT
+        BACKGROUND
+        TEXT
+        LIVES
+        MINES
+        ACTORS_1
+        ACTORS_2
+        ACTORS_3
+        PLAYER
+        BULLET
+        PARTICLE
+        HUD
+
+    enum Effect
+        PEW
+        ASPLODE
+        SMALLASPLODE
+
+
     /**
      * O2dLib
      *

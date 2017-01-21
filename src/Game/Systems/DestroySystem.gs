@@ -28,7 +28,7 @@ namespace ShmupWarz
                 if entity.hasResource
                     res = entity.resource
                     for s in sprites
-                        var sprite = (Sprite)res.sprite
+                        var sprite = res.sprite
                         if s.id == sprite.id
                             sprites.remove(s)
                             break

@@ -2,7 +2,7 @@
   "namespace": "ShmupWarz",
   "src": "src",
   "output": {
-    "systems": "Systems"
+    "systems": "Game/Systems"
   },
   "alloc": {
     "entities": 128,
@@ -53,7 +53,7 @@
     "Resource": [
       "path:string",
       "sprite:sdx.graphics.s2d.Sprite?",
-      "bgd:bool"
+      "centered:bool"
     ],
     "ScaleTween": [
       "min:double",

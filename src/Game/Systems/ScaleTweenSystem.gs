@@ -25,7 +25,7 @@ namespace ShmupWarz
 
                 if scaleTween.active
                     var res = entity.resource
-                    var sprite = (Sprite)res.sprite
+                    var sprite = res.sprite
                     var scale = sprite.scale
 
                     sprite.scale.x += scaleTween.speed * Sdx.graphics.deltaTime

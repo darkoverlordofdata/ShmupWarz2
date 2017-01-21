@@ -33,7 +33,7 @@ namespace ShmupWarz
 
                 if pct == text.text
                     // print "HealthRenderSystem::execute0 %s - %s", entity.name, pct
-                    sprite = (Sprite)text.sprite
+                    sprite = text.sprite
                     if sprite == null
                         sprite = Sprite.fromRenderedText(Sdx.app.renderer, Sdx.app.font, text.text, sdx.graphics.Color.Lime)
                         sprite.centered = false
