@@ -26,46 +26,40 @@ namespace ShmupWarz
         const SCENE: string = "scenes/MainScene.dt" /** Overlap2D Scene data */
         const ATLAS: string = "orig/pack.atlas"     /** Overlap2D Packed atlas */
 
-        _spritesCache: static TextureAtlas
-        _projectInfoCache: static ProjectInfoVO
-        _sceneCache: static SceneVO
+        _sprites: static TextureAtlas
+        _project: static ProjectInfoVO
+        _scene: static SceneVO
 
         prop static project: ProjectInfoVO
             get
-                if _projectInfoCache == null
+                if _project == null
                     var file = Sdx.files.resource(PROJECT)
                     var json = JSON.parse(file.read())
-                    _projectInfoCache = new ProjectInfoVO(json)
-                return _projectInfoCache
+                    _project = new ProjectInfoVO(json)
+                return _project
 
         prop static scene: SceneVO
             get
-                if _sceneCache == null
+                if _scene == null
                     var file = Sdx.files.resource(SCENE)
                     var json = JSON.parse(file.read())
-                    _sceneCache = new SceneVO(json)
-                return _sceneCache
+                    _scene = new SceneVO(json)
+                return _scene
 
         prop static sprites: TextureAtlas
             get
-                if _spritesCache == null
+                if _sprites == null
                     var packFile = Sdx.files.resource(ATLAS)
-                    _spritesCache = new TextureAtlas.file(packFile)
-                return _spritesCache
+                    _sprites = new TextureAtlas.file(packFile)
+                return _sprites
                   
         
         def static getItem(name:string):CompositeItemVO
             return project.libraryItems[name]
 
-        def static getResource(name:string):string 
-            return getItem(name).composite.sImages[0].imageName
-
         def static getSprite(name:string):Sprite
             return sprites.createSprite(getResource(name))
 
-        def static getLayer(name:string): int
-            // print "getLayer(%s) = %d", name, Layer.fromName(getItem(name).layerName.up())
-            return layerFromName(getItem(name).layerName.up())
 
         def static effectFromName(name: string): Effect
             case name
@@ -77,6 +71,57 @@ namespace ShmupWarz
                     return Effect.ASPLODE
             return 0
             
+        // TODO: Check layer names in Overlap2D editor 
+        // def static getResource(name:string):string 
+        //     return getItem(name).composite.sImages[0].imageName
+        def static getResource(name: string): string
+            case name
+                when "background"
+                    return "BackdropBlackLittleSparkBlack"
+                when "player"
+                    return "spaceshipspr"
+                when "bullet"
+                    return "bullet"
+                when "particle"
+                    return "star"
+                when "bang"
+                    return "bang"
+                when "explosion"
+                    return "explosion"
+                when "enemy1"
+                    return "enemy1"
+                when "enemy2"
+                    return "enemy2"
+                when "enemy3"       
+                    return "enemy3"
+            return ""
+
+        // TODO: Check layer names in Overlap2D editor 
+        // def static getLayer(name:string): int
+        //     return layerFromName(getItem(name).layerName.up())
+        def static getLayer(name: string): Layer
+            case name
+                when "background"
+                    return Layer.BACKGROUND
+                when "player"
+                    return Layer.PLAYER
+                when "bullet"
+                    return Layer.BULLET
+                when "particle"
+                    return Layer.PARTICLE
+                when "explosion"
+                    return Layer.PARTICLE
+                when "bang"
+                    return Layer.PARTICLE
+                when "enemy1"
+                    return Layer.ACTORS_1
+                when "enemy2"
+                    return Layer.ACTORS_2
+                when "enemy3"       
+                    return Layer.ACTORS_3
+            return Layer.DEFAULT
+
+
 
         def static layerFromName(name: string): Layer
             case name

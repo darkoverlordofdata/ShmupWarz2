@@ -9,6 +9,7 @@
     "components": 64
   },
   "components": {
+    "Active": false,
     "Bounds": [
       "radius:double"
     ],
@@ -51,7 +52,7 @@
     ],
     "Resource": [
       "path:string",
-      "sprite:Object?",
+      "sprite:sdx.graphics.s2d.Sprite?",
       "bgd:bool"
     ],
     "ScaleTween": [
@@ -73,7 +74,7 @@
     ],
     "Text": [
       "text:string",
-      "sprite:Object?"
+      "sprite:sdx.graphics.s2d.Sprite?"
     ],
     "Tint": [
       "r:int",

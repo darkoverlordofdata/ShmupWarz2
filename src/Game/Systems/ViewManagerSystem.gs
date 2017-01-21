@@ -24,7 +24,7 @@ namespace ShmupWarz
         * and then load them in from the file
         */
         def initialize()
-            group = world.getGroup(Matcher.AllOf({Component.Resource}))
+            group = world.getGroup(Matcher.AllOf({Component.Active}))
             group.onEntityAdded.add(onEntityAdded)
             // Sdx.app.sprites = new GenericArray of Sprite
             sprites = Sdx.app.sprites
@@ -37,13 +37,13 @@ namespace ShmupWarz
         /**
         *  OnEntityAdded event:
         */
-        def onEntityAdded(g : Group, e : IEntity, ix : int, c : IComponent)
+        def onEntityAdded(g: Group, e: IEntity, ix: int, c: IComponent)
             scale : ScaleComponent
             layer : LayerComponent
             ordinal : int = 0
 
-            var res = (ResourceComponent)c
             var entity = e as Entity
+            var res = entity.resource
 
             if res.path.index_of("/") == 0 || res.path.index_of("resource://") == 0
                 res.sprite = Sprite.fromFile(Sdx.app.renderer, res.path)

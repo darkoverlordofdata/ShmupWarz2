@@ -39,16 +39,23 @@ namespace ShmupWarz
         SMALLASPLODE
 
 
-    def createEntity(name:string): ShmupWarz.Entity
-        return (ShmupWarz.Entity)World.instance.createEntity(name)
+    def createEntity(name:string): Entity
+        //print "createEntity::%s %d - %s", name, O2dLib.getLayer(name), O2dLib.getResource(name)
+        return (Entity)World.instance.createEntity(name)
+
+    def prefab(name: string, x: double=0, y: double=0, centered :bool=false): Entity
+        return createEntity(name
+            ).addPosition(x, y
+            ).addLayer(O2dLib.getLayer(name)
+            ).addResource(O2dLib.getResource(name), null, centered)
+
     /**
     *  Create Background
     */
     def createBackground() : IEntity
-        return createEntity("background"
-        ).addPosition(0, 0
-        ).addScale(2, 1
-        ).addResource("BackdropBlackLittleSparkBlack", null, true)
+        return prefab("background", 0, 0, true
+        ).addScale(2,1
+        ).setActive(true)
 
     /**
     *  Create Player
@@ -60,14 +67,13 @@ namespace ShmupWarz
         // look in pack.png at rect(o.x, o.y. o.width, o.height)
         //
 
-        return createEntity("player"
-        ).setPlayer(true
-        ).addBounds(43
-        ).addHealth(100, 100
-        ).addVelocity(0, 0
-        ).addLayer(Layer.PLAYER
-        ).addPosition(Sdx.graphics.width/2, Sdx.graphics.height-80
-        ).addResource("spaceshipspr", null, false)
+        return prefab("player", Sdx.graphics.width/2, Sdx.graphics.height-80
+            ).setPlayer(true
+            ).addBounds(43
+            ).addHealth(100, 100
+            ).addVelocity(0, 0
+            ).setActive(true)
+
     /**
     *  Create Bullet
     */
@@ -78,18 +84,17 @@ namespace ShmupWarz
         var m = 255.0           // max color
         var s = 10.0            // speed
         var a = 255.0           // alpha
-        return createEntity("bullet"
-        ).setBullet(true
-        ).addHealth(1.5, 1.5
-        ).addPosition(x, y
-        ).addVelocity(0, -800
-        ).addTint(0xAD, 0xFF, 0x2F, 255
-        ).addColorTween(r, m, s, g, m, s, b, m, s, a, m, s, true, true, true, true, true
-        ).addBounds(5
-        ).addExpires(1
-        ).addLayer(Layer.BULLET
-        ).addResource("bullet", null, false
-        ).addSoundEffect(Effect.PEW)
+
+        return prefab("bullet", x, y
+            ).setBullet(true
+            ).addHealth(1.5, 1.5
+            ).addVelocity(0, -800
+            ).addTint(0xAD, 0xFF, 0x2F, 255
+            ).addColorTween(r, m, s, g, m, s, b, m, s, a, m, s, true, true, true, true, true
+            ).addBounds(5
+            ).addExpires(1
+            ).addSoundEffect(Effect.PEW
+            ).setActive(true)
 
     /**
     *  Create Particle
@@ -100,14 +105,13 @@ namespace ShmupWarz
         var velocityX = magnitude * Math.cos(radians)
         var velocityY = magnitude * Math.sin(radians)
         var scale = World.random.double_range(0.1, 1.0)
-        return createEntity("particle"
-        ).addPosition(x, y
-        ).addVelocity(velocityX, velocityY
-        ).addExpires(1
-        ).addLayer(Layer.PARTICLE
-        ).addScale(scale, scale
-        ).addTint(0xFA, 0xFA, 0xD2, 255
-        ).addResource("star", null, false)
+
+        return prefab("particle", x, y
+            ).addVelocity(velocityX, velocityY
+            ).addExpires(1
+            ).addScale(scale, scale
+            ).addTint(0xFA, 0xFA, 0xD2, 255
+            ).setActive(true)
 
     /**
     *  Create Explosion
@@ -119,16 +123,15 @@ namespace ShmupWarz
         var m = 255.0           // max color
         var s = 10.0            // speed
         var a = 255.0           // alpha
-        return createEntity("explosion"
-        ).addPosition(x, y
-        ).addExpires(1.0
-        ).addLayer(Layer.PARTICLE
-        ).addScale(0.5, 0.5
-        ).addSoundEffect(Effect.ASPLODE
-        ).addScaleTween(0.001, 0.5, -3, false, true
-        ).addTint(0xFA, 0xFA, 0xD2, 255
-        ).addColorTween(r, m, s, g, m, s, b, m, s, a, m, s, true, true, true, true, true
-        ).addResource("explosion", null, false)
+
+        return prefab("explosion", x, y
+            ).addExpires(1.0
+            ).addScale(0.5, 0.5
+            ).addSoundEffect(Effect.ASPLODE
+            ).addScaleTween(0.001, 0.5, -3, false, true
+            ).addTint(0xFA, 0xFA, 0xD2, 255
+            ).addColorTween(r, m, s, g, m, s, b, m, s, a, m, s, true, true, true, true, true
+            ).setActive(true)
 
     /**
     *  Create Small Explosion
@@ -140,33 +143,29 @@ namespace ShmupWarz
         var m = 255.0           // max color
         var s = 10.0            // speed
         var a = 255.0           // alpha
-        return createEntity("explosion"
-        ).addPosition(x, y
-        ).addExpires(1.0
-        ).addLayer(Layer.PARTICLE
-        ).addScale(1.0, 1.0
-        ).addSoundEffect(Effect.SMALLASPLODE
-        ).addScaleTween(0.001, 1.0, -3, false, true
-        ).addTint(0xEE, 0xE8, 0xAA, 255
-        ).addColorTween(r, m, s, g, m, s, b, m, s, a, m, s, true, true, true, true, true
-        ).addResource("bang", null, false)
 
+        return prefab("bang", x, y
+            ).addExpires(1.0
+            ).addScale(1.0, 1.0
+            ).addSoundEffect(Effect.SMALLASPLODE
+            ).addScaleTween(0.001, 1.0, -3, false, true
+            ).addTint(0xEE, 0xE8, 0xAA, 255
+            ).addColorTween(r, m, s, g, m, s, b, m, s, a, m, s, true, true, true, true, true
+            ).setActive(true)
+        
     /**
     *  Create Small Enemy
     */
     def createEnemy1() : IEntity
         var x = World.random.int_range(0, Sdx.graphics.width)
         var y = Sdx.graphics.height/2 - 200
-        return createEntity("enemy1"
-        ).setEnemy(true
-        ).addBounds(20
-        ).addHealth(10, 10
-        ).addVelocity(0, 40
-        ).addLayer(Layer.ACTORS_1
-        ).addPosition(x, y
-        ).addText("", null
-        ).addResource("enemy1", null, false)
-
+        return prefab("enemy1", x, y
+            ).setEnemy(true
+            ).addBounds(20
+            ).addHealth(10, 10
+            ).addVelocity(0, 40
+            ).addText("", null
+            ).setActive(true)
 
     /**
     *  Create Medium Sized Enemy
@@ -174,15 +173,13 @@ namespace ShmupWarz
     def createEnemy2() : IEntity
         var x = World.random.int_range(0, Sdx.graphics.width)
         var y = Sdx.graphics.height/2 - 100
-        return createEntity("enemy2"
-        ).setEnemy(true
-        ).addBounds(40
-        ).addHealth(20, 20
-        ).addVelocity(0, 30
-        ).addLayer(Layer.ACTORS_2
-        ).addPosition(x, y
-        ).addText("", null
-        ).addResource("enemy2", null, false)
+        return prefab("enemy2", x, y
+            ).setEnemy(true
+            ).addBounds(40
+            ).addHealth(20, 20
+            ).addVelocity(0, 30
+            ).addText("", null
+            ).setActive(true)
 
 
     /**
@@ -191,15 +188,11 @@ namespace ShmupWarz
     def createEnemy3() : IEntity
         var x = World.random.int_range(0, Sdx.graphics.width)
         var y = Sdx.graphics.height/2 - 50
-        return createEntity("enemy3"
-        ).setEnemy(true
-        ).addBounds(70
-        ).addHealth(60, 60
-        ).addVelocity(0, 20
-        ).addLayer(Layer.ACTORS_3
-        ).addPosition(x, y
-        ).addText("", null
-        ).addResource("enemy3", null, false)
-
-
+        return prefab("enemy3", x, y
+            ).setEnemy(true
+            ).addBounds(70
+            ).addHealth(60, 60
+            ).addVelocity(0, 20
+            ).addText("", null
+            ).setActive(true)
 
