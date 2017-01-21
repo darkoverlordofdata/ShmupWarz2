@@ -17,13 +17,13 @@ namespace ShmupWarz
             this.world = world
 
         def initialize()
-            group = MatchAllOf(world, {Component.Resource, Component.Position})
+            group = MatchAllOf(world, {Component.View, Component.Position})
 
         def execute()
             for var entity in group
-                var res = entity.resource
+                var view = entity.view
                 var pos = entity.position
-                var sprite = res.sprite
+                var sprite = view.sprite
                 sprite.x = (int)pos.x
                 sprite.y = (int)pos.y
 

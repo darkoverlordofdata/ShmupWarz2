@@ -50,11 +50,6 @@
       "x:double",
       "y:double"
     ],
-    "Resource": [
-      "path:string",
-      "sprite:sdx.graphics.s2d.Sprite?",
-      "centered:bool"
-    ],
     "ScaleTween": [
       "min:double",
       "max:double",
@@ -85,7 +80,11 @@
     "Velocity": [
       "x:double",
       "y:double"
-    ]
+    ],
+    "View": [
+      "sprite:sdx.graphics.s2d.Sprite?",
+      "centered:bool"
+    ]    
   },
   "systems": {
     "CollisionSystem": [

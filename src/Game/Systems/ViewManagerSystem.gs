@@ -43,27 +43,24 @@ namespace ShmupWarz
             ordinal : int = 0
 
             var entity = e as Entity
-            var res = entity.resource
-            var sprite = res.sprite
-            if sprite == null
-                print "Failed to load %s", res.path
-                return
+            var view = entity.view
+            var sprite = view.sprite
 
             if entity.hasScale
                 sprite.scale.x = entity.scale.x
                 sprite.scale.y = entity.scale.y
 
             if entity.hasLayer
-                sprite.layer = entity.layer.ordinal
                 ordinal = entity.layer.ordinal
+                sprite.layer = ordinal
 
             if entity.hasTint
                 sprite.color.r = (uint8)entity.tint.r
                 sprite.color.g = (uint8)entity.tint.g
                 sprite.color.b = (uint8)entity.tint.b
+                sprite.color.a = (uint8)entity.tint.a
 
-            if res.centered
-                sprite.centered = false
+            sprite.centered = view.centered
 
             /**
             * Insert sprite in layer order

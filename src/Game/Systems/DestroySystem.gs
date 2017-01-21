@@ -22,13 +22,12 @@ namespace ShmupWarz
             sprites = Sdx.app.sprites
 
         def execute()
-            res: ResourceComponent
+            sprite: sdx.graphics.s2d.Sprite
 
             for var entity in group
-                if entity.hasResource
-                    res = entity.resource
+                if entity.hasView
+                    sprite = entity.view.sprite
                     for s in sprites
-                        var sprite = res.sprite
                         if s.id == sprite.id
                             sprites.remove(s)
                             break

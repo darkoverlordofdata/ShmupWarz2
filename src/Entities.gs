@@ -24,7 +24,7 @@ namespace ShmupWarz
      *          Layer
      *          Sprite
      */
-    def createEntity(name: string, x: double=0, y: double=0, centered :bool=false): Entity
+    def createEntity(name: string, x: double=0, y: double=0, centered: bool=true): Entity
         var path = O2dLib.getResource(name)
         var sprite = O2dLib.sprites.createSprite(path)
 
@@ -32,7 +32,7 @@ namespace ShmupWarz
             ).addBounds(sprite.width/2
             ).addPosition(x, y
             ).addLayer(O2dLib.getLayer(name)
-            ).addResource(path, sprite, centered)
+            ).addView(sprite, centered)
 
     def coreEntity(name:string): Entity
         return (Entity)World.instance.createEntity(name)
@@ -41,7 +41,7 @@ namespace ShmupWarz
     *  Create Background
     */
     def createBackground() : IEntity
-        return createEntity("background", 0, 0, true
+        return createEntity("background", 0, 0, false
             ).addScale(2,1
             ).setActive(true)
 
@@ -49,11 +49,6 @@ namespace ShmupWarz
     *  Create Player
     */
     def createPlayer() : IEntity
-
-        // defined in overlap2d in project.libraryItem["player"]
-        // var o = project.libraryItem["player"]
-        // look in pack.png at rect(o.x, o.y. o.width, o.height)
-        //
 
         return createEntity("player", Sdx.graphics.width/2, Sdx.graphics.height-80
             ).setPlayer(true

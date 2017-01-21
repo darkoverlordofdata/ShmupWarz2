@@ -65,7 +65,7 @@ namespace sdx
             renderer.set_draw_color(0x0, 0x0, 0x0, 0x0)
             renderer.clear()
 
-            for sprite in sprites
+            for var sprite in sprites
                 sprite.render(this.renderer, sprite.x, sprite.y)
 
             if showFps && fpsSprite != null do fpsSprite.render(this.renderer, 0, 0)

@@ -23,7 +23,6 @@ namespace ShmupWarz
         "LayerComponent",
         "PlayerComponent",
         "PositionComponent",
-        "ResourceComponent",
         "ScaleTweenComponent",
         "ScaleComponent",
         "ScoreComponent",
@@ -31,6 +30,7 @@ namespace ShmupWarz
         "TextComponent",
         "TintComponent",
         "VelocityComponent",
+        "ViewComponent",
         "ComponentsCount"
     }
 
@@ -46,7 +46,6 @@ namespace ShmupWarz
         Layer
         Player
         Position
-        Resource
         ScaleTween
         Scale
         Score
@@ -54,6 +53,7 @@ namespace ShmupWarz
         Text
         Tint
         Velocity
+        View
         ComponentsCount
 
 
@@ -109,11 +109,6 @@ namespace ShmupWarz
         x : double 
         y : double 
 
-    class ResourceComponent : Object implements Entitas.IComponent 
-        path : string 
-        sprite : sdx.graphics.s2d.Sprite 
-        centered : bool 
-
     class ScaleTweenComponent : Object implements Entitas.IComponent 
         min : double 
         max : double 
@@ -144,6 +139,10 @@ namespace ShmupWarz
     class VelocityComponent : Object implements Entitas.IComponent 
         x : double 
         y : double 
+
+    class ViewComponent : Object implements Entitas.IComponent 
+        sprite : sdx.graphics.s2d.Sprite 
+        centered : bool 
 
 
 
@@ -620,62 +619,6 @@ namespace ShmupWarz
             return this
 
 
-        /** Entity: Resource methods*/
-
-        /** @type Resource */
-        prop resource : ResourceComponent
-            get
-                return (ResourceComponent)getComponent(Component.Resource)
-
-        /** @type boolean */
-        prop hasResource : bool
-            get
-                return hasComponent(Component.Resource)
- 
-        def clearResourceComponentPool()
-            _resourceComponentPool.clear()
-
-        /**
-         * @param path string
-         * @param sprite sdx.graphics.s2d.Sprite
-         * @param centered bool
-         * @return entitas.Entity
-         */
-        def addResource(path:string,sprite:sdx.graphics.s2d.Sprite?,centered:bool) : Entity
-            var c = _resourceComponentPool.length > 0 ? _resourceComponentPool.pop_head() : new ResourceComponent()
-            c.path = path
-            c.sprite = sprite
-            c.centered = centered
-            addComponent(Component.Resource, c)
-            return this
-
-        /**
-         * @param path string
-         * @param sprite sdx.graphics.s2d.Sprite
-         * @param centered bool
-         * @return entitas.Entity
-         */
-        def replaceResource(path:string,sprite:sdx.graphics.s2d.Sprite?,centered:bool) : Entity
-            var previousComponent = hasResource ? this.resource : null
-            var c = _resourceComponentPool.length>0? _resourceComponentPool.pop_head() : new ResourceComponent()
-            c.path = path
-            c.sprite = sprite
-            c.centered = centered
-            replaceComponent(Component.Resource, c) 
-            if previousComponent != null
-                _resourceComponentPool.push_head(previousComponent)
-            return this
-
-        /**
-         * @returns entitas.Entity
-         */
-        def removeResource() : Entity
-            var c = resource
-            removeComponent(Component.Resource) 
-            _resourceComponentPool.push_head(c)
-            return this
-
-
         /** Entity: ScaleTween methods*/
 
         /** @type ScaleTween */
@@ -1052,6 +995,58 @@ namespace ShmupWarz
             return this
 
 
+        /** Entity: View methods*/
+
+        /** @type View */
+        prop view : ViewComponent
+            get
+                return (ViewComponent)getComponent(Component.View)
+
+        /** @type boolean */
+        prop hasView : bool
+            get
+                return hasComponent(Component.View)
+ 
+        def clearViewComponentPool()
+            _viewComponentPool.clear()
+
+        /**
+         * @param sprite sdx.graphics.s2d.Sprite
+         * @param centered bool
+         * @return entitas.Entity
+         */
+        def addView(sprite:sdx.graphics.s2d.Sprite?,centered:bool) : Entity
+            var c = _viewComponentPool.length > 0 ? _viewComponentPool.pop_head() : new ViewComponent()
+            c.sprite = sprite
+            c.centered = centered
+            addComponent(Component.View, c)
+            return this
+
+        /**
+         * @param sprite sdx.graphics.s2d.Sprite
+         * @param centered bool
+         * @return entitas.Entity
+         */
+        def replaceView(sprite:sdx.graphics.s2d.Sprite?,centered:bool) : Entity
+            var previousComponent = hasView ? this.view : null
+            var c = _viewComponentPool.length>0? _viewComponentPool.pop_head() : new ViewComponent()
+            c.sprite = sprite
+            c.centered = centered
+            replaceComponent(Component.View, c) 
+            if previousComponent != null
+                _viewComponentPool.push_head(previousComponent)
+            return this
+
+        /**
+         * @returns entitas.Entity
+         */
+        def removeView() : Entity
+            var c = view
+            removeComponent(Component.View) 
+            _viewComponentPool.push_head(c)
+            return this
+
+
 
     /** @type Active */
     _activeComponent : ActiveComponent
@@ -1079,8 +1074,6 @@ namespace ShmupWarz
     _playerComponent : PlayerComponent
         /** @type entitas.utils.GLib.Queue<Position> */
     _positionComponentPool : GLib.Queue of PositionComponent
-        /** @type entitas.utils.GLib.Queue<Resource> */
-    _resourceComponentPool : GLib.Queue of ResourceComponent
         /** @type entitas.utils.GLib.Queue<ScaleTween> */
     _scaleTweenComponentPool : GLib.Queue of ScaleTweenComponent
         /** @type entitas.utils.GLib.Queue<Scale> */
@@ -1095,6 +1088,8 @@ namespace ShmupWarz
     _tintComponentPool : GLib.Queue of TintComponent
         /** @type entitas.utils.GLib.Queue<Velocity> */
     _velocityComponentPool : GLib.Queue of VelocityComponent
+        /** @type entitas.utils.GLib.Queue<View> */
+    _viewComponentPool : GLib.Queue of ViewComponent
 
 
     def initPools()
@@ -1127,9 +1122,6 @@ namespace ShmupWarz
         _positionComponentPool = new GLib.Queue of PositionComponent
         for var i=1 to POOL_SIZE
             _positionComponentPool.push_head(new PositionComponent())
-        _resourceComponentPool = new GLib.Queue of ResourceComponent
-        for var i=1 to POOL_SIZE
-            _resourceComponentPool.push_head(new ResourceComponent())
         _scaleTweenComponentPool = new GLib.Queue of ScaleTweenComponent
         for var i=1 to POOL_SIZE
             _scaleTweenComponentPool.push_head(new ScaleTweenComponent())
@@ -1151,4 +1143,7 @@ namespace ShmupWarz
         _velocityComponentPool = new GLib.Queue of VelocityComponent
         for var i=1 to POOL_SIZE
             _velocityComponentPool.push_head(new VelocityComponent())
+        _viewComponentPool = new GLib.Queue of ViewComponent
+        for var i=1 to POOL_SIZE
+            _viewComponentPool.push_head(new ViewComponent())
 

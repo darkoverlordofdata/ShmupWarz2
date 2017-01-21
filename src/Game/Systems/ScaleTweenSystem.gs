@@ -17,15 +17,15 @@ namespace ShmupWarz
             this.world = world
 
         def initialize()
-            group = MatchAllOf(world, {Component.ScaleTween, Component.Resource})
+            group = MatchAllOf(world, {Component.ScaleTween, Component.View})
 
         def execute()
             for var entity in group
                 var scaleTween = entity.scaleTween
 
                 if scaleTween.active
-                    var res = entity.resource
-                    var sprite = res.sprite
+                    var view = entity.view
+                    var sprite = view.sprite
                     var scale = sprite.scale
 
                     sprite.scale.x += scaleTween.speed * Sdx.graphics.deltaTime
