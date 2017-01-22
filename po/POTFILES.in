@@ -20,7 +20,7 @@ src/Game/Systems/RenderPositionSystem.gs
 src/Game/Systems/ScaleTweenSystem.gs
 src/Game/Systems/SoundEffectSystem.gs
 src/Game/Systems/ViewManagerSystem.gs
-src/MatchIterator.gs
+src/StringTokenizer.gs
 src/o2d/ParseIt.gs
 src/o2d/SceneLoader.gs
 src/o2d/ToString.gs
@@ -67,6 +67,8 @@ src/sdx/files/FileHandle.gs
 src/sdx/graphics/Color.gs
 src/sdx/graphics/Texture.gs
 src/sdx/graphics/s2d/Batch.gs
+src/sdx/graphics/s2d/BitmapFont.gs
+src/sdx/graphics/s2d/GlyphLayout.gs
 src/sdx/graphics/s2d/NinePatch.gs
 src/sdx/graphics/s2d/Sprite.gs
 src/sdx/graphics/s2d/TextureAtlas.gs

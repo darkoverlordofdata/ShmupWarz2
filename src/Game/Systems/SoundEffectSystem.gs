@@ -8,7 +8,7 @@ namespace ShmupWarz
     class SoundEffectSystem : Object implements ISystem, ISetWorld, IInitializeSystem, IExecuteSystem
         game : GameScene
         world : World
-        group : MatchGroup
+        group : Match
         pew : Sound
         asplode : Sound
         smallasplode : Sound

@@ -9,6 +9,10 @@ namespace sdx
 
     exception Exception 
         IllegalArgumentException
+        IllegalStateException
+        SdxRuntimeException
+        NullPointerException
+        NoSuchElementException
 
     exception IOException 
         FileNotFound

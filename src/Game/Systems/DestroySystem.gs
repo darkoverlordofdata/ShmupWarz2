@@ -8,7 +8,7 @@ namespace ShmupWarz
     class DestroySystem : Object implements ISystem, ISetWorld, IInitializeSystem, IExecuteSystem
         game: GameScene
         world: World
-        group: MatchGroup
+        group: Match
         sprites: list of Sprite
         
         construct(game: GameScene)

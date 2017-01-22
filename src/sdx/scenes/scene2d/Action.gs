@@ -12,7 +12,7 @@ namespace sdx.scenes.scene2d
 
     class abstract Action : Object implements Poolable
 
-        prop pool: Pool of Action
+        prop pool: Pool
         prop target: Actor
         prop actor: Actor
             get 

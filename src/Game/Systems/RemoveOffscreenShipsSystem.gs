@@ -7,7 +7,7 @@ namespace ShmupWarz
     class RemoveOffscreenShipsSystem : Object implements ISystem, ISetWorld, IInitializeSystem, IExecuteSystem
         game: GameScene
         world: World
-        group: MatchGroup
+        group: Match
 
         construct(game: GameScene)
             this.game = game

@@ -1,0 +1,16 @@
+#!/usr/bin/env vala
+
+void main (string[] args) {
+    print("hello, world\n");
+    string line = "char id=32   x=253   y=58    width=2     height=2     xoffset=0     yoffset=14    xadvance=4     page=0  chnl=15";
+
+    MatchInfo info;
+    Regex matcher = new Regex(".*id=(\\d+)");
+    if (matcher.match(line, 0, out info)) {
+        print("Found %d\n", info.get_match_count());
+        print("fetch0 %s\n", info.fetch(0));
+        print("fetch1 %s\n", info.fetch(1));
+    }
+
+
+}

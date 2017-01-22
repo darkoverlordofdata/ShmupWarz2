@@ -42,13 +42,17 @@ namespace ShmupWarz
 
         prop readonly rm: ResourceManager
         prop readonly atlas: TextureAtlas
+        prop readonly project: ProjectInfoVO 
+        prop readonly scene: SceneVO
+
 
         construct()
             _rm = new ResourceManager()
             rm.initAllResources()
             rm.loadAtlasPack()
             _atlas = rm.mainPack
-
+            _project = rm.loadProjectVO()
+            _scene = rm.loadSceneVO("MainScene")
 
         /**
         * Create the basic Entity
@@ -58,10 +62,7 @@ namespace ShmupWarz
         * @param y position
         * @param centered?
         * @returns base entity with components:
-        *          Bounds
-        *          Position
-        *          Layer
-        *          Sprite
+        *      {Bounds, Position, Layer, Sprite}
         */
         def createEntity(name: string, x: double=0, y: double=0, centered: bool=true): Entity
             var path = getResource(name)

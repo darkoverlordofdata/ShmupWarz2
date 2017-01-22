@@ -10,8 +10,6 @@ namespace ShmupWarz
         game : GameScene
         world : World
         group : Group
-        sprites: list of Sprite
-        atlas: TextureAtlas
 
         construct(game: GameScene)
             this.game = game
@@ -26,13 +24,6 @@ namespace ShmupWarz
         def initialize()
             group = world.getGroup(Matcher.AllOf({Component.Active}))
             group.onEntityAdded.add(onEntityAdded)
-            // Sdx.app.sprites = new GenericArray of Sprite
-            sprites = Sdx.app.sprites
-            // load the overlap2d atlas
-            atlas = new TextureAtlas()
-            var imageFile = new FileHandle("orig/pack.atlas", sdx.FileType.Resource)
-            var imageDir = new FileHandle("orig", sdx.FileType.Resource)
-            atlas.load(new TextureAtlas.TextureAtlasData(imageFile, imageDir, false))
 
         /**
         *  OnEntityAdded event:
@@ -65,6 +56,7 @@ namespace ShmupWarz
             /**
             * Insert sprite in layer order
             */
+            var sprites = Sdx.app.sprites
             if sprites.size == 0
                 sprites.add(sprite)
             else

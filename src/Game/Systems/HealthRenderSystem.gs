@@ -10,7 +10,7 @@ namespace ShmupWarz
     class HealthRenderSystem : Object implements  ISetWorld,  IExecuteSystem,  IInitializeSystem, ISystem
         game: GameScene
         world: World
-        group: MatchGroup
+        group: Match
 
         construct(game: GameScene)
             this.game = game
@@ -32,14 +32,12 @@ namespace ShmupWarz
 
 
                 if pct == text.text
-                    // print "HealthRenderSystem::execute0 %s - %s", entity.name, pct
                     sprite = text.sprite
                     if sprite == null
                         sprite = Sprite.fromRenderedText(Sdx.app.renderer, Sdx.app.font, text.text, sdx.graphics.Color.Lime)
                         sprite.centered = false
                         text.sprite = sprite
                 else
-                    // print "HealthRenderSystem::execute1 %s - %s", entity.name, pct
                     text.text = pct
                     text.sprite = null
                     sprite = Sprite.fromRenderedText(Sdx.app.renderer, Sdx.app.font, text.text, sdx.graphics.Color.LimeGreen)

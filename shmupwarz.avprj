@@ -48,7 +48,7 @@ c_library: m
 *vala_source: Game/Systems/ScaleTweenSystem.gs
 *vala_source: Game/Systems/SoundEffectSystem.gs
 *vala_source: Game/Systems/ViewManagerSystem.gs
-*vala_source: MatchIterator.gs
+*vala_source: StringTokenizer.gs
 *vala_source: o2d/ParseIt.gs
 *vala_source: o2d/SceneLoader.gs
 *vala_source: o2d/ToString.gs
@@ -95,6 +95,8 @@ c_library: m
 *vala_source: sdx/graphics/Color.gs
 *vala_source: sdx/graphics/Texture.gs
 *vala_source: sdx/graphics/s2d/Batch.gs
+*vala_source: sdx/graphics/s2d/BitmapFont.gs
+*vala_source: sdx/graphics/s2d/GlyphLayout.gs
 *vala_source: sdx/graphics/s2d/NinePatch.gs
 *vala_source: sdx/graphics/s2d/Sprite.gs
 *vala_source: sdx/graphics/s2d/TextureAtlas.gs
@@ -154,7 +156,7 @@ c_library: m
 *translate: genie src/Game/Systems/ScaleTweenSystem.gs
 *translate: genie src/Game/Systems/SoundEffectSystem.gs
 *translate: genie src/Game/Systems/ViewManagerSystem.gs
-*translate: genie src/MatchIterator.gs
+*translate: genie src/StringTokenizer.gs
 *translate: genie src/o2d/ParseIt.gs
 *translate: genie src/o2d/SceneLoader.gs
 *translate: genie src/o2d/ToString.gs
@@ -201,6 +203,8 @@ c_library: m
 *translate: genie src/sdx/graphics/Color.gs
 *translate: genie src/sdx/graphics/Texture.gs
 *translate: genie src/sdx/graphics/s2d/Batch.gs
+*translate: genie src/sdx/graphics/s2d/BitmapFont.gs
+*translate: genie src/sdx/graphics/s2d/GlyphLayout.gs
 *translate: genie src/sdx/graphics/s2d/NinePatch.gs
 *translate: genie src/sdx/graphics/s2d/Sprite.gs
 *translate: genie src/sdx/graphics/s2d/TextureAtlas.gs

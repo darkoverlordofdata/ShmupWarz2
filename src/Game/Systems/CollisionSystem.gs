@@ -9,8 +9,8 @@ namespace ShmupWarz
     class CollisionSystem : Object implements ISystem, ISetWorld, IInitializeSystem, IExecuteSystem
         game: GameScene
         world: World
-        bullets: Group
-        enemies: Group
+        bullets: Match
+        enemies: Match
         factory: Entities
 
         construct(game: GameScene)
@@ -21,15 +21,15 @@ namespace ShmupWarz
             this.world = world
 
         def initialize()
-            bullets = world.getGroup(Matcher.AllOf({Component.Bullet}))
-            enemies = world.getGroup(Matcher.AllOf({Component.Enemy}))
+            bullets = MatchAllOf(world, {Component.Bullet})
+            enemies = MatchAllOf(world, {Component.Enemy})
 
 
         def execute()
-            for var entityA in bullets.getEntities()
-                for var entityB in enemies.getEntities()
-                    if collisionExists((Entity)entityA, (Entity)entityB)
-                        handleCollision((Entity)entityA, (Entity)entityB)
+            for var entityA in bullets
+                for var entityB in enemies
+                    if collisionExists(entityA, entityB)
+                        handleCollision(entityA, entityB)
 
 
         def collisionExists(e1: Entity, e2: Entity): bool

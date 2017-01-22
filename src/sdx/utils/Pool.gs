@@ -13,17 +13,17 @@ namespace sdx.utils
     interface Poolable   
         def abstract reset()
 
-    class abstract Pool of T : Object
+    class abstract Pool : Object
 
 
         max : int = 0xffff
         peak: int
 
-        freeObjects: Queue of T
+        freeObjects: Queue of Object
 
-        def abstract newObject(): T
+        def abstract newObject(): Object
 
-        def obtain(): T
+        def obtain(): Object
             return freeObjects.get_length() == 0 ? newObject() : freeObjects.pop_head()
     
         def free(object: Object)
@@ -33,10 +33,10 @@ namespace sdx.utils
                 peak = (int)Math.fmax(peak, freeObjects.get_length())
             reset(object)
 
-        def reset(object: T)
+        def reset(object: Object)
             if object isa Poolable do ((Poolable)object).reset()
 
-        def freeAll(objects: array of T)
+        def freeAll(objects: array of Object)
             if objects == null do raise new Exception.IllegalArgumentException("objects cannot be null.")
             
             for var i = 0 to (objects.length-1)

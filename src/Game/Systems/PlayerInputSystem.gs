@@ -64,6 +64,7 @@ namespace ShmupWarz
             return true
 
         def keyUp(keycode: int): bool
+            if Input.Keys.z == keycode do shoot = false
             return true
             
         def keyTyped(character: char): bool

@@ -8,7 +8,7 @@ namespace ShmupWarz
     class ExpiringSystem : Object implements ISystem, ISetWorld, IInitializeSystem, IExecuteSystem
         game: GameScene
         world: World
-        group: MatchGroup
+        group: Match
 
         construct(game: GameScene)
             this.game = game
