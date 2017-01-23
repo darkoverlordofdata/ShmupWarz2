@@ -2,7 +2,7 @@
   "namespace": "ShmupWarz",
   "src": "src",
   "output": {
-    "systems": "Game/Systems"
+    "systems": "Systems"
   },
   "alloc": {
     "entities": 128,

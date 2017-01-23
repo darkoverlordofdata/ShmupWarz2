@@ -30,26 +30,26 @@ vala_check_package: sdl2
 c_library: m
 *vala_source: Components.gs
 *vala_source: Entities.gs
-*vala_source: Game/GameScene.gs
-*vala_source: Game/MenuScene.gs
-*vala_source: Game/MenuUI.gs
-*vala_source: Game/OptionUI.gs
-*vala_source: Game/ScoreUI.gs
-*vala_source: Game/ShmupWarzGame.gs
-*vala_source: Game/Systems/CollisionSystem.gs
-*vala_source: Game/Systems/ColorTweenSystem.gs
-*vala_source: Game/Systems/DestroySystem.gs
-*vala_source: Game/Systems/EntitySpawningTimerSystem.gs
-*vala_source: Game/Systems/ExpiringSystem.gs
-*vala_source: Game/Systems/HealthRenderSystem.gs
-*vala_source: Game/Systems/HudRenderSystem.gs
-*vala_source: Game/Systems/MovementSystem.gs
-*vala_source: Game/Systems/PlayerInputSystem.gs
-*vala_source: Game/Systems/RemoveOffscreenShipsSystem.gs
-*vala_source: Game/Systems/RenderPositionSystem.gs
-*vala_source: Game/Systems/ScaleTweenSystem.gs
-*vala_source: Game/Systems/SoundEffectSystem.gs
-*vala_source: Game/Systems/ViewManagerSystem.gs
+*vala_source: GameScene.gs
+*vala_source: MenuScene.gs
+*vala_source: MenuUI.gs
+*vala_source: OptionUI.gs
+*vala_source: ScoreUI.gs
+*vala_source: ShmupWarzGame.gs
+*vala_source: Systems/CollisionSystem.gs
+*vala_source: Systems/ColorTweenSystem.gs
+*vala_source: Systems/DestroySystem.gs
+*vala_source: Systems/EntitySpawningTimerSystem.gs
+*vala_source: Systems/ExpiringSystem.gs
+*vala_source: Systems/HealthRenderSystem.gs
+*vala_source: Systems/HudRenderSystem.gs
+*vala_source: Systems/MovementSystem.gs
+*vala_source: Systems/PlayerInputSystem.gs
+*vala_source: Systems/RemoveOffscreenShipsSystem.gs
+*vala_source: Systems/RenderPositionSystem.gs
+*vala_source: Systems/ScaleTweenSystem.gs
+*vala_source: Systems/SoundEffectSystem.gs
+*vala_source: Systems/ViewManagerSystem.gs
 *vala_source: shmupwarz.vala
 
 
@@ -57,26 +57,26 @@ c_library: m
 
 *translate: genie src/Components.gs
 *translate: genie src/Entities.gs
-*translate: genie src/Game/GameScene.gs
-*translate: genie src/Game/MenuScene.gs
-*translate: genie src/Game/MenuUI.gs
-*translate: genie src/Game/OptionUI.gs
-*translate: genie src/Game/ScoreUI.gs
-*translate: genie src/Game/ShmupWarzGame.gs
-*translate: genie src/Game/Systems/CollisionSystem.gs
-*translate: genie src/Game/Systems/ColorTweenSystem.gs
-*translate: genie src/Game/Systems/DestroySystem.gs
-*translate: genie src/Game/Systems/EntitySpawningTimerSystem.gs
-*translate: genie src/Game/Systems/ExpiringSystem.gs
-*translate: genie src/Game/Systems/HealthRenderSystem.gs
-*translate: genie src/Game/Systems/HudRenderSystem.gs
-*translate: genie src/Game/Systems/MovementSystem.gs
-*translate: genie src/Game/Systems/PlayerInputSystem.gs
-*translate: genie src/Game/Systems/RemoveOffscreenShipsSystem.gs
-*translate: genie src/Game/Systems/RenderPositionSystem.gs
-*translate: genie src/Game/Systems/ScaleTweenSystem.gs
-*translate: genie src/Game/Systems/SoundEffectSystem.gs
-*translate: genie src/Game/Systems/ViewManagerSystem.gs
+*translate: genie src/GameScene.gs
+*translate: genie src/MenuScene.gs
+*translate: genie src/MenuUI.gs
+*translate: genie src/OptionUI.gs
+*translate: genie src/ScoreUI.gs
+*translate: genie src/ShmupWarzGame.gs
+*translate: genie src/Systems/CollisionSystem.gs
+*translate: genie src/Systems/ColorTweenSystem.gs
+*translate: genie src/Systems/DestroySystem.gs
+*translate: genie src/Systems/EntitySpawningTimerSystem.gs
+*translate: genie src/Systems/ExpiringSystem.gs
+*translate: genie src/Systems/HealthRenderSystem.gs
+*translate: genie src/Systems/HudRenderSystem.gs
+*translate: genie src/Systems/MovementSystem.gs
+*translate: genie src/Systems/PlayerInputSystem.gs
+*translate: genie src/Systems/RemoveOffscreenShipsSystem.gs
+*translate: genie src/Systems/RenderPositionSystem.gs
+*translate: genie src/Systems/ScaleTweenSystem.gs
+*translate: genie src/Systems/SoundEffectSystem.gs
+*translate: genie src/Systems/ViewManagerSystem.gs
 *translate: vala src/shmupwarz.vala
 
 *data: data/local
