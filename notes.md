@@ -25,7 +25,8 @@ all of the associate code has been ported for the Scala version. This includes
 * overlap2d-runtime-libgdx
 
 working...just the core game. Next is getting the other screens working.
-add IEntity to entitas, allows return to fluent style in EntityFactory
+
+done: add IEntity to entitas, allows return to fluent style in EntityFactory
 
 ## library vs source code
 
@@ -45,5 +46,7 @@ Compiling from source
 * If I package resources in the executable, why not include libraries as well?
 
 
+More musing - Steam recommends not including SDL2 shared libs with your game, Steam should already have 
+the latest on your OS... So if everything else is included in the executable, there are no dependancy issues.
 
 

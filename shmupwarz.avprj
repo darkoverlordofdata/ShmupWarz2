@@ -25,6 +25,8 @@ vala_check_package: sdl2
 *vala_check_package: gio-2.0
 *vala_check_package: glib-2.0
 *vala_check_package: gobject-2.0
+*vala_check_package: o2d
+*vala_check_package: sdx
 c_library: m
 *vala_source: Components.gs
 *vala_source: Entities.gs
@@ -48,87 +50,6 @@ c_library: m
 *vala_source: Game/Systems/ScaleTweenSystem.gs
 *vala_source: Game/Systems/SoundEffectSystem.gs
 *vala_source: Game/Systems/ViewManagerSystem.gs
-*vala_source: StringTokenizer.gs
-*vala_source: o2d/ParseIt.gs
-*vala_source: o2d/SceneLoader.gs
-*vala_source: o2d/ToString.gs
-*vala_source: o2d/data/CompositeItemVO.gs
-*vala_source: o2d/data/CompositeVO.gs
-*vala_source: o2d/data/CoreActorData.gs
-*vala_source: o2d/data/Image9patchVO.gs
-*vala_source: o2d/data/LabelVO.gs
-*vala_source: o2d/data/LayerItemVO.gs
-*vala_source: o2d/data/MainItemVO.gs
-*vala_source: o2d/data/PhysicsBodyDataVO.gs
-*vala_source: o2d/data/PhysicsPropertiesVO.gs
-*vala_source: o2d/data/PointVO.gs
-*vala_source: o2d/data/ProjectInfoVO.gs
-*vala_source: o2d/data/ResolutionEntryVO.gs
-*vala_source: o2d/data/SceneVO.gs
-*vala_source: o2d/data/ShapeVO.gs
-*vala_source: o2d/data/SimpleImageVO.gs
-*vala_source: o2d/resources/IAssetLoader.gs
-*vala_source: o2d/resources/IDataLoader.gs
-*vala_source: o2d/resources/IResourceRetriever.gs
-*vala_source: o2d/resources/ResourceManager.gs
-*vala_source: o2d/scene2d/BuiltItemHandler.gs
-*vala_source: o2d/scene2d/ButtonClickListener.gs
-*vala_source: o2d/scene2d/CompositeActor.gs
-*vala_source: o2d/utils/CustomVariables.gs
-*vala_source: sdx/Application.gs
-*vala_source: sdx/ApplicationListener.gs
-*vala_source: sdx/Audio.gs
-*vala_source: sdx/Exceptions.gs
-*vala_source: sdx/Files.gs
-*vala_source: sdx/Font.gs
-*vala_source: sdx/Game.gs
-*vala_source: sdx/Graphics.gs
-*vala_source: sdx/Input.gs
-*vala_source: sdx/InputAdapter.gs
-*vala_source: sdx/InputProcessor.gs
-*vala_source: sdx/Net.gs
-*vala_source: sdx/Screen.gs
-*vala_source: sdx/Sdx.gs
-*vala_source: sdx/Version.gs
-*vala_source: sdx/audio/Sound.gs
-*vala_source: sdx/files/FileHandle.gs
-*vala_source: sdx/graphics/Color.gs
-*vala_source: sdx/graphics/Texture.gs
-*vala_source: sdx/graphics/s2d/Batch.gs
-*vala_source: sdx/graphics/s2d/BitmapFont.gs
-*vala_source: sdx/graphics/s2d/GlyphLayout.gs
-*vala_source: sdx/graphics/s2d/NinePatch.gs
-*vala_source: sdx/graphics/s2d/Sprite.gs
-*vala_source: sdx/graphics/s2d/TextureAtlas.gs
-*vala_source: sdx/graphics/s2d/TextureEnums.vala
-*vala_source: sdx/graphics/s2d/TextureRegion.gs
-*vala_source: sdx/math/Rectangle.gs
-*vala_source: sdx/math/Vector2.gs
-*vala_source: sdx/scenes/scene2d/Action.gs
-*vala_source: sdx/scenes/scene2d/Actor.gs
-*vala_source: sdx/scenes/scene2d/Event.gs
-*vala_source: sdx/scenes/scene2d/Group.gs
-*vala_source: sdx/scenes/scene2d/InputEvent.gs
-*vala_source: sdx/scenes/scene2d/InputListener.gs
-*vala_source: sdx/scenes/scene2d/Stage.gs
-*vala_source: sdx/scenes/scene2d/ui/Image.gs
-*vala_source: sdx/scenes/scene2d/ui/Label.gs
-*vala_source: sdx/scenes/scene2d/ui/Scaling.vala
-*vala_source: sdx/scenes/scene2d/ui/Widget.gs
-*vala_source: sdx/scenes/scene2d/utils/BaseDrawable.gs
-*vala_source: sdx/scenes/scene2d/utils/ClickListener.gs
-*vala_source: sdx/scenes/scene2d/utils/Drawable.gs
-*vala_source: sdx/scenes/scene2d/utils/FocusEvent.gs
-*vala_source: sdx/scenes/scene2d/utils/FocusListener.gs
-*vala_source: sdx/scenes/scene2d/utils/Layout.gs
-*vala_source: sdx/scenes/scene2d/utils/NinePatchDrawable.gs
-*vala_source: sdx/scenes/scene2d/utils/TextureRegionDrawable.gs
-*vala_source: sdx/scenes/scene2d/utils/TransformDrawable.gs
-*vala_source: sdx/utils/Align.gs
-*vala_source: sdx/utils/Json.gs
-*vala_source: sdx/utils/Pool.gs
-*vala_source: sdx/utils/Pools.gs
-*vala_source: sdx/utils/viewport/Viewport.gs
 *vala_source: shmupwarz.vala
 
 
@@ -156,87 +77,6 @@ c_library: m
 *translate: genie src/Game/Systems/ScaleTweenSystem.gs
 *translate: genie src/Game/Systems/SoundEffectSystem.gs
 *translate: genie src/Game/Systems/ViewManagerSystem.gs
-*translate: genie src/StringTokenizer.gs
-*translate: genie src/o2d/ParseIt.gs
-*translate: genie src/o2d/SceneLoader.gs
-*translate: genie src/o2d/ToString.gs
-*translate: genie src/o2d/data/CompositeItemVO.gs
-*translate: genie src/o2d/data/CompositeVO.gs
-*translate: genie src/o2d/data/CoreActorData.gs
-*translate: genie src/o2d/data/Image9patchVO.gs
-*translate: genie src/o2d/data/LabelVO.gs
-*translate: genie src/o2d/data/LayerItemVO.gs
-*translate: genie src/o2d/data/MainItemVO.gs
-*translate: genie src/o2d/data/PhysicsBodyDataVO.gs
-*translate: genie src/o2d/data/PhysicsPropertiesVO.gs
-*translate: genie src/o2d/data/PointVO.gs
-*translate: genie src/o2d/data/ProjectInfoVO.gs
-*translate: genie src/o2d/data/ResolutionEntryVO.gs
-*translate: genie src/o2d/data/SceneVO.gs
-*translate: genie src/o2d/data/ShapeVO.gs
-*translate: genie src/o2d/data/SimpleImageVO.gs
-*translate: genie src/o2d/resources/IAssetLoader.gs
-*translate: genie src/o2d/resources/IDataLoader.gs
-*translate: genie src/o2d/resources/IResourceRetriever.gs
-*translate: genie src/o2d/resources/ResourceManager.gs
-*translate: genie src/o2d/scene2d/BuiltItemHandler.gs
-*translate: genie src/o2d/scene2d/ButtonClickListener.gs
-*translate: genie src/o2d/scene2d/CompositeActor.gs
-*translate: genie src/o2d/utils/CustomVariables.gs
-*translate: genie src/sdx/Application.gs
-*translate: genie src/sdx/ApplicationListener.gs
-*translate: genie src/sdx/Audio.gs
-*translate: genie src/sdx/Exceptions.gs
-*translate: genie src/sdx/Files.gs
-*translate: genie src/sdx/Font.gs
-*translate: genie src/sdx/Game.gs
-*translate: genie src/sdx/Graphics.gs
-*translate: genie src/sdx/Input.gs
-*translate: genie src/sdx/InputAdapter.gs
-*translate: genie src/sdx/InputProcessor.gs
-*translate: genie src/sdx/Net.gs
-*translate: genie src/sdx/Screen.gs
-*translate: genie src/sdx/Sdx.gs
-*translate: genie src/sdx/Version.gs
-*translate: genie src/sdx/audio/Sound.gs
-*translate: genie src/sdx/files/FileHandle.gs
-*translate: genie src/sdx/graphics/Color.gs
-*translate: genie src/sdx/graphics/Texture.gs
-*translate: genie src/sdx/graphics/s2d/Batch.gs
-*translate: genie src/sdx/graphics/s2d/BitmapFont.gs
-*translate: genie src/sdx/graphics/s2d/GlyphLayout.gs
-*translate: genie src/sdx/graphics/s2d/NinePatch.gs
-*translate: genie src/sdx/graphics/s2d/Sprite.gs
-*translate: genie src/sdx/graphics/s2d/TextureAtlas.gs
-*translate: vala src/sdx/graphics/s2d/TextureEnums.vala
-*translate: genie src/sdx/graphics/s2d/TextureRegion.gs
-*translate: genie src/sdx/math/Rectangle.gs
-*translate: genie src/sdx/math/Vector2.gs
-*translate: genie src/sdx/scenes/scene2d/Action.gs
-*translate: genie src/sdx/scenes/scene2d/Actor.gs
-*translate: genie src/sdx/scenes/scene2d/Event.gs
-*translate: genie src/sdx/scenes/scene2d/Group.gs
-*translate: genie src/sdx/scenes/scene2d/InputEvent.gs
-*translate: genie src/sdx/scenes/scene2d/InputListener.gs
-*translate: genie src/sdx/scenes/scene2d/Stage.gs
-*translate: genie src/sdx/scenes/scene2d/ui/Image.gs
-*translate: genie src/sdx/scenes/scene2d/ui/Label.gs
-*translate: vala src/sdx/scenes/scene2d/ui/Scaling.vala
-*translate: genie src/sdx/scenes/scene2d/ui/Widget.gs
-*translate: genie src/sdx/scenes/scene2d/utils/BaseDrawable.gs
-*translate: genie src/sdx/scenes/scene2d/utils/ClickListener.gs
-*translate: genie src/sdx/scenes/scene2d/utils/Drawable.gs
-*translate: genie src/sdx/scenes/scene2d/utils/FocusEvent.gs
-*translate: genie src/sdx/scenes/scene2d/utils/FocusListener.gs
-*translate: genie src/sdx/scenes/scene2d/utils/Layout.gs
-*translate: genie src/sdx/scenes/scene2d/utils/NinePatchDrawable.gs
-*translate: genie src/sdx/scenes/scene2d/utils/TextureRegionDrawable.gs
-*translate: genie src/sdx/scenes/scene2d/utils/TransformDrawable.gs
-*translate: genie src/sdx/utils/Align.gs
-*translate: genie src/sdx/utils/Json.gs
-*translate: genie src/sdx/utils/Pool.gs
-*translate: genie src/sdx/utils/Pools.gs
-*translate: genie src/sdx/utils/viewport/Viewport.gs
 *translate: vala src/shmupwarz.vala
 
 *data: data/local
