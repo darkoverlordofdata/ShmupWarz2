@@ -14,7 +14,6 @@ namespace ShmupWarz
 
         game: GameScene
         world: World
-        font: sdx.Font
         activeEntities: Sprite
         totalRetained: Sprite
         totalReusable: Sprite
@@ -26,7 +25,6 @@ namespace ShmupWarz
             this.world = world
 
         def initialize()
-            font = sdx.Font.fromFile(Sdx.app.defaultFont, 16)
             Sdx.app.sprites.add(activeEntities = createText(0, 40, ACTIVE_ENTITIES.printf(world.count)))
             Sdx.app.sprites.add(totalRetained = createText(0, 60, TOTAL_RETAINED.printf(world.reusableEntitiesCount)))
             Sdx.app.sprites.add(totalReusable = createText(0, 80, TOTAL_REUSABLE.printf(world.retainedEntitiesCount)))
@@ -37,7 +35,7 @@ namespace ShmupWarz
             setText(totalReusable, TOTAL_REUSABLE.printf(world.reusableEntitiesCount))
 
         def createText(x: int, y: int, text: string): Sprite
-            var sprite = Sprite.fromRenderedText(Sdx.app.renderer, font, text, sdx.graphics.Color.White)
+            var sprite = Sprite.fromRenderedText(Sdx.app.renderer, Sdx.app.font, text, sdx.graphics.Color.White)
             sprite.x = x
             sprite.y = y
             sprite.layer = Layer.HUD
@@ -45,6 +43,6 @@ namespace ShmupWarz
             return sprite
 
         def setText(sprite: Sprite, text: string)
-            sprite.setText(Sdx.app.renderer, font, text, sdx.graphics.Color.White)
+            sprite.setText(Sdx.app.renderer, Sdx.app.font, text, sdx.graphics.Color.White)
 
 

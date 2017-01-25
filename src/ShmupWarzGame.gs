@@ -26,17 +26,12 @@ namespace ShmupWarz
         prop optionScene: MenuScene
         prop scoreScene: MenuScene
         
-        prop arial: sdx.Font
-
         construct(desktop: bool, scale: double)
             super(800, 640, "resource:///darkoverlordofdata/shmupwarz")
             _density = 1
             _desktop = desktop
             _scale = scale
-            var path = GLib.FileUtils.read_link("/proc/self/exe")
-            var proc = File.new_for_path(path)
-            var rootPath = proc.resolve_relative_path("../../../").get_path()     
-            defaultFont = rootPath+"/data/fonts/OpenDyslexic-Bold.otf"
+            defaultFont = "fonts/OpenDyslexic-Bold.otf"
             initPools()
             setApplicationListener(this)
 

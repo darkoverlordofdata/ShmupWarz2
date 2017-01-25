@@ -13,7 +13,7 @@
 		<file>particles/portalOut</file>
 		<file>particles/pulse</file>
 		<file>orig/pack.atlas</file>
-		<file>orig/pack.bmp</file>
+		<file>orig/pack.png</file>
 		<file>freetypefonts/Arial.ttf</file>
 		<file>freetypefonts/OpenDyslexic-Regular.ttf</file>
 	</gresource>
