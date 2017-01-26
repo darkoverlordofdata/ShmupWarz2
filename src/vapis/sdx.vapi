@@ -28,9 +28,11 @@ namespace sdx {
 			public GLib.Bytes bytes ();
 			public sdx.files.FileHandle child (string name);
 			public bool exists ();
+			public string getExt ();
 			public string getName ();
 			public sdx.files.FileHandle getParent ();
 			public string getPath ();
+			public SDL.RWops getRWops ();
 			public sdx.FileType getType ();
 			public GLib.InputStream read ();
 			public GLib.File file { get; }
@@ -217,13 +219,15 @@ namespace sdx {
 				public int width;
 				public int x;
 				public int y;
-				public Sprite ();
-				public static sdx.graphics.s2d.Sprite? fromAtlas (SDL.Video.Renderer renderer, sdx.graphics.s2d.TextureAtlas atlas, string name);
-				public static sdx.graphics.s2d.Sprite? fromFile (SDL.Video.Renderer renderer, string path);
-				public static sdx.graphics.s2d.Sprite? fromRenderedText (SDL.Video.Renderer renderer, sdx.Font? font, string text, sdx.graphics.Color color);
+				public Sprite (string path = "");
+				public Sprite.file (sdx.files.FileHandle file);
+				// public static sdx.graphics.s2d.Sprite? fromAtlas (SDL.Video.Renderer renderer, sdx.graphics.s2d.TextureAtlas atlas, string name);
+				// public static sdx.graphics.s2d.Sprite? fromFile (SDL.Video.Renderer renderer, string path);
+				// public static sdx.graphics.s2d.Sprite? fromRenderedText (SDL.Video.Renderer renderer, sdx.Font? font, string text, sdx.graphics.Color color);
 				public Sprite.region (sdx.graphics.s2d.TextureAtlas.AtlasRegion region);
 				public void render (SDL.Video.Renderer renderer, int x, int y, SDL.Video.Rect? clip = null);
-				public void setText (SDL.Video.Renderer renderer, sdx.Font font, string text, sdx.graphics.Color color);
+				public void setText (string text, sdx.Font font, sdx.graphics.Color color);
+				public Sprite.text (string text, sdx.Font font, sdx.graphics.Color color);
 			}
 			[CCode (cheader_filename = "sdx.h")]
 			public class TextureAtlas : GLib.Object {
@@ -559,6 +563,7 @@ namespace sdx {
 		public class Texture : GLib.Object {
 			public SDL.Video.Surface data;
 			public Texture (sdx.files.FileHandle file);
+			public static SDL.Video.Surface getSurface (string ext, SDL.RWops raw);
 			public void setFilter (int minFilter, int magFilter);
 			public void setWrap (int u, int v);
 			public Texture.uri (string path);
@@ -1178,9 +1183,11 @@ namespace sdx {
 	[CCode (cheader_filename = "sdx.h")]
 	public class Font : GLib.Object {
 		public SDLTTF.Font innerFont;
-		public Font ();
-		public static sdx.Font fromFile (string path, int size);
+		public Font (sdx.files.FileHandle file, int size);
+		// public static sdx.Font fromFile (string path, int size);
 		public SDL.Video.Surface render (string text, sdx.graphics.Color color);
+		public Font.uri (string path, int size);
+		public string path { get; set; }
 	}
 	[CCode (cheader_filename = "sdx.h")]
 	public abstract class Game : sdx.Application, sdx.ApplicationListener {
@@ -1308,7 +1315,8 @@ namespace sdx {
 		IllegalStateException,
 		SdxRuntimeException,
 		NullPointerException,
-		NoSuchElementException
+		NoSuchElementException,
+		SDLException
 	}
 	[CCode (cheader_filename = "sdx.h")]
 	public errordomain IOException {
@@ -1319,4 +1327,6 @@ namespace sdx {
 	}
 	[CCode (cheader_filename = "sdx.h")]
 	public const string VERSION;
+	[CCode (cheader_filename = "sdx.h")]
+	public static void sdlFailIf (bool cond, string reason);
 }

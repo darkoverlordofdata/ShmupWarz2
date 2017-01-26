@@ -34,13 +34,13 @@ namespace ShmupWarz
                 if pct == text.text
                     sprite = text.sprite
                     if sprite == null
-                        sprite = Sprite.fromRenderedText(Sdx.app.renderer, Sdx.app.font, text.text, sdx.graphics.Color.Lime)
+                        sprite = new Sprite.text(text.text, Sdx.app.font, sdx.graphics.Color.Lime)
                         sprite.centered = false
                         text.sprite = sprite
                 else
                     text.text = pct
                     text.sprite = null
-                    sprite = Sprite.fromRenderedText(Sdx.app.renderer, Sdx.app.font, text.text, sdx.graphics.Color.LimeGreen)
+                    sprite = new Sprite.text(text.text, Sdx.app.font, sdx.graphics.Color.LimeGreen)
                     sprite.centered = false
                     text.sprite = sprite
 

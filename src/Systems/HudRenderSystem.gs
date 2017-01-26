@@ -35,7 +35,7 @@ namespace ShmupWarz
             setText(totalReusable, TOTAL_REUSABLE.printf(world.reusableEntitiesCount))
 
         def createText(x: int, y: int, text: string): Sprite
-            var sprite = Sprite.fromRenderedText(Sdx.app.renderer, Sdx.app.font, text, sdx.graphics.Color.White)
+            var sprite = new Sprite.text(text, Sdx.app.font, sdx.graphics.Color.White)
             sprite.x = x
             sprite.y = y
             sprite.layer = Layer.HUD
@@ -43,6 +43,6 @@ namespace ShmupWarz
             return sprite
 
         def setText(sprite: Sprite, text: string)
-            sprite.setText(Sdx.app.renderer, Sdx.app.font, text, sdx.graphics.Color.White)
+            sprite.setText(text, Sdx.app.font, sdx.graphics.Color.White)
 
 
