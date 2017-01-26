@@ -221,6 +221,9 @@ namespace sdx {
 				public int y;
 				public Sprite (string path = "");
 				public Sprite.file (sdx.files.FileHandle file);
+				// public static sdx.graphics.s2d.Sprite? fromAtlas (SDL.Video.Renderer renderer, sdx.graphics.s2d.TextureAtlas atlas, string name);
+				// public static sdx.graphics.s2d.Sprite? fromFile (SDL.Video.Renderer renderer, string path);
+				// public static sdx.graphics.s2d.Sprite? fromRenderedText (SDL.Video.Renderer renderer, sdx.Font? font, string text, sdx.graphics.Color color);
 				public Sprite.region (sdx.graphics.s2d.TextureAtlas.AtlasRegion region);
 				public void render (SDL.Video.Renderer renderer, int x, int y, SDL.Video.Rect? clip = null);
 				public void setText (string text, sdx.Font font, sdx.graphics.Color color);
@@ -1179,9 +1182,11 @@ namespace sdx {
 	}
 	[CCode (cheader_filename = "sdx.h")]
 	public class Font : GLib.Object {
-		public SDLTTF.Font innerFont;
+		// public SDLTTF.Font innerFont;
 		public Font (sdx.files.FileHandle file, int size);
+		// public static sdx.Font fromFile (string path, int size);
 		public SDL.Video.Surface render (string text, sdx.graphics.Color color);
+		// public Font.uri (string path, int size);
 		public string path { get; set; }
 	}
 	[CCode (cheader_filename = "sdx.h")]

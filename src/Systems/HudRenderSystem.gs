@@ -20,6 +20,7 @@ namespace ShmupWarz
 
         construct(game: GameScene)
             this.game = game
+            
 
         def setWorld(world: World)
             this.world = world
