@@ -68,6 +68,10 @@ namespace ShmupWarz
             var path = getResource(name)
             var sprite = atlas.createSprite(path)
 
+            /**
+             * If the sprites is >= 512 pixels, don't give it a  bounds.
+             * this patches a problem with explosions, which have a image 512x512
+             */
             return coreEntity(name
                 ).addBounds(sprite.width >= 512 ? 0 : sprite.width/2
                 ).addPosition(x, y
@@ -149,9 +153,9 @@ namespace ShmupWarz
             return createEntity("explosion", x, y
                 ).addExpires(0.5
                 ).addScale(0.5, 0.5
-                ).addSoundEffect(Effect.SMALLASPLODE
+                ).addSoundEffect(Effect.ASPLODE
                 ).addScaleTween(0.001, 0.5, -3, false, true
-                ).addTint(0xEE, 0xE8, 0xAA, 255
+                ).addTint(0xAE, 0xA8, 0xAA, 255
                 ).addColorTween(r, m, s, g, m, s, b, m, s, a, m, s, true, true, true, true, true
                 ).setActive(true)
         /**

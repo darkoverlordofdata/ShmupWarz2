@@ -118,6 +118,13 @@ namespace sdx {
 				public BitmapFont ();
 			}
 			[CCode (cheader_filename = "sdx.h")]
+			public class Font : GLib.Object {
+				public SDLTTF.Font innerFont;
+				public Font (sdx.files.FileHandle file, int size);
+				public SDL.Video.Surface render (string text, sdx.graphics.Color color);
+				public string path { get; set; }
+			}
+			[CCode (cheader_filename = "sdx.h")]
 			public class GlyphLayout : GLib.Object, sdx.utils.Poolable {
 				public class GlyphRun : GLib.Object, sdx.utils.Poolable {
 					public sdx.graphics.Color color;
@@ -223,8 +230,8 @@ namespace sdx {
 				public Sprite.file (sdx.files.FileHandle file);
 				public Sprite.region (sdx.graphics.s2d.TextureAtlas.AtlasRegion region);
 				public void render (SDL.Video.Renderer renderer, int x, int y, SDL.Video.Rect? clip = null);
-				public void setText (string text, sdx.Font font, sdx.graphics.Color color);
-				public Sprite.text (string text, sdx.Font font, sdx.graphics.Color color);
+				public void setText (string text, sdx.graphics.s2d.Font font, sdx.graphics.Color color);
+				public Sprite.text (string text, sdx.graphics.s2d.Font font, sdx.graphics.Color color);
 			}
 			[CCode (cheader_filename = "sdx.h")]
 			public class TextureAtlas : GLib.Object {
@@ -625,9 +632,9 @@ namespace sdx {
 				[CCode (cheader_filename = "sdx.h")]
 				public class Label : sdx.scenes.scene2d.ui.Widget {
 					public class LabelStyle : GLib.Object {
-						public sdx.Font font;
+						public sdx.graphics.s2d.Font font;
 						public sdx.graphics.Color fontColor;
-						public LabelStyle (sdx.Font font, sdx.graphics.Color color);
+						public LabelStyle (sdx.graphics.s2d.Font font, sdx.graphics.Color color);
 					}
 					public int labelAlign;
 					public int lineAlign;
@@ -1141,7 +1148,7 @@ namespace sdx {
 	[CCode (cheader_filename = "sdx.h")]
 	public class Application : GLib.Object {
 		public string defaultFont;
-		public sdx.Font font;
+		public sdx.graphics.s2d.Font font;
 		public int height;
 		public string name;
 		public Gee.ArrayList<sdx.graphics.s2d.Sprite> onetime;
@@ -1176,13 +1183,6 @@ namespace sdx {
 		public sdx.files.FileHandle resource (string path);
 		public bool isResource { get; }
 		public string resourcePath { get; }
-	}
-	[CCode (cheader_filename = "sdx.h")]
-	public class Font : GLib.Object {
-		public SDLTTF.Font innerFont;
-		public Font (sdx.files.FileHandle file, int size);
-		public SDL.Video.Surface render (string text, sdx.graphics.Color color);
-		public string path { get; set; }
 	}
 	[CCode (cheader_filename = "sdx.h")]
 	public abstract class Game : sdx.Application, sdx.ApplicationListener {
