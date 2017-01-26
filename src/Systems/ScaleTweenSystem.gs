@@ -32,13 +32,13 @@ namespace ShmupWarz
                     sprite.scale.y += scaleTween.speed * Sdx.graphics.deltaTime
 
                     if scale.x > scaleTween.max
-                        sprite.scale.x = scaleTween.max
-                        sprite.scale.y = scaleTween.max
+                        scale.x = scaleTween.max
+                        scale.y = scaleTween.max
                         scaleTween.active = false
 
                     else if scale.x < scaleTween.min
-                        sprite.scale.x = scaleTween.min
-                        sprite.scale.y = scaleTween.min
+                        scale.x = scaleTween.min
+                        scale.y = scaleTween.min
                         scaleTween.active = false
 
 

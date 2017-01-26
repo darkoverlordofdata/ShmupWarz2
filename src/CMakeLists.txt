@@ -70,7 +70,7 @@ set (COMPILE_OPTIONS ${COMPILE_OPTIONS} --disable-warnings )
 set (COMPILE_OPTIONS ${COMPILE_OPTIONS} --gresources=${CMAKE_SOURCE_DIR}/data/o2d.gresource.xml )
 set (COMPILE_OPTIONS ${COMPILE_OPTIONS} --gresources=${CMAKE_SOURCE_DIR}/data/resources.gresource.xml )
 
-set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g" )
+set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g -o3" )
 
 vala_precompile(VALA_C shmupwarz
 	${APP_SOURCES}

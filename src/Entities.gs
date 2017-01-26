@@ -69,7 +69,7 @@ namespace ShmupWarz
             var sprite = atlas.createSprite(path)
 
             return coreEntity(name
-                ).addBounds(sprite.width/2
+                ).addBounds(sprite.width >= 512 ? 0 : sprite.width/2
                 ).addPosition(x, y
                 ).addLayer(getLayer(name)
                 ).addView(sprite, centered)
@@ -147,14 +147,13 @@ namespace ShmupWarz
             var a = 255.0           // alpha
 
             return createEntity("explosion", x, y
-                ).addExpires(1.0
+                ).addExpires(0.5
                 ).addScale(0.5, 0.5
-                ).addSoundEffect(Effect.ASPLODE
+                ).addSoundEffect(Effect.SMALLASPLODE
                 ).addScaleTween(0.001, 0.5, -3, false, true
-                ).addTint(0xFA, 0xFA, 0xD2, 255
+                ).addTint(0xEE, 0xE8, 0xAA, 255
                 ).addColorTween(r, m, s, g, m, s, b, m, s, a, m, s, true, true, true, true, true
                 ).setActive(true)
-
         /**
         *  Create Small Explosion
         */
@@ -166,15 +165,14 @@ namespace ShmupWarz
             var s = 10.0            // speed
             var a = 255.0           // alpha
 
-            return createEntity("bang", x, y
-                ).addExpires(1.0
-                ).addScale(1.0, 1.0
+            return createEntity("explosion", x, y
+                ).addExpires(0.5
+                ).addScale(0.2, 0.2
                 ).addSoundEffect(Effect.SMALLASPLODE
-                ).addScaleTween(0.001, 1.0, -3, false, true
+                ).addScaleTween(0.001, 0.2, -3, false, true
                 ).addTint(0xEE, 0xE8, 0xAA, 255
                 ).addColorTween(r, m, s, g, m, s, b, m, s, a, m, s, true, true, true, true, true
                 ).setActive(true)
-            
         /**
         *  Create Small Enemy
         */
