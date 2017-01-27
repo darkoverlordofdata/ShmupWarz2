@@ -3,11 +3,6 @@ Give Me Those Shmup Wars
 
 ## status
 
-Is Vala Dead?
-I may not agree with recent concersations on Gnome about Vala, but ...
-Even if they don't outright drop it, it reveals that there is no support for Vala at Gnome.
-So for now, I'm shopping around.
-
 
 Main branch - Reboot #2 - wip
 
