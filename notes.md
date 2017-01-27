@@ -4,7 +4,6 @@ I found little structural change required when porting the game from scala to ge
 This likely means that I wasn't fully using functuional caps of scala. This is true, the 
 functional and framework (entitas) versions are very different. When using a framework, much
 of the code flow is dictated by the framework. 
-It also means that scala isn't a requirement.
 
 Vala/Genie have a modicum of functional capability:
 Inferred types for local vars.
@@ -28,25 +27,27 @@ working...just the core game. Next is getting the other screens working.
 
 done: add IEntity to entitas, allows return to fluent style in EntityFactory
 
-## library vs source code
+## pro v con
 
-In a windows dev environment, I leave dll's everywhere.
-I've always taken for granted that libraries are the only way to go. 
-But is that true?
-Original shmupwars-vala uses source code. This reboot uses libraries entitas, bosco & overlap2d. 
-Which is better?
+Vala doesn't have a package manager.
+Yes it does - it has apt-get (or yum...). 
+It integrates with other c libraries, all of which I've managed using synaptic.
+Plus, you need to run autovala update && cd ./install && cmake ..
+Use autovala. 
 
-Compiling from source 
-* autovala makes it easy to manage
-* libraries proliferate
-* source doesn't need to mess with installing compatible libs
-* can compiler do better optimization?
-* can compiler remove deadwood?
-* fewer externals make distribution easier. 
-* If I package resources in the executable, why not include libraries as well?
+I don't think I could do libsdx using Nim.
+Putting all of the code in one file is nuts, how do you manage complexity.
+FSharp is almost as bad, the only reason it is manageable is Visual Studio 2015.
+Scala has the right infrastructure design, but the implementation is so slow, and broken.
+
+So, if I add up Vala + Autovala + VSCode, I get the most productive enviroment i've found 
+outside of dart.
 
 
-More musing - Steam recommends not including SDL2 shared libs with your game, Steam should already have 
-the latest on your OS... So if everything else is included in the executable, there are no dependancy issues.
+
+
+
+
+
 
 
