@@ -27,7 +27,9 @@ namespace ShmupWarz
 
         def execute()
             for var entityA in bullets
+                if entityA.isDestroy do continue
                 for var entityB in enemies
+                    if entityB.isDestroy do continue
                     if collisionExists(entityA, entityB)
                         handleCollision(entityA, entityB)
 

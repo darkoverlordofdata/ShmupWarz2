@@ -113,7 +113,7 @@ namespace ShmupWarz
 
             return createEntity("bullet", x, y
                 ).setBullet(true
-                ).addHealth(1.5, 1.5
+                ).addHealth(1, 1
                 ).addVelocity(0, -800
                 ).addTint(0xAD, 0xFF, 0x2F, 255
                 ).addColorTween(r, m, s, g, m, s, b, m, s, a, m, s, true, true, true, true, true

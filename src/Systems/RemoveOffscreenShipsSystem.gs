@@ -23,7 +23,7 @@ namespace ShmupWarz
                 if entity.hasPosition
                     if entity.position.y > game.height - entity.bounds.radius
                         if !entity.isPlayer
-                            entity.setDestroy(true)
+                            if !entity.isDestroy do entity.setDestroy(true)
                             
 
 

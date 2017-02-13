@@ -2,8 +2,6 @@
 Give Me Those Shmup Wars
 
 ## status
-on hiatus until Gnome can be more positive about the future of Vala
-https://mail.gnome.org/archives/vala-list/2016-September/msg00001.html 
 
 
 Main branch - Reboot #2 - wip

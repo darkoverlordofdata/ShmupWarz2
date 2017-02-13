@@ -22,6 +22,6 @@ namespace ShmupWarz
         def execute()
             for var entity in group
                 if (entity.expires.delay -= Sdx.graphics.deltaTime) <= 0
-                    entity.setDestroy(true)
+                    if !entity.isDestroy do entity.setDestroy(true)
 
 

@@ -24,6 +24,9 @@ namespace ShmupWarz
         prop readonly player : PlayerInputSystem
         prop readonly factory: Entities
 
+        k: int
+        t: double
+
         construct(desktop: bool, scale: double)
             _factory = new Entities()
             _world = createSystems()
@@ -68,7 +71,19 @@ namespace ShmupWarz
         def resume()
             pass
         def render()
+            var t1 = (double)GLib.get_real_time()/1000000.0
             world.execute()
+            var t2 = (double)GLib.get_real_time()/1000000.0
+            var t3 = t2 - t1
+            //print "%f", t3
+            t = t + t3
+            k += 1
+            if k == 1000
+                k = 0
+                t = t / 1000.0
+                print "%f", t
+                t = 0
+
 
         def resize(width: int, height: int)
             pass    
