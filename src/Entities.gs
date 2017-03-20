@@ -13,11 +13,11 @@ uses o2d.data
 uses o2d.resources
 
 namespace ShmupWarz
+
     enum Enemy
         Enemy1
         Enemy2
         Enemy3
-
 
     enum Layer
         DEFAULT
@@ -86,7 +86,7 @@ namespace ShmupWarz
         */
         def createBackground() : IEntity
             return createEntity("background", 0, 0, false
-                ).addScale(2, 1
+                ).addScale(2, 2
                 ).setActive(true)
 
         /**
@@ -113,7 +113,7 @@ namespace ShmupWarz
 
             return createEntity("bullet", x, y
                 ).setBullet(true
-                ).addHealth(1, 1
+                ).addHealth(1.5, 1.5
                 ).addVelocity(0, -800
                 ).addTint(0xAD, 0xFF, 0x2F, 255
                 ).addColorTween(r, m, s, g, m, s, b, m, s, a, m, s, true, true, true, true, true

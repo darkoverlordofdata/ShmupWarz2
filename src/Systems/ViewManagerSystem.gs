@@ -19,7 +19,7 @@ namespace ShmupWarz
 
         /**
         * Listen for resources to be added
-        * and then load them in from the file
+        * and add them to the display que
         */
         def initialize()
             group = world.getGroup(Matcher.AllOf({Component.Active}))

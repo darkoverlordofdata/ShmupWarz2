@@ -12,7 +12,7 @@ vapidir: src/vapis
 
 vala_binary: src/shmupwarz
 compile_options: --disable-warnings
-compile_c_options: -g -o3
+compile_c_options: -g -Og
 use_gresource: o2d_gresource_xml
 use_gresource: resources_gresource_xml
 vala_check_package: SDL2_image

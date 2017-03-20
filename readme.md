@@ -2,8 +2,7 @@
 Give Me Those Shmup Wars
 
 ## status
-
-
+active
 Main branch - Reboot #2 - wip
 
 replacing bosco with libsdx

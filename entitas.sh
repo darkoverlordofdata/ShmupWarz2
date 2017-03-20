@@ -22,7 +22,7 @@ fi
 
 
 #
-# create the schema & generate components
+# create the component schema
 #
 npm run entitas -- create -c Bounds radius:double
 npm run entitas -- create -c Bullet
@@ -42,6 +42,9 @@ npm run entitas -- create -c SoundEffect effect:int
 npm run entitas -- create -c Text text:string sprite:Object?
 npm run entitas -- create -c Tint r:int g:int b:int a:int
 npm run entitas -- create -c Velocity x:double y:double
+#
+# create the systems schema
+#
 npm run entitas -- create -s CollisionSystem ISetWorld IExecuteSystem IInitializeSystem
 npm run entitas -- create -s ColorTweenSystem ISetWorld IExecuteSystem
 npm run entitas -- create -s EntitySpawningTimerSystem ISetWorld IExecuteSystem IInitializeSystem
@@ -54,4 +57,7 @@ npm run entitas -- create -s RenderPositionSystem ISetWorld IExecuteSystem
 npm run entitas -- create -s SoundEffectSystem ISetWorld IExecuteSystem IInitializeSystem
 npm run entitas -- create -s ScaleTweenSystem ISetWorld IExecuteSystem
 npm run entitas -- create -s ViewManagerSystem ISetWorld IExecuteSystem
+#
+# generate code
+#
 npm run entitas -- generate -p gs -t src

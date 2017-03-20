@@ -12,7 +12,7 @@ uses o2d.data
 uses o2d.scene2d
 
 def main(args: array of string)
-    var game = new ShmupWarz.ShmupWarzGame(true, 1.0)
+    var game = new ShmupWarz.ShmupWarzGame(true, 2.0)
     game.run()
     
 namespace ShmupWarz
@@ -27,12 +27,12 @@ namespace ShmupWarz
         prop scoreScene: MenuScene
         
         construct(desktop: bool, scale: double)
-            super(800, 640, "resource:///darkoverlordofdata/shmupwarz")
+            super(840, 720, "resource:///darkoverlordofdata/shmupwarz")
             _density = 1
             _desktop = desktop
             _scale = scale
             defaultFont = "fonts/OpenDyslexic-Bold.otf"
-            initPools()
+            Entity.initPools()
             setApplicationListener(this)
 
         def override create()

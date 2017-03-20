@@ -61,6 +61,5 @@ namespace ShmupWarz
                 sprite.color.r = (uint8)tint.r
                 sprite.color.g = (uint8)tint.g
                 sprite.color.b = (uint8)tint.b
-                //stdout.printf("color: %d %d %d", tint.r, tint.g, tint.b)
                             
 

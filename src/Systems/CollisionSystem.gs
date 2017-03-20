@@ -26,12 +26,12 @@ namespace ShmupWarz
 
 
         def execute()
-            for var entityA in bullets
-                if entityA.isDestroy do continue
-                for var entityB in enemies
-                    if entityB.isDestroy do continue
-                    if collisionExists(entityA, entityB)
-                        handleCollision(entityA, entityB)
+            for var bullet in bullets
+                if bullet.isDestroy do continue
+                for var enemy in enemies
+                    if enemy.isDestroy do continue
+                    if collisionExists(bullet, enemy)
+                        handleCollision(bullet, enemy)
 
 
         def collisionExists(e1: Entity, e2: Entity): bool
@@ -54,8 +54,7 @@ namespace ShmupWarz
             var y = bp.y
 
             factory.createBang(x, y)
-            var i = 5
-            while --i > 0 do factory.createParticle(x, y)
+            for var i = 0 to 3 do factory.createParticle(x, y)
 
             if !bullet.isDestroy do bullet.setDestroy(true)
             health.health = health.health - bullet.health.health
