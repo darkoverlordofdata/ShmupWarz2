@@ -104,19 +104,19 @@ namespace {{ namespace }}
 
 {% endif %}{% endfor %}
 {% for component in components %}{% if component.value == false %}
-    /** @type {{ component.key }} */
-    _{{ component.key | camel }}Component : {{ component.key }}Component
-{% else %}        /** @type entitas.utils.GLib.Queue<{{ component.key }}> */
-    _{{ component.key | camel }}ComponentPool : GLib.Queue of {{ component.key }}Component
+        /** @type {{ component.key }} */
+        _{{ component.key | camel }}Component : static {{ component.key }}Component
+{% else %}          /** @type entitas.utils.GLib.Queue<{{ component.key }}> */
+        _{{ component.key | camel }}ComponentPool : static GLib.Queue of {{ component.key }}Component
 {% endif %}{% endfor %}
 
-    def initPools()
-        /* Preallocate component pools*/
+        def static initPools()
+            /* Preallocate component pools*/
 {% for component in components %}{% if component.value == false %}
-        _{{ component.key | camel }}Component = new {{ component.key }}Component()
-{% else %}        _{{ component.key | camel }}ComponentPool = new GLib.Queue of {{ component.key }}Component
-        for var i=1 to POOL_SIZE
-            _{{ component.key | camel }}ComponentPool.push_head(new {{ component.key }}Component())
+            _{{ component.key | camel }}Component = new {{ component.key }}Component()
+{% else %}          _{{ component.key | camel }}ComponentPool = new GLib.Queue of {{ component.key }}Component
+            for var i=1 to POOL_SIZE
+                _{{ component.key | camel }}ComponentPool.push_head(new {{ component.key }}Component())
 {% endif %}{% endfor %}
 
 

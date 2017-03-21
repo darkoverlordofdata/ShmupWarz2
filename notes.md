@@ -23,7 +23,7 @@ working...just the core game. Next is getting the other screens working.
 
 Should I go back to including lib as source code? This is how ooc & nim work. 
 The only dependancies would be the sdl2.so
-Potentially better optimization, better portability.
+Potentially better optimization, better portability, fewer requirements for using GObject.
 
 
 suppose there were a gui for editing entitas.json, selecting resources, configuring packaging. 
