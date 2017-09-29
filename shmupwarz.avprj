@@ -11,72 +11,270 @@ custom: data/local/fonts share/fonts
 vapidir: src/vapis
 
 vala_binary: src/shmupwarz
-compile_options: --disable-warnings
+*version: 0.0.1
+compile_options: --disable-warnings --cc=clang
 compile_c_options: -g -Og
 use_gresource: o2d_gresource_xml
 use_gresource: resources_gresource_xml
 vala_check_package: SDL2_image
 vala_check_package: SDL2_mixer
 vala_check_package: SDL2_ttf
-vala_check_package: entitas
 vala_check_package: gee-0.8
 vala_check_package: json-glib-1.0
 vala_check_package: sdl2
 *vala_check_package: gio-2.0
 *vala_check_package: glib-2.0
 *vala_check_package: gobject-2.0
-*vala_check_package: o2d
-*vala_check_package: sdx
 c_library: m
-*vala_source: Components.gs
-*vala_source: Entities.gs
-*vala_source: GameScene.gs
-*vala_source: MenuScene.gs
-*vala_source: MenuUI.gs
-*vala_source: OptionUI.gs
-*vala_source: ScoreUI.gs
-*vala_source: ShmupWarzGame.gs
-*vala_source: Systems/CollisionSystem.gs
-*vala_source: Systems/ColorTweenSystem.gs
-*vala_source: Systems/DestroySystem.gs
-*vala_source: Systems/EntitySpawningTimerSystem.gs
-*vala_source: Systems/ExpiringSystem.gs
-*vala_source: Systems/HealthRenderSystem.gs
-*vala_source: Systems/HudRenderSystem.gs
-*vala_source: Systems/MovementSystem.gs
-*vala_source: Systems/PlayerInputSystem.gs
-*vala_source: Systems/RemoveOffscreenShipsSystem.gs
-*vala_source: Systems/RenderPositionSystem.gs
-*vala_source: Systems/ScaleTweenSystem.gs
-*vala_source: Systems/SoundEffectSystem.gs
-*vala_source: Systems/ViewManagerSystem.gs
+*vala_source: app/Components.gs
+*vala_source: app/Entities.gs
+*vala_source: app/GameScene.gs
+*vala_source: app/MenuScene.gs
+*vala_source: app/MenuUI.gs
+*vala_source: app/OptionUI.gs
+*vala_source: app/ScoreUI.gs
+*vala_source: app/ShmupWarzGame.gs
+*vala_source: app/Systems/CollisionSystem.gs
+*vala_source: app/Systems/ColorTweenSystem.gs
+*vala_source: app/Systems/DestroySystem.gs
+*vala_source: app/Systems/EntitySpawningTimerSystem.gs
+*vala_source: app/Systems/ExpiringSystem.gs
+*vala_source: app/Systems/HealthRenderSystem.gs
+*vala_source: app/Systems/HudRenderSystem.gs
+*vala_source: app/Systems/MovementSystem.gs
+*vala_source: app/Systems/PlayerInputSystem.gs
+*vala_source: app/Systems/RemoveOffscreenShipsSystem.gs
+*vala_source: app/Systems/RenderPositionSystem.gs
+*vala_source: app/Systems/ScaleTweenSystem.gs
+*vala_source: app/Systems/SoundEffectSystem.gs
+*vala_source: app/Systems/ViewManagerSystem.gs
+*vala_source: entitas/Entity.gs
+*vala_source: entitas/Events/ComponentReplaced.gs
+*vala_source: entitas/Events/EntityChanged.gs
+*vala_source: entitas/Events/EntityReleased.gs
+*vala_source: entitas/Events/GroupChanged.gs
+*vala_source: entitas/Events/GroupUpdated.gs
+*vala_source: entitas/Events/GroupsChanged.gs
+*vala_source: entitas/Events/WorldChanged.gs
+*vala_source: entitas/Exceptions.gs
+*vala_source: entitas/Group.gs
+*vala_source: entitas/IEntity.gs
+*vala_source: entitas/Interfaces/IComponent.vala
+*vala_source: entitas/Interfaces/IMatcher.vala
+*vala_source: entitas/Interfaces/ISystem.vala
+*vala_source: entitas/Matcher.gs
+*vala_source: entitas/Version.gs
+*vala_source: entitas/World.gs
+*vala_source: entitas/entitas.vala
+*vala_source: o2d/ParseIt.gs
+*vala_source: o2d/SceneLoader.gs
+*vala_source: o2d/ToString.gs
+*vala_source: o2d/data/CompositeItemVO.gs
+*vala_source: o2d/data/CompositeVO.gs
+*vala_source: o2d/data/CoreActorData.gs
+*vala_source: o2d/data/Image9patchVO.gs
+*vala_source: o2d/data/LabelVO.gs
+*vala_source: o2d/data/LayerItemVO.gs
+*vala_source: o2d/data/MainItemVO.gs
+*vala_source: o2d/data/PhysicsBodyDataVO.gs
+*vala_source: o2d/data/PhysicsPropertiesVO.gs
+*vala_source: o2d/data/PointVO.gs
+*vala_source: o2d/data/ProjectInfoVO.gs
+*vala_source: o2d/data/ResolutionEntryVO.gs
+*vala_source: o2d/data/SceneVO.gs
+*vala_source: o2d/data/ShapeVO.gs
+*vala_source: o2d/data/SimpleImageVO.gs
+*vala_source: o2d/resources/IAssetLoader.gs
+*vala_source: o2d/resources/IDataLoader.gs
+*vala_source: o2d/resources/IResourceRetriever.gs
+*vala_source: o2d/resources/ResourceManager.gs
+*vala_source: o2d/scene2d/BuiltItemHandler.gs
+*vala_source: o2d/scene2d/ButtonClickListener.gs
+*vala_source: o2d/scene2d/CompositeActor.gs
+*vala_source: o2d/utils/CustomVariables.gs
+*vala_source: sdx/Application.gs
+*vala_source: sdx/ApplicationListener.gs
+*vala_source: sdx/Audio.gs
+*vala_source: sdx/Exceptions.gs
+*vala_source: sdx/Files.gs
+*vala_source: sdx/Game.gs
+*vala_source: sdx/Graphics.gs
+*vala_source: sdx/Input.gs
+*vala_source: sdx/InputAdapter.gs
+*vala_source: sdx/InputProcessor.gs
+*vala_source: sdx/Net.gs
+*vala_source: sdx/Screen.gs
+*vala_source: sdx/Sdx.gs
+*vala_source: sdx/Version.gs
+*vala_source: sdx/audio/Sound.gs
+*vala_source: sdx/files/FileHandle.gs
+*vala_source: sdx/graphics/Color.gs
+*vala_source: sdx/graphics/Texture.gs
+*vala_source: sdx/graphics/s2d/Batch.gs
+*vala_source: sdx/graphics/s2d/BitmapFont.gs
+*vala_source: sdx/graphics/s2d/Font.gs
+*vala_source: sdx/graphics/s2d/GlyphLayout.gs
+*vala_source: sdx/graphics/s2d/NinePatch.gs
+*vala_source: sdx/graphics/s2d/Sprite.gs
+*vala_source: sdx/graphics/s2d/TextureAtlas.gs
+*vala_source: sdx/graphics/s2d/TextureEnums.vala
+*vala_source: sdx/graphics/s2d/TextureRegion.gs
+*vala_source: sdx/libsdx.vala
+*vala_source: sdx/math/Rectangle.gs
+*vala_source: sdx/math/Vector2.gs
+*vala_source: sdx/scenes/scene2d/Action.gs
+*vala_source: sdx/scenes/scene2d/Actor.gs
+*vala_source: sdx/scenes/scene2d/Event.gs
+*vala_source: sdx/scenes/scene2d/Group.gs
+*vala_source: sdx/scenes/scene2d/InputEvent.gs
+*vala_source: sdx/scenes/scene2d/InputListener.gs
+*vala_source: sdx/scenes/scene2d/Stage.gs
+*vala_source: sdx/scenes/scene2d/ui/Image.gs
+*vala_source: sdx/scenes/scene2d/ui/Label.gs
+*vala_source: sdx/scenes/scene2d/ui/Scaling.vala
+*vala_source: sdx/scenes/scene2d/ui/Widget.gs
+*vala_source: sdx/scenes/scene2d/utils/BaseDrawable.gs
+*vala_source: sdx/scenes/scene2d/utils/ClickListener.gs
+*vala_source: sdx/scenes/scene2d/utils/Drawable.gs
+*vala_source: sdx/scenes/scene2d/utils/FocusEvent.gs
+*vala_source: sdx/scenes/scene2d/utils/FocusListener.gs
+*vala_source: sdx/scenes/scene2d/utils/Layout.gs
+*vala_source: sdx/scenes/scene2d/utils/NinePatchDrawable.gs
+*vala_source: sdx/scenes/scene2d/utils/TextureRegionDrawable.gs
+*vala_source: sdx/scenes/scene2d/utils/TransformDrawable.gs
+*vala_source: sdx/utils/Align.gs
+*vala_source: sdx/utils/Json.gs
+*vala_source: sdx/utils/Pool.gs
+*vala_source: sdx/utils/Pools.gs
+*vala_source: sdx/utils/StringTokenizer.gs
+*vala_source: sdx/utils/viewport/Viewport.gs
 *vala_source: shmupwarz.vala
 
 
 *po: po
 
-*translate: genie src/Components.gs
-*translate: genie src/Entities.gs
-*translate: genie src/GameScene.gs
-*translate: genie src/MenuScene.gs
-*translate: genie src/MenuUI.gs
-*translate: genie src/OptionUI.gs
-*translate: genie src/ScoreUI.gs
-*translate: genie src/ShmupWarzGame.gs
-*translate: genie src/Systems/CollisionSystem.gs
-*translate: genie src/Systems/ColorTweenSystem.gs
-*translate: genie src/Systems/DestroySystem.gs
-*translate: genie src/Systems/EntitySpawningTimerSystem.gs
-*translate: genie src/Systems/ExpiringSystem.gs
-*translate: genie src/Systems/HealthRenderSystem.gs
-*translate: genie src/Systems/HudRenderSystem.gs
-*translate: genie src/Systems/MovementSystem.gs
-*translate: genie src/Systems/PlayerInputSystem.gs
-*translate: genie src/Systems/RemoveOffscreenShipsSystem.gs
-*translate: genie src/Systems/RenderPositionSystem.gs
-*translate: genie src/Systems/ScaleTweenSystem.gs
-*translate: genie src/Systems/SoundEffectSystem.gs
-*translate: genie src/Systems/ViewManagerSystem.gs
+*translate: genie src/app/Components.gs
+*translate: genie src/app/Entities.gs
+*translate: genie src/app/GameScene.gs
+*translate: genie src/app/MenuScene.gs
+*translate: genie src/app/MenuUI.gs
+*translate: genie src/app/OptionUI.gs
+*translate: genie src/app/ScoreUI.gs
+*translate: genie src/app/ShmupWarzGame.gs
+*translate: genie src/app/Systems/CollisionSystem.gs
+*translate: genie src/app/Systems/ColorTweenSystem.gs
+*translate: genie src/app/Systems/DestroySystem.gs
+*translate: genie src/app/Systems/EntitySpawningTimerSystem.gs
+*translate: genie src/app/Systems/ExpiringSystem.gs
+*translate: genie src/app/Systems/HealthRenderSystem.gs
+*translate: genie src/app/Systems/HudRenderSystem.gs
+*translate: genie src/app/Systems/MovementSystem.gs
+*translate: genie src/app/Systems/PlayerInputSystem.gs
+*translate: genie src/app/Systems/RemoveOffscreenShipsSystem.gs
+*translate: genie src/app/Systems/RenderPositionSystem.gs
+*translate: genie src/app/Systems/ScaleTweenSystem.gs
+*translate: genie src/app/Systems/SoundEffectSystem.gs
+*translate: genie src/app/Systems/ViewManagerSystem.gs
+*translate: genie src/entitas/Entity.gs
+*translate: genie src/entitas/Events/ComponentReplaced.gs
+*translate: genie src/entitas/Events/EntityChanged.gs
+*translate: genie src/entitas/Events/EntityReleased.gs
+*translate: genie src/entitas/Events/GroupChanged.gs
+*translate: genie src/entitas/Events/GroupUpdated.gs
+*translate: genie src/entitas/Events/GroupsChanged.gs
+*translate: genie src/entitas/Events/WorldChanged.gs
+*translate: genie src/entitas/Exceptions.gs
+*translate: genie src/entitas/Group.gs
+*translate: genie src/entitas/IEntity.gs
+*translate: vala src/entitas/Interfaces/IComponent.vala
+*translate: vala src/entitas/Interfaces/IMatcher.vala
+*translate: vala src/entitas/Interfaces/ISystem.vala
+*translate: genie src/entitas/Matcher.gs
+*translate: genie src/entitas/Version.gs
+*translate: genie src/entitas/World.gs
+*translate: vala src/entitas/entitas.vala
+*translate: genie src/o2d/ParseIt.gs
+*translate: genie src/o2d/SceneLoader.gs
+*translate: genie src/o2d/ToString.gs
+*translate: genie src/o2d/data/CompositeItemVO.gs
+*translate: genie src/o2d/data/CompositeVO.gs
+*translate: genie src/o2d/data/CoreActorData.gs
+*translate: genie src/o2d/data/Image9patchVO.gs
+*translate: genie src/o2d/data/LabelVO.gs
+*translate: genie src/o2d/data/LayerItemVO.gs
+*translate: genie src/o2d/data/MainItemVO.gs
+*translate: genie src/o2d/data/PhysicsBodyDataVO.gs
+*translate: genie src/o2d/data/PhysicsPropertiesVO.gs
+*translate: genie src/o2d/data/PointVO.gs
+*translate: genie src/o2d/data/ProjectInfoVO.gs
+*translate: genie src/o2d/data/ResolutionEntryVO.gs
+*translate: genie src/o2d/data/SceneVO.gs
+*translate: genie src/o2d/data/ShapeVO.gs
+*translate: genie src/o2d/data/SimpleImageVO.gs
+*translate: genie src/o2d/resources/IAssetLoader.gs
+*translate: genie src/o2d/resources/IDataLoader.gs
+*translate: genie src/o2d/resources/IResourceRetriever.gs
+*translate: genie src/o2d/resources/ResourceManager.gs
+*translate: genie src/o2d/scene2d/BuiltItemHandler.gs
+*translate: genie src/o2d/scene2d/ButtonClickListener.gs
+*translate: genie src/o2d/scene2d/CompositeActor.gs
+*translate: genie src/o2d/utils/CustomVariables.gs
+*translate: genie src/sdx/Application.gs
+*translate: genie src/sdx/ApplicationListener.gs
+*translate: genie src/sdx/Audio.gs
+*translate: genie src/sdx/Exceptions.gs
+*translate: genie src/sdx/Files.gs
+*translate: genie src/sdx/Game.gs
+*translate: genie src/sdx/Graphics.gs
+*translate: genie src/sdx/Input.gs
+*translate: genie src/sdx/InputAdapter.gs
+*translate: genie src/sdx/InputProcessor.gs
+*translate: genie src/sdx/Net.gs
+*translate: genie src/sdx/Screen.gs
+*translate: genie src/sdx/Sdx.gs
+*translate: genie src/sdx/Version.gs
+*translate: genie src/sdx/audio/Sound.gs
+*translate: genie src/sdx/files/FileHandle.gs
+*translate: genie src/sdx/graphics/Color.gs
+*translate: genie src/sdx/graphics/Texture.gs
+*translate: genie src/sdx/graphics/s2d/Batch.gs
+*translate: genie src/sdx/graphics/s2d/BitmapFont.gs
+*translate: genie src/sdx/graphics/s2d/Font.gs
+*translate: genie src/sdx/graphics/s2d/GlyphLayout.gs
+*translate: genie src/sdx/graphics/s2d/NinePatch.gs
+*translate: genie src/sdx/graphics/s2d/Sprite.gs
+*translate: genie src/sdx/graphics/s2d/TextureAtlas.gs
+*translate: vala src/sdx/graphics/s2d/TextureEnums.vala
+*translate: genie src/sdx/graphics/s2d/TextureRegion.gs
+*translate: vala src/sdx/libsdx.vala
+*translate: genie src/sdx/math/Rectangle.gs
+*translate: genie src/sdx/math/Vector2.gs
+*translate: genie src/sdx/scenes/scene2d/Action.gs
+*translate: genie src/sdx/scenes/scene2d/Actor.gs
+*translate: genie src/sdx/scenes/scene2d/Event.gs
+*translate: genie src/sdx/scenes/scene2d/Group.gs
+*translate: genie src/sdx/scenes/scene2d/InputEvent.gs
+*translate: genie src/sdx/scenes/scene2d/InputListener.gs
+*translate: genie src/sdx/scenes/scene2d/Stage.gs
+*translate: genie src/sdx/scenes/scene2d/ui/Image.gs
+*translate: genie src/sdx/scenes/scene2d/ui/Label.gs
+*translate: vala src/sdx/scenes/scene2d/ui/Scaling.vala
+*translate: genie src/sdx/scenes/scene2d/ui/Widget.gs
+*translate: genie src/sdx/scenes/scene2d/utils/BaseDrawable.gs
+*translate: genie src/sdx/scenes/scene2d/utils/ClickListener.gs
+*translate: genie src/sdx/scenes/scene2d/utils/Drawable.gs
+*translate: genie src/sdx/scenes/scene2d/utils/FocusEvent.gs
+*translate: genie src/sdx/scenes/scene2d/utils/FocusListener.gs
+*translate: genie src/sdx/scenes/scene2d/utils/Layout.gs
+*translate: genie src/sdx/scenes/scene2d/utils/NinePatchDrawable.gs
+*translate: genie src/sdx/scenes/scene2d/utils/TextureRegionDrawable.gs
+*translate: genie src/sdx/scenes/scene2d/utils/TransformDrawable.gs
+*translate: genie src/sdx/utils/Align.gs
+*translate: genie src/sdx/utils/Json.gs
+*translate: genie src/sdx/utils/Pool.gs
+*translate: genie src/sdx/utils/Pools.gs
+*translate: genie src/sdx/utils/StringTokenizer.gs
+*translate: genie src/sdx/utils/viewport/Viewport.gs
 *translate: vala src/shmupwarz.vala
 
 *data: data/local
