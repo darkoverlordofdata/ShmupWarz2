@@ -27,7 +27,7 @@ namespace sdx.graphics.s2d
         raw : private SDL.RWops 
 
         construct(file: FileHandle, size: int)
-            _path = file.getPath()
+            _path = file.getPath().replace("\\", "/")
             if Sdx.files.isResource //&& file.getType() == FileType.Resource
                 var ptr = GLib.resources_lookup_data(_path, 0)
                 raw = new RWops.from_mem((void*)ptr.get_data(), (int)ptr.get_size())

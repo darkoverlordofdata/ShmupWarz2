@@ -35,6 +35,7 @@ namespace sdx.graphics.s2d
              * @param flip
              */
             construct(packFile: FileHandle, imagesDir: FileHandle, flip: bool)
+
                 _pages = new list of Page
                 _regions = new list of Region
                 var reader = new DataInputStream(packFile.read())
@@ -43,6 +44,7 @@ namespace sdx.graphics.s2d
                     while true
                         var line = reader.read_line()
                         if line == null do break
+                        line = line.replace("\r", "")
                         if line.strip().length == 0
                             pageImage = null
                         else if pageImage == null

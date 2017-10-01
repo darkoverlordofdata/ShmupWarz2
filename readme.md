@@ -24,4 +24,17 @@ distro is only dependant on:
     glib-2.0
     gobject-2.0
 
+### Compiling on Linux
 
+    mkdir install
+    cd install
+    cmake  ..
+    make
+
+### Compiling on Windows 10 + msys2
+Changes cannot be made to the project structure from windows.
+
+    mkdir install
+    cd install
+    cmake -G "MSYS Makefiles" ..
+    make

@@ -18,5 +18,20 @@
     <file>sounds/asplode.wav</file>
     <file>sounds/pew.wav</file>
     <file>sounds/smallasplode.wav</file>
+		<file>project.dt</file>
+		<file>scenes/LeaderboardScene.dt</file>
+		<file>scenes/MainScene.dt</file>
+		<file>scenes/MenuScene.dt</file>
+		<file>scenes/OptionsScene.dt</file>
+		<file>particles/bigFire</file>
+		<file>particles/blood</file>
+		<file>particles/particles</file>
+		<file>particles/portalIn</file>
+		<file>particles/portalOut</file>
+		<file>particles/pulse</file>
+		<file>orig/pack.atlas</file>
+		<file>orig/pack.png</file>
+		<file>freetypefonts/Arial.ttf</file>
+		<file>freetypefonts/OpenDyslexic-Regular.ttf</file>
   </gresource>
 </gresources>

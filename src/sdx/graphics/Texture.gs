@@ -32,6 +32,7 @@ namespace sdx.graphics
         construct(file: FileHandle)
             _path = file.getPath()
             var raw = file.getRWops()
+            // data = SDLImage.load_png(raw)
             data = Texture.getSurface(file.getExt(), raw)
 
         construct uri(path: string)

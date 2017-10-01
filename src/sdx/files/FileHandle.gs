@@ -9,10 +9,13 @@ namespace sdx.files
         prop readonly path: string
         _type: FileType
     
+        //.replace("\\", "/")
         construct(fileName: string, type: FileType)
             _type = type
-            _path = fileName
-            if Sdx.files.isResource && type == FileType.Resource && fileName.substring(0,1) != "/"
+            // _path = fileName.replace("\\", "/")
+            _path = Sdx.files.isResource && type == FileType.Resource ? fileName.replace("\\", "/") : fileName
+
+            if Sdx.files.isResource && type == FileType.Resource && _path.substring(0,1) != "/"
                 _file = File.new_for_path(Sdx.files.resourcePath + Sdx.files.separator + fileName)
             else
                 _file = File.new_for_path(fileName)
@@ -24,10 +27,14 @@ namespace sdx.files
          */
         def getRWops(): SDL.RWops
             if Sdx.files.isResource //&& file.getType() == FileType.Resource
-                print "Lookup %s", getPath()
-                var ptr = GLib.resources_lookup_data(getPath(), 0)
+                var path = getPath().replace("\\", "/")
+
+                if path[path.length-1] == (char)13
+                    path = path.substring(0, path.length-1)
+                var ptr = GLib.resources_lookup_data(path, 0)
                 var raw = new SDL.RWops.from_mem((void*)ptr.get_data(), (int)ptr.get_size())
-                sdlFailIf(raw == null, "Unable to get resource "+getPath())
+                //sdlFailIf(raw == null, "Unable to get resource "+path)
+                
                 return raw
             
             else 
@@ -67,7 +74,7 @@ namespace sdx.files
         def read(): InputStream
             
             if Sdx.files.isResource && _type == FileType.Resource
-                return GLib.resources_open_stream(file.get_path(), 0)
+                return GLib.resources_open_stream(file.get_path().replace("\\", "/"), 0)
             else
                 var project = File.new_for_path(file.get_path())
                 if project.query_exists()
@@ -79,4 +86,4 @@ namespace sdx.files
 
 
         def bytes(): GLib.Bytes
-            return GLib.resources_lookup_data(getPath(), 0)
+            return GLib.resources_lookup_data(getPath().replace("\\", "/"), 0)

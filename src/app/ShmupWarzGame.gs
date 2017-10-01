@@ -27,7 +27,7 @@ namespace ShmupWarz
         prop scoreScene: MenuScene
         
         construct(desktop: bool, scale: double)
-            super(840, 720, "resource:///darkoverlordofdata/shmupwarz")
+            super(720, 640, "resource:///darkoverlordofdata/shmupwarz")
             _density = 1
             _desktop = desktop
             _scale = scale
